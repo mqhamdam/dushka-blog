@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "172215738256",
+    "project_id": "dushka-blog",
+    "storage_bucket": "dushka-blog.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172215738256:android:9daa8cf1512cfb59241d15",
+        "android_client_info": {
+          "package_name": "com.company.dushka_blog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172215738256-j954av0vgtl0rd49k078665rqlc9vo8p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3aOpqzhEozIb65HUJEbvepFCMk8hbHxs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172215738256-j954av0vgtl0rd49k078665rqlc9vo8p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
