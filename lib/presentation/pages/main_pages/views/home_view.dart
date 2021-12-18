@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:animations/animations.dart';
 import 'package:dushka_blog/presentation/custom_widgets/post_widget.dart';
 import 'package:dushka_blog/presentation/dialogs/filter_dialogs.dart';
