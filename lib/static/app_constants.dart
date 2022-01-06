@@ -8,3 +8,12 @@ In enim dui, suscipit sed ipsum vitae, elementum accumsan ex. Maecenas porttitor
 Maecenas ac mollis velit. Aenean non molestie nibh. Curabitur in nisi velit. Nulla facilisi. Etiam varius, lacus in bibendum maximus, quam leo placerat sem, eget congue tortor nulla eget velit. Sed ante enim, gravida vitae metus ac, laoreet condimentum leo. Aliquam vel laoreet justo, quis luctus nibh. Sed at eros et mauris pretium pulvinar. Donec ultrices lectus in metus pulvinar rhoncus. Aenean placerat felis neque, a maximus odio interdum et. In sed magna ligula. Integer vulputate odio et lectus laoreet rutrum. Suspendisse ac facilisis purus. Phasellus vulputate lorem nec arcu dictum dictum nec eu velit. Sed gravida ligula id augue aliquam luctus. Sed a nibh sem.
 
 Nam et ultrices sem. Suspendisse cursus nulla libero, ut sagittis purus lacinia auctor. Vivamus venenatis, velit ac varius placerat, quam elit elementum sapien, non efficitur purus diam vel tortor. Integer semper scelerisque ex in ultrices. Donec sollicitudin nunc id ipsum aliquet pretium. Phasellus eu elit nec sapien viverra porta a quis nibh. Proin feugiat, sem a congue gravida, nisi quam volutpat metus, non dignissim libero risus sed leo. Duis non venenatis lectus, eu commodo ante. ''';
+
+const background_url =
+    "https://cdn.pixabay.com/photo/2018/08/21/23/29/forest-3622519_960_720.jpg";
+const comment_text =
+    '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et orci nisl. In eu venenatis turpis. Nulla eu nibh maximus, porta sapien a, aliquam elit. Pellentesque vitae nulla nec ipsum aliquam tincidunt. Pellentesque sed pellentesque metus. In commodo metus nunc. Aenean auctor aliquet porta. Quisque auctor dolor ut diam volutpat condimentum ut sed sem. Ut at erat nec felis lobortis finibus vitae id ante. Duis sit amet tellus volutpat, lobortis sem sit amet, fringilla velit. Cras iaculis lacus libero, vel tempor nunc eleifend ac. Vestibulum ac massa lobortis, imperdiet sapien fringilla, euismod nibh.
+
+Sed dapibus ullamcorper tempus. Maecenas hendrerit pellentesque euismod. Fusce suscipit vulputate massa, ut molestie ex. Phasellus viverra mi sed arcu dictum euismod. Donec vestibulum lorem sed lectus aliquam, a pretium purus volutpat. Sed sed consectetur ligula, sed ullamcorper enim. Vestibulum mollis arcu diam, in laoreet turpis maximus finibus. Nam ultrices elementum commodo. Suspendisse laoreet consectetur tempus. Aliquam aliquam fringilla nibh, vel mattis erat blandit non.
+
+In enim dui, suscipit sed ipsum vitae,''';

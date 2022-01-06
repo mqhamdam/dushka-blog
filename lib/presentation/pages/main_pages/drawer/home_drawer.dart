@@ -1,3 +1,5 @@
+import 'package:animations/animations.dart';
+import 'package:dushka_blog/presentation/pages/profile_page/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -38,6 +40,27 @@ class HomeDrawer extends StatelessWidget {
                 child: Column(
                   children: [
                     ListTile(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, anim) {
+                              return ProfileScreen();
+                            },
+                            transitionDuration: Duration(milliseconds: 500),
+                            reverseTransitionDuration:
+                                Duration(milliseconds: 500),
+                            transitionsBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              return SharedAxisTransition(
+                                secondaryAnimation: secondaryAnimation,
+                                transitionType: SharedAxisTransitionType.scaled,
+                                animation: animation,
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+                      },
                       leading: CircleAvatar(
                         radius: 30,
                       ),

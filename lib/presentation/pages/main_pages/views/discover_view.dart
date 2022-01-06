@@ -1,8 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class DiscoverView extends StatelessWidget {
+class DiscoverView extends StatefulWidget {
   const DiscoverView({Key? key}) : super(key: key);
+
+  @override
+  State<DiscoverView> createState() => _DiscoverViewState();
+}
+
+class _DiscoverViewState extends State<DiscoverView>
+    with TickerProviderStateMixin {
+  final TextEditingController _textEditingController = TextEditingController();
+
+  @override
+  void initState() {
+    
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +33,7 @@ class DiscoverView extends StatelessWidget {
           style: TextStyle(color: Colors.white),
           decoration: InputDecoration(
             hintStyle: TextStyle(color: Colors.grey),
-            hintText: "Search..",
+            hintText: "Search...",
             isDense: true,
             filled: true,
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
