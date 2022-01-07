@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:fluttericon/typicons_icons.dart';
 
 final lightTheme = ThemeData.light().copyWith(
   cardTheme: CardTheme(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(33)),
   ),
-  scaffoldBackgroundColor: Color.fromRGBO(238, 238, 238, 1),
+  scaffoldBackgroundColor: const Color.fromRGBO(238, 238, 238, 1),
   appBarTheme: const AppBarTheme(
+    
     titleTextStyle: TextStyle(
         //  color: Colors.black,
         fontWeight: FontWeight.w500,
         fontSize: 20,
-        letterSpacing: 0.25),
+        letterSpacing: 0.25,),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
         bottomRight: Radius.circular(23),
@@ -29,13 +28,15 @@ final lightTheme = ThemeData.light().copyWith(
   outlinedButtonTheme: OutlinedButtonThemeData(
       style: ButtonStyle(
           shape: MaterialStateProperty.all(RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(33))))),
-  indicatorColor: Color.fromRGBO(47, 93, 98, 1),
-  tabBarTheme: TabBarTheme(
-    labelStyle: TextStyle(color: Colors.black),
-    unselectedLabelStyle: TextStyle(color: Colors.grey),
-    labelColor: Colors.black,
-    unselectedLabelColor: Colors.grey,
+              borderRadius: BorderRadius.circular(33),),),),),
+  indicatorColor: const Color.fromRGBO(47, 93, 98, 1),
+  
+  tabBarTheme: const TabBarTheme(
+    labelStyle: TextStyle(color: Colors.white),
+    unselectedLabelStyle: TextStyle(color: Colors.white60),
+    labelColor: Colors.white,
+    unselectedLabelColor: Colors.white54,
   ),
   textTheme: Typography.blackRedwoodCity,
+  
 );

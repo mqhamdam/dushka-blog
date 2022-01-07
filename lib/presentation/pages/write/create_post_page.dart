@@ -1,3 +1,4 @@
+import 'package:dushka_blog/presentation/custom_widgets/custom_back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -10,24 +11,25 @@ class CreatePostScreen extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Compose post"),
+          leading: CustomBackButton(),
+          title: const Text('Compose post'),
           actions: [
             IconButton(
               onPressed: () {},
               icon: SvgPicture.asset(
-                "assets/ui-icons/fi-rr-info.svg",
+                'assets/ui-icons/fi-rr-info.svg',
                 color: Colors.white,
               ),
             ),
           ],
-          bottom: TabBar(tabs: [
+          bottom: const TabBar(tabs: [
             Tab(
-              text: "Compose",
+              text: 'Compose',
             ),
             Tab(
-              text: "Preview",
+              text: 'Preview',
             ),
-          ]),
+          ],),
         ),
         body: Column(
           children: [
@@ -52,17 +54,17 @@ class CreatePostScreen extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(
-                        left: 18.0, right: 18, bottom: 18),
+                        left: 18.0, right: 18, bottom: 18,),
                     child: OutlinedButton(
                       style: ButtonStyle(
                         backgroundColor:
                             MaterialStateProperty.all(Colors.green),
                       ),
                       onPressed: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10.0),
+                      child: const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 10.0),
                         child: Text(
-                          "Post",
+                          'Post',
                           style: TextStyle(color: Colors.white, fontSize: 20),
                         ),
                       ),

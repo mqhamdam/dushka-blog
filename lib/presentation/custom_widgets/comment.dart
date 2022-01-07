@@ -17,10 +17,10 @@ class Comment extends StatelessWidget {
               padding: const EdgeInsets.only(right: 10.0, left: 10, top: 5),
               child: Row(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 24,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Flexible(
@@ -30,10 +30,10 @@ class Comment extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
-                          children: [
+                          children: const [
                             Expanded(
                               child: Text(
-                                "Muqimovkjasdkjaskjdhkajsd Hamda",
+                                'Muqimovkjasdkjaskjdhkajsd Hamda',
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -41,10 +41,10 @@ class Comment extends StatelessWidget {
                           ],
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Expanded(
                               child: Text(
-                                "@mqhamdam",
+                                '@mqhamdam',
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -59,24 +59,24 @@ class Comment extends StatelessWidget {
                       borderRadius: BorderRadius.circular(33),
                     ),
                     icon: SvgPicture.asset(
-                      "assets/ui-icons/fi-rr-menu-dots.svg",
+                      'assets/ui-icons/fi-rr-menu-dots.svg',
                     ),
                     itemBuilder: (context) {
                       return <PopupMenuItem>[
-                        PopupMenuItem(
-                          child: Text("Visit Profile"),
+                        const PopupMenuItem(
+                          child: Text('Visit Profile'),
                         ),
-                        PopupMenuItem(
-                          child: Text("Subscribe"),
+                        const PopupMenuItem(
+                          child: Text('Subscribe'),
                         ),
-                        PopupMenuItem(
-                          child: Text("View full"),
+                        const PopupMenuItem(
+                          child: Text('View full'),
                         ),
-                        PopupMenuItem(
-                          child: Text("Share"),
+                        const PopupMenuItem(
+                          child: Text('Share'),
                         ),
-                        PopupMenuItem(
-                          child: Text("Report"),
+                        const PopupMenuItem(
+                          child: Text('Report'),
                         ),
                       ];
                     },
@@ -84,12 +84,12 @@ class Comment extends StatelessWidget {
                 ],
               ),
             ),
-            Divider(),
-            Text(
+            const Divider(),
+            const Text(
               post_body,
               maxLines: 5,
             ),
-            Divider(),
+            const Divider(),
           ],
         ),
       ),

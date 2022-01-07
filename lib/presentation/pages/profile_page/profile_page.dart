@@ -1,6 +1,8 @@
+import 'package:dushka_blog/presentation/custom_widgets/custom_back_button.dart';
 import 'package:dushka_blog/presentation/custom_widgets/post_widget_v2.dart';
+import 'package:dushka_blog/presentation/custom_widgets/sub_button.dart';
+import 'package:dushka_blog/presentation/pages/subs_tab/subs_tabs.dart';
 import 'package:dushka_blog/static/app_constants.dart';
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,6 +18,7 @@ class ProfileScreen extends StatelessWidget {
         ),
         slivers: [
           SliverAppBar(
+            leading: CustomBackButton(),
             pinned: true,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
@@ -45,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
           SliverList(
             delegate: SliverChildListDelegate(
               [
-                Divider(),
+                const Divider(),
                 Card(
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -70,7 +73,7 @@ class ProfileScreen extends StatelessWidget {
                                         radius: 12,
                                         backgroundColor: Colors.yellow[900],
                                         child: SvgPicture.asset(
-                                          'assets/icons/fi-rr-crown.svg',
+                                          'assets/ui-icons/fi-rr-crown.svg',
                                           height: 10,
                                           color: Colors.white,
                                         ),
@@ -90,30 +93,25 @@ class ProfileScreen extends StatelessWidget {
                             const Spacer(),
                             Padding(
                               padding: const EdgeInsets.all(5.0),
-                              child: ElevatedButton(
-                                style: ButtonStyle(
-                                  backgroundColor:
-                                      MaterialStateProperty.all(Colors.white),
-                                  shape: MaterialStateProperty.all(
-                                    RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(33),
-                                    ),
-                                  ),
-                                ),
-                                onPressed: () {},
-                                child: const Text(
-                                  'subscribe/edit',
-                                  style: TextStyle(color: Colors.black),
-                                ),
-                              ),
+                              child: SubButton(),
                             ),
                           ],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: const [
+                          children: [
                             Text('Stories\n1k'),
-                            Text('Subscribers\n2m'),
+                            GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return SubsTabsScreen();
+                                      },
+                                    ),
+                                  );
+                                },
+                                child: Text('Subscribers\n2m')),
                             Text('Subscribed\n59'),
                           ],
                         ),
@@ -125,12 +123,14 @@ class ProfileScreen extends StatelessWidget {
                                 padding: const EdgeInsets.all(15),
                                 decoration: BoxDecoration(
                                   border: Border.all(
-                                      color: Colors.grey, width: 0.5),
+                                    color: Colors.grey,
+                                    width: 0.5,
+                                  ),
                                   borderRadius: BorderRadius.circular(33),
                                 ),
-                                child:  TextFormField(
-                                  initialValue: post_body,
-                                  readOnly: true,
+                                child: Text(
+                                  post_body,
+                                  maxLines: 5,
                                 ),
                               ),
                             ),
@@ -145,9 +145,12 @@ class ProfileScreen extends StatelessWidget {
             ),
           ),
           SliverList(
-            delegate: SliverChildBuilderDelegate((context, index) {
-              return PostWidgetV2();
-            }, childCount: 100),
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return const PostWidgetV2();
+              },
+              childCount: 100,
+            ),
           ),
         ],
       ),

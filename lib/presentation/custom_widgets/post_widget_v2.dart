@@ -1,7 +1,9 @@
+import 'package:dushka_blog/presentation/custom_widgets/bookmark_button.dart';
+import 'package:dushka_blog/presentation/custom_widgets/like_button.dart';
+import 'package:dushka_blog/presentation/custom_widgets/modal_bottom_sheet.dart';
 import 'package:dushka_blog/static/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class PostWidgetV2 extends StatelessWidget {
   const PostWidgetV2({Key? key}) : super(key: key);
@@ -18,10 +20,10 @@ class PostWidgetV2 extends StatelessWidget {
               padding: const EdgeInsets.only(right: 10.0, left: 10, top: 5),
               child: Row(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 24,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Flexible(
@@ -31,10 +33,10 @@ class PostWidgetV2 extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
-                          children: [
+                          children: const [
                             Expanded(
                               child: Text(
-                                "Muqimovkjasdkjaskjdhkajsd Hamda",
+                                'Muqimovkjasdkjaskjdhkajsd Hamda',
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -42,10 +44,10 @@ class PostWidgetV2 extends StatelessWidget {
                           ],
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Expanded(
                               child: Text(
-                                "@mqhamdam",
+                                '@mqhamdam',
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -60,24 +62,24 @@ class PostWidgetV2 extends StatelessWidget {
                       borderRadius: BorderRadius.circular(33),
                     ),
                     icon: SvgPicture.asset(
-                      "assets/ui-icons/fi-rr-menu-dots.svg",
+                      'assets/ui-icons/fi-rr-menu-dots.svg',
                     ),
                     itemBuilder: (context) {
                       return <PopupMenuItem>[
-                        PopupMenuItem(
-                          child: Text("Visit Profile"),
+                        const PopupMenuItem(
+                          child: Text('Visit Profile'),
                         ),
-                        PopupMenuItem(
-                          child: Text("Subscribe"),
+                        const PopupMenuItem(
+                          child: Text('Subscribe'),
                         ),
-                        PopupMenuItem(
-                          child: Text("View full"),
+                        const PopupMenuItem(
+                          child: Text('View full'),
                         ),
-                        PopupMenuItem(
-                          child: Text("Share"),
+                        const PopupMenuItem(
+                          child: Text('Share'),
                         ),
-                        PopupMenuItem(
-                          child: Text("Report"),
+                        const PopupMenuItem(
+                          child: Text('Report'),
                         ),
                       ];
                     },
@@ -85,26 +87,26 @@ class PostWidgetV2 extends StatelessWidget {
                 ],
               ),
             ),
-            Divider(),
-            Text(
+            const Divider(),
+            const Text(
               post_body,
               maxLines: 5,
             ),
-            Divider(),
+            const Divider(),
             Row(
               children: [
                 Row(
                   children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: SvgPicture.asset(
-                        "assets/ui-icons/fi-rr-heart.svg",
-                      ),
+                    LikeButton(),
+                    GestureDetector(
+                      onTap: () {
+                        showLikes(context, postId: "hello");
+                      },
+                      child: const Text('124'),
                     ),
-                    Text("124")
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 Row(
@@ -112,13 +114,13 @@ class PostWidgetV2 extends StatelessWidget {
                     IconButton(
                       onPressed: () {},
                       icon: SvgPicture.asset(
-                        "assets/ui-icons/fi-rr-comments.svg",
+                        'assets/ui-icons/fi-rr-comments.svg',
                       ),
                     ),
-                    Text("124")
+                    const Text('124')
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 /*     Row(
@@ -132,13 +134,8 @@ class PostWidgetV2 extends StatelessWidget {
                     Text("124")
                   ],
                 ), */
-                Spacer(),
-                IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    "assets/ui-icons/fi-rr-bookmark.svg",
-                  ),
-                )
+                const Spacer(),
+                BookmarkButton(),
               ],
             ),
           ],

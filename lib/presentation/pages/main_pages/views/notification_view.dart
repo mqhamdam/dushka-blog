@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:image/image.dart';
 
 class NotificationView extends StatelessWidget {
   const NotificationView({Key? key}) : super(key: key);
@@ -11,14 +10,14 @@ class NotificationView extends StatelessWidget {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Notifications"),
+          title: const Text('Notifications'),
           actions: [
             IconButton(
               onPressed: () {},
               icon: Hero(
-                tag: "notification-tag",
+                tag: 'notification-tag',
                 child: SvgPicture.asset(
-                  "assets/ui-icons/fi-rr-bell.svg",
+                  'assets/ui-icons/fi-rr-bell.svg',
                   color: Colors.white,
                 ),
               ),
@@ -28,32 +27,32 @@ class NotificationView extends StatelessWidget {
             tabs: [
               Tab(
                 icon: SvgPicture.asset(
-                  "assets/ui-icons/fi-rr-heart.svg",
+                  'assets/ui-icons/fi-rr-heart.svg',
                   color: Colors.white,
                 ),
               ),
               Tab(
                 icon: SvgPicture.asset(
-                  "assets/ui-icons/fi-rr-comments.svg",
+                  'assets/ui-icons/fi-rr-comments.svg',
                   color: Colors.white,
                 ),
               ),
               Tab(
                 icon: SvgPicture.asset(
-                  "assets/ui-icons/fi-rr-following.svg",
+                  'assets/ui-icons/fi-rr-following.svg',
                   color: Colors.white,
                 ),
               ),
               Tab(
                 icon: SvgPicture.asset(
-                  "assets/ui-icons/fi-rr-user-add.svg",
+                  'assets/ui-icons/fi-rr-user-add.svg',
                   color: Colors.white,
                 ),
               ),
             ],
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
             Scaffold(),
             Scaffold(),

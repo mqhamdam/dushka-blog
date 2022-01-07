@@ -8,7 +8,7 @@ class CommentPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.only(
+      borderRadius: const BorderRadius.only(
         topRight: Radius.circular(33),
       ),
       child: Scaffold(
@@ -31,7 +31,7 @@ class CommentPanel extends StatelessWidget {
               ],
             ),
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(33),
                 ),
@@ -40,21 +40,21 @@ class CommentPanel extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   children: [
-                    Text("Comments",
+                    const Text('Comments',
                         style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold)),
-                    Spacer(),
+                            fontSize: 20, fontWeight: FontWeight.bold,),),
+                    const Spacer(),
                     IconButton(
                       onPressed: () {},
                       icon: SvgPicture.asset(
-                        "assets/ui-icons/fi-rr-settings-sliders.svg",
+                        'assets/ui-icons/fi-rr-settings-sliders.svg',
                         color: Colors.black,
                       ),
                     ),
                     IconButton(
                       onPressed: () {},
                       icon: SvgPicture.asset(
-                        "assets/ui-icons/fi-rr-cross.svg",
+                        'assets/ui-icons/fi-rr-cross.svg',
                         color: Colors.black,
                       ),
                     ),
@@ -62,15 +62,15 @@ class CommentPanel extends StatelessWidget {
                 ),
               ),
             ),
-            Divider(),
+            const Divider(),
             Expanded(
               child: ListView.builder(
                 padding: EdgeInsets.zero,
-                physics: BouncingScrollPhysics(
-                    parent: AlwaysScrollableScrollPhysics()),
+                physics: const BouncingScrollPhysics(
+                    parent: AlwaysScrollableScrollPhysics(),),
                 //controller: _panelComment,
                 itemBuilder: (context, index) {
-                  return Comment();
+                  return const Comment();
                 },
                 itemCount: 100,
               ),

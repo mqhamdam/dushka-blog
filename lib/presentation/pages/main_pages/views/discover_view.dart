@@ -30,29 +30,29 @@ class _DiscoverViewState extends State<DiscoverView>
       appBar: AppBar(
         toolbarHeight: kToolbarHeight + 10,
         title: TextFormField(
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
           decoration: InputDecoration(
-            hintStyle: TextStyle(color: Colors.grey),
-            hintText: "Search...",
+            hintStyle: const TextStyle(color: Colors.grey),
+            hintText: 'Search...',
             isDense: true,
             filled: true,
-            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16),
             fillColor: Colors.black38,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(33),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 color: Colors.white,
               ),
             ),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(33),
-                borderSide: BorderSide(color: Colors.transparent)),
+                borderSide: const BorderSide(color: Colors.transparent),),
             suffixIcon: IconButton(
               onPressed: () {},
               icon: Hero(
-                tag: "Search-tag",
+                tag: 'Search-tag',
                 child: SvgPicture.asset(
-                  "assets/ui-icons/fi-rr-search.svg",
+                  'assets/ui-icons/fi-rr-search.svg',
                   color: Colors.white,
                 ),
               ),
@@ -66,7 +66,7 @@ class _DiscoverViewState extends State<DiscoverView>
             Expanded(
               child: ListView.builder(
                 itemBuilder: (context, index) {
-                  return Text("$index");
+                  return Text('$index');
                 },
                 itemCount: 100,
               ),

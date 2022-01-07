@@ -10,7 +10,8 @@ class HomeDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
-        physics: AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
+        physics: const AlwaysScrollableScrollPhysics(
+            parent: BouncingScrollPhysics(),),
         slivers: [
           SliverAppBar(
             automaticallyImplyLeading: false,
@@ -19,18 +20,18 @@ class HomeDrawer extends StatelessWidget {
             flexibleSpace: FlexibleSpaceBar(
               background: ClipRRect(
                 borderRadius:
-                    BorderRadius.vertical(bottom: Radius.circular(33)),
+                    const BorderRadius.vertical(bottom: Radius.circular(33)),
                 child: Image.network(
                   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSQDQc1Mu0c51pFXPhD8ZsAa_m2BqGcfGXUQ&usqp=CAU',
                   fit: BoxFit.cover,
                 ),
               ),
-              stretchModes: [
+              stretchModes: const [
                 StretchMode.blurBackground,
               ],
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Divider(),
           ),
           SliverToBoxAdapter(
@@ -44,13 +45,18 @@ class HomeDrawer extends StatelessWidget {
                         Navigator.of(context).push(
                           PageRouteBuilder(
                             pageBuilder: (context, animation, anim) {
-                              return ProfileScreen();
+                              return const ProfileScreen();
                             },
-                            transitionDuration: Duration(milliseconds: 500),
+                            transitionDuration:
+                                const Duration(milliseconds: 500),
                             reverseTransitionDuration:
-                                Duration(milliseconds: 500),
-                            transitionsBuilder: (context, animation,
-                                secondaryAnimation, child) {
+                                const Duration(milliseconds: 500),
+                            transitionsBuilder: (
+                              context,
+                              animation,
+                              secondaryAnimation,
+                              child,
+                            ) {
                               return SharedAxisTransition(
                                 secondaryAnimation: secondaryAnimation,
                                 transitionType: SharedAxisTransitionType.scaled,
@@ -61,22 +67,22 @@ class HomeDrawer extends StatelessWidget {
                           ),
                         );
                       },
-                      leading: CircleAvatar(
+                      leading: const CircleAvatar(
                         radius: 30,
                       ),
-                      title: Text("User name"),
-                      subtitle: Text("id"),
+                      title: const Text('User name'),
+                      subtitle: const Text('id'),
                       trailing: SvgPicture.asset(
-                        "assets/ui-icons/fi-rr-angle-right.svg",
+                        'assets/ui-icons/fi-rr-angle-right.svg',
                         color: Colors.black,
                       ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text("post: 2134"),
-                        Text("subs: 12"),
-                        Text("subers: 2421"),
+                      children: const [
+                        Text('post: 2134'),
+                        Text('subs: 12'),
+                        Text('subers: 2421'),
                       ],
                     ),
                   ],
@@ -84,78 +90,87 @@ class HomeDrawer extends StatelessWidget {
               ),
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Divider(),
           ),
           SliverToBoxAdapter(
             child: Card(
               child: Column(
-                children: ListTile.divideTiles(context: context, tiles: [
-                  ListTile(
-                    leading: SvgPicture.asset(
-                      "assets/ui-icons/fi-rr-id-badge.svg",
-                      color: Colors.black,
+                children: ListTile.divideTiles(
+                  context: context,
+                  tiles: [
+                    ListTile(
+                      leading: SvgPicture.asset(
+                        'assets/ui-icons/fi-rr-id-badge.svg',
+                        color: Colors.black,
+                      ),
+                      title: const Text('Account'),
                     ),
-                    title: Text("Account"),
-                  ),
-                  ListTile(
-                    leading: SvgPicture.asset(
-                      "assets/ui-icons/fi-rr-settings.svg",
-                      color: Colors.black,
+                    ListTile(
+                      leading: SvgPicture.asset(
+                        'assets/ui-icons/fi-rr-settings.svg',
+                        color: Colors.black,
+                      ),
+                      title: const Text('Settings'),
                     ),
-                    title: Text("Settings"),
-                  ),
-                  ListTile(
-                    leading: SvgPicture.asset(
-                      "assets/ui-icons/fi-rr-bookmark.svg",
-                      color: Colors.black,
+                    ListTile(
+                      leading: SvgPicture.asset(
+                        'assets/ui-icons/fi-rr-bookmark.svg',
+                        color: Colors.black,
+                      ),
+                      title: const Text('Bookmark'),
                     ),
-                    title: Text("Bookmark"),
-                  ),
-                ]).toList(),
+                  ],
+                ).toList(),
               ),
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Divider(),
           ),
           SliverToBoxAdapter(
             child: Card(
               child: Column(
-                children: ListTile.divideTiles(context: context, tiles: [
-                  ListTile(
-                    leading: SvgPicture.asset(
-                      "assets/ui-icons/fi-rr-info.svg",
-                      color: Colors.black,
+                children: ListTile.divideTiles(
+                  context: context,
+                  tiles: [
+                    ListTile(
+                      leading: SvgPicture.asset(
+                        'assets/ui-icons/fi-rr-info.svg',
+                        color: Colors.black,
+                      ),
+                      title: const Text('App Info'),
                     ),
-                    title: Text("App Info"),
-                  ),
-                  ListTile(
-                    leading: SvgPicture.asset(
-                      "assets/ui-icons/fi-rr-interrogation.svg",
-                      color: Colors.black,
+                    ListTile(
+                      leading: SvgPicture.asset(
+                        'assets/ui-icons/fi-rr-interrogation.svg',
+                        color: Colors.black,
+                      ),
+                      title: const Text('Q/A'),
                     ),
-                    title: Text("Q/A"),
-                  ),
-                ]).toList(),
+                  ],
+                ).toList(),
               ),
             ),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Divider(),
           ),
           SliverToBoxAdapter(
             child: Card(
               child: Column(
-                children: ListTile.divideTiles(context: context, tiles: [
-                  ListTile(
-                    leading: SvgPicture.asset(
-                      "assets/ui-icons/fi-rr-power.svg",
-                      color: Colors.black,
+                children: ListTile.divideTiles(
+                  context: context,
+                  tiles: [
+                    ListTile(
+                      leading: SvgPicture.asset(
+                        'assets/ui-icons/fi-rr-power.svg',
+                        color: Colors.black,
+                      ),
+                      title: const Text('Log out'),
                     ),
-                    title: Text("Log out"),
-                  ),
-                ]).toList(),
+                  ],
+                ).toList(),
               ),
             ),
           ),

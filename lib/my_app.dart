@@ -1,7 +1,6 @@
 import 'package:dushka_blog/presentation/pages/main_pages/entry_page.dart';
 import 'package:dushka_blog/presentation/theme/light_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -13,7 +12,7 @@ class MyApp extends StatelessWidget {
       
       debugShowCheckedModeBanner: false,
       theme: lightTheme,
-      home: EntryPage(),
+      home: const EntryPage(),
     );
   }
 }

@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names, leading_newlines_in_multiline_strings, lines_longer_than_80_chars, prefer_single_quotes
+
 const post_body =
     '''Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et orci nisl. In eu venenatis turpis. Nulla eu nibh maximus, porta sapien a, aliquam elit. Pellentesque vitae nulla nec ipsum aliquam tincidunt. Pellentesque sed pellentesque metus. In commodo metus nunc. Aenean auctor aliquet porta. Quisque auctor dolor ut diam volutpat condimentum ut sed sem. Ut at erat nec felis lobortis finibus vitae id ante. Duis sit amet tellus volutpat, lobortis sem sit amet, fringilla velit. Cras iaculis lacus libero, vel tempor nunc eleifend ac. Vestibulum ac massa lobortis, imperdiet sapien fringilla, euismod nibh.
 

@@ -1,7 +1,5 @@
 import 'package:animations/animations.dart';
-import 'package:dushka_blog/presentation/custom_widgets/comment.dart';
 import 'package:dushka_blog/presentation/custom_widgets/comment_panel.dart';
-import 'package:dushka_blog/presentation/custom_widgets/post_widget.dart';
 import 'package:dushka_blog/presentation/custom_widgets/post_widget_v2.dart';
 import 'package:dushka_blog/presentation/dialogs/filter_dialogs.dart';
 import 'package:dushka_blog/presentation/pages/main_pages/drawer/home_drawer.dart';
@@ -27,7 +25,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   late final AnimationController _drawerAnimatedIcon;
   late final AnimationController _moveToTopScaleAnimation;
   late final ScrollController _scrollController;
-  late final ScrollController _panelComment = ScrollController();
   @override
   void initState() {
     _drawerAnimatedIcon = AnimationController(
@@ -67,21 +64,21 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
         _drawerAnimatedIcon.animateTo(value);
       },
       leftAnimationType: InnerDrawerAnimation.quadratic,
-      leftChild: HomeDrawer(),
+      leftChild: const HomeDrawer(),
       scaffold: Scaffold(
         body: SlidingUpPanel(
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topRight: Radius.circular(33),
           ),
           panelSnapping: false,
           parallaxEnabled: true,
           backdropEnabled: true,
           maxHeight: MediaQuery.of(context).size.height - kToolbarHeight,
-          panel: CommentPanel(),
+          panel: const CommentPanel(),
           body: Scaffold(
             body: CustomScrollView(
               controller: _scrollController,
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               slivers: [
                 SliverAppBar(
                   floating: true,
@@ -94,20 +91,26 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                       progress: _drawerAnimatedIcon,
                     ),
                   ),
-                  title: Text("Dushka Blog"),
+                  title: const Text('Dushka Blog'),
                   actions: [
                     IconButton(
                       onPressed: () {
                         Navigator.of(context).push(
                           PageRouteBuilder(
                             pageBuilder: (context, animation, anim) {
-                              return DiscoverView();
+                              return const DiscoverView();
                             },
-                            transitionDuration: Duration(milliseconds: 500),
+                            transitionDuration: const Duration(
+                              milliseconds: 500,
+                            ),
                             reverseTransitionDuration:
-                                Duration(milliseconds: 500),
-                            transitionsBuilder: (context, animation,
-                                secondaryAnimation, child) {
+                                const Duration(milliseconds: 500),
+                            transitionsBuilder: (
+                              context,
+                              animation,
+                              secondaryAnimation,
+                              child,
+                            ) {
                               return SharedAxisTransition(
                                 secondaryAnimation: secondaryAnimation,
                                 transitionType: SharedAxisTransitionType.scaled,
@@ -119,20 +122,20 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                         );
                       },
                       icon: Hero(
-                        tag: "Search-tag",
+                        tag: 'Search-tag',
                         child: SvgPicture.asset(
-                          "assets/ui-icons/fi-rr-search.svg",
+                          'assets/ui-icons/fi-rr-search.svg',
                           color: Colors.white,
                         ),
                         flightShuttleBuilder: (
-                          BuildContext flightContext,
-                          Animation<double> animation,
-                          HeroFlightDirection flightDirection,
-                          BuildContext fromHeroContext,
-                          BuildContext toHeroContext,
+                          flightContext,
+                          animation,
+                          flightDirection,
+                          fromHeroContext,
+                          toHeroContext,
                         ) {
                           return SvgPicture.asset(
-                            "assets/ui-icons/fi-rr-search.svg",
+                            'assets/ui-icons/fi-rr-search.svg',
                             color: Colors.white,
                           );
                         },
@@ -143,13 +146,18 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                         Navigator.of(context).push(
                           PageRouteBuilder(
                             pageBuilder: (context, animation, anim) {
-                              return NotificationView();
+                              return const NotificationView();
                             },
-                            transitionDuration: Duration(milliseconds: 3500),
+                            transitionDuration:
+                                const Duration(milliseconds: 3500),
                             reverseTransitionDuration:
-                                Duration(milliseconds: 3500),
-                            transitionsBuilder: (context, animation,
-                                secondaryAnimation, child) {
+                                const Duration(milliseconds: 3500),
+                            transitionsBuilder: (
+                              context,
+                              animation,
+                              secondaryAnimation,
+                              child,
+                            ) {
                               return SharedAxisTransition(
                                 secondaryAnimation: secondaryAnimation,
                                 transitionType:
@@ -162,20 +170,20 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                         );
                       },
                       icon: Hero(
-                        tag: "notification-tag",
+                        tag: 'notification-tag',
                         child: SvgPicture.asset(
-                          "assets/ui-icons/fi-rr-bell.svg",
+                          'assets/ui-icons/fi-rr-bell.svg',
                           color: Colors.white,
                         ),
                         flightShuttleBuilder: (
-                          BuildContext flightContext,
-                          Animation<double> animation,
-                          HeroFlightDirection flightDirection,
-                          BuildContext fromHeroContext,
-                          BuildContext toHeroContext,
+                          flightContext,
+                          animation,
+                          flightDirection,
+                          fromHeroContext,
+                          toHeroContext,
                         ) {
                           return SvgPicture.asset(
-                            "assets/ui-icons/fi-rr-bell.svg",
+                            'assets/ui-icons/fi-rr-bell.svg',
                             color: Colors.white,
                           );
                         },
@@ -187,9 +195,10 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                           context: context,
                           pageBuilder:
                               (context, animation, secondaryAnimation) {
-                            return FilterDialog();
+                            return const FilterDialog();
                           },
-                          transitionDuration: Duration(milliseconds: 3000),
+                          transitionDuration:
+                              const Duration(milliseconds: 3000),
                           transitionBuilder:
                               (context, animation, secondaryAnimation, child) {
                             return FadeScaleTransition(
@@ -202,25 +211,28 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                         );
                       },
                       icon: SvgPicture.asset(
-                        "assets/ui-icons/fi-rr-settings-sliders.svg",
+                        'assets/ui-icons/fi-rr-settings-sliders.svg',
                         color: Colors.white,
                       ),
                     ),
                   ],
                 ),
-                SliverToBoxAdapter(
+                const SliverToBoxAdapter(
                   child: Divider(),
                 ),
                 SliverList(
-                  delegate: SliverChildBuilderDelegate((context, index) {
-                    return PostWidgetV2();
-                  }, childCount: 100),
+                  delegate: SliverChildBuilderDelegate(
+                    (context, index) {
+                      return const PostWidgetV2();
+                    },
+                    childCount: 100,
+                  ),
                 ),
               ],
             ),
             floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
             floatingActionButton: Transform.translate(
-              offset: Offset(0, -60),
+              offset: const Offset(0, -60),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -233,7 +245,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                       onPressed: () async {
                         await _scrollController.animateTo(
                           -1,
-                          duration: Duration(
+                          duration: const Duration(
                             milliseconds: 500,
                           ),
                           curve: Curves.fastLinearToSlowEaseIn,
@@ -241,13 +253,13 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                         await _moveToTopScaleAnimation.forward();
                       },
                       child: SvgPicture.asset(
-                        "assets/ui-icons/fi-rr-angle-up.svg",
+                        'assets/ui-icons/fi-rr-angle-up.svg',
                         color: Colors.white,
                       ),
                     ),
                   ),
                   OpenContainer(
-                    transitionDuration: Duration(milliseconds: 3000),
+                    transitionDuration: const Duration(milliseconds: 3000),
                     closedBuilder: (context, _) => SizedBox(
                       height: 70.0,
                       width: 70.0,
@@ -256,23 +268,25 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                           heroTag: null,
                           onPressed: null,
                           child: SvgPicture.asset(
-                            "assets/ui-icons/fi-rr-pencil.svg",
+                            'assets/ui-icons/fi-rr-pencil.svg',
                             color: Colors.white,
                           ),
                         ),
                       ),
                     ),
-                    openBuilder: (context, _) => CreatePostScreen(),
+                    openBuilder: (context, _) => const CreatePostScreen(),
                     openColor: Colors.transparent,
                     closedColor: Colors.transparent,
                     openElevation: 0,
                     closedElevation: 0,
                     openShape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(33)),
+                      borderRadius: BorderRadius.circular(33),
+                    ),
                     closedShape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(33)),
+                      borderRadius: BorderRadius.circular(33),
+                    ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                 ],

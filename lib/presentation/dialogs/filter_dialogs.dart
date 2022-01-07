@@ -20,16 +20,16 @@ class FilterDialog extends StatelessWidget {
           borderRadius: BorderRadius.circular(33),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(0.0),
+          padding:  EdgeInsets.zero,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
+              const Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15),
+                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 15),
                 child: Text(
-                  "Filter Wall",
+                  'Filter Wall',
                   style: TextStyle(
                     fontSize: 26,
                     letterSpacing: 0.5,
@@ -40,11 +40,11 @@ class FilterDialog extends StatelessWidget {
               SwitchListTile.adaptive(
                 value: true,
                 onChanged: (value) {},
-                title: Text("Random"),
+                title: const Text('Random'),
                 secondary: IconButton(
                   onPressed: () {},
                   icon: SvgPicture.asset(
-                    "assets/ui-icons/fi-rr-shuffle.svg",
+                    'assets/ui-icons/fi-rr-shuffle.svg',
                     color: Colors.black,
                   ),
                 ),
@@ -53,28 +53,29 @@ class FilterDialog extends StatelessWidget {
                 shrinkWrap: true,
                 children: [
                   ListTile(
-                    title: Text("Comments"),
+                    title: const Text('Comments'),
                     subtitle: Slider.adaptive(
                       value: 0,
                       onChanged: (value) {},
-                      label: "label",
+                      label: 'label',
                     ),
                   ),
                   ListTile(
-                    title: Text("Likes"),
+                    title: const Text('Likes'),
                     subtitle: Slider.adaptive(
                       value: 0,
                       onChanged: (value) {},
-                      label: "label",
+                      label: 'label',
                     ),
                   ),
                 ],
               ),
               ReorderableListView(
-                header: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: Text(
-                    "OrderBy",
+                header: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  // ignore: unnecessary_const
+                  child: const Text(
+                    'OrderBy',
                     style: TextStyle(
                       fontSize: 22,
                       letterSpacing: 0.5,
@@ -82,74 +83,74 @@ class FilterDialog extends StatelessWidget {
                     ),
                   ),
                 ),
-                padding: EdgeInsets.only(bottom: 10),
+                padding: const EdgeInsets.only(bottom: 10),
                 shrinkWrap: true,
                 children: [
                   ListTile(
                     leading: IconButton(
                       onPressed: () {},
                       icon: SvgPicture.asset(
-                        "assets/ui-icons/fi-rr-calendar.svg",
+                        'assets/ui-icons/fi-rr-calendar.svg',
                         color: Colors.black,
                       ),
                     ),
-                    key: Key("Date-filter"),
-                    title: Text("Date"),
+                    key: const Key('Date-filter'),
+                    title: const Text('Date'),
                   ),
                   ListTile(
-                    key: Key("Comments-filter"),
+                    key: const Key('Comments-filter'),
                     leading: IconButton(
                       onPressed: () {},
                       icon: SvgPicture.asset(
-                        "assets/ui-icons/fi-rr-comments.svg",
+                        'assets/ui-icons/fi-rr-comments.svg',
                         color: Colors.black,
                       ),
                     ),
-                    title: Text("Comments"),
-                  ),
-                  ListTile(
-                    leading: IconButton(
-                      onPressed: () {},
-                      icon: SvgPicture.asset(
-                        "assets/ui-icons/fi-rr-heart.svg",
-                        color: Colors.black,
-                      ),
-                    ),
-                    key: Key("Likes-filter"),
-                    title: Text("Likes"),
+                    title: const Text('Comments'),
                   ),
                   ListTile(
                     leading: IconButton(
                       onPressed: () {},
                       icon: SvgPicture.asset(
-                        "assets/ui-icons/fi-rr-following.svg",
+                        'assets/ui-icons/fi-rr-heart.svg',
                         color: Colors.black,
                       ),
                     ),
-                    key: Key("Subscribers-filter"),
-                    title: Text("Subscribers"),
+                    key: const Key('Likes-filter'),
+                    title: const Text('Likes'),
                   ),
                   ListTile(
                     leading: IconButton(
                       onPressed: () {},
                       icon: SvgPicture.asset(
-                        "assets/ui-icons/fi-rr-hastag.svg",
+                        'assets/ui-icons/fi-rr-following.svg',
                         color: Colors.black,
                       ),
                     ),
-                    key: Key("Tags-filter"),
-                    title: Text("Tags"),
+                    key: const Key('Subscribers-filter'),
+                    title: const Text('Subscribers'),
                   ),
                   ListTile(
                     leading: IconButton(
                       onPressed: () {},
                       icon: SvgPicture.asset(
-                        "assets/ui-icons/fi-rr-flame.svg",
+                        'assets/ui-icons/fi-rr-hastag.svg',
                         color: Colors.black,
                       ),
                     ),
-                    key: Key("Trendings-filter"),
-                    title: Text("Trendings"),
+                    key: const Key('Tags-filter'),
+                    title: const Text('Tags'),
+                  ),
+                  ListTile(
+                    leading: IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
+                        'assets/ui-icons/fi-rr-flame.svg',
+                        color: Colors.black,
+                      ),
+                    ),
+                    key: const Key('Trendings-filter'),
+                    title: const Text('Trendings'),
                   ),
                 ],
                 onReorder: (oldIndex, newIndex) {},
