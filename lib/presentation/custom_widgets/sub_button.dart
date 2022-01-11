@@ -22,7 +22,7 @@ class _SubButtonState extends State<SubButton> {
       boxShadow: [
         BoxShadow(
           color: Colors.black,
-          blurRadius: 2.0,
+          blurRadius: 1.0,
           spreadRadius: 0.0,
           //offset: Offset(2.0, 2.0), // shadow direction: bottom right
         )
@@ -34,7 +34,7 @@ class _SubButtonState extends State<SubButton> {
       boxShadow: [
         BoxShadow(
           color: Colors.black,
-          blurRadius: 2.0,
+          blurRadius: 1.0,
           spreadRadius: 0.0,
           // offset: Offset(2.0, 2.0), // shadow direction: bottom right
         )
@@ -49,7 +49,7 @@ class _SubButtonState extends State<SubButton> {
     boxShadow: [
       BoxShadow(
         color: Colors.black,
-        blurRadius: 2.0,
+        blurRadius: 1.0,
         spreadRadius: 0.0,
         // offset: Offset(2.0, 2.0), // shadow direction: bottom right
       )
@@ -67,7 +67,7 @@ class _SubButtonState extends State<SubButton> {
       boxShadow: [
         BoxShadow(
           color: Colors.black,
-          blurRadius: 2.0,
+          blurRadius: 1.0,
           spreadRadius: 0.0,
           // offset: Offset(2.0, 2.0), // shadow direction: bottom right
         )
@@ -97,6 +97,7 @@ class _SubButtonState extends State<SubButton> {
         }
       },
       child: AnimatedContainer(
+        curve: Curves.fastLinearToSlowEaseIn,
         duration: Duration(milliseconds: 500),
         decoration: (subState == SubState.loading
             ? loadingDecoration
@@ -105,11 +106,14 @@ class _SubButtonState extends State<SubButton> {
                 : subState == SubState.unSubed
                     ? unSubedDecoration
                     : subedDecoration),
-
-        // padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+          padding: EdgeInsets.symmetric(
+            horizontal: 12,
+            vertical: 7,
+          ),
           child: AnimatedSwitcher(
+            switchInCurve: Curves.fastLinearToSlowEaseIn,
+            switchOutCurve: Curves.fastLinearToSlowEaseIn,
             duration: Duration(
               milliseconds: 500,
             ),

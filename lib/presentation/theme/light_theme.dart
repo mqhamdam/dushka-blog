@@ -37,6 +37,7 @@ final lightTheme = ThemeData.light().copyWith(
     labelColor: Colors.white,
     unselectedLabelColor: Colors.white54,
   ),
+  typography: Typography.material2018(),
   textTheme: Typography.blackRedwoodCity,
   
 );

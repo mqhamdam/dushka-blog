@@ -24,29 +24,31 @@ class NotificationView extends StatelessWidget {
             )
           ],
           bottom: TabBar(
+            indicatorSize: TabBarIndicatorSize.label,
             tabs: [
               Tab(
                 icon: SvgPicture.asset(
                   'assets/ui-icons/fi-rr-heart.svg',
-                  color: Colors.white,
+                  //color: Colors.white,
                 ),
               ),
               Tab(
                 icon: SvgPicture.asset(
                   'assets/ui-icons/fi-rr-comments.svg',
-                  color: Colors.white,
+                  // color: Colors.white,
                 ),
               ),
               Tab(
                 icon: SvgPicture.asset(
                   'assets/ui-icons/fi-rr-following.svg',
-                  color: Colors.white,
+                  // color: Colors.white,
                 ),
               ),
               Tab(
                 icon: SvgPicture.asset(
                   'assets/ui-icons/fi-rr-user-add.svg',
-                  color: Colors.white,
+                  //  color: Colors.white,
+                  colorBlendMode: BlendMode.screen,
                 ),
               ),
             ],

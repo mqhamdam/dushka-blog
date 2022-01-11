@@ -1,4 +1,5 @@
 import 'package:dushka_blog/presentation/custom_widgets/comment.dart';
+import 'package:dushka_blog/presentation/custom_widgets/ui_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -40,9 +41,32 @@ class CommentPanel extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   children: [
-                    const Text('Comments',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold,),),
+                    IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
+                        'assets/ui-icons/fi-rr-comments.svg',
+                      ),
+                    ),
+                    const UIText(
+                      text: 'Comments',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                      child: CircleAvatar(
+                        radius: 2,
+                        backgroundColor: Colors.black,
+                      ),
+                    ),
+                    UIText(
+                      text: "250k",
+                      style: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
                     const Spacer(),
                     IconButton(
                       onPressed: () {},
@@ -67,7 +91,8 @@ class CommentPanel extends StatelessWidget {
               child: ListView.builder(
                 padding: EdgeInsets.zero,
                 physics: const BouncingScrollPhysics(
-                    parent: AlwaysScrollableScrollPhysics(),),
+                  parent: AlwaysScrollableScrollPhysics(),
+                ),
                 //controller: _panelComment,
                 itemBuilder: (context, index) {
                   return const Comment();

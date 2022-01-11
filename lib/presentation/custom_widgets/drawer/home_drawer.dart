@@ -1,4 +1,6 @@
 import 'package:animations/animations.dart';
+import 'package:dushka_blog/presentation/custom_widgets/ui_text.dart';
+import 'package:dushka_blog/presentation/pages/profile_edit_page/profile_edit_page.dart';
 import 'package:dushka_blog/presentation/pages/profile_page/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -11,7 +13,8 @@ class HomeDrawer extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         physics: const AlwaysScrollableScrollPhysics(
-            parent: BouncingScrollPhysics(),),
+          parent: BouncingScrollPhysics(),
+        ),
         slivers: [
           SliverAppBar(
             automaticallyImplyLeading: false,
@@ -36,6 +39,11 @@ class HomeDrawer extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.horizontal(
+                  right: Radius.circular(33),
+                ),
+              ),
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 15.0),
                 child: Column(
@@ -95,30 +103,64 @@ class HomeDrawer extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.horizontal(
+                  right: Radius.circular(33),
+                ),
+              ),
               child: Column(
                 children: ListTile.divideTiles(
                   context: context,
                   tiles: [
                     ListTile(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, anim) {
+                              return const ProfileEditScreen();
+                            },
+                            transitionDuration:
+                                const Duration(milliseconds: 500),
+                            reverseTransitionDuration:
+                                const Duration(milliseconds: 500),
+                            transitionsBuilder: (
+                              context,
+                              animation,
+                              secondaryAnimation,
+                              child,
+                            ) {
+                              return SharedAxisTransition(
+                                secondaryAnimation: secondaryAnimation,
+                                transitionType: SharedAxisTransitionType.scaled,
+                                animation: animation,
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+                      },
                       leading: SvgPicture.asset(
                         'assets/ui-icons/fi-rr-id-badge.svg',
                         color: Colors.black,
                       ),
-                      title: const Text('Account'),
+                      title: const UIText(
+                        text: 'Account',
+                        style: TextStyle(),
+                      ),
                     ),
                     ListTile(
                       leading: SvgPicture.asset(
                         'assets/ui-icons/fi-rr-settings.svg',
                         color: Colors.black,
                       ),
-                      title: const Text('Settings'),
+                      title: const UIText(text: 'Settings', style: TextStyle()),
                     ),
                     ListTile(
                       leading: SvgPicture.asset(
                         'assets/ui-icons/fi-rr-bookmark.svg',
                         color: Colors.black,
                       ),
-                      title: const Text('Bookmark'),
+                      title: const UIText(text: 'Bookmark', style: TextStyle()),
                     ),
                   ],
                 ).toList(),
@@ -130,6 +172,11 @@ class HomeDrawer extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.horizontal(
+                  right: Radius.circular(33),
+                ),
+              ),
               child: Column(
                 children: ListTile.divideTiles(
                   context: context,
@@ -139,14 +186,14 @@ class HomeDrawer extends StatelessWidget {
                         'assets/ui-icons/fi-rr-info.svg',
                         color: Colors.black,
                       ),
-                      title: const Text('App Info'),
+                      title: const UIText(text: 'App Info', style: TextStyle()),
                     ),
                     ListTile(
                       leading: SvgPicture.asset(
                         'assets/ui-icons/fi-rr-interrogation.svg',
                         color: Colors.black,
                       ),
-                      title: const Text('Q/A'),
+                      title: const UIText(text: 'Q/A', style: TextStyle()),
                     ),
                   ],
                 ).toList(),
@@ -158,6 +205,11 @@ class HomeDrawer extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.horizontal(
+                  right: Radius.circular(33),
+                ),
+              ),
               child: Column(
                 children: ListTile.divideTiles(
                   context: context,
@@ -167,7 +219,7 @@ class HomeDrawer extends StatelessWidget {
                         'assets/ui-icons/fi-rr-power.svg',
                         color: Colors.black,
                       ),
-                      title: const Text('Log out'),
+                      title: const UIText(text: 'Log out', style: TextStyle()),
                     ),
                   ],
                 ).toList(),

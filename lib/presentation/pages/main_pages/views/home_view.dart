@@ -1,15 +1,16 @@
 import 'package:animations/animations.dart';
 import 'package:dushka_blog/presentation/custom_widgets/comment_panel.dart';
+import 'package:dushka_blog/presentation/custom_widgets/dialogs/filter_dialogs.dart';
+import 'package:dushka_blog/presentation/custom_widgets/drawer/home_drawer.dart';
 import 'package:dushka_blog/presentation/custom_widgets/post_widget_v2.dart';
-import 'package:dushka_blog/presentation/dialogs/filter_dialogs.dart';
-import 'package:dushka_blog/presentation/pages/main_pages/drawer/home_drawer.dart';
 import 'package:dushka_blog/presentation/pages/main_pages/views/discover_view.dart';
-import 'package:dushka_blog/presentation/pages/main_pages/views/notification_view.dart';
+import 'package:dushka_blog/presentation/pages/notification_page/notification_view.dart';
 import 'package:dushka_blog/presentation/pages/write/create_post_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class HomeView extends StatefulWidget {
@@ -91,7 +92,13 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                       progress: _drawerAnimatedIcon,
                     ),
                   ),
-                  title: const Text('Dushka Blog'),
+                  title: Text(
+                    'Dushka !',
+                    style: GoogleFonts.baloo2(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 26,
+                        letterSpacing: 1.0),
+                  ),
                   actions: [
                     IconButton(
                       onPressed: () {
