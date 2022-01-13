@@ -1,5 +1,6 @@
-import 'package:dushka_blog/presentation/pages/auth/login_page.dart';
+import 'package:dushka_blog/presentation/pages/auth/auth_page_view.dart';
 import 'package:dushka_blog/presentation/pages/main_pages/views/home_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class EntryPage extends StatelessWidget {
@@ -7,6 +8,12 @@ class EntryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AuthenticationScreen();
+    return StreamBuilder<User?>(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, auth) {
+        print(auth);
+        return auth.data == null ? AuthPageView() : HomeView();
+      },
+    );
   }
 }

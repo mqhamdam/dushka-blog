@@ -26,7 +26,7 @@ class _$AuthFailureTearOff {
     return const WeakPassword();
   }
 
-  EmailAlreadyInUser emailAlreadyInUser() {
+  EmailAlreadyInUser emailAlreadyInUse() {
     return const EmailAlreadyInUser();
   }
 
@@ -40,6 +40,10 @@ class _$AuthFailureTearOff {
 
   UserDisabled userDisabled() {
     return const UserDisabled();
+  }
+
+  UserNotAgreed userNotAgreed() {
+    return const UserNotAgreed();
   }
 
   ServerAuthError serverAuthError() {
@@ -56,10 +60,11 @@ mixin _$AuthFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() invalidEmailAndPassword,
     required TResult Function() weakPassword,
-    required TResult Function() emailAlreadyInUser,
+    required TResult Function() emailAlreadyInUse,
     required TResult Function() invalidEmail,
     required TResult Function() userNotFound,
     required TResult Function() userDisabled,
+    required TResult Function() userNotAgreed,
     required TResult Function() serverAuthError,
   }) =>
       throw _privateConstructorUsedError;
@@ -67,10 +72,11 @@ mixin _$AuthFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
   }) =>
       throw _privateConstructorUsedError;
@@ -78,10 +84,11 @@ mixin _$AuthFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
     required TResult orElse(),
   }) =>
@@ -91,10 +98,11 @@ mixin _$AuthFailure {
     required TResult Function(InvalidEmailAndPassword value)
         invalidEmailAndPassword,
     required TResult Function(WeakPassword value) weakPassword,
-    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUser,
+    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUse,
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(UserNotAgreed value) userNotAgreed,
     required TResult Function(ServerAuthError value) serverAuthError,
   }) =>
       throw _privateConstructorUsedError;
@@ -102,10 +110,11 @@ mixin _$AuthFailure {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
   }) =>
       throw _privateConstructorUsedError;
@@ -113,10 +122,11 @@ mixin _$AuthFailure {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
     required TResult orElse(),
   }) =>
@@ -182,10 +192,11 @@ class _$InvalidEmailAndPassword implements InvalidEmailAndPassword {
   TResult when<TResult extends Object?>({
     required TResult Function() invalidEmailAndPassword,
     required TResult Function() weakPassword,
-    required TResult Function() emailAlreadyInUser,
+    required TResult Function() emailAlreadyInUse,
     required TResult Function() invalidEmail,
     required TResult Function() userNotFound,
     required TResult Function() userDisabled,
+    required TResult Function() userNotAgreed,
     required TResult Function() serverAuthError,
   }) {
     return invalidEmailAndPassword();
@@ -196,10 +207,11 @@ class _$InvalidEmailAndPassword implements InvalidEmailAndPassword {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
   }) {
     return invalidEmailAndPassword?.call();
@@ -210,10 +222,11 @@ class _$InvalidEmailAndPassword implements InvalidEmailAndPassword {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
     required TResult orElse(),
   }) {
@@ -229,10 +242,11 @@ class _$InvalidEmailAndPassword implements InvalidEmailAndPassword {
     required TResult Function(InvalidEmailAndPassword value)
         invalidEmailAndPassword,
     required TResult Function(WeakPassword value) weakPassword,
-    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUser,
+    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUse,
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(UserNotAgreed value) userNotAgreed,
     required TResult Function(ServerAuthError value) serverAuthError,
   }) {
     return invalidEmailAndPassword(this);
@@ -243,10 +257,11 @@ class _$InvalidEmailAndPassword implements InvalidEmailAndPassword {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
   }) {
     return invalidEmailAndPassword?.call(this);
@@ -257,10 +272,11 @@ class _$InvalidEmailAndPassword implements InvalidEmailAndPassword {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
     required TResult orElse(),
   }) {
@@ -317,10 +333,11 @@ class _$WeakPassword implements WeakPassword {
   TResult when<TResult extends Object?>({
     required TResult Function() invalidEmailAndPassword,
     required TResult Function() weakPassword,
-    required TResult Function() emailAlreadyInUser,
+    required TResult Function() emailAlreadyInUse,
     required TResult Function() invalidEmail,
     required TResult Function() userNotFound,
     required TResult Function() userDisabled,
+    required TResult Function() userNotAgreed,
     required TResult Function() serverAuthError,
   }) {
     return weakPassword();
@@ -331,10 +348,11 @@ class _$WeakPassword implements WeakPassword {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
   }) {
     return weakPassword?.call();
@@ -345,10 +363,11 @@ class _$WeakPassword implements WeakPassword {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
     required TResult orElse(),
   }) {
@@ -364,10 +383,11 @@ class _$WeakPassword implements WeakPassword {
     required TResult Function(InvalidEmailAndPassword value)
         invalidEmailAndPassword,
     required TResult Function(WeakPassword value) weakPassword,
-    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUser,
+    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUse,
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(UserNotAgreed value) userNotAgreed,
     required TResult Function(ServerAuthError value) serverAuthError,
   }) {
     return weakPassword(this);
@@ -378,10 +398,11 @@ class _$WeakPassword implements WeakPassword {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
   }) {
     return weakPassword?.call(this);
@@ -392,10 +413,11 @@ class _$WeakPassword implements WeakPassword {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
     required TResult orElse(),
   }) {
@@ -436,7 +458,7 @@ class _$EmailAlreadyInUser implements EmailAlreadyInUser {
 
   @override
   String toString() {
-    return 'AuthFailure.emailAlreadyInUser()';
+    return 'AuthFailure.emailAlreadyInUse()';
   }
 
   @override
@@ -453,13 +475,14 @@ class _$EmailAlreadyInUser implements EmailAlreadyInUser {
   TResult when<TResult extends Object?>({
     required TResult Function() invalidEmailAndPassword,
     required TResult Function() weakPassword,
-    required TResult Function() emailAlreadyInUser,
+    required TResult Function() emailAlreadyInUse,
     required TResult Function() invalidEmail,
     required TResult Function() userNotFound,
     required TResult Function() userDisabled,
+    required TResult Function() userNotAgreed,
     required TResult Function() serverAuthError,
   }) {
-    return emailAlreadyInUser();
+    return emailAlreadyInUse();
   }
 
   @override
@@ -467,13 +490,14 @@ class _$EmailAlreadyInUser implements EmailAlreadyInUser {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
   }) {
-    return emailAlreadyInUser?.call();
+    return emailAlreadyInUse?.call();
   }
 
   @override
@@ -481,15 +505,16 @@ class _$EmailAlreadyInUser implements EmailAlreadyInUser {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
     required TResult orElse(),
   }) {
-    if (emailAlreadyInUser != null) {
-      return emailAlreadyInUser();
+    if (emailAlreadyInUse != null) {
+      return emailAlreadyInUse();
     }
     return orElse();
   }
@@ -500,13 +525,14 @@ class _$EmailAlreadyInUser implements EmailAlreadyInUser {
     required TResult Function(InvalidEmailAndPassword value)
         invalidEmailAndPassword,
     required TResult Function(WeakPassword value) weakPassword,
-    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUser,
+    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUse,
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(UserNotAgreed value) userNotAgreed,
     required TResult Function(ServerAuthError value) serverAuthError,
   }) {
-    return emailAlreadyInUser(this);
+    return emailAlreadyInUse(this);
   }
 
   @override
@@ -514,13 +540,14 @@ class _$EmailAlreadyInUser implements EmailAlreadyInUser {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
   }) {
-    return emailAlreadyInUser?.call(this);
+    return emailAlreadyInUse?.call(this);
   }
 
   @override
@@ -528,15 +555,16 @@ class _$EmailAlreadyInUser implements EmailAlreadyInUser {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
     required TResult orElse(),
   }) {
-    if (emailAlreadyInUser != null) {
-      return emailAlreadyInUser(this);
+    if (emailAlreadyInUse != null) {
+      return emailAlreadyInUse(this);
     }
     return orElse();
   }
@@ -588,10 +616,11 @@ class _$InvalidEmail implements InvalidEmail {
   TResult when<TResult extends Object?>({
     required TResult Function() invalidEmailAndPassword,
     required TResult Function() weakPassword,
-    required TResult Function() emailAlreadyInUser,
+    required TResult Function() emailAlreadyInUse,
     required TResult Function() invalidEmail,
     required TResult Function() userNotFound,
     required TResult Function() userDisabled,
+    required TResult Function() userNotAgreed,
     required TResult Function() serverAuthError,
   }) {
     return invalidEmail();
@@ -602,10 +631,11 @@ class _$InvalidEmail implements InvalidEmail {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
   }) {
     return invalidEmail?.call();
@@ -616,10 +646,11 @@ class _$InvalidEmail implements InvalidEmail {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
     required TResult orElse(),
   }) {
@@ -635,10 +666,11 @@ class _$InvalidEmail implements InvalidEmail {
     required TResult Function(InvalidEmailAndPassword value)
         invalidEmailAndPassword,
     required TResult Function(WeakPassword value) weakPassword,
-    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUser,
+    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUse,
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(UserNotAgreed value) userNotAgreed,
     required TResult Function(ServerAuthError value) serverAuthError,
   }) {
     return invalidEmail(this);
@@ -649,10 +681,11 @@ class _$InvalidEmail implements InvalidEmail {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
   }) {
     return invalidEmail?.call(this);
@@ -663,10 +696,11 @@ class _$InvalidEmail implements InvalidEmail {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
     required TResult orElse(),
   }) {
@@ -723,10 +757,11 @@ class _$UserNotFound implements UserNotFound {
   TResult when<TResult extends Object?>({
     required TResult Function() invalidEmailAndPassword,
     required TResult Function() weakPassword,
-    required TResult Function() emailAlreadyInUser,
+    required TResult Function() emailAlreadyInUse,
     required TResult Function() invalidEmail,
     required TResult Function() userNotFound,
     required TResult Function() userDisabled,
+    required TResult Function() userNotAgreed,
     required TResult Function() serverAuthError,
   }) {
     return userNotFound();
@@ -737,10 +772,11 @@ class _$UserNotFound implements UserNotFound {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
   }) {
     return userNotFound?.call();
@@ -751,10 +787,11 @@ class _$UserNotFound implements UserNotFound {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
     required TResult orElse(),
   }) {
@@ -770,10 +807,11 @@ class _$UserNotFound implements UserNotFound {
     required TResult Function(InvalidEmailAndPassword value)
         invalidEmailAndPassword,
     required TResult Function(WeakPassword value) weakPassword,
-    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUser,
+    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUse,
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(UserNotAgreed value) userNotAgreed,
     required TResult Function(ServerAuthError value) serverAuthError,
   }) {
     return userNotFound(this);
@@ -784,10 +822,11 @@ class _$UserNotFound implements UserNotFound {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
   }) {
     return userNotFound?.call(this);
@@ -798,10 +837,11 @@ class _$UserNotFound implements UserNotFound {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
     required TResult orElse(),
   }) {
@@ -858,10 +898,11 @@ class _$UserDisabled implements UserDisabled {
   TResult when<TResult extends Object?>({
     required TResult Function() invalidEmailAndPassword,
     required TResult Function() weakPassword,
-    required TResult Function() emailAlreadyInUser,
+    required TResult Function() emailAlreadyInUse,
     required TResult Function() invalidEmail,
     required TResult Function() userNotFound,
     required TResult Function() userDisabled,
+    required TResult Function() userNotAgreed,
     required TResult Function() serverAuthError,
   }) {
     return userDisabled();
@@ -872,10 +913,11 @@ class _$UserDisabled implements UserDisabled {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
   }) {
     return userDisabled?.call();
@@ -886,10 +928,11 @@ class _$UserDisabled implements UserDisabled {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
     required TResult orElse(),
   }) {
@@ -905,10 +948,11 @@ class _$UserDisabled implements UserDisabled {
     required TResult Function(InvalidEmailAndPassword value)
         invalidEmailAndPassword,
     required TResult Function(WeakPassword value) weakPassword,
-    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUser,
+    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUse,
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(UserNotAgreed value) userNotAgreed,
     required TResult Function(ServerAuthError value) serverAuthError,
   }) {
     return userDisabled(this);
@@ -919,10 +963,11 @@ class _$UserDisabled implements UserDisabled {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
   }) {
     return userDisabled?.call(this);
@@ -933,10 +978,11 @@ class _$UserDisabled implements UserDisabled {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
     required TResult orElse(),
   }) {
@@ -949,6 +995,147 @@ class _$UserDisabled implements UserDisabled {
 
 abstract class UserDisabled implements AuthFailure {
   const factory UserDisabled() = _$UserDisabled;
+}
+
+/// @nodoc
+abstract class $UserNotAgreedCopyWith<$Res> {
+  factory $UserNotAgreedCopyWith(
+          UserNotAgreed value, $Res Function(UserNotAgreed) then) =
+      _$UserNotAgreedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UserNotAgreedCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+    implements $UserNotAgreedCopyWith<$Res> {
+  _$UserNotAgreedCopyWithImpl(
+      UserNotAgreed _value, $Res Function(UserNotAgreed) _then)
+      : super(_value, (v) => _then(v as UserNotAgreed));
+
+  @override
+  UserNotAgreed get _value => super._value as UserNotAgreed;
+}
+
+/// @nodoc
+
+class _$UserNotAgreed implements UserNotAgreed {
+  const _$UserNotAgreed();
+
+  @override
+  String toString() {
+    return 'AuthFailure.userNotAgreed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UserNotAgreed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() invalidEmailAndPassword,
+    required TResult Function() weakPassword,
+    required TResult Function() emailAlreadyInUse,
+    required TResult Function() invalidEmail,
+    required TResult Function() userNotFound,
+    required TResult Function() userDisabled,
+    required TResult Function() userNotAgreed,
+    required TResult Function() serverAuthError,
+  }) {
+    return userNotAgreed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? invalidEmailAndPassword,
+    TResult Function()? weakPassword,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? invalidEmail,
+    TResult Function()? userNotFound,
+    TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
+    TResult Function()? serverAuthError,
+  }) {
+    return userNotAgreed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? invalidEmailAndPassword,
+    TResult Function()? weakPassword,
+    TResult Function()? emailAlreadyInUse,
+    TResult Function()? invalidEmail,
+    TResult Function()? userNotFound,
+    TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
+    TResult Function()? serverAuthError,
+    required TResult orElse(),
+  }) {
+    if (userNotAgreed != null) {
+      return userNotAgreed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmailAndPassword value)
+        invalidEmailAndPassword,
+    required TResult Function(WeakPassword value) weakPassword,
+    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUse,
+    required TResult Function(InvalidEmail value) invalidEmail,
+    required TResult Function(UserNotFound value) userNotFound,
+    required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(UserNotAgreed value) userNotAgreed,
+    required TResult Function(ServerAuthError value) serverAuthError,
+  }) {
+    return userNotAgreed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
+    TResult Function(WeakPassword value)? weakPassword,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
+    TResult Function(ServerAuthError value)? serverAuthError,
+  }) {
+    return userNotAgreed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
+    TResult Function(WeakPassword value)? weakPassword,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
+    TResult Function(InvalidEmail value)? invalidEmail,
+    TResult Function(UserNotFound value)? userNotFound,
+    TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
+    TResult Function(ServerAuthError value)? serverAuthError,
+    required TResult orElse(),
+  }) {
+    if (userNotAgreed != null) {
+      return userNotAgreed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UserNotAgreed implements AuthFailure {
+  const factory UserNotAgreed() = _$UserNotAgreed;
 }
 
 /// @nodoc
@@ -994,10 +1181,11 @@ class _$ServerAuthError implements ServerAuthError {
   TResult when<TResult extends Object?>({
     required TResult Function() invalidEmailAndPassword,
     required TResult Function() weakPassword,
-    required TResult Function() emailAlreadyInUser,
+    required TResult Function() emailAlreadyInUse,
     required TResult Function() invalidEmail,
     required TResult Function() userNotFound,
     required TResult Function() userDisabled,
+    required TResult Function() userNotAgreed,
     required TResult Function() serverAuthError,
   }) {
     return serverAuthError();
@@ -1008,10 +1196,11 @@ class _$ServerAuthError implements ServerAuthError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
   }) {
     return serverAuthError?.call();
@@ -1022,10 +1211,11 @@ class _$ServerAuthError implements ServerAuthError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? invalidEmailAndPassword,
     TResult Function()? weakPassword,
-    TResult Function()? emailAlreadyInUser,
+    TResult Function()? emailAlreadyInUse,
     TResult Function()? invalidEmail,
     TResult Function()? userNotFound,
     TResult Function()? userDisabled,
+    TResult Function()? userNotAgreed,
     TResult Function()? serverAuthError,
     required TResult orElse(),
   }) {
@@ -1041,10 +1231,11 @@ class _$ServerAuthError implements ServerAuthError {
     required TResult Function(InvalidEmailAndPassword value)
         invalidEmailAndPassword,
     required TResult Function(WeakPassword value) weakPassword,
-    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUser,
+    required TResult Function(EmailAlreadyInUser value) emailAlreadyInUse,
     required TResult Function(InvalidEmail value) invalidEmail,
     required TResult Function(UserNotFound value) userNotFound,
     required TResult Function(UserDisabled value) userDisabled,
+    required TResult Function(UserNotAgreed value) userNotAgreed,
     required TResult Function(ServerAuthError value) serverAuthError,
   }) {
     return serverAuthError(this);
@@ -1055,10 +1246,11 @@ class _$ServerAuthError implements ServerAuthError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
   }) {
     return serverAuthError?.call(this);
@@ -1069,10 +1261,11 @@ class _$ServerAuthError implements ServerAuthError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmailAndPassword value)? invalidEmailAndPassword,
     TResult Function(WeakPassword value)? weakPassword,
-    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUser,
+    TResult Function(EmailAlreadyInUser value)? emailAlreadyInUse,
     TResult Function(InvalidEmail value)? invalidEmail,
     TResult Function(UserNotFound value)? userNotFound,
     TResult Function(UserDisabled value)? userDisabled,
+    TResult Function(UserNotAgreed value)? userNotAgreed,
     TResult Function(ServerAuthError value)? serverAuthError,
     required TResult orElse(),
   }) {

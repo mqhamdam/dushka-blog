@@ -6,6 +6,7 @@ import 'package:dushka_blog/presentation/custom_widgets/post_widget_v2.dart';
 import 'package:dushka_blog/presentation/pages/main_pages/views/discover_view.dart';
 import 'package:dushka_blog/presentation/pages/notification_page/notification_view.dart';
 import 'package:dushka_blog/presentation/pages/write/create_post_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
@@ -93,13 +94,19 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                     ),
                   ),
                   title: Text(
-                    'Dushka !',
+                    'Dushka Wall',
                     style: GoogleFonts.baloo2(
                         fontWeight: FontWeight.bold,
-                        fontSize: 26,
+                        fontSize: 22,
                         letterSpacing: 1.0),
                   ),
                   actions: [
+                    IconButton(
+                      onPressed: () {
+                        FirebaseAuth.instance.signOut();
+                      },
+                      icon: Icon(Icons.exit_to_app),
+                    ),
                     IconButton(
                       onPressed: () {
                         Navigator.of(context).push(

@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dushka_blog/domain/auth/auth_validators.dart';
 import 'package:dushka_blog/domain/core/value_failure.dart';
 import 'package:dushka_blog/domain/core/value_object.dart';
+import 'package:dushka_blog/domain/core/value_validators.dart';
 
 class EmailAddress extends ValueObject<String> {
   const EmailAddress._(this.value);
@@ -22,3 +23,5 @@ class Password extends ValueObject<String> {
     return Password._(validatePassword(password));
   }
 }
+
+
