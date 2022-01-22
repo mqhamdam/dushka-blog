@@ -1,7 +1,9 @@
 import 'package:dushka_blog/presentation/custom_widgets/custom_back_button.dart';
 import 'package:dushka_blog/presentation/custom_widgets/custom_circle_avatar.dart';
+import 'package:dushka_blog/presentation/custom_widgets/ui_text.dart';
 import 'package:dushka_blog/static/app_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfileEditScreen extends StatelessWidget {
   const ProfileEditScreen({Key? key}) : super(key: key);
@@ -80,25 +82,72 @@ class ProfileEditScreen extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                OutlinedButton(
+                ElevatedButton(
                   onPressed: () {},
-                  child: Container(
-                    width: double.infinity,
-                    child: Center(child: Text("Save")),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                        Theme.of(context).appBarTheme.backgroundColor),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Text("Change Avatar Image"),
                   ),
                 ),
-                OutlinedButton(
+                ElevatedButton(
                   onPressed: () {},
-                  child: Container(
-                    width: double.infinity,
-                    child: Center(child: Text("Save")),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                        Theme.of(context).appBarTheme.backgroundColor),
                   ),
+                  child: Text("Change Background Image"),
                 ),
               ],
             ),
           ),
+          /* SliverToBoxAdapter(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.green),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Text("Save"),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.red),
+                  ),
+                  child: Text("Cancel"),
+                ),
+              ],
+            ),
+          ), */
         ],
+      ),
+      floatingActionButton: Transform.translate(
+        offset: Offset(0, -40),
+        child: SizedBox(
+          height: 60.0,
+          width: 60.0,
+          child: FittedBox(
+            child: FloatingActionButton(
+              heroTag: null,
+              onPressed: null,
+              child: SvgPicture.asset(
+                'assets/ui-icons/fi-rr-check.svg',
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

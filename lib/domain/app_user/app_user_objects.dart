@@ -54,3 +54,4 @@ class UserBio extends ValueObject<String> {
     return  UserBio._(validateLineCount(value, 5),);
   }
 }
+

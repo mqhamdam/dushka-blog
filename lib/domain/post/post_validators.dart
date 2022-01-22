@@ -9,3 +9,11 @@ Either<ValueFailure<String>, String> validatePostBody(String postBody) {
     return left(ValueFailure.empty(failedValue: postBody));
   }
 }
+
+Either<ValueFailure<String>, String> validateTag(String tag) {
+  if(tag.isNotEmpty) {
+    return right(tag);
+  } else {
+    return left(ValueFailure.empty(failedValue: tag));
+  }
+}

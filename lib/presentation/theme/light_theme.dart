@@ -29,6 +29,13 @@ final lightTheme = ThemeData.light().copyWith(
       style: ButtonStyle(
           shape: MaterialStateProperty.all(RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(33),),),),),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(33),
+      ),),
+    ),
+  ),
   indicatorColor: const Color.fromRGBO(47, 93, 98, 1),
   
   tabBarTheme: const TabBarTheme(

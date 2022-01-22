@@ -1,5 +1,6 @@
 part of 'app_user_bloc.dart';
 
+@JsonEnum()
 enum SubscriptionStatus {subscribed,unSubscribed,blocked,isMe,loading}
 
 @freezed

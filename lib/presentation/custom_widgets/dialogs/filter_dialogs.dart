@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_parenthesis
 
+import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -20,14 +21,13 @@ class FilterDialog extends StatelessWidget {
           borderRadius: BorderRadius.circular(33),
         ),
         child: Padding(
-          padding:  EdgeInsets.zero,
+          padding: EdgeInsets.zero,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 15),
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15),
                 child: Text(
                   'Filter Wall',
                   style: TextStyle(

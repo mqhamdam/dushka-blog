@@ -14,7 +14,9 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
     on<LogInEmailChanged>(_onLogInEmailChanged);
     on<LogInPasswordChanged>(_onLogInPasswordChanged);
     on<LogInButtonPressed>(_onLoginButtonPressed);
+    
   }
+  
   final AuthFacade _authFacade = AuthFacade();
 
   Future<void> _onLogInEmailChanged(
@@ -23,6 +25,7 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
   ) async {
     print(event.emailValue);
     emit(
+      
       state.copyWith(
         emailAddress: EmailAddress(event.emailValue),
         authFailureOrSuccessOption: none(),

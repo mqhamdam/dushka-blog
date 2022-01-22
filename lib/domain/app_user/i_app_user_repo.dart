@@ -10,6 +10,13 @@ abstract class IAppUserRepository {
     UserUID userUID,
     SubscriptionStatus currentSubscriptionStatus,
   );
-  Future<Either<AppUserFailure, AppUserLess>> getLessData();
-  Future<Either<AppUserFailure, AppUserFull>> getFullData();
+  Future<Either<AppUserFailure, Unit>> reportUser(UserUID userUID);
+  Future<Either<AppUserFailure, Unit>> blockUser(UserUID userUID);
+  Future<Either<AppUserFailure, Unit>> unBlockUser(UserUID userUID);
+  Future<Either<AppUserFailure, AppUserLess>> getLessData(UserUID userUID);
+  Future<Either<AppUserFailure, AppUserFull>> getFullData(UserUID userUID);
+  Future<Either<AppUserFailure, AppUserLess>> getUsers(
+    Map<String, String> filterOptions,
+    int skipCount,
+  );
 }

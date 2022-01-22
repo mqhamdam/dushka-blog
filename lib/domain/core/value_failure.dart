@@ -7,7 +7,6 @@ part 'value_failure.freezed.dart';
   value failure means error occurs when value created, but for example auth 
   failure happens when server sends error ex. Email already in Use, server email
   or password check not passed, password not correct
-
 */
 
 @freezed

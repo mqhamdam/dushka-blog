@@ -18,9 +18,20 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$PostTearOff {
   const _$PostTearOff();
 
-  _Post call({dynamic required}) {
+  _Post call(
+      {required UserUID authorUID,
+      required PostID postID,
+      required DateTime createdAt,
+      required int likeCount,
+      required int commentsCount,
+      required PostBody postBody}) {
     return _Post(
-      required: required,
+      authorUID: authorUID,
+      postID: postID,
+      createdAt: createdAt,
+      likeCount: likeCount,
+      commentsCount: commentsCount,
+      postBody: postBody,
     );
   }
 }
@@ -30,7 +41,12 @@ const $Post = _$PostTearOff();
 
 /// @nodoc
 mixin _$Post {
-  dynamic get required => throw _privateConstructorUsedError;
+  UserUID get authorUID => throw _privateConstructorUsedError;
+  PostID get postID => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  int get likeCount => throw _privateConstructorUsedError;
+  int get commentsCount => throw _privateConstructorUsedError;
+  PostBody get postBody => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PostCopyWith<Post> get copyWith => throw _privateConstructorUsedError;
@@ -40,7 +56,13 @@ mixin _$Post {
 abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
       _$PostCopyWithImpl<$Res>;
-  $Res call({dynamic required});
+  $Res call(
+      {UserUID authorUID,
+      PostID postID,
+      DateTime createdAt,
+      int likeCount,
+      int commentsCount,
+      PostBody postBody});
 }
 
 /// @nodoc
@@ -53,13 +75,38 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? required = freezed,
+    Object? authorUID = freezed,
+    Object? postID = freezed,
+    Object? createdAt = freezed,
+    Object? likeCount = freezed,
+    Object? commentsCount = freezed,
+    Object? postBody = freezed,
   }) {
     return _then(_value.copyWith(
-      required: required == freezed
-          ? _value.required
-          : required // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+      authorUID: authorUID == freezed
+          ? _value.authorUID
+          : authorUID // ignore: cast_nullable_to_non_nullable
+              as UserUID,
+      postID: postID == freezed
+          ? _value.postID
+          : postID // ignore: cast_nullable_to_non_nullable
+              as PostID,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      likeCount: likeCount == freezed
+          ? _value.likeCount
+          : likeCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      commentsCount: commentsCount == freezed
+          ? _value.commentsCount
+          : commentsCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      postBody: postBody == freezed
+          ? _value.postBody
+          : postBody // ignore: cast_nullable_to_non_nullable
+              as PostBody,
     ));
   }
 }
@@ -69,7 +116,13 @@ abstract class _$PostCopyWith<$Res> implements $PostCopyWith<$Res> {
   factory _$PostCopyWith(_Post value, $Res Function(_Post) then) =
       __$PostCopyWithImpl<$Res>;
   @override
-  $Res call({dynamic required});
+  $Res call(
+      {UserUID authorUID,
+      PostID postID,
+      DateTime createdAt,
+      int likeCount,
+      int commentsCount,
+      PostBody postBody});
 }
 
 /// @nodoc
@@ -83,10 +136,38 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? required = freezed,
+    Object? authorUID = freezed,
+    Object? postID = freezed,
+    Object? createdAt = freezed,
+    Object? likeCount = freezed,
+    Object? commentsCount = freezed,
+    Object? postBody = freezed,
   }) {
     return _then(_Post(
-      required: required == freezed ? _value.required : required,
+      authorUID: authorUID == freezed
+          ? _value.authorUID
+          : authorUID // ignore: cast_nullable_to_non_nullable
+              as UserUID,
+      postID: postID == freezed
+          ? _value.postID
+          : postID // ignore: cast_nullable_to_non_nullable
+              as PostID,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      likeCount: likeCount == freezed
+          ? _value.likeCount
+          : likeCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      commentsCount: commentsCount == freezed
+          ? _value.commentsCount
+          : commentsCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      postBody: postBody == freezed
+          ? _value.postBody
+          : postBody // ignore: cast_nullable_to_non_nullable
+              as PostBody,
     ));
   }
 }
@@ -94,14 +175,30 @@ class __$PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Post implements _Post {
-  const _$_Post({this.required});
+  const _$_Post(
+      {required this.authorUID,
+      required this.postID,
+      required this.createdAt,
+      required this.likeCount,
+      required this.commentsCount,
+      required this.postBody});
 
   @override
-  final dynamic required;
+  final UserUID authorUID;
+  @override
+  final PostID postID;
+  @override
+  final DateTime createdAt;
+  @override
+  final int likeCount;
+  @override
+  final int commentsCount;
+  @override
+  final PostBody postBody;
 
   @override
   String toString() {
-    return 'Post(required: $required)';
+    return 'Post(authorUID: $authorUID, postID: $postID, createdAt: $createdAt, likeCount: $likeCount, commentsCount: $commentsCount, postBody: $postBody)';
   }
 
   @override
@@ -109,12 +206,24 @@ class _$_Post implements _Post {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Post &&
-            const DeepCollectionEquality().equals(other.required, required));
+            const DeepCollectionEquality().equals(other.authorUID, authorUID) &&
+            const DeepCollectionEquality().equals(other.postID, postID) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.likeCount, likeCount) &&
+            const DeepCollectionEquality()
+                .equals(other.commentsCount, commentsCount) &&
+            const DeepCollectionEquality().equals(other.postBody, postBody));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(required));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(authorUID),
+      const DeepCollectionEquality().hash(postID),
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(likeCount),
+      const DeepCollectionEquality().hash(commentsCount),
+      const DeepCollectionEquality().hash(postBody));
 
   @JsonKey(ignore: true)
   @override
@@ -123,10 +232,26 @@ class _$_Post implements _Post {
 }
 
 abstract class _Post implements Post {
-  const factory _Post({dynamic required}) = _$_Post;
+  const factory _Post(
+      {required UserUID authorUID,
+      required PostID postID,
+      required DateTime createdAt,
+      required int likeCount,
+      required int commentsCount,
+      required PostBody postBody}) = _$_Post;
 
   @override
-  dynamic get required;
+  UserUID get authorUID;
+  @override
+  PostID get postID;
+  @override
+  DateTime get createdAt;
+  @override
+  int get likeCount;
+  @override
+  int get commentsCount;
+  @override
+  PostBody get postBody;
   @override
   @JsonKey(ignore: true)
   _$PostCopyWith<_Post> get copyWith => throw _privateConstructorUsedError;

@@ -14,7 +14,7 @@ abstract class AppUser with _$AppUser {
     required SubscriptionStatus subscriptionStatus,
   }) = AppUserLess;
   const factory AppUser.full({
-      required Name name,
+    required Name name,
     required UserUName userUName,
     required ImageUrl avatarImageUrl,
     required ImageUrl backgroundImageUrl,
@@ -26,9 +26,9 @@ abstract class AppUser with _$AppUser {
     required int subscribingCount,
   }) = AppUserFull;
   const factory AppUser.update({
-      required Name name,
-      required ImageUrl avatarImageUrl,
-      required ImageUrl backgroundImageUrl,
-      required UserBio userBio,
+    required Name name,
+    required ImageUrl avatarImageUrl,
+    required ImageUrl backgroundImageUrl,
+    required UserBio userBio,
   }) = AppUserUpdate;
 }
