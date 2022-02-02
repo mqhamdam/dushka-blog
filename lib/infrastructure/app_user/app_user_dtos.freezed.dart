@@ -29,7 +29,6 @@ class _$AppUserFullDtoTearOff {
       required String backgroundImageUrl,
       required String userBio,
       required String userUID,
-      required SubscriptionStatus subscriptionStatus,
       required int postCount,
       required int subscribersCount,
       required int subscribingCount}) {
@@ -40,7 +39,6 @@ class _$AppUserFullDtoTearOff {
       backgroundImageUrl: backgroundImageUrl,
       userBio: userBio,
       userUID: userUID,
-      subscriptionStatus: subscriptionStatus,
       postCount: postCount,
       subscribersCount: subscribersCount,
       subscribingCount: subscribingCount,
@@ -63,8 +61,6 @@ mixin _$AppUserFullDto {
   String get backgroundImageUrl => throw _privateConstructorUsedError;
   String get userBio => throw _privateConstructorUsedError;
   String get userUID => throw _privateConstructorUsedError;
-  SubscriptionStatus get subscriptionStatus =>
-      throw _privateConstructorUsedError;
   int get postCount => throw _privateConstructorUsedError;
   int get subscribersCount => throw _privateConstructorUsedError;
   int get subscribingCount => throw _privateConstructorUsedError;
@@ -87,7 +83,6 @@ abstract class $AppUserFullDtoCopyWith<$Res> {
       String backgroundImageUrl,
       String userBio,
       String userUID,
-      SubscriptionStatus subscriptionStatus,
       int postCount,
       int subscribersCount,
       int subscribingCount});
@@ -110,7 +105,6 @@ class _$AppUserFullDtoCopyWithImpl<$Res>
     Object? backgroundImageUrl = freezed,
     Object? userBio = freezed,
     Object? userUID = freezed,
-    Object? subscriptionStatus = freezed,
     Object? postCount = freezed,
     Object? subscribersCount = freezed,
     Object? subscribingCount = freezed,
@@ -140,10 +134,6 @@ class _$AppUserFullDtoCopyWithImpl<$Res>
           ? _value.userUID
           : userUID // ignore: cast_nullable_to_non_nullable
               as String,
-      subscriptionStatus: subscriptionStatus == freezed
-          ? _value.subscriptionStatus
-          : subscriptionStatus // ignore: cast_nullable_to_non_nullable
-              as SubscriptionStatus,
       postCount: postCount == freezed
           ? _value.postCount
           : postCount // ignore: cast_nullable_to_non_nullable
@@ -174,7 +164,6 @@ abstract class _$AppUserFullDtoCopyWith<$Res>
       String backgroundImageUrl,
       String userBio,
       String userUID,
-      SubscriptionStatus subscriptionStatus,
       int postCount,
       int subscribersCount,
       int subscribingCount});
@@ -199,7 +188,6 @@ class __$AppUserFullDtoCopyWithImpl<$Res>
     Object? backgroundImageUrl = freezed,
     Object? userBio = freezed,
     Object? userUID = freezed,
-    Object? subscriptionStatus = freezed,
     Object? postCount = freezed,
     Object? subscribersCount = freezed,
     Object? subscribingCount = freezed,
@@ -229,10 +217,6 @@ class __$AppUserFullDtoCopyWithImpl<$Res>
           ? _value.userUID
           : userUID // ignore: cast_nullable_to_non_nullable
               as String,
-      subscriptionStatus: subscriptionStatus == freezed
-          ? _value.subscriptionStatus
-          : subscriptionStatus // ignore: cast_nullable_to_non_nullable
-              as SubscriptionStatus,
       postCount: postCount == freezed
           ? _value.postCount
           : postCount // ignore: cast_nullable_to_non_nullable
@@ -259,7 +243,6 @@ class _$_AppUserFullDto implements _AppUserFullDto {
       required this.backgroundImageUrl,
       required this.userBio,
       required this.userUID,
-      required this.subscriptionStatus,
       required this.postCount,
       required this.subscribersCount,
       required this.subscribingCount});
@@ -280,8 +263,6 @@ class _$_AppUserFullDto implements _AppUserFullDto {
   @override
   final String userUID;
   @override
-  final SubscriptionStatus subscriptionStatus;
-  @override
   final int postCount;
   @override
   final int subscribersCount;
@@ -290,7 +271,7 @@ class _$_AppUserFullDto implements _AppUserFullDto {
 
   @override
   String toString() {
-    return 'AppUserFullDto(name: $name, userUName: $userUName, avatarImageUrl: $avatarImageUrl, backgroundImageUrl: $backgroundImageUrl, userBio: $userBio, userUID: $userUID, subscriptionStatus: $subscriptionStatus, postCount: $postCount, subscribersCount: $subscribersCount, subscribingCount: $subscribingCount)';
+    return 'AppUserFullDto(name: $name, userUName: $userUName, avatarImageUrl: $avatarImageUrl, backgroundImageUrl: $backgroundImageUrl, userBio: $userBio, userUID: $userUID, postCount: $postCount, subscribersCount: $subscribersCount, subscribingCount: $subscribingCount)';
   }
 
   @override
@@ -306,8 +287,6 @@ class _$_AppUserFullDto implements _AppUserFullDto {
                 .equals(other.backgroundImageUrl, backgroundImageUrl) &&
             const DeepCollectionEquality().equals(other.userBio, userBio) &&
             const DeepCollectionEquality().equals(other.userUID, userUID) &&
-            const DeepCollectionEquality()
-                .equals(other.subscriptionStatus, subscriptionStatus) &&
             const DeepCollectionEquality().equals(other.postCount, postCount) &&
             const DeepCollectionEquality()
                 .equals(other.subscribersCount, subscribersCount) &&
@@ -324,7 +303,6 @@ class _$_AppUserFullDto implements _AppUserFullDto {
       const DeepCollectionEquality().hash(backgroundImageUrl),
       const DeepCollectionEquality().hash(userBio),
       const DeepCollectionEquality().hash(userUID),
-      const DeepCollectionEquality().hash(subscriptionStatus),
       const DeepCollectionEquality().hash(postCount),
       const DeepCollectionEquality().hash(subscribersCount),
       const DeepCollectionEquality().hash(subscribingCount));
@@ -348,7 +326,6 @@ abstract class _AppUserFullDto implements AppUserFullDto {
       required String backgroundImageUrl,
       required String userBio,
       required String userUID,
-      required SubscriptionStatus subscriptionStatus,
       required int postCount,
       required int subscribersCount,
       required int subscribingCount}) = _$_AppUserFullDto;
@@ -368,8 +345,6 @@ abstract class _AppUserFullDto implements AppUserFullDto {
   String get userBio;
   @override
   String get userUID;
-  @override
-  SubscriptionStatus get subscriptionStatus;
   @override
   int get postCount;
   @override
@@ -394,14 +369,12 @@ class _$AppUserLessDtoTearOff {
       {required String name,
       required String userUName,
       required String avatarImageUrl,
-      required String userUID,
-      required SubscriptionStatus subscriptionStatus}) {
+      required String userUID}) {
     return _AppUserLessDto(
       name: name,
       userUName: userUName,
       avatarImageUrl: avatarImageUrl,
       userUID: userUID,
-      subscriptionStatus: subscriptionStatus,
     );
   }
 
@@ -419,8 +392,6 @@ mixin _$AppUserLessDto {
   String get userUName => throw _privateConstructorUsedError;
   String get avatarImageUrl => throw _privateConstructorUsedError;
   String get userUID => throw _privateConstructorUsedError;
-  SubscriptionStatus get subscriptionStatus =>
-      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -434,11 +405,7 @@ abstract class $AppUserLessDtoCopyWith<$Res> {
           AppUserLessDto value, $Res Function(AppUserLessDto) then) =
       _$AppUserLessDtoCopyWithImpl<$Res>;
   $Res call(
-      {String name,
-      String userUName,
-      String avatarImageUrl,
-      String userUID,
-      SubscriptionStatus subscriptionStatus});
+      {String name, String userUName, String avatarImageUrl, String userUID});
 }
 
 /// @nodoc
@@ -456,7 +423,6 @@ class _$AppUserLessDtoCopyWithImpl<$Res>
     Object? userUName = freezed,
     Object? avatarImageUrl = freezed,
     Object? userUID = freezed,
-    Object? subscriptionStatus = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -475,10 +441,6 @@ class _$AppUserLessDtoCopyWithImpl<$Res>
           ? _value.userUID
           : userUID // ignore: cast_nullable_to_non_nullable
               as String,
-      subscriptionStatus: subscriptionStatus == freezed
-          ? _value.subscriptionStatus
-          : subscriptionStatus // ignore: cast_nullable_to_non_nullable
-              as SubscriptionStatus,
     ));
   }
 }
@@ -491,11 +453,7 @@ abstract class _$AppUserLessDtoCopyWith<$Res>
       __$AppUserLessDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
-      String userUName,
-      String avatarImageUrl,
-      String userUID,
-      SubscriptionStatus subscriptionStatus});
+      {String name, String userUName, String avatarImageUrl, String userUID});
 }
 
 /// @nodoc
@@ -515,7 +473,6 @@ class __$AppUserLessDtoCopyWithImpl<$Res>
     Object? userUName = freezed,
     Object? avatarImageUrl = freezed,
     Object? userUID = freezed,
-    Object? subscriptionStatus = freezed,
   }) {
     return _then(_AppUserLessDto(
       name: name == freezed
@@ -534,10 +491,6 @@ class __$AppUserLessDtoCopyWithImpl<$Res>
           ? _value.userUID
           : userUID // ignore: cast_nullable_to_non_nullable
               as String,
-      subscriptionStatus: subscriptionStatus == freezed
-          ? _value.subscriptionStatus
-          : subscriptionStatus // ignore: cast_nullable_to_non_nullable
-              as SubscriptionStatus,
     ));
   }
 }
@@ -549,8 +502,7 @@ class _$_AppUserLessDto implements _AppUserLessDto {
       {required this.name,
       required this.userUName,
       required this.avatarImageUrl,
-      required this.userUID,
-      required this.subscriptionStatus});
+      required this.userUID});
 
   factory _$_AppUserLessDto.fromJson(Map<String, dynamic> json) =>
       _$$_AppUserLessDtoFromJson(json);
@@ -563,12 +515,10 @@ class _$_AppUserLessDto implements _AppUserLessDto {
   final String avatarImageUrl;
   @override
   final String userUID;
-  @override
-  final SubscriptionStatus subscriptionStatus;
 
   @override
   String toString() {
-    return 'AppUserLessDto(name: $name, userUName: $userUName, avatarImageUrl: $avatarImageUrl, userUID: $userUID, subscriptionStatus: $subscriptionStatus)';
+    return 'AppUserLessDto(name: $name, userUName: $userUName, avatarImageUrl: $avatarImageUrl, userUID: $userUID)';
   }
 
   @override
@@ -580,9 +530,7 @@ class _$_AppUserLessDto implements _AppUserLessDto {
             const DeepCollectionEquality().equals(other.userUName, userUName) &&
             const DeepCollectionEquality()
                 .equals(other.avatarImageUrl, avatarImageUrl) &&
-            const DeepCollectionEquality().equals(other.userUID, userUID) &&
-            const DeepCollectionEquality()
-                .equals(other.subscriptionStatus, subscriptionStatus));
+            const DeepCollectionEquality().equals(other.userUID, userUID));
   }
 
   @override
@@ -591,8 +539,7 @@ class _$_AppUserLessDto implements _AppUserLessDto {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(userUName),
       const DeepCollectionEquality().hash(avatarImageUrl),
-      const DeepCollectionEquality().hash(userUID),
-      const DeepCollectionEquality().hash(subscriptionStatus));
+      const DeepCollectionEquality().hash(userUID));
 
   @JsonKey(ignore: true)
   @override
@@ -610,8 +557,7 @@ abstract class _AppUserLessDto implements AppUserLessDto {
       {required String name,
       required String userUName,
       required String avatarImageUrl,
-      required String userUID,
-      required SubscriptionStatus subscriptionStatus}) = _$_AppUserLessDto;
+      required String userUID}) = _$_AppUserLessDto;
 
   factory _AppUserLessDto.fromJson(Map<String, dynamic> json) =
       _$_AppUserLessDto.fromJson;
@@ -624,8 +570,6 @@ abstract class _AppUserLessDto implements AppUserLessDto {
   String get avatarImageUrl;
   @override
   String get userUID;
-  @override
-  SubscriptionStatus get subscriptionStatus;
   @override
   @JsonKey(ignore: true)
   _$AppUserLessDtoCopyWith<_AppUserLessDto> get copyWith =>

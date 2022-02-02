@@ -147,7 +147,7 @@ class ProfileScreen extends StatelessWidget {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
-                return const PostWidgetV2();
+                return const PostWidgetV2(postID: "sd",authorUID: 'alskd',);
               },
               childCount: 100,
             ),

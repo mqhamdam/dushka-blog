@@ -470,12 +470,14 @@ class _$WallInfiniteScrollStateTearOff {
   const _$WallInfiniteScrollStateTearOff();
 
   _WallInfiniteScrollState call(
-      {required List<WallItem> postID,
+      {required List<WallItem> wallItems,
       required Map<String, dynamic> filterWall,
+      required Option<PostFailure> postFailure,
       required bool isFetching}) {
     return _WallInfiniteScrollState(
-      postID: postID,
+      wallItems: wallItems,
       filterWall: filterWall,
+      postFailure: postFailure,
       isFetching: isFetching,
     );
   }
@@ -486,8 +488,9 @@ const $WallInfiniteScrollState = _$WallInfiniteScrollStateTearOff();
 
 /// @nodoc
 mixin _$WallInfiniteScrollState {
-  List<WallItem> get postID => throw _privateConstructorUsedError;
+  List<WallItem> get wallItems => throw _privateConstructorUsedError;
   Map<String, dynamic> get filterWall => throw _privateConstructorUsedError;
+  Option<PostFailure> get postFailure => throw _privateConstructorUsedError;
   bool get isFetching => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -501,8 +504,9 @@ abstract class $WallInfiniteScrollStateCopyWith<$Res> {
           $Res Function(WallInfiniteScrollState) then) =
       _$WallInfiniteScrollStateCopyWithImpl<$Res>;
   $Res call(
-      {List<WallItem> postID,
+      {List<WallItem> wallItems,
       Map<String, dynamic> filterWall,
+      Option<PostFailure> postFailure,
       bool isFetching});
 }
 
@@ -517,19 +521,24 @@ class _$WallInfiniteScrollStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? postID = freezed,
+    Object? wallItems = freezed,
     Object? filterWall = freezed,
+    Object? postFailure = freezed,
     Object? isFetching = freezed,
   }) {
     return _then(_value.copyWith(
-      postID: postID == freezed
-          ? _value.postID
-          : postID // ignore: cast_nullable_to_non_nullable
+      wallItems: wallItems == freezed
+          ? _value.wallItems
+          : wallItems // ignore: cast_nullable_to_non_nullable
               as List<WallItem>,
       filterWall: filterWall == freezed
           ? _value.filterWall
           : filterWall // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      postFailure: postFailure == freezed
+          ? _value.postFailure
+          : postFailure // ignore: cast_nullable_to_non_nullable
+              as Option<PostFailure>,
       isFetching: isFetching == freezed
           ? _value.isFetching
           : isFetching // ignore: cast_nullable_to_non_nullable
@@ -546,8 +555,9 @@ abstract class _$WallInfiniteScrollStateCopyWith<$Res>
       __$WallInfiniteScrollStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<WallItem> postID,
+      {List<WallItem> wallItems,
       Map<String, dynamic> filterWall,
+      Option<PostFailure> postFailure,
       bool isFetching});
 }
 
@@ -565,19 +575,24 @@ class __$WallInfiniteScrollStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? postID = freezed,
+    Object? wallItems = freezed,
     Object? filterWall = freezed,
+    Object? postFailure = freezed,
     Object? isFetching = freezed,
   }) {
     return _then(_WallInfiniteScrollState(
-      postID: postID == freezed
-          ? _value.postID
-          : postID // ignore: cast_nullable_to_non_nullable
+      wallItems: wallItems == freezed
+          ? _value.wallItems
+          : wallItems // ignore: cast_nullable_to_non_nullable
               as List<WallItem>,
       filterWall: filterWall == freezed
           ? _value.filterWall
           : filterWall // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      postFailure: postFailure == freezed
+          ? _value.postFailure
+          : postFailure // ignore: cast_nullable_to_non_nullable
+              as Option<PostFailure>,
       isFetching: isFetching == freezed
           ? _value.isFetching
           : isFetching // ignore: cast_nullable_to_non_nullable
@@ -590,20 +605,23 @@ class __$WallInfiniteScrollStateCopyWithImpl<$Res>
 
 class _$_WallInfiniteScrollState implements _WallInfiniteScrollState {
   const _$_WallInfiniteScrollState(
-      {required this.postID,
+      {required this.wallItems,
       required this.filterWall,
+      required this.postFailure,
       required this.isFetching});
 
   @override
-  final List<WallItem> postID;
+  final List<WallItem> wallItems;
   @override
   final Map<String, dynamic> filterWall;
+  @override
+  final Option<PostFailure> postFailure;
   @override
   final bool isFetching;
 
   @override
   String toString() {
-    return 'WallInfiniteScrollState(postID: $postID, filterWall: $filterWall, isFetching: $isFetching)';
+    return 'WallInfiniteScrollState(wallItems: $wallItems, filterWall: $filterWall, postFailure: $postFailure, isFetching: $isFetching)';
   }
 
   @override
@@ -611,9 +629,11 @@ class _$_WallInfiniteScrollState implements _WallInfiniteScrollState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _WallInfiniteScrollState &&
-            const DeepCollectionEquality().equals(other.postID, postID) &&
+            const DeepCollectionEquality().equals(other.wallItems, wallItems) &&
             const DeepCollectionEquality()
                 .equals(other.filterWall, filterWall) &&
+            const DeepCollectionEquality()
+                .equals(other.postFailure, postFailure) &&
             const DeepCollectionEquality()
                 .equals(other.isFetching, isFetching));
   }
@@ -621,8 +641,9 @@ class _$_WallInfiniteScrollState implements _WallInfiniteScrollState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(postID),
+      const DeepCollectionEquality().hash(wallItems),
       const DeepCollectionEquality().hash(filterWall),
+      const DeepCollectionEquality().hash(postFailure),
       const DeepCollectionEquality().hash(isFetching));
 
   @JsonKey(ignore: true)
@@ -634,14 +655,17 @@ class _$_WallInfiniteScrollState implements _WallInfiniteScrollState {
 
 abstract class _WallInfiniteScrollState implements WallInfiniteScrollState {
   const factory _WallInfiniteScrollState(
-      {required List<WallItem> postID,
+      {required List<WallItem> wallItems,
       required Map<String, dynamic> filterWall,
+      required Option<PostFailure> postFailure,
       required bool isFetching}) = _$_WallInfiniteScrollState;
 
   @override
-  List<WallItem> get postID;
+  List<WallItem> get wallItems;
   @override
   Map<String, dynamic> get filterWall;
+  @override
+  Option<PostFailure> get postFailure;
   @override
   bool get isFetching;
   @override

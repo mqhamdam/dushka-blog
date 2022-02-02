@@ -16,7 +16,6 @@ abstract class AppUserFullDto with _$AppUserFullDto {
     required String backgroundImageUrl,
     required String userBio,
     required String userUID,
-    required SubscriptionStatus subscriptionStatus,
     required int postCount,
     required int subscribersCount,
     required int subscribingCount,
@@ -30,7 +29,6 @@ abstract class AppUserFullDto with _$AppUserFullDto {
       backgroundImageUrl: appUserFull.backgroundImageUrl.getOrCrash(),
       userBio: appUserFull.userBio.getOrCrash(),
       userUID: appUserFull.userUID.getOrCrash(),
-      subscriptionStatus: appUserFull.subscriptionStatus,
       postCount: appUserFull.postCount,
       subscribersCount: appUserFull.subscribersCount,
       subscribingCount: appUserFull.subscribingCount,
@@ -51,7 +49,6 @@ abstract class AppUserFullDto with _$AppUserFullDto {
       backgroundImageUrl: ImageUrl(backgroundImageUrl),
       userBio: UserBio(userBio),
       userUID: UserUID(userUID),
-      subscriptionStatus: subscriptionStatus,
       postCount: postCount,
       subscribersCount: subscribersCount,
       subscribingCount: subscribingCount,
@@ -66,7 +63,6 @@ abstract class AppUserLessDto with _$AppUserLessDto {
     required String userUName,
     required String avatarImageUrl,
     required String userUID,
-    required SubscriptionStatus subscriptionStatus,
   }) = _AppUserLessDto;
 
   factory AppUserLessDto.fromDomain(AppUserLess appUserLess) {
@@ -75,7 +71,6 @@ abstract class AppUserLessDto with _$AppUserLessDto {
       userUName: appUserLess.userUName.getOrCrash(),
       avatarImageUrl: appUserLess.avatarImageUrl.getOrCrash(),
       userUID: appUserLess.userUID.getOrCrash(),
-      subscriptionStatus: appUserLess.subscriptionStatus,
     );
   }
 
@@ -91,7 +86,6 @@ abstract class AppUserLessDto with _$AppUserLessDto {
       userUName: UserUName(userUName),
       avatarImageUrl: ImageUrl(avatarImageUrl),
       userUID: UserUID(userUID),
-      subscriptionStatus: subscriptionStatus,
     );
   }
 }

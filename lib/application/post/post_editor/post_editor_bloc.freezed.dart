@@ -18,8 +18,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$PostEditorEventTearOff {
   const _$PostEditorEventTearOff();
 
-  _PostEditorEventGetPostToEdit getPostToEdit() {
-    return const _PostEditorEventGetPostToEdit();
+  _PostEditorEventGetPostToEdit getPostToEdit(PostID postID) {
+    return _PostEditorEventGetPostToEdit(
+      postID,
+    );
   }
 
   _PostEditorEventPostBodyChanged postBodyChanged(String postBody) {
@@ -44,7 +46,7 @@ const $PostEditorEvent = _$PostEditorEventTearOff();
 mixin _$PostEditorEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getPostToEdit,
+    required TResult Function(PostID postID) getPostToEdit,
     required TResult Function(String postBody) postBodyChanged,
     required TResult Function() saveButtonPressed,
     required TResult Function() postButtonPressed,
@@ -52,7 +54,7 @@ mixin _$PostEditorEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getPostToEdit,
+    TResult Function(PostID postID)? getPostToEdit,
     TResult Function(String postBody)? postBodyChanged,
     TResult Function()? saveButtonPressed,
     TResult Function()? postButtonPressed,
@@ -60,7 +62,7 @@ mixin _$PostEditorEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getPostToEdit,
+    TResult Function(PostID postID)? getPostToEdit,
     TResult Function(String postBody)? postBodyChanged,
     TResult Function()? saveButtonPressed,
     TResult Function()? postButtonPressed,
@@ -125,6 +127,7 @@ abstract class _$PostEditorEventGetPostToEditCopyWith<$Res> {
           _PostEditorEventGetPostToEdit value,
           $Res Function(_PostEditorEventGetPostToEdit) then) =
       __$PostEditorEventGetPostToEditCopyWithImpl<$Res>;
+  $Res call({PostID postID});
 }
 
 /// @nodoc
@@ -139,61 +142,84 @@ class __$PostEditorEventGetPostToEditCopyWithImpl<$Res>
   @override
   _PostEditorEventGetPostToEdit get _value =>
       super._value as _PostEditorEventGetPostToEdit;
+
+  @override
+  $Res call({
+    Object? postID = freezed,
+  }) {
+    return _then(_PostEditorEventGetPostToEdit(
+      postID == freezed
+          ? _value.postID
+          : postID // ignore: cast_nullable_to_non_nullable
+              as PostID,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_PostEditorEventGetPostToEdit implements _PostEditorEventGetPostToEdit {
-  const _$_PostEditorEventGetPostToEdit();
+  const _$_PostEditorEventGetPostToEdit(this.postID);
+
+  @override
+  final PostID postID;
 
   @override
   String toString() {
-    return 'PostEditorEvent.getPostToEdit()';
+    return 'PostEditorEvent.getPostToEdit(postID: $postID)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PostEditorEventGetPostToEdit);
+            other is _PostEditorEventGetPostToEdit &&
+            const DeepCollectionEquality().equals(other.postID, postID));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(postID));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PostEditorEventGetPostToEditCopyWith<_PostEditorEventGetPostToEdit>
+      get copyWith => __$PostEditorEventGetPostToEditCopyWithImpl<
+          _PostEditorEventGetPostToEdit>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getPostToEdit,
+    required TResult Function(PostID postID) getPostToEdit,
     required TResult Function(String postBody) postBodyChanged,
     required TResult Function() saveButtonPressed,
     required TResult Function() postButtonPressed,
   }) {
-    return getPostToEdit();
+    return getPostToEdit(postID);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getPostToEdit,
+    TResult Function(PostID postID)? getPostToEdit,
     TResult Function(String postBody)? postBodyChanged,
     TResult Function()? saveButtonPressed,
     TResult Function()? postButtonPressed,
   }) {
-    return getPostToEdit?.call();
+    return getPostToEdit?.call(postID);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getPostToEdit,
+    TResult Function(PostID postID)? getPostToEdit,
     TResult Function(String postBody)? postBodyChanged,
     TResult Function()? saveButtonPressed,
     TResult Function()? postButtonPressed,
     required TResult orElse(),
   }) {
     if (getPostToEdit != null) {
-      return getPostToEdit();
+      return getPostToEdit(postID);
     }
     return orElse();
   }
@@ -245,8 +271,13 @@ class _$_PostEditorEventGetPostToEdit implements _PostEditorEventGetPostToEdit {
 }
 
 abstract class _PostEditorEventGetPostToEdit implements PostEditorEvent {
-  const factory _PostEditorEventGetPostToEdit() =
+  const factory _PostEditorEventGetPostToEdit(PostID postID) =
       _$_PostEditorEventGetPostToEdit;
+
+  PostID get postID;
+  @JsonKey(ignore: true)
+  _$PostEditorEventGetPostToEditCopyWith<_PostEditorEventGetPostToEdit>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -319,7 +350,7 @@ class _$_PostEditorEventPostBodyChanged
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getPostToEdit,
+    required TResult Function(PostID postID) getPostToEdit,
     required TResult Function(String postBody) postBodyChanged,
     required TResult Function() saveButtonPressed,
     required TResult Function() postButtonPressed,
@@ -330,7 +361,7 @@ class _$_PostEditorEventPostBodyChanged
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getPostToEdit,
+    TResult Function(PostID postID)? getPostToEdit,
     TResult Function(String postBody)? postBodyChanged,
     TResult Function()? saveButtonPressed,
     TResult Function()? postButtonPressed,
@@ -341,7 +372,7 @@ class _$_PostEditorEventPostBodyChanged
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getPostToEdit,
+    TResult Function(PostID postID)? getPostToEdit,
     TResult Function(String postBody)? postBodyChanged,
     TResult Function()? saveButtonPressed,
     TResult Function()? postButtonPressed,
@@ -455,7 +486,7 @@ class _$_PostEditorEventSaveButtonPressed
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getPostToEdit,
+    required TResult Function(PostID postID) getPostToEdit,
     required TResult Function(String postBody) postBodyChanged,
     required TResult Function() saveButtonPressed,
     required TResult Function() postButtonPressed,
@@ -466,7 +497,7 @@ class _$_PostEditorEventSaveButtonPressed
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getPostToEdit,
+    TResult Function(PostID postID)? getPostToEdit,
     TResult Function(String postBody)? postBodyChanged,
     TResult Function()? saveButtonPressed,
     TResult Function()? postButtonPressed,
@@ -477,7 +508,7 @@ class _$_PostEditorEventSaveButtonPressed
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getPostToEdit,
+    TResult Function(PostID postID)? getPostToEdit,
     TResult Function(String postBody)? postBodyChanged,
     TResult Function()? saveButtonPressed,
     TResult Function()? postButtonPressed,
@@ -586,7 +617,7 @@ class _$_PostEditorEventPostButtonPressed
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getPostToEdit,
+    required TResult Function(PostID postID) getPostToEdit,
     required TResult Function(String postBody) postBodyChanged,
     required TResult Function() saveButtonPressed,
     required TResult Function() postButtonPressed,
@@ -597,7 +628,7 @@ class _$_PostEditorEventPostButtonPressed
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getPostToEdit,
+    TResult Function(PostID postID)? getPostToEdit,
     TResult Function(String postBody)? postBodyChanged,
     TResult Function()? saveButtonPressed,
     TResult Function()? postButtonPressed,
@@ -608,7 +639,7 @@ class _$_PostEditorEventPostButtonPressed
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getPostToEdit,
+    TResult Function(PostID postID)? getPostToEdit,
     TResult Function(String postBody)? postBodyChanged,
     TResult Function()? saveButtonPressed,
     TResult Function()? postButtonPressed,
@@ -675,9 +706,10 @@ abstract class _PostEditorEventPostButtonPressed implements PostEditorEvent {
 class _$PostEditorStateTearOff {
   const _$PostEditorStateTearOff();
 
-  _PostEditorState call({required PostBody postBody}) {
+  _PostEditorState call({required PostBody postBody, required PostID postID}) {
     return _PostEditorState(
       postBody: postBody,
+      postID: postID,
     );
   }
 }
@@ -688,6 +720,7 @@ const $PostEditorState = _$PostEditorStateTearOff();
 /// @nodoc
 mixin _$PostEditorState {
   PostBody get postBody => throw _privateConstructorUsedError;
+  PostID get postID => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PostEditorStateCopyWith<PostEditorState> get copyWith =>
@@ -699,7 +732,7 @@ abstract class $PostEditorStateCopyWith<$Res> {
   factory $PostEditorStateCopyWith(
           PostEditorState value, $Res Function(PostEditorState) then) =
       _$PostEditorStateCopyWithImpl<$Res>;
-  $Res call({PostBody postBody});
+  $Res call({PostBody postBody, PostID postID});
 }
 
 /// @nodoc
@@ -714,12 +747,17 @@ class _$PostEditorStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? postBody = freezed,
+    Object? postID = freezed,
   }) {
     return _then(_value.copyWith(
       postBody: postBody == freezed
           ? _value.postBody
           : postBody // ignore: cast_nullable_to_non_nullable
               as PostBody,
+      postID: postID == freezed
+          ? _value.postID
+          : postID // ignore: cast_nullable_to_non_nullable
+              as PostID,
     ));
   }
 }
@@ -731,7 +769,7 @@ abstract class _$PostEditorStateCopyWith<$Res>
           _PostEditorState value, $Res Function(_PostEditorState) then) =
       __$PostEditorStateCopyWithImpl<$Res>;
   @override
-  $Res call({PostBody postBody});
+  $Res call({PostBody postBody, PostID postID});
 }
 
 /// @nodoc
@@ -748,12 +786,17 @@ class __$PostEditorStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? postBody = freezed,
+    Object? postID = freezed,
   }) {
     return _then(_PostEditorState(
       postBody: postBody == freezed
           ? _value.postBody
           : postBody // ignore: cast_nullable_to_non_nullable
               as PostBody,
+      postID: postID == freezed
+          ? _value.postID
+          : postID // ignore: cast_nullable_to_non_nullable
+              as PostID,
     ));
   }
 }
@@ -761,14 +804,16 @@ class __$PostEditorStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PostEditorState implements _PostEditorState {
-  const _$_PostEditorState({required this.postBody});
+  const _$_PostEditorState({required this.postBody, required this.postID});
 
   @override
   final PostBody postBody;
+  @override
+  final PostID postID;
 
   @override
   String toString() {
-    return 'PostEditorState(postBody: $postBody)';
+    return 'PostEditorState(postBody: $postBody, postID: $postID)';
   }
 
   @override
@@ -776,12 +821,15 @@ class _$_PostEditorState implements _PostEditorState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PostEditorState &&
-            const DeepCollectionEquality().equals(other.postBody, postBody));
+            const DeepCollectionEquality().equals(other.postBody, postBody) &&
+            const DeepCollectionEquality().equals(other.postID, postID));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(postBody));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(postBody),
+      const DeepCollectionEquality().hash(postID));
 
   @JsonKey(ignore: true)
   @override
@@ -790,11 +838,14 @@ class _$_PostEditorState implements _PostEditorState {
 }
 
 abstract class _PostEditorState implements PostEditorState {
-  const factory _PostEditorState({required PostBody postBody}) =
-      _$_PostEditorState;
+  const factory _PostEditorState(
+      {required PostBody postBody,
+      required PostID postID}) = _$_PostEditorState;
 
   @override
   PostBody get postBody;
+  @override
+  PostID get postID;
   @override
   @JsonKey(ignore: true)
   _$PostEditorStateCopyWith<_PostEditorState> get copyWith =>

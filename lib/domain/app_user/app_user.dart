@@ -11,8 +11,8 @@ abstract class AppUser with _$AppUser {
     required UserUName userUName,
     required ImageUrl avatarImageUrl,
     required UserUID userUID,
-    required SubscriptionStatus subscriptionStatus,
   }) = AppUserLess;
+  const factory AppUser.empty() = AppUserEmpty;
   const factory AppUser.full({
     required Name name,
     required UserUName userUName,
@@ -20,7 +20,6 @@ abstract class AppUser with _$AppUser {
     required ImageUrl backgroundImageUrl,
     required UserBio userBio,
     required UserUID userUID,
-    required SubscriptionStatus subscriptionStatus,
     required int postCount,
     required int subscribersCount,
     required int subscribingCount,

@@ -18,24 +18,36 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$PostWatcherEventTearOff {
   const _$PostWatcherEventTearOff();
 
-  _Started started() {
-    return const _Started();
+  _PostWatcherEventStreamConnected streamConnected(
+      PostID postID, UserUID authorUID) {
+    return _PostWatcherEventStreamConnected(
+      postID,
+      authorUID,
+    );
   }
 
-  _postwatcherStreamConnected streamConnected() {
-    return const _postwatcherStreamConnected();
+  _PostWatcherEventLikeButtonPressed likeButtonPressed(
+      PostID postID, UserUID authorUID) {
+    return _PostWatcherEventLikeButtonPressed(
+      postID,
+      authorUID,
+    );
   }
 
-  _PostWatcherEventlikeButtonPressed likeButtonPressed() {
-    return const _PostWatcherEventlikeButtonPressed();
+  _PostWatcherEventBookmarkButtonPressed bookmarkButtonPressed(
+      PostID postID, UserUID authorUID) {
+    return _PostWatcherEventBookmarkButtonPressed(
+      postID,
+      authorUID,
+    );
   }
 
-  _PostWatcherEventBookmarkButtonPressed bookmarkButtonPressed() {
-    return const _PostWatcherEventBookmarkButtonPressed();
-  }
-
-  _PostWatcherEventReportButtonPressed reportButtonPressed() {
-    return const _PostWatcherEventReportButtonPressed();
+  _PostWatcherEventReportButtonPressed reportButtonPressed(
+      PostID postID, UserUID authorUID) {
+    return _PostWatcherEventReportButtonPressed(
+      postID,
+      authorUID,
+    );
   }
 }
 
@@ -44,40 +56,42 @@ const $PostWatcherEvent = _$PostWatcherEventTearOff();
 
 /// @nodoc
 mixin _$PostWatcherEvent {
+  PostID get postID => throw _privateConstructorUsedError;
+  UserUID get authorUID => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() streamConnected,
-    required TResult Function() likeButtonPressed,
-    required TResult Function() bookmarkButtonPressed,
-    required TResult Function() reportButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID) streamConnected,
+    required TResult Function(PostID postID, UserUID authorUID)
+        likeButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID)
+        bookmarkButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID)
+        reportButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? streamConnected,
-    TResult Function()? likeButtonPressed,
-    TResult Function()? bookmarkButtonPressed,
-    TResult Function()? reportButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? streamConnected,
+    TResult Function(PostID postID, UserUID authorUID)? likeButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? bookmarkButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? reportButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? streamConnected,
-    TResult Function()? likeButtonPressed,
-    TResult Function()? bookmarkButtonPressed,
-    TResult Function()? reportButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? streamConnected,
+    TResult Function(PostID postID, UserUID authorUID)? likeButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? bookmarkButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? reportButtonPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_postwatcherStreamConnected value)
+    required TResult Function(_PostWatcherEventStreamConnected value)
         streamConnected,
-    required TResult Function(_PostWatcherEventlikeButtonPressed value)
+    required TResult Function(_PostWatcherEventLikeButtonPressed value)
         likeButtonPressed,
     required TResult Function(_PostWatcherEventBookmarkButtonPressed value)
         bookmarkButtonPressed,
@@ -87,9 +101,8 @@ mixin _$PostWatcherEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_postwatcherStreamConnected value)? streamConnected,
-    TResult Function(_PostWatcherEventlikeButtonPressed value)?
+    TResult Function(_PostWatcherEventStreamConnected value)? streamConnected,
+    TResult Function(_PostWatcherEventLikeButtonPressed value)?
         likeButtonPressed,
     TResult Function(_PostWatcherEventBookmarkButtonPressed value)?
         bookmarkButtonPressed,
@@ -99,9 +112,8 @@ mixin _$PostWatcherEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_postwatcherStreamConnected value)? streamConnected,
-    TResult Function(_PostWatcherEventlikeButtonPressed value)?
+    TResult Function(_PostWatcherEventStreamConnected value)? streamConnected,
+    TResult Function(_PostWatcherEventLikeButtonPressed value)?
         likeButtonPressed,
     TResult Function(_PostWatcherEventBookmarkButtonPressed value)?
         bookmarkButtonPressed,
@@ -110,6 +122,10 @@ mixin _$PostWatcherEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $PostWatcherEventCopyWith<PostWatcherEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -117,6 +133,7 @@ abstract class $PostWatcherEventCopyWith<$Res> {
   factory $PostWatcherEventCopyWith(
           PostWatcherEvent value, $Res Function(PostWatcherEvent) then) =
       _$PostWatcherEventCopyWithImpl<$Res>;
+  $Res call({PostID postID, UserUID authorUID});
 }
 
 /// @nodoc
@@ -127,215 +144,140 @@ class _$PostWatcherEventCopyWithImpl<$Res>
   final PostWatcherEvent _value;
   // ignore: unused_field
   final $Res Function(PostWatcherEvent) _then;
+
+  @override
+  $Res call({
+    Object? postID = freezed,
+    Object? authorUID = freezed,
+  }) {
+    return _then(_value.copyWith(
+      postID: postID == freezed
+          ? _value.postID
+          : postID // ignore: cast_nullable_to_non_nullable
+              as PostID,
+      authorUID: authorUID == freezed
+          ? _value.authorUID
+          : authorUID // ignore: cast_nullable_to_non_nullable
+              as UserUID,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$StartedCopyWith<$Res> {
-  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
-      __$StartedCopyWithImpl<$Res>;
+abstract class _$PostWatcherEventStreamConnectedCopyWith<$Res>
+    implements $PostWatcherEventCopyWith<$Res> {
+  factory _$PostWatcherEventStreamConnectedCopyWith(
+          _PostWatcherEventStreamConnected value,
+          $Res Function(_PostWatcherEventStreamConnected) then) =
+      __$PostWatcherEventStreamConnectedCopyWithImpl<$Res>;
+  @override
+  $Res call({PostID postID, UserUID authorUID});
 }
 
 /// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$PostWatcherEventCopyWithImpl<$Res>
-    implements _$StartedCopyWith<$Res> {
-  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
-      : super(_value, (v) => _then(v as _Started));
-
-  @override
-  _Started get _value => super._value as _Started;
-}
-
-/// @nodoc
-
-class _$_Started implements _Started {
-  const _$_Started();
-
-  @override
-  String toString() {
-    return 'PostWatcherEvent.started()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Started);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() streamConnected,
-    required TResult Function() likeButtonPressed,
-    required TResult Function() bookmarkButtonPressed,
-    required TResult Function() reportButtonPressed,
-  }) {
-    return started();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? streamConnected,
-    TResult Function()? likeButtonPressed,
-    TResult Function()? bookmarkButtonPressed,
-    TResult Function()? reportButtonPressed,
-  }) {
-    return started?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? streamConnected,
-    TResult Function()? likeButtonPressed,
-    TResult Function()? bookmarkButtonPressed,
-    TResult Function()? reportButtonPressed,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_postwatcherStreamConnected value)
-        streamConnected,
-    required TResult Function(_PostWatcherEventlikeButtonPressed value)
-        likeButtonPressed,
-    required TResult Function(_PostWatcherEventBookmarkButtonPressed value)
-        bookmarkButtonPressed,
-    required TResult Function(_PostWatcherEventReportButtonPressed value)
-        reportButtonPressed,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_postwatcherStreamConnected value)? streamConnected,
-    TResult Function(_PostWatcherEventlikeButtonPressed value)?
-        likeButtonPressed,
-    TResult Function(_PostWatcherEventBookmarkButtonPressed value)?
-        bookmarkButtonPressed,
-    TResult Function(_PostWatcherEventReportButtonPressed value)?
-        reportButtonPressed,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_postwatcherStreamConnected value)? streamConnected,
-    TResult Function(_PostWatcherEventlikeButtonPressed value)?
-        likeButtonPressed,
-    TResult Function(_PostWatcherEventBookmarkButtonPressed value)?
-        bookmarkButtonPressed,
-    TResult Function(_PostWatcherEventReportButtonPressed value)?
-        reportButtonPressed,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Started implements PostWatcherEvent {
-  const factory _Started() = _$_Started;
-}
-
-/// @nodoc
-abstract class _$postwatcherStreamConnectedCopyWith<$Res> {
-  factory _$postwatcherStreamConnectedCopyWith(
-          _postwatcherStreamConnected value,
-          $Res Function(_postwatcherStreamConnected) then) =
-      __$postwatcherStreamConnectedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$postwatcherStreamConnectedCopyWithImpl<$Res>
+class __$PostWatcherEventStreamConnectedCopyWithImpl<$Res>
     extends _$PostWatcherEventCopyWithImpl<$Res>
-    implements _$postwatcherStreamConnectedCopyWith<$Res> {
-  __$postwatcherStreamConnectedCopyWithImpl(_postwatcherStreamConnected _value,
-      $Res Function(_postwatcherStreamConnected) _then)
-      : super(_value, (v) => _then(v as _postwatcherStreamConnected));
+    implements _$PostWatcherEventStreamConnectedCopyWith<$Res> {
+  __$PostWatcherEventStreamConnectedCopyWithImpl(
+      _PostWatcherEventStreamConnected _value,
+      $Res Function(_PostWatcherEventStreamConnected) _then)
+      : super(_value, (v) => _then(v as _PostWatcherEventStreamConnected));
 
   @override
-  _postwatcherStreamConnected get _value =>
-      super._value as _postwatcherStreamConnected;
+  _PostWatcherEventStreamConnected get _value =>
+      super._value as _PostWatcherEventStreamConnected;
+
+  @override
+  $Res call({
+    Object? postID = freezed,
+    Object? authorUID = freezed,
+  }) {
+    return _then(_PostWatcherEventStreamConnected(
+      postID == freezed
+          ? _value.postID
+          : postID // ignore: cast_nullable_to_non_nullable
+              as PostID,
+      authorUID == freezed
+          ? _value.authorUID
+          : authorUID // ignore: cast_nullable_to_non_nullable
+              as UserUID,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_postwatcherStreamConnected implements _postwatcherStreamConnected {
-  const _$_postwatcherStreamConnected();
+class _$_PostWatcherEventStreamConnected
+    implements _PostWatcherEventStreamConnected {
+  const _$_PostWatcherEventStreamConnected(this.postID, this.authorUID);
+
+  @override
+  final PostID postID;
+  @override
+  final UserUID authorUID;
 
   @override
   String toString() {
-    return 'PostWatcherEvent.streamConnected()';
+    return 'PostWatcherEvent.streamConnected(postID: $postID, authorUID: $authorUID)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _postwatcherStreamConnected);
+            other is _PostWatcherEventStreamConnected &&
+            const DeepCollectionEquality().equals(other.postID, postID) &&
+            const DeepCollectionEquality().equals(other.authorUID, authorUID));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(postID),
+      const DeepCollectionEquality().hash(authorUID));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PostWatcherEventStreamConnectedCopyWith<_PostWatcherEventStreamConnected>
+      get copyWith => __$PostWatcherEventStreamConnectedCopyWithImpl<
+          _PostWatcherEventStreamConnected>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() streamConnected,
-    required TResult Function() likeButtonPressed,
-    required TResult Function() bookmarkButtonPressed,
-    required TResult Function() reportButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID) streamConnected,
+    required TResult Function(PostID postID, UserUID authorUID)
+        likeButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID)
+        bookmarkButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID)
+        reportButtonPressed,
   }) {
-    return streamConnected();
+    return streamConnected(postID, authorUID);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? streamConnected,
-    TResult Function()? likeButtonPressed,
-    TResult Function()? bookmarkButtonPressed,
-    TResult Function()? reportButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? streamConnected,
+    TResult Function(PostID postID, UserUID authorUID)? likeButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? bookmarkButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? reportButtonPressed,
   }) {
-    return streamConnected?.call();
+    return streamConnected?.call(postID, authorUID);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? streamConnected,
-    TResult Function()? likeButtonPressed,
-    TResult Function()? bookmarkButtonPressed,
-    TResult Function()? reportButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? streamConnected,
+    TResult Function(PostID postID, UserUID authorUID)? likeButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? bookmarkButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? reportButtonPressed,
     required TResult orElse(),
   }) {
     if (streamConnected != null) {
-      return streamConnected();
+      return streamConnected(postID, authorUID);
     }
     return orElse();
   }
@@ -343,10 +285,9 @@ class _$_postwatcherStreamConnected implements _postwatcherStreamConnected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_postwatcherStreamConnected value)
+    required TResult Function(_PostWatcherEventStreamConnected value)
         streamConnected,
-    required TResult Function(_PostWatcherEventlikeButtonPressed value)
+    required TResult Function(_PostWatcherEventLikeButtonPressed value)
         likeButtonPressed,
     required TResult Function(_PostWatcherEventBookmarkButtonPressed value)
         bookmarkButtonPressed,
@@ -359,9 +300,8 @@ class _$_postwatcherStreamConnected implements _postwatcherStreamConnected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_postwatcherStreamConnected value)? streamConnected,
-    TResult Function(_PostWatcherEventlikeButtonPressed value)?
+    TResult Function(_PostWatcherEventStreamConnected value)? streamConnected,
+    TResult Function(_PostWatcherEventLikeButtonPressed value)?
         likeButtonPressed,
     TResult Function(_PostWatcherEventBookmarkButtonPressed value)?
         bookmarkButtonPressed,
@@ -374,9 +314,8 @@ class _$_postwatcherStreamConnected implements _postwatcherStreamConnected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_postwatcherStreamConnected value)? streamConnected,
-    TResult Function(_PostWatcherEventlikeButtonPressed value)?
+    TResult Function(_PostWatcherEventStreamConnected value)? streamConnected,
+    TResult Function(_PostWatcherEventLikeButtonPressed value)?
         likeButtonPressed,
     TResult Function(_PostWatcherEventBookmarkButtonPressed value)?
         bookmarkButtonPressed,
@@ -391,89 +330,136 @@ class _$_postwatcherStreamConnected implements _postwatcherStreamConnected {
   }
 }
 
-abstract class _postwatcherStreamConnected implements PostWatcherEvent {
-  const factory _postwatcherStreamConnected() = _$_postwatcherStreamConnected;
-}
-
-/// @nodoc
-abstract class _$PostWatcherEventlikeButtonPressedCopyWith<$Res> {
-  factory _$PostWatcherEventlikeButtonPressedCopyWith(
-          _PostWatcherEventlikeButtonPressed value,
-          $Res Function(_PostWatcherEventlikeButtonPressed) then) =
-      __$PostWatcherEventlikeButtonPressedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$PostWatcherEventlikeButtonPressedCopyWithImpl<$Res>
-    extends _$PostWatcherEventCopyWithImpl<$Res>
-    implements _$PostWatcherEventlikeButtonPressedCopyWith<$Res> {
-  __$PostWatcherEventlikeButtonPressedCopyWithImpl(
-      _PostWatcherEventlikeButtonPressed _value,
-      $Res Function(_PostWatcherEventlikeButtonPressed) _then)
-      : super(_value, (v) => _then(v as _PostWatcherEventlikeButtonPressed));
+abstract class _PostWatcherEventStreamConnected implements PostWatcherEvent {
+  const factory _PostWatcherEventStreamConnected(
+      PostID postID, UserUID authorUID) = _$_PostWatcherEventStreamConnected;
 
   @override
-  _PostWatcherEventlikeButtonPressed get _value =>
-      super._value as _PostWatcherEventlikeButtonPressed;
+  PostID get postID;
+  @override
+  UserUID get authorUID;
+  @override
+  @JsonKey(ignore: true)
+  _$PostWatcherEventStreamConnectedCopyWith<_PostWatcherEventStreamConnected>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$PostWatcherEventLikeButtonPressedCopyWith<$Res>
+    implements $PostWatcherEventCopyWith<$Res> {
+  factory _$PostWatcherEventLikeButtonPressedCopyWith(
+          _PostWatcherEventLikeButtonPressed value,
+          $Res Function(_PostWatcherEventLikeButtonPressed) then) =
+      __$PostWatcherEventLikeButtonPressedCopyWithImpl<$Res>;
+  @override
+  $Res call({PostID postID, UserUID authorUID});
+}
+
+/// @nodoc
+class __$PostWatcherEventLikeButtonPressedCopyWithImpl<$Res>
+    extends _$PostWatcherEventCopyWithImpl<$Res>
+    implements _$PostWatcherEventLikeButtonPressedCopyWith<$Res> {
+  __$PostWatcherEventLikeButtonPressedCopyWithImpl(
+      _PostWatcherEventLikeButtonPressed _value,
+      $Res Function(_PostWatcherEventLikeButtonPressed) _then)
+      : super(_value, (v) => _then(v as _PostWatcherEventLikeButtonPressed));
+
+  @override
+  _PostWatcherEventLikeButtonPressed get _value =>
+      super._value as _PostWatcherEventLikeButtonPressed;
+
+  @override
+  $Res call({
+    Object? postID = freezed,
+    Object? authorUID = freezed,
+  }) {
+    return _then(_PostWatcherEventLikeButtonPressed(
+      postID == freezed
+          ? _value.postID
+          : postID // ignore: cast_nullable_to_non_nullable
+              as PostID,
+      authorUID == freezed
+          ? _value.authorUID
+          : authorUID // ignore: cast_nullable_to_non_nullable
+              as UserUID,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_PostWatcherEventlikeButtonPressed
-    implements _PostWatcherEventlikeButtonPressed {
-  const _$_PostWatcherEventlikeButtonPressed();
+class _$_PostWatcherEventLikeButtonPressed
+    implements _PostWatcherEventLikeButtonPressed {
+  const _$_PostWatcherEventLikeButtonPressed(this.postID, this.authorUID);
+
+  @override
+  final PostID postID;
+  @override
+  final UserUID authorUID;
 
   @override
   String toString() {
-    return 'PostWatcherEvent.likeButtonPressed()';
+    return 'PostWatcherEvent.likeButtonPressed(postID: $postID, authorUID: $authorUID)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PostWatcherEventlikeButtonPressed);
+            other is _PostWatcherEventLikeButtonPressed &&
+            const DeepCollectionEquality().equals(other.postID, postID) &&
+            const DeepCollectionEquality().equals(other.authorUID, authorUID));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(postID),
+      const DeepCollectionEquality().hash(authorUID));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PostWatcherEventLikeButtonPressedCopyWith<
+          _PostWatcherEventLikeButtonPressed>
+      get copyWith => __$PostWatcherEventLikeButtonPressedCopyWithImpl<
+          _PostWatcherEventLikeButtonPressed>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() streamConnected,
-    required TResult Function() likeButtonPressed,
-    required TResult Function() bookmarkButtonPressed,
-    required TResult Function() reportButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID) streamConnected,
+    required TResult Function(PostID postID, UserUID authorUID)
+        likeButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID)
+        bookmarkButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID)
+        reportButtonPressed,
   }) {
-    return likeButtonPressed();
+    return likeButtonPressed(postID, authorUID);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? streamConnected,
-    TResult Function()? likeButtonPressed,
-    TResult Function()? bookmarkButtonPressed,
-    TResult Function()? reportButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? streamConnected,
+    TResult Function(PostID postID, UserUID authorUID)? likeButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? bookmarkButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? reportButtonPressed,
   }) {
-    return likeButtonPressed?.call();
+    return likeButtonPressed?.call(postID, authorUID);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? streamConnected,
-    TResult Function()? likeButtonPressed,
-    TResult Function()? bookmarkButtonPressed,
-    TResult Function()? reportButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? streamConnected,
+    TResult Function(PostID postID, UserUID authorUID)? likeButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? bookmarkButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? reportButtonPressed,
     required TResult orElse(),
   }) {
     if (likeButtonPressed != null) {
-      return likeButtonPressed();
+      return likeButtonPressed(postID, authorUID);
     }
     return orElse();
   }
@@ -481,10 +467,9 @@ class _$_PostWatcherEventlikeButtonPressed
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_postwatcherStreamConnected value)
+    required TResult Function(_PostWatcherEventStreamConnected value)
         streamConnected,
-    required TResult Function(_PostWatcherEventlikeButtonPressed value)
+    required TResult Function(_PostWatcherEventLikeButtonPressed value)
         likeButtonPressed,
     required TResult Function(_PostWatcherEventBookmarkButtonPressed value)
         bookmarkButtonPressed,
@@ -497,9 +482,8 @@ class _$_PostWatcherEventlikeButtonPressed
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_postwatcherStreamConnected value)? streamConnected,
-    TResult Function(_PostWatcherEventlikeButtonPressed value)?
+    TResult Function(_PostWatcherEventStreamConnected value)? streamConnected,
+    TResult Function(_PostWatcherEventLikeButtonPressed value)?
         likeButtonPressed,
     TResult Function(_PostWatcherEventBookmarkButtonPressed value)?
         bookmarkButtonPressed,
@@ -512,9 +496,8 @@ class _$_PostWatcherEventlikeButtonPressed
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_postwatcherStreamConnected value)? streamConnected,
-    TResult Function(_PostWatcherEventlikeButtonPressed value)?
+    TResult Function(_PostWatcherEventStreamConnected value)? streamConnected,
+    TResult Function(_PostWatcherEventLikeButtonPressed value)?
         likeButtonPressed,
     TResult Function(_PostWatcherEventBookmarkButtonPressed value)?
         bookmarkButtonPressed,
@@ -529,17 +512,30 @@ class _$_PostWatcherEventlikeButtonPressed
   }
 }
 
-abstract class _PostWatcherEventlikeButtonPressed implements PostWatcherEvent {
-  const factory _PostWatcherEventlikeButtonPressed() =
-      _$_PostWatcherEventlikeButtonPressed;
+abstract class _PostWatcherEventLikeButtonPressed implements PostWatcherEvent {
+  const factory _PostWatcherEventLikeButtonPressed(
+      PostID postID, UserUID authorUID) = _$_PostWatcherEventLikeButtonPressed;
+
+  @override
+  PostID get postID;
+  @override
+  UserUID get authorUID;
+  @override
+  @JsonKey(ignore: true)
+  _$PostWatcherEventLikeButtonPressedCopyWith<
+          _PostWatcherEventLikeButtonPressed>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PostWatcherEventBookmarkButtonPressedCopyWith<$Res> {
+abstract class _$PostWatcherEventBookmarkButtonPressedCopyWith<$Res>
+    implements $PostWatcherEventCopyWith<$Res> {
   factory _$PostWatcherEventBookmarkButtonPressedCopyWith(
           _PostWatcherEventBookmarkButtonPressed value,
           $Res Function(_PostWatcherEventBookmarkButtonPressed) then) =
       __$PostWatcherEventBookmarkButtonPressedCopyWithImpl<$Res>;
+  @override
+  $Res call({PostID postID, UserUID authorUID});
 }
 
 /// @nodoc
@@ -555,65 +551,99 @@ class __$PostWatcherEventBookmarkButtonPressedCopyWithImpl<$Res>
   @override
   _PostWatcherEventBookmarkButtonPressed get _value =>
       super._value as _PostWatcherEventBookmarkButtonPressed;
+
+  @override
+  $Res call({
+    Object? postID = freezed,
+    Object? authorUID = freezed,
+  }) {
+    return _then(_PostWatcherEventBookmarkButtonPressed(
+      postID == freezed
+          ? _value.postID
+          : postID // ignore: cast_nullable_to_non_nullable
+              as PostID,
+      authorUID == freezed
+          ? _value.authorUID
+          : authorUID // ignore: cast_nullable_to_non_nullable
+              as UserUID,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_PostWatcherEventBookmarkButtonPressed
     implements _PostWatcherEventBookmarkButtonPressed {
-  const _$_PostWatcherEventBookmarkButtonPressed();
+  const _$_PostWatcherEventBookmarkButtonPressed(this.postID, this.authorUID);
+
+  @override
+  final PostID postID;
+  @override
+  final UserUID authorUID;
 
   @override
   String toString() {
-    return 'PostWatcherEvent.bookmarkButtonPressed()';
+    return 'PostWatcherEvent.bookmarkButtonPressed(postID: $postID, authorUID: $authorUID)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PostWatcherEventBookmarkButtonPressed);
+            other is _PostWatcherEventBookmarkButtonPressed &&
+            const DeepCollectionEquality().equals(other.postID, postID) &&
+            const DeepCollectionEquality().equals(other.authorUID, authorUID));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(postID),
+      const DeepCollectionEquality().hash(authorUID));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PostWatcherEventBookmarkButtonPressedCopyWith<
+          _PostWatcherEventBookmarkButtonPressed>
+      get copyWith => __$PostWatcherEventBookmarkButtonPressedCopyWithImpl<
+          _PostWatcherEventBookmarkButtonPressed>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() streamConnected,
-    required TResult Function() likeButtonPressed,
-    required TResult Function() bookmarkButtonPressed,
-    required TResult Function() reportButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID) streamConnected,
+    required TResult Function(PostID postID, UserUID authorUID)
+        likeButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID)
+        bookmarkButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID)
+        reportButtonPressed,
   }) {
-    return bookmarkButtonPressed();
+    return bookmarkButtonPressed(postID, authorUID);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? streamConnected,
-    TResult Function()? likeButtonPressed,
-    TResult Function()? bookmarkButtonPressed,
-    TResult Function()? reportButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? streamConnected,
+    TResult Function(PostID postID, UserUID authorUID)? likeButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? bookmarkButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? reportButtonPressed,
   }) {
-    return bookmarkButtonPressed?.call();
+    return bookmarkButtonPressed?.call(postID, authorUID);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? streamConnected,
-    TResult Function()? likeButtonPressed,
-    TResult Function()? bookmarkButtonPressed,
-    TResult Function()? reportButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? streamConnected,
+    TResult Function(PostID postID, UserUID authorUID)? likeButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? bookmarkButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? reportButtonPressed,
     required TResult orElse(),
   }) {
     if (bookmarkButtonPressed != null) {
-      return bookmarkButtonPressed();
+      return bookmarkButtonPressed(postID, authorUID);
     }
     return orElse();
   }
@@ -621,10 +651,9 @@ class _$_PostWatcherEventBookmarkButtonPressed
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_postwatcherStreamConnected value)
+    required TResult Function(_PostWatcherEventStreamConnected value)
         streamConnected,
-    required TResult Function(_PostWatcherEventlikeButtonPressed value)
+    required TResult Function(_PostWatcherEventLikeButtonPressed value)
         likeButtonPressed,
     required TResult Function(_PostWatcherEventBookmarkButtonPressed value)
         bookmarkButtonPressed,
@@ -637,9 +666,8 @@ class _$_PostWatcherEventBookmarkButtonPressed
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_postwatcherStreamConnected value)? streamConnected,
-    TResult Function(_PostWatcherEventlikeButtonPressed value)?
+    TResult Function(_PostWatcherEventStreamConnected value)? streamConnected,
+    TResult Function(_PostWatcherEventLikeButtonPressed value)?
         likeButtonPressed,
     TResult Function(_PostWatcherEventBookmarkButtonPressed value)?
         bookmarkButtonPressed,
@@ -652,9 +680,8 @@ class _$_PostWatcherEventBookmarkButtonPressed
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_postwatcherStreamConnected value)? streamConnected,
-    TResult Function(_PostWatcherEventlikeButtonPressed value)?
+    TResult Function(_PostWatcherEventStreamConnected value)? streamConnected,
+    TResult Function(_PostWatcherEventLikeButtonPressed value)?
         likeButtonPressed,
     TResult Function(_PostWatcherEventBookmarkButtonPressed value)?
         bookmarkButtonPressed,
@@ -671,16 +698,30 @@ class _$_PostWatcherEventBookmarkButtonPressed
 
 abstract class _PostWatcherEventBookmarkButtonPressed
     implements PostWatcherEvent {
-  const factory _PostWatcherEventBookmarkButtonPressed() =
+  const factory _PostWatcherEventBookmarkButtonPressed(
+          PostID postID, UserUID authorUID) =
       _$_PostWatcherEventBookmarkButtonPressed;
+
+  @override
+  PostID get postID;
+  @override
+  UserUID get authorUID;
+  @override
+  @JsonKey(ignore: true)
+  _$PostWatcherEventBookmarkButtonPressedCopyWith<
+          _PostWatcherEventBookmarkButtonPressed>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$PostWatcherEventReportButtonPressedCopyWith<$Res> {
+abstract class _$PostWatcherEventReportButtonPressedCopyWith<$Res>
+    implements $PostWatcherEventCopyWith<$Res> {
   factory _$PostWatcherEventReportButtonPressedCopyWith(
           _PostWatcherEventReportButtonPressed value,
           $Res Function(_PostWatcherEventReportButtonPressed) then) =
       __$PostWatcherEventReportButtonPressedCopyWithImpl<$Res>;
+  @override
+  $Res call({PostID postID, UserUID authorUID});
 }
 
 /// @nodoc
@@ -695,65 +736,99 @@ class __$PostWatcherEventReportButtonPressedCopyWithImpl<$Res>
   @override
   _PostWatcherEventReportButtonPressed get _value =>
       super._value as _PostWatcherEventReportButtonPressed;
+
+  @override
+  $Res call({
+    Object? postID = freezed,
+    Object? authorUID = freezed,
+  }) {
+    return _then(_PostWatcherEventReportButtonPressed(
+      postID == freezed
+          ? _value.postID
+          : postID // ignore: cast_nullable_to_non_nullable
+              as PostID,
+      authorUID == freezed
+          ? _value.authorUID
+          : authorUID // ignore: cast_nullable_to_non_nullable
+              as UserUID,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_PostWatcherEventReportButtonPressed
     implements _PostWatcherEventReportButtonPressed {
-  const _$_PostWatcherEventReportButtonPressed();
+  const _$_PostWatcherEventReportButtonPressed(this.postID, this.authorUID);
+
+  @override
+  final PostID postID;
+  @override
+  final UserUID authorUID;
 
   @override
   String toString() {
-    return 'PostWatcherEvent.reportButtonPressed()';
+    return 'PostWatcherEvent.reportButtonPressed(postID: $postID, authorUID: $authorUID)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PostWatcherEventReportButtonPressed);
+            other is _PostWatcherEventReportButtonPressed &&
+            const DeepCollectionEquality().equals(other.postID, postID) &&
+            const DeepCollectionEquality().equals(other.authorUID, authorUID));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(postID),
+      const DeepCollectionEquality().hash(authorUID));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PostWatcherEventReportButtonPressedCopyWith<
+          _PostWatcherEventReportButtonPressed>
+      get copyWith => __$PostWatcherEventReportButtonPressedCopyWithImpl<
+          _PostWatcherEventReportButtonPressed>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() streamConnected,
-    required TResult Function() likeButtonPressed,
-    required TResult Function() bookmarkButtonPressed,
-    required TResult Function() reportButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID) streamConnected,
+    required TResult Function(PostID postID, UserUID authorUID)
+        likeButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID)
+        bookmarkButtonPressed,
+    required TResult Function(PostID postID, UserUID authorUID)
+        reportButtonPressed,
   }) {
-    return reportButtonPressed();
+    return reportButtonPressed(postID, authorUID);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? streamConnected,
-    TResult Function()? likeButtonPressed,
-    TResult Function()? bookmarkButtonPressed,
-    TResult Function()? reportButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? streamConnected,
+    TResult Function(PostID postID, UserUID authorUID)? likeButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? bookmarkButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? reportButtonPressed,
   }) {
-    return reportButtonPressed?.call();
+    return reportButtonPressed?.call(postID, authorUID);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? streamConnected,
-    TResult Function()? likeButtonPressed,
-    TResult Function()? bookmarkButtonPressed,
-    TResult Function()? reportButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? streamConnected,
+    TResult Function(PostID postID, UserUID authorUID)? likeButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? bookmarkButtonPressed,
+    TResult Function(PostID postID, UserUID authorUID)? reportButtonPressed,
     required TResult orElse(),
   }) {
     if (reportButtonPressed != null) {
-      return reportButtonPressed();
+      return reportButtonPressed(postID, authorUID);
     }
     return orElse();
   }
@@ -761,10 +836,9 @@ class _$_PostWatcherEventReportButtonPressed
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_postwatcherStreamConnected value)
+    required TResult Function(_PostWatcherEventStreamConnected value)
         streamConnected,
-    required TResult Function(_PostWatcherEventlikeButtonPressed value)
+    required TResult Function(_PostWatcherEventLikeButtonPressed value)
         likeButtonPressed,
     required TResult Function(_PostWatcherEventBookmarkButtonPressed value)
         bookmarkButtonPressed,
@@ -777,9 +851,8 @@ class _$_PostWatcherEventReportButtonPressed
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_postwatcherStreamConnected value)? streamConnected,
-    TResult Function(_PostWatcherEventlikeButtonPressed value)?
+    TResult Function(_PostWatcherEventStreamConnected value)? streamConnected,
+    TResult Function(_PostWatcherEventLikeButtonPressed value)?
         likeButtonPressed,
     TResult Function(_PostWatcherEventBookmarkButtonPressed value)?
         bookmarkButtonPressed,
@@ -792,9 +865,8 @@ class _$_PostWatcherEventReportButtonPressed
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_postwatcherStreamConnected value)? streamConnected,
-    TResult Function(_PostWatcherEventlikeButtonPressed value)?
+    TResult Function(_PostWatcherEventStreamConnected value)? streamConnected,
+    TResult Function(_PostWatcherEventLikeButtonPressed value)?
         likeButtonPressed,
     TResult Function(_PostWatcherEventBookmarkButtonPressed value)?
         bookmarkButtonPressed,
@@ -811,28 +883,31 @@ class _$_PostWatcherEventReportButtonPressed
 
 abstract class _PostWatcherEventReportButtonPressed
     implements PostWatcherEvent {
-  const factory _PostWatcherEventReportButtonPressed() =
+  const factory _PostWatcherEventReportButtonPressed(
+          PostID postID, UserUID authorUID) =
       _$_PostWatcherEventReportButtonPressed;
+
+  @override
+  PostID get postID;
+  @override
+  UserUID get authorUID;
+  @override
+  @JsonKey(ignore: true)
+  _$PostWatcherEventReportButtonPressedCopyWith<
+          _PostWatcherEventReportButtonPressed>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$PostWatcherStateTearOff {
   const _$PostWatcherStateTearOff();
 
-  _FetchingInitialData fetching() {
-    return const _FetchingInitialData();
-  }
-
   _PostWatcherState call(
-      {required PostBody postBody,
-      required int likesCount,
-      required int commentsCount,
+      {required Post post,
       required bool hasBookmarked,
       required bool hasLiked}) {
     return _PostWatcherState(
-      postBody: postBody,
-      likesCount: likesCount,
-      commentsCount: commentsCount,
+      post: post,
       hasBookmarked: hasBookmarked,
       hasLiked: hasLiked,
     );
@@ -844,49 +919,12 @@ const $PostWatcherState = _$PostWatcherStateTearOff();
 
 /// @nodoc
 mixin _$PostWatcherState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(PostBody postBody, int likesCount, int commentsCount,
-            bool hasBookmarked, bool hasLiked)
-        $default, {
-    required TResult Function() fetching,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(PostBody postBody, int likesCount, int commentsCount,
-            bool hasBookmarked, bool hasLiked)?
-        $default, {
-    TResult Function()? fetching,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(PostBody postBody, int likesCount, int commentsCount,
-            bool hasBookmarked, bool hasLiked)?
-        $default, {
-    TResult Function()? fetching,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PostWatcherState value) $default, {
-    required TResult Function(_FetchingInitialData value) fetching,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_PostWatcherState value)? $default, {
-    TResult Function(_FetchingInitialData value)? fetching,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PostWatcherState value)? $default, {
-    TResult Function(_FetchingInitialData value)? fetching,
-    required TResult orElse(),
-  }) =>
+  Post get post => throw _privateConstructorUsedError;
+  bool get hasBookmarked => throw _privateConstructorUsedError;
+  bool get hasLiked => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $PostWatcherStateCopyWith<PostWatcherState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -895,6 +933,9 @@ abstract class $PostWatcherStateCopyWith<$Res> {
   factory $PostWatcherStateCopyWith(
           PostWatcherState value, $Res Function(PostWatcherState) then) =
       _$PostWatcherStateCopyWithImpl<$Res>;
+  $Res call({Post post, bool hasBookmarked, bool hasLiked});
+
+  $PostCopyWith<$Res> get post;
 }
 
 /// @nodoc
@@ -905,130 +946,48 @@ class _$PostWatcherStateCopyWithImpl<$Res>
   final PostWatcherState _value;
   // ignore: unused_field
   final $Res Function(PostWatcherState) _then;
+
+  @override
+  $Res call({
+    Object? post = freezed,
+    Object? hasBookmarked = freezed,
+    Object? hasLiked = freezed,
+  }) {
+    return _then(_value.copyWith(
+      post: post == freezed
+          ? _value.post
+          : post // ignore: cast_nullable_to_non_nullable
+              as Post,
+      hasBookmarked: hasBookmarked == freezed
+          ? _value.hasBookmarked
+          : hasBookmarked // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasLiked: hasLiked == freezed
+          ? _value.hasLiked
+          : hasLiked // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+
+  @override
+  $PostCopyWith<$Res> get post {
+    return $PostCopyWith<$Res>(_value.post, (value) {
+      return _then(_value.copyWith(post: value));
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$FetchingInitialDataCopyWith<$Res> {
-  factory _$FetchingInitialDataCopyWith(_FetchingInitialData value,
-          $Res Function(_FetchingInitialData) then) =
-      __$FetchingInitialDataCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$FetchingInitialDataCopyWithImpl<$Res>
-    extends _$PostWatcherStateCopyWithImpl<$Res>
-    implements _$FetchingInitialDataCopyWith<$Res> {
-  __$FetchingInitialDataCopyWithImpl(
-      _FetchingInitialData _value, $Res Function(_FetchingInitialData) _then)
-      : super(_value, (v) => _then(v as _FetchingInitialData));
-
-  @override
-  _FetchingInitialData get _value => super._value as _FetchingInitialData;
-}
-
-/// @nodoc
-
-class _$_FetchingInitialData implements _FetchingInitialData {
-  const _$_FetchingInitialData();
-
-  @override
-  String toString() {
-    return 'PostWatcherState.fetching()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _FetchingInitialData);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(PostBody postBody, int likesCount, int commentsCount,
-            bool hasBookmarked, bool hasLiked)
-        $default, {
-    required TResult Function() fetching,
-  }) {
-    return fetching();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(PostBody postBody, int likesCount, int commentsCount,
-            bool hasBookmarked, bool hasLiked)?
-        $default, {
-    TResult Function()? fetching,
-  }) {
-    return fetching?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(PostBody postBody, int likesCount, int commentsCount,
-            bool hasBookmarked, bool hasLiked)?
-        $default, {
-    TResult Function()? fetching,
-    required TResult orElse(),
-  }) {
-    if (fetching != null) {
-      return fetching();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PostWatcherState value) $default, {
-    required TResult Function(_FetchingInitialData value) fetching,
-  }) {
-    return fetching(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_PostWatcherState value)? $default, {
-    TResult Function(_FetchingInitialData value)? fetching,
-  }) {
-    return fetching?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PostWatcherState value)? $default, {
-    TResult Function(_FetchingInitialData value)? fetching,
-    required TResult orElse(),
-  }) {
-    if (fetching != null) {
-      return fetching(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _FetchingInitialData implements PostWatcherState {
-  const factory _FetchingInitialData() = _$_FetchingInitialData;
-}
-
-/// @nodoc
-abstract class _$PostWatcherStateCopyWith<$Res> {
+abstract class _$PostWatcherStateCopyWith<$Res>
+    implements $PostWatcherStateCopyWith<$Res> {
   factory _$PostWatcherStateCopyWith(
           _PostWatcherState value, $Res Function(_PostWatcherState) then) =
       __$PostWatcherStateCopyWithImpl<$Res>;
-  $Res call(
-      {PostBody postBody,
-      int likesCount,
-      int commentsCount,
-      bool hasBookmarked,
-      bool hasLiked});
+  @override
+  $Res call({Post post, bool hasBookmarked, bool hasLiked});
+
+  @override
+  $PostCopyWith<$Res> get post;
 }
 
 /// @nodoc
@@ -1044,25 +1003,15 @@ class __$PostWatcherStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? postBody = freezed,
-    Object? likesCount = freezed,
-    Object? commentsCount = freezed,
+    Object? post = freezed,
     Object? hasBookmarked = freezed,
     Object? hasLiked = freezed,
   }) {
     return _then(_PostWatcherState(
-      postBody: postBody == freezed
-          ? _value.postBody
-          : postBody // ignore: cast_nullable_to_non_nullable
-              as PostBody,
-      likesCount: likesCount == freezed
-          ? _value.likesCount
-          : likesCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      commentsCount: commentsCount == freezed
-          ? _value.commentsCount
-          : commentsCount // ignore: cast_nullable_to_non_nullable
-              as int,
+      post: post == freezed
+          ? _value.post
+          : post // ignore: cast_nullable_to_non_nullable
+              as Post,
       hasBookmarked: hasBookmarked == freezed
           ? _value.hasBookmarked
           : hasBookmarked // ignore: cast_nullable_to_non_nullable
@@ -1079,18 +1028,12 @@ class __$PostWatcherStateCopyWithImpl<$Res>
 
 class _$_PostWatcherState implements _PostWatcherState {
   const _$_PostWatcherState(
-      {required this.postBody,
-      required this.likesCount,
-      required this.commentsCount,
+      {required this.post,
       required this.hasBookmarked,
       required this.hasLiked});
 
   @override
-  final PostBody postBody;
-  @override
-  final int likesCount;
-  @override
-  final int commentsCount;
+  final Post post;
   @override
   final bool hasBookmarked;
   @override
@@ -1098,7 +1041,7 @@ class _$_PostWatcherState implements _PostWatcherState {
 
   @override
   String toString() {
-    return 'PostWatcherState(postBody: $postBody, likesCount: $likesCount, commentsCount: $commentsCount, hasBookmarked: $hasBookmarked, hasLiked: $hasLiked)';
+    return 'PostWatcherState(post: $post, hasBookmarked: $hasBookmarked, hasLiked: $hasLiked)';
   }
 
   @override
@@ -1106,11 +1049,7 @@ class _$_PostWatcherState implements _PostWatcherState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PostWatcherState &&
-            const DeepCollectionEquality().equals(other.postBody, postBody) &&
-            const DeepCollectionEquality()
-                .equals(other.likesCount, likesCount) &&
-            const DeepCollectionEquality()
-                .equals(other.commentsCount, commentsCount) &&
+            const DeepCollectionEquality().equals(other.post, post) &&
             const DeepCollectionEquality()
                 .equals(other.hasBookmarked, hasBookmarked) &&
             const DeepCollectionEquality().equals(other.hasLiked, hasLiked));
@@ -1119,9 +1058,7 @@ class _$_PostWatcherState implements _PostWatcherState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(postBody),
-      const DeepCollectionEquality().hash(likesCount),
-      const DeepCollectionEquality().hash(commentsCount),
+      const DeepCollectionEquality().hash(post),
       const DeepCollectionEquality().hash(hasBookmarked),
       const DeepCollectionEquality().hash(hasLiked));
 
@@ -1129,92 +1066,21 @@ class _$_PostWatcherState implements _PostWatcherState {
   @override
   _$PostWatcherStateCopyWith<_PostWatcherState> get copyWith =>
       __$PostWatcherStateCopyWithImpl<_PostWatcherState>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(PostBody postBody, int likesCount, int commentsCount,
-            bool hasBookmarked, bool hasLiked)
-        $default, {
-    required TResult Function() fetching,
-  }) {
-    return $default(
-        postBody, likesCount, commentsCount, hasBookmarked, hasLiked);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(PostBody postBody, int likesCount, int commentsCount,
-            bool hasBookmarked, bool hasLiked)?
-        $default, {
-    TResult Function()? fetching,
-  }) {
-    return $default?.call(
-        postBody, likesCount, commentsCount, hasBookmarked, hasLiked);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(PostBody postBody, int likesCount, int commentsCount,
-            bool hasBookmarked, bool hasLiked)?
-        $default, {
-    TResult Function()? fetching,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(
-          postBody, likesCount, commentsCount, hasBookmarked, hasLiked);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PostWatcherState value) $default, {
-    required TResult Function(_FetchingInitialData value) fetching,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_PostWatcherState value)? $default, {
-    TResult Function(_FetchingInitialData value)? fetching,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PostWatcherState value)? $default, {
-    TResult Function(_FetchingInitialData value)? fetching,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class _PostWatcherState implements PostWatcherState {
   const factory _PostWatcherState(
-      {required PostBody postBody,
-      required int likesCount,
-      required int commentsCount,
+      {required Post post,
       required bool hasBookmarked,
       required bool hasLiked}) = _$_PostWatcherState;
 
-  PostBody get postBody;
-  int get likesCount;
-  int get commentsCount;
+  @override
+  Post get post;
+  @override
   bool get hasBookmarked;
+  @override
   bool get hasLiked;
+  @override
   @JsonKey(ignore: true)
   _$PostWatcherStateCopyWith<_PostWatcherState> get copyWith =>
       throw _privateConstructorUsedError;

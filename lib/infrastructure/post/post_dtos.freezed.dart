@@ -25,7 +25,7 @@ class _$PostDtosTearOff {
   _PostDtos call(
       {required String authorUID,
       required String postID,
-      required DateTime createdAt,
+      @ServerTimestampConverter() required FieldValue createdAt,
       required String postBody,
       required int likeCount,
       required int commentsCount}) {
@@ -51,7 +51,8 @@ const $PostDtos = _$PostDtosTearOff();
 mixin _$PostDtos {
   String get authorUID => throw _privateConstructorUsedError;
   String get postID => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  @ServerTimestampConverter()
+  FieldValue get createdAt => throw _privateConstructorUsedError;
   String get postBody => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
   int get commentsCount => throw _privateConstructorUsedError;
@@ -69,7 +70,7 @@ abstract class $PostDtosCopyWith<$Res> {
   $Res call(
       {String authorUID,
       String postID,
-      DateTime createdAt,
+      @ServerTimestampConverter() FieldValue createdAt,
       String postBody,
       int likeCount,
       int commentsCount});
@@ -104,7 +105,7 @@ class _$PostDtosCopyWithImpl<$Res> implements $PostDtosCopyWith<$Res> {
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as FieldValue,
       postBody: postBody == freezed
           ? _value.postBody
           : postBody // ignore: cast_nullable_to_non_nullable
@@ -129,7 +130,7 @@ abstract class _$PostDtosCopyWith<$Res> implements $PostDtosCopyWith<$Res> {
   $Res call(
       {String authorUID,
       String postID,
-      DateTime createdAt,
+      @ServerTimestampConverter() FieldValue createdAt,
       String postBody,
       int likeCount,
       int commentsCount});
@@ -165,7 +166,7 @@ class __$PostDtosCopyWithImpl<$Res> extends _$PostDtosCopyWithImpl<$Res>
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as FieldValue,
       postBody: postBody == freezed
           ? _value.postBody
           : postBody // ignore: cast_nullable_to_non_nullable
@@ -188,7 +189,7 @@ class _$_PostDtos implements _PostDtos {
   _$_PostDtos(
       {required this.authorUID,
       required this.postID,
-      required this.createdAt,
+      @ServerTimestampConverter() required this.createdAt,
       required this.postBody,
       required this.likeCount,
       required this.commentsCount});
@@ -201,7 +202,8 @@ class _$_PostDtos implements _PostDtos {
   @override
   final String postID;
   @override
-  final DateTime createdAt;
+  @ServerTimestampConverter()
+  final FieldValue createdAt;
   @override
   final String postBody;
   @override
@@ -253,7 +255,7 @@ abstract class _PostDtos implements PostDtos {
   factory _PostDtos(
       {required String authorUID,
       required String postID,
-      required DateTime createdAt,
+      @ServerTimestampConverter() required FieldValue createdAt,
       required String postBody,
       required int likeCount,
       required int commentsCount}) = _$_PostDtos;
@@ -265,7 +267,8 @@ abstract class _PostDtos implements PostDtos {
   @override
   String get postID;
   @override
-  DateTime get createdAt;
+  @ServerTimestampConverter()
+  FieldValue get createdAt;
   @override
   String get postBody;
   @override
@@ -275,6 +278,210 @@ abstract class _PostDtos implements PostDtos {
   @override
   @JsonKey(ignore: true)
   _$PostDtosCopyWith<_PostDtos> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PostEditableDtos _$PostEditableDtosFromJson(Map<String, dynamic> json) {
+  return _PostDtosEditable.fromJson(json);
+}
+
+/// @nodoc
+class _$PostEditableDtosTearOff {
+  const _$PostEditableDtosTearOff();
+
+  _PostDtosEditable call(
+      {required String authorUID,
+      @ServerTimestampConverter() required FieldValue createdAt,
+      required String postBody}) {
+    return _PostDtosEditable(
+      authorUID: authorUID,
+      createdAt: createdAt,
+      postBody: postBody,
+    );
+  }
+
+  PostEditableDtos fromJson(Map<String, Object?> json) {
+    return PostEditableDtos.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $PostEditableDtos = _$PostEditableDtosTearOff();
+
+/// @nodoc
+mixin _$PostEditableDtos {
+  String get authorUID => throw _privateConstructorUsedError;
+  @ServerTimestampConverter()
+  FieldValue get createdAt => throw _privateConstructorUsedError;
+  String get postBody => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PostEditableDtosCopyWith<PostEditableDtos> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PostEditableDtosCopyWith<$Res> {
+  factory $PostEditableDtosCopyWith(
+          PostEditableDtos value, $Res Function(PostEditableDtos) then) =
+      _$PostEditableDtosCopyWithImpl<$Res>;
+  $Res call(
+      {String authorUID,
+      @ServerTimestampConverter() FieldValue createdAt,
+      String postBody});
+}
+
+/// @nodoc
+class _$PostEditableDtosCopyWithImpl<$Res>
+    implements $PostEditableDtosCopyWith<$Res> {
+  _$PostEditableDtosCopyWithImpl(this._value, this._then);
+
+  final PostEditableDtos _value;
+  // ignore: unused_field
+  final $Res Function(PostEditableDtos) _then;
+
+  @override
+  $Res call({
+    Object? authorUID = freezed,
+    Object? createdAt = freezed,
+    Object? postBody = freezed,
+  }) {
+    return _then(_value.copyWith(
+      authorUID: authorUID == freezed
+          ? _value.authorUID
+          : authorUID // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as FieldValue,
+      postBody: postBody == freezed
+          ? _value.postBody
+          : postBody // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$PostDtosEditableCopyWith<$Res>
+    implements $PostEditableDtosCopyWith<$Res> {
+  factory _$PostDtosEditableCopyWith(
+          _PostDtosEditable value, $Res Function(_PostDtosEditable) then) =
+      __$PostDtosEditableCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {String authorUID,
+      @ServerTimestampConverter() FieldValue createdAt,
+      String postBody});
+}
+
+/// @nodoc
+class __$PostDtosEditableCopyWithImpl<$Res>
+    extends _$PostEditableDtosCopyWithImpl<$Res>
+    implements _$PostDtosEditableCopyWith<$Res> {
+  __$PostDtosEditableCopyWithImpl(
+      _PostDtosEditable _value, $Res Function(_PostDtosEditable) _then)
+      : super(_value, (v) => _then(v as _PostDtosEditable));
+
+  @override
+  _PostDtosEditable get _value => super._value as _PostDtosEditable;
+
+  @override
+  $Res call({
+    Object? authorUID = freezed,
+    Object? createdAt = freezed,
+    Object? postBody = freezed,
+  }) {
+    return _then(_PostDtosEditable(
+      authorUID: authorUID == freezed
+          ? _value.authorUID
+          : authorUID // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as FieldValue,
+      postBody: postBody == freezed
+          ? _value.postBody
+          : postBody // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_PostDtosEditable implements _PostDtosEditable {
+  _$_PostDtosEditable(
+      {required this.authorUID,
+      @ServerTimestampConverter() required this.createdAt,
+      required this.postBody});
+
+  factory _$_PostDtosEditable.fromJson(Map<String, dynamic> json) =>
+      _$$_PostDtosEditableFromJson(json);
+
+  @override
+  final String authorUID;
+  @override
+  @ServerTimestampConverter()
+  final FieldValue createdAt;
+  @override
+  final String postBody;
+
+  @override
+  String toString() {
+    return 'PostEditableDtos(authorUID: $authorUID, createdAt: $createdAt, postBody: $postBody)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _PostDtosEditable &&
+            const DeepCollectionEquality().equals(other.authorUID, authorUID) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.postBody, postBody));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(authorUID),
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(postBody));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PostDtosEditableCopyWith<_PostDtosEditable> get copyWith =>
+      __$PostDtosEditableCopyWithImpl<_PostDtosEditable>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PostDtosEditableToJson(this);
+  }
+}
+
+abstract class _PostDtosEditable implements PostEditableDtos {
+  factory _PostDtosEditable(
+      {required String authorUID,
+      @ServerTimestampConverter() required FieldValue createdAt,
+      required String postBody}) = _$_PostDtosEditable;
+
+  factory _PostDtosEditable.fromJson(Map<String, dynamic> json) =
+      _$_PostDtosEditable.fromJson;
+
+  @override
+  String get authorUID;
+  @override
+  @ServerTimestampConverter()
+  FieldValue get createdAt;
+  @override
+  String get postBody;
+  @override
+  @JsonKey(ignore: true)
+  _$PostDtosEditableCopyWith<_PostDtosEditable> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

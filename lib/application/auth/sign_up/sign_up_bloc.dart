@@ -18,7 +18,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     on<SignUpEventPasswordObscured>(_onSignUpPasswordObscured);
     on<SignUpEventUserAgreementToggled>(_onSignUpUserAgreementToggled);
     on<SignUpEventCreateAccountWithEmailAndPassword>(
-        _onSignUpCreateAccountWithEmailAndPassword);
+        _onSignUpCreateAccountWithEmailAndPassword,);
   }
 
   AuthFacade _authFacade = AuthFacade();

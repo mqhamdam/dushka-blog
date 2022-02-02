@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dushka_blog/domain/app_user/app_user.dart';
 import 'package:dushka_blog/domain/app_user/app_user_objects.dart';
 import 'package:dushka_blog/domain/post/post_objects.dart';
@@ -5,18 +6,42 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'post.freezed.dart';
 
-
 @freezed
 abstract class Post with _$Post {
-  const factory Post({
-    required UserUID authorUID,
+  const factory Post.readable({
     required PostID postID,
-    required DateTime createdAt,
+    required UserUID authorUID,
+    required FieldValue createdAt,
+    required PostBody postBody,
     required int likeCount,
     required int commentsCount,
-    
-    
+  }) = PostReadable;
+  factory Post.empty() => Post.readable(
+        authorUID: UserUID(''),
+        postID: PostID(''),
+        createdAt: FieldValue.serverTimestamp(),
+        likeCount: 0,
+        commentsCount: 0,
+        postBody: PostBody(''),
+      );
+  factory Post.editable({
+    required UserUID authorUID,
+    required FieldValue createdAt,
     required PostBody postBody,
-    })= _Post;
+  }) = PostEditable;
 }
 
+@freezed
+abstract class Comment with _$Comment {
+  const factory Comment({
+    required UserUID userUID,
+    required CommentBody commentBody,
+    required FieldValue createdAt,
+  }) = _Comment;
+  
+  factory Comment.emty() => Comment(
+        userUID: UserUID(''),
+        commentBody: CommentBody(''),
+        createdAt: FieldValue.serverTimestamp(),
+      );
+}

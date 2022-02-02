@@ -106,7 +106,7 @@ linter:
     require_trailing_commas: true
     sort_child_properties_last: true
     sort_constructors_first: true
-    sort_unnamed_constructors_first: true
+    sort_unnamed_constructors_first: false
     tighten_type_of_initializing_formals: true
     type_annotate_public_apis: true
     unawaited_futures: true

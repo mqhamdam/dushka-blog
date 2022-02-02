@@ -18,8 +18,8 @@ class AppUserRepository extends IAppUserRepository {
   @override
   Future<Either<AppUserFailure, AppUserFull>> getFullData(
       UserUID userUID) async {
-    final userID = userUID.getOrElse("INVALID_USER_UID");
-    return _firebaseFirestore.collection("users").doc(userID).get().then(
+    final userID = userUID.getOrElse('INVALID_USER_UID');
+    return _firebaseFirestore.collection('users').doc(userID).get().then(
           (doc) => right<AppUserFailure, AppUserFull>(
             AppUserFullDto.fromFirestore(doc).toDomain(),
           ),
@@ -28,8 +28,9 @@ class AppUserRepository extends IAppUserRepository {
 
   @override
   Future<Either<AppUserFailure, AppUserLess>> getLessData(UserUID userUID) {
-    final userID = userUID.getOrElse("INVALID_USER_UID");
-    return _firebaseFirestore.collection("users").doc(userID).get().then(
+    final userID = userUID.getOrElse('INVALID_USER_UID');
+    //final SubscriptionStatus subStatus =
+    return _firebaseFirestore.collection('users').doc(userID).get().then(
           (doc) => right<AppUserFailure, AppUserLess>(
             AppUserLessDto.fromFirestore(doc).toDomain(),
           ),
@@ -41,14 +42,14 @@ class AppUserRepository extends IAppUserRepository {
     UserUID userUID,
     SubscriptionStatus currentSubscriptionStatus,
   ) async {
-    final userID = userUID.getOrElse("INVALID_ISER_ID");
+    final userID = userUID.getOrElse('INVALID_ISER_ID');
     try {
       switch (currentSubscriptionStatus) {
         case SubscriptionStatus.subscribed:
           return _firebaseFirestore
-              .collection("users")
+              .collection('users')
               .doc(userID)
-              .collection("subscribers")
+              .collection('subscribers')
               .doc(_firebaseAuth.currentUser?.uid)
               .delete()
               .then(
@@ -57,12 +58,12 @@ class AppUserRepository extends IAppUserRepository {
 
         case SubscriptionStatus.unSubscribed:
           return _firebaseFirestore
-              .collection("users")
+              .collection('users')
               .doc(userID)
-              .collection("subscribers")
+              .collection('subscribers')
               .doc(_firebaseAuth.currentUser?.uid)
               .set({
-            "createdAt": FieldValue.serverTimestamp(),
+            'createdAt': FieldValue.serverTimestamp(),
           }).then(
             (value) => right(unit),
           );
@@ -78,7 +79,7 @@ class AppUserRepository extends IAppUserRepository {
   Future<Either<AppUserFailure, Unit>> updateProfile(AppUserUpdate userData) {
     final appUserDto = AppUserUpdateDto.fromDomain(userData);
     _firebaseFirestore
-        .collection("users")
+        .collection('users')
         .doc(_firebaseAuth.currentUser?.uid)
         .set(appUserDto.toJson());
     throw UnimplementedError();
@@ -97,12 +98,12 @@ class AppUserRepository extends IAppUserRepository {
 
     try {
       return _firebaseFirestore
-          .collection("users")
+          .collection('users')
           .doc(_firebaseAuth.currentUser?.uid)
-          .collection("block")
+          .collection('block')
           .doc(userUIDValue)
           .set({
-        "createdAt": FieldValue.serverTimestamp(),
+        'createdAt': FieldValue.serverTimestamp(),
       }).then(
         (value) => right(unit),
       );
@@ -117,12 +118,12 @@ class AppUserRepository extends IAppUserRepository {
 
     try {
       return _firebaseFirestore
-          .collection("users")
+          .collection('users')
           .doc(_firebaseAuth.currentUser?.uid)
-          .collection("reports")
+          .collection('reports')
           .doc(userUIDValue)
           .set({
-        "createdAt": FieldValue.serverTimestamp(),
+        'createdAt': FieldValue.serverTimestamp(),
       }).then(
         (value) => right(unit),
       );
@@ -133,19 +134,49 @@ class AppUserRepository extends IAppUserRepository {
 
   @override
   Future<Either<AppUserFailure, Unit>> unBlockUser(UserUID userUID) async {
-   final userUIDValue = userUID.getOrCrash();
+    final userUIDValue = userUID.getOrCrash();
 
     try {
       return _firebaseFirestore
-          .collection("users")
+          .collection('users')
           .doc(_firebaseAuth.currentUser?.uid)
-          .collection("block")
+          .collection('block')
           .doc(userUIDValue)
-          .delete().then(
-        (value) => right(unit),
-      );
+          .delete()
+          .then(
+            (value) => right(unit),
+          );
     } on PlatformException catch (e) {
       return left(AppUserFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<SubscriptionStatus> checkSubscriptionStatus(UserUID userUID) async {
+    if (userUID.getOrCrash() == _firebaseAuth.currentUser?.uid) {
+      return SubscriptionStatus.isMe;
+    } else {
+      final subDoc = await _firebaseFirestore
+          .collection('users')
+          .doc(userUID.getOrCrash())
+          .collection('subscribers')
+          .doc(_firebaseAuth.currentUser?.uid)
+          .get();
+      if (subDoc.exists) {
+        return SubscriptionStatus.subscribed;
+      } else {
+        return _firebaseFirestore
+            .collection('users')
+            .doc(userUID.getOrCrash())
+            .collection('block')
+            .doc(_firebaseAuth.currentUser?.uid)
+            .get()
+            .then(
+              (value) => value.exists
+                  ? SubscriptionStatus.blocked
+                  : SubscriptionStatus.unSubscribed,
+            );
+      }
     }
   }
 }

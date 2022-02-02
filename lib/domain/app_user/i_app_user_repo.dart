@@ -19,4 +19,5 @@ abstract class IAppUserRepository {
     Map<String, String> filterOptions,
     int skipCount,
   );
+  Future<SubscriptionStatus> checkSubscriptionStatus(UserUID userUID);
 }

@@ -35,4 +35,13 @@ class PostID extends ValueObject<String> {
   }
 }
 
+class CommentBody extends ValueObject<String> {
+  const CommentBody._(this.value);
 
+  @override
+  final Either<ValueFailure<String>, String> value;
+  
+  factory CommentBody(String commentBody) {
+    return CommentBody._(validateStringLength(commentBody, 50));
+  }
+}

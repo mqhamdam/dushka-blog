@@ -22,15 +22,17 @@ class _$AppUserTearOff {
       {required Name name,
       required UserUName userUName,
       required ImageUrl avatarImageUrl,
-      required UserUID userUID,
-      required SubscriptionStatus subscriptionStatus}) {
+      required UserUID userUID}) {
     return AppUserLess(
       name: name,
       userUName: userUName,
       avatarImageUrl: avatarImageUrl,
       userUID: userUID,
-      subscriptionStatus: subscriptionStatus,
     );
+  }
+
+  AppUserEmpty empty() {
+    return const AppUserEmpty();
   }
 
   AppUserFull full(
@@ -40,7 +42,6 @@ class _$AppUserTearOff {
       required ImageUrl backgroundImageUrl,
       required UserBio userBio,
       required UserUID userUID,
-      required SubscriptionStatus subscriptionStatus,
       required int postCount,
       required int subscribersCount,
       required int subscribingCount}) {
@@ -51,7 +52,6 @@ class _$AppUserTearOff {
       backgroundImageUrl: backgroundImageUrl,
       userBio: userBio,
       userUID: userUID,
-      subscriptionStatus: subscriptionStatus,
       postCount: postCount,
       subscribersCount: subscribersCount,
       subscribingCount: subscribingCount,
@@ -77,18 +77,12 @@ const $AppUser = _$AppUserTearOff();
 
 /// @nodoc
 mixin _$AppUser {
-  Name get name => throw _privateConstructorUsedError;
-  ImageUrl get avatarImageUrl => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            Name name,
-            UserUName userUName,
-            ImageUrl avatarImageUrl,
-            UserUID userUID,
-            SubscriptionStatus subscriptionStatus)
+    required TResult Function(Name name, UserUName userUName,
+            ImageUrl avatarImageUrl, UserUID userUID)
         less,
+    required TResult Function() empty,
     required TResult Function(
             Name name,
             UserUName userUName,
@@ -96,7 +90,6 @@ mixin _$AppUser {
             ImageUrl backgroundImageUrl,
             UserBio userBio,
             UserUID userUID,
-            SubscriptionStatus subscriptionStatus,
             int postCount,
             int subscribersCount,
             int subscribingCount)
@@ -109,8 +102,9 @@ mixin _$AppUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Name name, UserUName userUName, ImageUrl avatarImageUrl,
-            UserUID userUID, SubscriptionStatus subscriptionStatus)?
+            UserUID userUID)?
         less,
+    TResult Function()? empty,
     TResult Function(
             Name name,
             UserUName userUName,
@@ -118,7 +112,6 @@ mixin _$AppUser {
             ImageUrl backgroundImageUrl,
             UserBio userBio,
             UserUID userUID,
-            SubscriptionStatus subscriptionStatus,
             int postCount,
             int subscribersCount,
             int subscribingCount)?
@@ -131,8 +124,9 @@ mixin _$AppUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Name name, UserUName userUName, ImageUrl avatarImageUrl,
-            UserUID userUID, SubscriptionStatus subscriptionStatus)?
+            UserUID userUID)?
         less,
+    TResult Function()? empty,
     TResult Function(
             Name name,
             UserUName userUName,
@@ -140,7 +134,6 @@ mixin _$AppUser {
             ImageUrl backgroundImageUrl,
             UserBio userBio,
             UserUID userUID,
-            SubscriptionStatus subscriptionStatus,
             int postCount,
             int subscribersCount,
             int subscribingCount)?
@@ -154,6 +147,7 @@ mixin _$AppUser {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppUserLess value) less,
+    required TResult Function(AppUserEmpty value) empty,
     required TResult Function(AppUserFull value) full,
     required TResult Function(AppUserUpdate value) update,
   }) =>
@@ -161,6 +155,7 @@ mixin _$AppUser {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(AppUserLess value)? less,
+    TResult Function(AppUserEmpty value)? empty,
     TResult Function(AppUserFull value)? full,
     TResult Function(AppUserUpdate value)? update,
   }) =>
@@ -168,21 +163,18 @@ mixin _$AppUser {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppUserLess value)? less,
+    TResult Function(AppUserEmpty value)? empty,
     TResult Function(AppUserFull value)? full,
     TResult Function(AppUserUpdate value)? update,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $AppUserCopyWith<AppUser> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $AppUserCopyWith<$Res> {
   factory $AppUserCopyWith(AppUser value, $Res Function(AppUser) then) =
       _$AppUserCopyWithImpl<$Res>;
-  $Res call({Name name, ImageUrl avatarImageUrl});
 }
 
 /// @nodoc
@@ -192,37 +184,18 @@ class _$AppUserCopyWithImpl<$Res> implements $AppUserCopyWith<$Res> {
   final AppUser _value;
   // ignore: unused_field
   final $Res Function(AppUser) _then;
-
-  @override
-  $Res call({
-    Object? name = freezed,
-    Object? avatarImageUrl = freezed,
-  }) {
-    return _then(_value.copyWith(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as Name,
-      avatarImageUrl: avatarImageUrl == freezed
-          ? _value.avatarImageUrl
-          : avatarImageUrl // ignore: cast_nullable_to_non_nullable
-              as ImageUrl,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class $AppUserLessCopyWith<$Res> implements $AppUserCopyWith<$Res> {
+abstract class $AppUserLessCopyWith<$Res> {
   factory $AppUserLessCopyWith(
           AppUserLess value, $Res Function(AppUserLess) then) =
       _$AppUserLessCopyWithImpl<$Res>;
-  @override
   $Res call(
       {Name name,
       UserUName userUName,
       ImageUrl avatarImageUrl,
-      UserUID userUID,
-      SubscriptionStatus subscriptionStatus});
+      UserUID userUID});
 }
 
 /// @nodoc
@@ -241,7 +214,6 @@ class _$AppUserLessCopyWithImpl<$Res> extends _$AppUserCopyWithImpl<$Res>
     Object? userUName = freezed,
     Object? avatarImageUrl = freezed,
     Object? userUID = freezed,
-    Object? subscriptionStatus = freezed,
   }) {
     return _then(AppUserLess(
       name: name == freezed
@@ -260,10 +232,6 @@ class _$AppUserLessCopyWithImpl<$Res> extends _$AppUserCopyWithImpl<$Res>
           ? _value.userUID
           : userUID // ignore: cast_nullable_to_non_nullable
               as UserUID,
-      subscriptionStatus: subscriptionStatus == freezed
-          ? _value.subscriptionStatus
-          : subscriptionStatus // ignore: cast_nullable_to_non_nullable
-              as SubscriptionStatus,
     ));
   }
 }
@@ -275,8 +243,7 @@ class _$AppUserLess implements AppUserLess {
       {required this.name,
       required this.userUName,
       required this.avatarImageUrl,
-      required this.userUID,
-      required this.subscriptionStatus});
+      required this.userUID});
 
   @override
   final Name name;
@@ -286,12 +253,10 @@ class _$AppUserLess implements AppUserLess {
   final ImageUrl avatarImageUrl;
   @override
   final UserUID userUID;
-  @override
-  final SubscriptionStatus subscriptionStatus;
 
   @override
   String toString() {
-    return 'AppUser.less(name: $name, userUName: $userUName, avatarImageUrl: $avatarImageUrl, userUID: $userUID, subscriptionStatus: $subscriptionStatus)';
+    return 'AppUser.less(name: $name, userUName: $userUName, avatarImageUrl: $avatarImageUrl, userUID: $userUID)';
   }
 
   @override
@@ -303,9 +268,7 @@ class _$AppUserLess implements AppUserLess {
             const DeepCollectionEquality().equals(other.userUName, userUName) &&
             const DeepCollectionEquality()
                 .equals(other.avatarImageUrl, avatarImageUrl) &&
-            const DeepCollectionEquality().equals(other.userUID, userUID) &&
-            const DeepCollectionEquality()
-                .equals(other.subscriptionStatus, subscriptionStatus));
+            const DeepCollectionEquality().equals(other.userUID, userUID));
   }
 
   @override
@@ -314,8 +277,7 @@ class _$AppUserLess implements AppUserLess {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(userUName),
       const DeepCollectionEquality().hash(avatarImageUrl),
-      const DeepCollectionEquality().hash(userUID),
-      const DeepCollectionEquality().hash(subscriptionStatus));
+      const DeepCollectionEquality().hash(userUID));
 
   @JsonKey(ignore: true)
   @override
@@ -325,13 +287,10 @@ class _$AppUserLess implements AppUserLess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            Name name,
-            UserUName userUName,
-            ImageUrl avatarImageUrl,
-            UserUID userUID,
-            SubscriptionStatus subscriptionStatus)
+    required TResult Function(Name name, UserUName userUName,
+            ImageUrl avatarImageUrl, UserUID userUID)
         less,
+    required TResult Function() empty,
     required TResult Function(
             Name name,
             UserUName userUName,
@@ -339,7 +298,6 @@ class _$AppUserLess implements AppUserLess {
             ImageUrl backgroundImageUrl,
             UserBio userBio,
             UserUID userUID,
-            SubscriptionStatus subscriptionStatus,
             int postCount,
             int subscribersCount,
             int subscribingCount)
@@ -348,15 +306,16 @@ class _$AppUserLess implements AppUserLess {
             ImageUrl backgroundImageUrl, UserBio userBio)
         update,
   }) {
-    return less(name, userUName, avatarImageUrl, userUID, subscriptionStatus);
+    return less(name, userUName, avatarImageUrl, userUID);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Name name, UserUName userUName, ImageUrl avatarImageUrl,
-            UserUID userUID, SubscriptionStatus subscriptionStatus)?
+            UserUID userUID)?
         less,
+    TResult Function()? empty,
     TResult Function(
             Name name,
             UserUName userUName,
@@ -364,7 +323,6 @@ class _$AppUserLess implements AppUserLess {
             ImageUrl backgroundImageUrl,
             UserBio userBio,
             UserUID userUID,
-            SubscriptionStatus subscriptionStatus,
             int postCount,
             int subscribersCount,
             int subscribingCount)?
@@ -373,16 +331,16 @@ class _$AppUserLess implements AppUserLess {
             ImageUrl backgroundImageUrl, UserBio userBio)?
         update,
   }) {
-    return less?.call(
-        name, userUName, avatarImageUrl, userUID, subscriptionStatus);
+    return less?.call(name, userUName, avatarImageUrl, userUID);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Name name, UserUName userUName, ImageUrl avatarImageUrl,
-            UserUID userUID, SubscriptionStatus subscriptionStatus)?
+            UserUID userUID)?
         less,
+    TResult Function()? empty,
     TResult Function(
             Name name,
             UserUName userUName,
@@ -390,7 +348,6 @@ class _$AppUserLess implements AppUserLess {
             ImageUrl backgroundImageUrl,
             UserBio userBio,
             UserUID userUID,
-            SubscriptionStatus subscriptionStatus,
             int postCount,
             int subscribersCount,
             int subscribingCount)?
@@ -401,7 +358,7 @@ class _$AppUserLess implements AppUserLess {
     required TResult orElse(),
   }) {
     if (less != null) {
-      return less(name, userUName, avatarImageUrl, userUID, subscriptionStatus);
+      return less(name, userUName, avatarImageUrl, userUID);
     }
     return orElse();
   }
@@ -410,6 +367,7 @@ class _$AppUserLess implements AppUserLess {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppUserLess value) less,
+    required TResult Function(AppUserEmpty value) empty,
     required TResult Function(AppUserFull value) full,
     required TResult Function(AppUserUpdate value) update,
   }) {
@@ -420,6 +378,7 @@ class _$AppUserLess implements AppUserLess {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(AppUserLess value)? less,
+    TResult Function(AppUserEmpty value)? empty,
     TResult Function(AppUserFull value)? full,
     TResult Function(AppUserUpdate value)? update,
   }) {
@@ -430,6 +389,7 @@ class _$AppUserLess implements AppUserLess {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppUserLess value)? less,
+    TResult Function(AppUserEmpty value)? empty,
     TResult Function(AppUserFull value)? full,
     TResult Function(AppUserUpdate value)? update,
     required TResult orElse(),
@@ -446,28 +406,180 @@ abstract class AppUserLess implements AppUser {
       {required Name name,
       required UserUName userUName,
       required ImageUrl avatarImageUrl,
-      required UserUID userUID,
-      required SubscriptionStatus subscriptionStatus}) = _$AppUserLess;
+      required UserUID userUID}) = _$AppUserLess;
 
-  @override
   Name get name;
   UserUName get userUName;
-  @override
   ImageUrl get avatarImageUrl;
   UserUID get userUID;
-  SubscriptionStatus get subscriptionStatus;
-  @override
   @JsonKey(ignore: true)
   $AppUserLessCopyWith<AppUserLess> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AppUserFullCopyWith<$Res> implements $AppUserCopyWith<$Res> {
+abstract class $AppUserEmptyCopyWith<$Res> {
+  factory $AppUserEmptyCopyWith(
+          AppUserEmpty value, $Res Function(AppUserEmpty) then) =
+      _$AppUserEmptyCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AppUserEmptyCopyWithImpl<$Res> extends _$AppUserCopyWithImpl<$Res>
+    implements $AppUserEmptyCopyWith<$Res> {
+  _$AppUserEmptyCopyWithImpl(
+      AppUserEmpty _value, $Res Function(AppUserEmpty) _then)
+      : super(_value, (v) => _then(v as AppUserEmpty));
+
+  @override
+  AppUserEmpty get _value => super._value as AppUserEmpty;
+}
+
+/// @nodoc
+
+class _$AppUserEmpty implements AppUserEmpty {
+  const _$AppUserEmpty();
+
+  @override
+  String toString() {
+    return 'AppUser.empty()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AppUserEmpty);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Name name, UserUName userUName,
+            ImageUrl avatarImageUrl, UserUID userUID)
+        less,
+    required TResult Function() empty,
+    required TResult Function(
+            Name name,
+            UserUName userUName,
+            ImageUrl avatarImageUrl,
+            ImageUrl backgroundImageUrl,
+            UserBio userBio,
+            UserUID userUID,
+            int postCount,
+            int subscribersCount,
+            int subscribingCount)
+        full,
+    required TResult Function(Name name, ImageUrl avatarImageUrl,
+            ImageUrl backgroundImageUrl, UserBio userBio)
+        update,
+  }) {
+    return empty();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Name name, UserUName userUName, ImageUrl avatarImageUrl,
+            UserUID userUID)?
+        less,
+    TResult Function()? empty,
+    TResult Function(
+            Name name,
+            UserUName userUName,
+            ImageUrl avatarImageUrl,
+            ImageUrl backgroundImageUrl,
+            UserBio userBio,
+            UserUID userUID,
+            int postCount,
+            int subscribersCount,
+            int subscribingCount)?
+        full,
+    TResult Function(Name name, ImageUrl avatarImageUrl,
+            ImageUrl backgroundImageUrl, UserBio userBio)?
+        update,
+  }) {
+    return empty?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Name name, UserUName userUName, ImageUrl avatarImageUrl,
+            UserUID userUID)?
+        less,
+    TResult Function()? empty,
+    TResult Function(
+            Name name,
+            UserUName userUName,
+            ImageUrl avatarImageUrl,
+            ImageUrl backgroundImageUrl,
+            UserBio userBio,
+            UserUID userUID,
+            int postCount,
+            int subscribersCount,
+            int subscribingCount)?
+        full,
+    TResult Function(Name name, ImageUrl avatarImageUrl,
+            ImageUrl backgroundImageUrl, UserBio userBio)?
+        update,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppUserLess value) less,
+    required TResult Function(AppUserEmpty value) empty,
+    required TResult Function(AppUserFull value) full,
+    required TResult Function(AppUserUpdate value) update,
+  }) {
+    return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AppUserLess value)? less,
+    TResult Function(AppUserEmpty value)? empty,
+    TResult Function(AppUserFull value)? full,
+    TResult Function(AppUserUpdate value)? update,
+  }) {
+    return empty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppUserLess value)? less,
+    TResult Function(AppUserEmpty value)? empty,
+    TResult Function(AppUserFull value)? full,
+    TResult Function(AppUserUpdate value)? update,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AppUserEmpty implements AppUser {
+  const factory AppUserEmpty() = _$AppUserEmpty;
+}
+
+/// @nodoc
+abstract class $AppUserFullCopyWith<$Res> {
   factory $AppUserFullCopyWith(
           AppUserFull value, $Res Function(AppUserFull) then) =
       _$AppUserFullCopyWithImpl<$Res>;
-  @override
   $Res call(
       {Name name,
       UserUName userUName,
@@ -475,7 +587,6 @@ abstract class $AppUserFullCopyWith<$Res> implements $AppUserCopyWith<$Res> {
       ImageUrl backgroundImageUrl,
       UserBio userBio,
       UserUID userUID,
-      SubscriptionStatus subscriptionStatus,
       int postCount,
       int subscribersCount,
       int subscribingCount});
@@ -499,7 +610,6 @@ class _$AppUserFullCopyWithImpl<$Res> extends _$AppUserCopyWithImpl<$Res>
     Object? backgroundImageUrl = freezed,
     Object? userBio = freezed,
     Object? userUID = freezed,
-    Object? subscriptionStatus = freezed,
     Object? postCount = freezed,
     Object? subscribersCount = freezed,
     Object? subscribingCount = freezed,
@@ -529,10 +639,6 @@ class _$AppUserFullCopyWithImpl<$Res> extends _$AppUserCopyWithImpl<$Res>
           ? _value.userUID
           : userUID // ignore: cast_nullable_to_non_nullable
               as UserUID,
-      subscriptionStatus: subscriptionStatus == freezed
-          ? _value.subscriptionStatus
-          : subscriptionStatus // ignore: cast_nullable_to_non_nullable
-              as SubscriptionStatus,
       postCount: postCount == freezed
           ? _value.postCount
           : postCount // ignore: cast_nullable_to_non_nullable
@@ -559,7 +665,6 @@ class _$AppUserFull implements AppUserFull {
       required this.backgroundImageUrl,
       required this.userBio,
       required this.userUID,
-      required this.subscriptionStatus,
       required this.postCount,
       required this.subscribersCount,
       required this.subscribingCount});
@@ -577,8 +682,6 @@ class _$AppUserFull implements AppUserFull {
   @override
   final UserUID userUID;
   @override
-  final SubscriptionStatus subscriptionStatus;
-  @override
   final int postCount;
   @override
   final int subscribersCount;
@@ -587,7 +690,7 @@ class _$AppUserFull implements AppUserFull {
 
   @override
   String toString() {
-    return 'AppUser.full(name: $name, userUName: $userUName, avatarImageUrl: $avatarImageUrl, backgroundImageUrl: $backgroundImageUrl, userBio: $userBio, userUID: $userUID, subscriptionStatus: $subscriptionStatus, postCount: $postCount, subscribersCount: $subscribersCount, subscribingCount: $subscribingCount)';
+    return 'AppUser.full(name: $name, userUName: $userUName, avatarImageUrl: $avatarImageUrl, backgroundImageUrl: $backgroundImageUrl, userBio: $userBio, userUID: $userUID, postCount: $postCount, subscribersCount: $subscribersCount, subscribingCount: $subscribingCount)';
   }
 
   @override
@@ -603,8 +706,6 @@ class _$AppUserFull implements AppUserFull {
                 .equals(other.backgroundImageUrl, backgroundImageUrl) &&
             const DeepCollectionEquality().equals(other.userBio, userBio) &&
             const DeepCollectionEquality().equals(other.userUID, userUID) &&
-            const DeepCollectionEquality()
-                .equals(other.subscriptionStatus, subscriptionStatus) &&
             const DeepCollectionEquality().equals(other.postCount, postCount) &&
             const DeepCollectionEquality()
                 .equals(other.subscribersCount, subscribersCount) &&
@@ -621,7 +722,6 @@ class _$AppUserFull implements AppUserFull {
       const DeepCollectionEquality().hash(backgroundImageUrl),
       const DeepCollectionEquality().hash(userBio),
       const DeepCollectionEquality().hash(userUID),
-      const DeepCollectionEquality().hash(subscriptionStatus),
       const DeepCollectionEquality().hash(postCount),
       const DeepCollectionEquality().hash(subscribersCount),
       const DeepCollectionEquality().hash(subscribingCount));
@@ -634,13 +734,10 @@ class _$AppUserFull implements AppUserFull {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            Name name,
-            UserUName userUName,
-            ImageUrl avatarImageUrl,
-            UserUID userUID,
-            SubscriptionStatus subscriptionStatus)
+    required TResult Function(Name name, UserUName userUName,
+            ImageUrl avatarImageUrl, UserUID userUID)
         less,
+    required TResult Function() empty,
     required TResult Function(
             Name name,
             UserUName userUName,
@@ -648,7 +745,6 @@ class _$AppUserFull implements AppUserFull {
             ImageUrl backgroundImageUrl,
             UserBio userBio,
             UserUID userUID,
-            SubscriptionStatus subscriptionStatus,
             int postCount,
             int subscribersCount,
             int subscribingCount)
@@ -657,25 +753,17 @@ class _$AppUserFull implements AppUserFull {
             ImageUrl backgroundImageUrl, UserBio userBio)
         update,
   }) {
-    return full(
-        name,
-        userUName,
-        avatarImageUrl,
-        backgroundImageUrl,
-        userBio,
-        userUID,
-        subscriptionStatus,
-        postCount,
-        subscribersCount,
-        subscribingCount);
+    return full(name, userUName, avatarImageUrl, backgroundImageUrl, userBio,
+        userUID, postCount, subscribersCount, subscribingCount);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Name name, UserUName userUName, ImageUrl avatarImageUrl,
-            UserUID userUID, SubscriptionStatus subscriptionStatus)?
+            UserUID userUID)?
         less,
+    TResult Function()? empty,
     TResult Function(
             Name name,
             UserUName userUName,
@@ -683,7 +771,6 @@ class _$AppUserFull implements AppUserFull {
             ImageUrl backgroundImageUrl,
             UserBio userBio,
             UserUID userUID,
-            SubscriptionStatus subscriptionStatus,
             int postCount,
             int subscribersCount,
             int subscribingCount)?
@@ -692,25 +779,17 @@ class _$AppUserFull implements AppUserFull {
             ImageUrl backgroundImageUrl, UserBio userBio)?
         update,
   }) {
-    return full?.call(
-        name,
-        userUName,
-        avatarImageUrl,
-        backgroundImageUrl,
-        userBio,
-        userUID,
-        subscriptionStatus,
-        postCount,
-        subscribersCount,
-        subscribingCount);
+    return full?.call(name, userUName, avatarImageUrl, backgroundImageUrl,
+        userBio, userUID, postCount, subscribersCount, subscribingCount);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Name name, UserUName userUName, ImageUrl avatarImageUrl,
-            UserUID userUID, SubscriptionStatus subscriptionStatus)?
+            UserUID userUID)?
         less,
+    TResult Function()? empty,
     TResult Function(
             Name name,
             UserUName userUName,
@@ -718,7 +797,6 @@ class _$AppUserFull implements AppUserFull {
             ImageUrl backgroundImageUrl,
             UserBio userBio,
             UserUID userUID,
-            SubscriptionStatus subscriptionStatus,
             int postCount,
             int subscribersCount,
             int subscribingCount)?
@@ -729,17 +807,8 @@ class _$AppUserFull implements AppUserFull {
     required TResult orElse(),
   }) {
     if (full != null) {
-      return full(
-          name,
-          userUName,
-          avatarImageUrl,
-          backgroundImageUrl,
-          userBio,
-          userUID,
-          subscriptionStatus,
-          postCount,
-          subscribersCount,
-          subscribingCount);
+      return full(name, userUName, avatarImageUrl, backgroundImageUrl, userBio,
+          userUID, postCount, subscribersCount, subscribingCount);
     }
     return orElse();
   }
@@ -748,6 +817,7 @@ class _$AppUserFull implements AppUserFull {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppUserLess value) less,
+    required TResult Function(AppUserEmpty value) empty,
     required TResult Function(AppUserFull value) full,
     required TResult Function(AppUserUpdate value) update,
   }) {
@@ -758,6 +828,7 @@ class _$AppUserFull implements AppUserFull {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(AppUserLess value)? less,
+    TResult Function(AppUserEmpty value)? empty,
     TResult Function(AppUserFull value)? full,
     TResult Function(AppUserUpdate value)? update,
   }) {
@@ -768,6 +839,7 @@ class _$AppUserFull implements AppUserFull {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppUserLess value)? less,
+    TResult Function(AppUserEmpty value)? empty,
     TResult Function(AppUserFull value)? full,
     TResult Function(AppUserUpdate value)? update,
     required TResult orElse(),
@@ -787,35 +859,29 @@ abstract class AppUserFull implements AppUser {
       required ImageUrl backgroundImageUrl,
       required UserBio userBio,
       required UserUID userUID,
-      required SubscriptionStatus subscriptionStatus,
       required int postCount,
       required int subscribersCount,
       required int subscribingCount}) = _$AppUserFull;
 
-  @override
   Name get name;
   UserUName get userUName;
-  @override
   ImageUrl get avatarImageUrl;
   ImageUrl get backgroundImageUrl;
   UserBio get userBio;
   UserUID get userUID;
-  SubscriptionStatus get subscriptionStatus;
   int get postCount;
   int get subscribersCount;
   int get subscribingCount;
-  @override
   @JsonKey(ignore: true)
   $AppUserFullCopyWith<AppUserFull> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AppUserUpdateCopyWith<$Res> implements $AppUserCopyWith<$Res> {
+abstract class $AppUserUpdateCopyWith<$Res> {
   factory $AppUserUpdateCopyWith(
           AppUserUpdate value, $Res Function(AppUserUpdate) then) =
       _$AppUserUpdateCopyWithImpl<$Res>;
-  @override
   $Res call(
       {Name name,
       ImageUrl avatarImageUrl,
@@ -913,13 +979,10 @@ class _$AppUserUpdate implements AppUserUpdate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            Name name,
-            UserUName userUName,
-            ImageUrl avatarImageUrl,
-            UserUID userUID,
-            SubscriptionStatus subscriptionStatus)
+    required TResult Function(Name name, UserUName userUName,
+            ImageUrl avatarImageUrl, UserUID userUID)
         less,
+    required TResult Function() empty,
     required TResult Function(
             Name name,
             UserUName userUName,
@@ -927,7 +990,6 @@ class _$AppUserUpdate implements AppUserUpdate {
             ImageUrl backgroundImageUrl,
             UserBio userBio,
             UserUID userUID,
-            SubscriptionStatus subscriptionStatus,
             int postCount,
             int subscribersCount,
             int subscribingCount)
@@ -943,8 +1005,9 @@ class _$AppUserUpdate implements AppUserUpdate {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(Name name, UserUName userUName, ImageUrl avatarImageUrl,
-            UserUID userUID, SubscriptionStatus subscriptionStatus)?
+            UserUID userUID)?
         less,
+    TResult Function()? empty,
     TResult Function(
             Name name,
             UserUName userUName,
@@ -952,7 +1015,6 @@ class _$AppUserUpdate implements AppUserUpdate {
             ImageUrl backgroundImageUrl,
             UserBio userBio,
             UserUID userUID,
-            SubscriptionStatus subscriptionStatus,
             int postCount,
             int subscribersCount,
             int subscribingCount)?
@@ -968,8 +1030,9 @@ class _$AppUserUpdate implements AppUserUpdate {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Name name, UserUName userUName, ImageUrl avatarImageUrl,
-            UserUID userUID, SubscriptionStatus subscriptionStatus)?
+            UserUID userUID)?
         less,
+    TResult Function()? empty,
     TResult Function(
             Name name,
             UserUName userUName,
@@ -977,7 +1040,6 @@ class _$AppUserUpdate implements AppUserUpdate {
             ImageUrl backgroundImageUrl,
             UserBio userBio,
             UserUID userUID,
-            SubscriptionStatus subscriptionStatus,
             int postCount,
             int subscribersCount,
             int subscribingCount)?
@@ -997,6 +1059,7 @@ class _$AppUserUpdate implements AppUserUpdate {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppUserLess value) less,
+    required TResult Function(AppUserEmpty value) empty,
     required TResult Function(AppUserFull value) full,
     required TResult Function(AppUserUpdate value) update,
   }) {
@@ -1007,6 +1070,7 @@ class _$AppUserUpdate implements AppUserUpdate {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(AppUserLess value)? less,
+    TResult Function(AppUserEmpty value)? empty,
     TResult Function(AppUserFull value)? full,
     TResult Function(AppUserUpdate value)? update,
   }) {
@@ -1017,6 +1081,7 @@ class _$AppUserUpdate implements AppUserUpdate {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppUserLess value)? less,
+    TResult Function(AppUserEmpty value)? empty,
     TResult Function(AppUserFull value)? full,
     TResult Function(AppUserUpdate value)? update,
     required TResult orElse(),
@@ -1035,13 +1100,10 @@ abstract class AppUserUpdate implements AppUser {
       required ImageUrl backgroundImageUrl,
       required UserBio userBio}) = _$AppUserUpdate;
 
-  @override
   Name get name;
-  @override
   ImageUrl get avatarImageUrl;
   ImageUrl get backgroundImageUrl;
   UserBio get userBio;
-  @override
   @JsonKey(ignore: true)
   $AppUserUpdateCopyWith<AppUserUpdate> get copyWith =>
       throw _privateConstructorUsedError;

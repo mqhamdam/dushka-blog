@@ -2,13 +2,13 @@ part of 'post_watcher_bloc.dart';
 
 @freezed
 class PostWatcherState with _$PostWatcherState {
-  const factory PostWatcherState.fetching() = _FetchingInitialData;
+   factory PostWatcherState.loading() => PostWatcherState(
+    post: Post.empty(),
+    hasBookmarked: false, 
+    hasLiked: false,);
   const factory PostWatcherState({
-    required PostBody postBody,
-    required int likesCount,
-    required int commentsCount,
+    required Post post,
     required bool hasBookmarked,
     required bool hasLiked,
-
   }) = _PostWatcherState;
 }

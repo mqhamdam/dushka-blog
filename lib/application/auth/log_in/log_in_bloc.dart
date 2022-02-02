@@ -56,7 +56,7 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
     print(isPasswordValid);
     print(isEmailValid);
     if (isEmailValid && isPasswordValid) {
-      print("PASSED");
+      print('PASSED');
       emit(
         state.copyWith(
           isSubmitting: true,
