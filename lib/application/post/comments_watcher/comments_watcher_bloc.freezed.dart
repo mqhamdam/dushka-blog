@@ -18,8 +18,14 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$CommentsWatcherEventTearOff {
   const _$CommentsWatcherEventTearOff();
 
-  _CommentsWatcherEventGetFirstPage getFirstPage() {
-    return const _CommentsWatcherEventGetFirstPage();
+  _CommentsWatcherEventConnectStream connectStream() {
+    return const _CommentsWatcherEventConnectStream();
+  }
+
+  _CommentsWatcherEventAddDocument addDocument(CommentDoc commentDoc) {
+    return _CommentsWatcherEventAddDocument(
+      commentDoc,
+    );
   }
 
   _CommentsWatcherEventGetNextPage getNextPage() {
@@ -28,6 +34,18 @@ class _$CommentsWatcherEventTearOff {
 
   _CommentsWatcherEventRefreshPage refreshPage() {
     return const _CommentsWatcherEventRefreshPage();
+  }
+
+  _CommentsWatcherEventDeleteDocument deleteDocument(CommentDoc commentDoc) {
+    return _CommentsWatcherEventDeleteDocument(
+      commentDoc,
+    );
+  }
+
+  _CommentsWatcherEventModifyDocument modifyDocument(CommentDoc commentDoc) {
+    return _CommentsWatcherEventModifyDocument(
+      commentDoc,
+    );
   }
 }
 
@@ -38,48 +56,69 @@ const $CommentsWatcherEvent = _$CommentsWatcherEventTearOff();
 mixin _$CommentsWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getFirstPage,
+    required TResult Function() connectStream,
+    required TResult Function(CommentDoc commentDoc) addDocument,
     required TResult Function() getNextPage,
     required TResult Function() refreshPage,
+    required TResult Function(CommentDoc commentDoc) deleteDocument,
+    required TResult Function(CommentDoc commentDoc) modifyDocument,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getFirstPage,
+    TResult Function()? connectStream,
+    TResult Function(CommentDoc commentDoc)? addDocument,
     TResult Function()? getNextPage,
     TResult Function()? refreshPage,
+    TResult Function(CommentDoc commentDoc)? deleteDocument,
+    TResult Function(CommentDoc commentDoc)? modifyDocument,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getFirstPage,
+    TResult Function()? connectStream,
+    TResult Function(CommentDoc commentDoc)? addDocument,
     TResult Function()? getNextPage,
     TResult Function()? refreshPage,
+    TResult Function(CommentDoc commentDoc)? deleteDocument,
+    TResult Function(CommentDoc commentDoc)? modifyDocument,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CommentsWatcherEventGetFirstPage value)
-        getFirstPage,
+    required TResult Function(_CommentsWatcherEventConnectStream value)
+        connectStream,
+    required TResult Function(_CommentsWatcherEventAddDocument value)
+        addDocument,
     required TResult Function(_CommentsWatcherEventGetNextPage value)
         getNextPage,
     required TResult Function(_CommentsWatcherEventRefreshPage value)
         refreshPage,
+    required TResult Function(_CommentsWatcherEventDeleteDocument value)
+        deleteDocument,
+    required TResult Function(_CommentsWatcherEventModifyDocument value)
+        modifyDocument,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CommentsWatcherEventGetFirstPage value)? getFirstPage,
+    TResult Function(_CommentsWatcherEventConnectStream value)? connectStream,
+    TResult Function(_CommentsWatcherEventAddDocument value)? addDocument,
     TResult Function(_CommentsWatcherEventGetNextPage value)? getNextPage,
     TResult Function(_CommentsWatcherEventRefreshPage value)? refreshPage,
+    TResult Function(_CommentsWatcherEventDeleteDocument value)? deleteDocument,
+    TResult Function(_CommentsWatcherEventModifyDocument value)? modifyDocument,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CommentsWatcherEventGetFirstPage value)? getFirstPage,
+    TResult Function(_CommentsWatcherEventConnectStream value)? connectStream,
+    TResult Function(_CommentsWatcherEventAddDocument value)? addDocument,
     TResult Function(_CommentsWatcherEventGetNextPage value)? getNextPage,
     TResult Function(_CommentsWatcherEventRefreshPage value)? refreshPage,
+    TResult Function(_CommentsWatcherEventDeleteDocument value)? deleteDocument,
+    TResult Function(_CommentsWatcherEventModifyDocument value)? modifyDocument,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -103,43 +142,43 @@ class _$CommentsWatcherEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$CommentsWatcherEventGetFirstPageCopyWith<$Res> {
-  factory _$CommentsWatcherEventGetFirstPageCopyWith(
-          _CommentsWatcherEventGetFirstPage value,
-          $Res Function(_CommentsWatcherEventGetFirstPage) then) =
-      __$CommentsWatcherEventGetFirstPageCopyWithImpl<$Res>;
+abstract class _$CommentsWatcherEventConnectStreamCopyWith<$Res> {
+  factory _$CommentsWatcherEventConnectStreamCopyWith(
+          _CommentsWatcherEventConnectStream value,
+          $Res Function(_CommentsWatcherEventConnectStream) then) =
+      __$CommentsWatcherEventConnectStreamCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$CommentsWatcherEventGetFirstPageCopyWithImpl<$Res>
+class __$CommentsWatcherEventConnectStreamCopyWithImpl<$Res>
     extends _$CommentsWatcherEventCopyWithImpl<$Res>
-    implements _$CommentsWatcherEventGetFirstPageCopyWith<$Res> {
-  __$CommentsWatcherEventGetFirstPageCopyWithImpl(
-      _CommentsWatcherEventGetFirstPage _value,
-      $Res Function(_CommentsWatcherEventGetFirstPage) _then)
-      : super(_value, (v) => _then(v as _CommentsWatcherEventGetFirstPage));
+    implements _$CommentsWatcherEventConnectStreamCopyWith<$Res> {
+  __$CommentsWatcherEventConnectStreamCopyWithImpl(
+      _CommentsWatcherEventConnectStream _value,
+      $Res Function(_CommentsWatcherEventConnectStream) _then)
+      : super(_value, (v) => _then(v as _CommentsWatcherEventConnectStream));
 
   @override
-  _CommentsWatcherEventGetFirstPage get _value =>
-      super._value as _CommentsWatcherEventGetFirstPage;
+  _CommentsWatcherEventConnectStream get _value =>
+      super._value as _CommentsWatcherEventConnectStream;
 }
 
 /// @nodoc
 
-class _$_CommentsWatcherEventGetFirstPage
-    implements _CommentsWatcherEventGetFirstPage {
-  const _$_CommentsWatcherEventGetFirstPage();
+class _$_CommentsWatcherEventConnectStream
+    implements _CommentsWatcherEventConnectStream {
+  const _$_CommentsWatcherEventConnectStream();
 
   @override
   String toString() {
-    return 'CommentsWatcherEvent.getFirstPage()';
+    return 'CommentsWatcherEvent.connectStream()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CommentsWatcherEventGetFirstPage);
+            other is _CommentsWatcherEventConnectStream);
   }
 
   @override
@@ -148,33 +187,42 @@ class _$_CommentsWatcherEventGetFirstPage
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getFirstPage,
+    required TResult Function() connectStream,
+    required TResult Function(CommentDoc commentDoc) addDocument,
     required TResult Function() getNextPage,
     required TResult Function() refreshPage,
+    required TResult Function(CommentDoc commentDoc) deleteDocument,
+    required TResult Function(CommentDoc commentDoc) modifyDocument,
   }) {
-    return getFirstPage();
+    return connectStream();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getFirstPage,
+    TResult Function()? connectStream,
+    TResult Function(CommentDoc commentDoc)? addDocument,
     TResult Function()? getNextPage,
     TResult Function()? refreshPage,
+    TResult Function(CommentDoc commentDoc)? deleteDocument,
+    TResult Function(CommentDoc commentDoc)? modifyDocument,
   }) {
-    return getFirstPage?.call();
+    return connectStream?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getFirstPage,
+    TResult Function()? connectStream,
+    TResult Function(CommentDoc commentDoc)? addDocument,
     TResult Function()? getNextPage,
     TResult Function()? refreshPage,
+    TResult Function(CommentDoc commentDoc)? deleteDocument,
+    TResult Function(CommentDoc commentDoc)? modifyDocument,
     required TResult orElse(),
   }) {
-    if (getFirstPage != null) {
-      return getFirstPage();
+    if (connectStream != null) {
+      return connectStream();
     }
     return orElse();
   }
@@ -182,45 +230,238 @@ class _$_CommentsWatcherEventGetFirstPage
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CommentsWatcherEventGetFirstPage value)
-        getFirstPage,
+    required TResult Function(_CommentsWatcherEventConnectStream value)
+        connectStream,
+    required TResult Function(_CommentsWatcherEventAddDocument value)
+        addDocument,
     required TResult Function(_CommentsWatcherEventGetNextPage value)
         getNextPage,
     required TResult Function(_CommentsWatcherEventRefreshPage value)
         refreshPage,
+    required TResult Function(_CommentsWatcherEventDeleteDocument value)
+        deleteDocument,
+    required TResult Function(_CommentsWatcherEventModifyDocument value)
+        modifyDocument,
   }) {
-    return getFirstPage(this);
+    return connectStream(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CommentsWatcherEventGetFirstPage value)? getFirstPage,
+    TResult Function(_CommentsWatcherEventConnectStream value)? connectStream,
+    TResult Function(_CommentsWatcherEventAddDocument value)? addDocument,
     TResult Function(_CommentsWatcherEventGetNextPage value)? getNextPage,
     TResult Function(_CommentsWatcherEventRefreshPage value)? refreshPage,
+    TResult Function(_CommentsWatcherEventDeleteDocument value)? deleteDocument,
+    TResult Function(_CommentsWatcherEventModifyDocument value)? modifyDocument,
   }) {
-    return getFirstPage?.call(this);
+    return connectStream?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CommentsWatcherEventGetFirstPage value)? getFirstPage,
+    TResult Function(_CommentsWatcherEventConnectStream value)? connectStream,
+    TResult Function(_CommentsWatcherEventAddDocument value)? addDocument,
     TResult Function(_CommentsWatcherEventGetNextPage value)? getNextPage,
     TResult Function(_CommentsWatcherEventRefreshPage value)? refreshPage,
+    TResult Function(_CommentsWatcherEventDeleteDocument value)? deleteDocument,
+    TResult Function(_CommentsWatcherEventModifyDocument value)? modifyDocument,
     required TResult orElse(),
   }) {
-    if (getFirstPage != null) {
-      return getFirstPage(this);
+    if (connectStream != null) {
+      return connectStream(this);
     }
     return orElse();
   }
 }
 
-abstract class _CommentsWatcherEventGetFirstPage
+abstract class _CommentsWatcherEventConnectStream
     implements CommentsWatcherEvent {
-  const factory _CommentsWatcherEventGetFirstPage() =
-      _$_CommentsWatcherEventGetFirstPage;
+  const factory _CommentsWatcherEventConnectStream() =
+      _$_CommentsWatcherEventConnectStream;
+}
+
+/// @nodoc
+abstract class _$CommentsWatcherEventAddDocumentCopyWith<$Res> {
+  factory _$CommentsWatcherEventAddDocumentCopyWith(
+          _CommentsWatcherEventAddDocument value,
+          $Res Function(_CommentsWatcherEventAddDocument) then) =
+      __$CommentsWatcherEventAddDocumentCopyWithImpl<$Res>;
+  $Res call({CommentDoc commentDoc});
+
+  $CommentDocCopyWith<$Res> get commentDoc;
+}
+
+/// @nodoc
+class __$CommentsWatcherEventAddDocumentCopyWithImpl<$Res>
+    extends _$CommentsWatcherEventCopyWithImpl<$Res>
+    implements _$CommentsWatcherEventAddDocumentCopyWith<$Res> {
+  __$CommentsWatcherEventAddDocumentCopyWithImpl(
+      _CommentsWatcherEventAddDocument _value,
+      $Res Function(_CommentsWatcherEventAddDocument) _then)
+      : super(_value, (v) => _then(v as _CommentsWatcherEventAddDocument));
+
+  @override
+  _CommentsWatcherEventAddDocument get _value =>
+      super._value as _CommentsWatcherEventAddDocument;
+
+  @override
+  $Res call({
+    Object? commentDoc = freezed,
+  }) {
+    return _then(_CommentsWatcherEventAddDocument(
+      commentDoc == freezed
+          ? _value.commentDoc
+          : commentDoc // ignore: cast_nullable_to_non_nullable
+              as CommentDoc,
+    ));
+  }
+
+  @override
+  $CommentDocCopyWith<$Res> get commentDoc {
+    return $CommentDocCopyWith<$Res>(_value.commentDoc, (value) {
+      return _then(_value.copyWith(commentDoc: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_CommentsWatcherEventAddDocument
+    implements _CommentsWatcherEventAddDocument {
+  const _$_CommentsWatcherEventAddDocument(this.commentDoc);
+
+  @override
+  final CommentDoc commentDoc;
+
+  @override
+  String toString() {
+    return 'CommentsWatcherEvent.addDocument(commentDoc: $commentDoc)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _CommentsWatcherEventAddDocument &&
+            const DeepCollectionEquality()
+                .equals(other.commentDoc, commentDoc));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(commentDoc));
+
+  @JsonKey(ignore: true)
+  @override
+  _$CommentsWatcherEventAddDocumentCopyWith<_CommentsWatcherEventAddDocument>
+      get copyWith => __$CommentsWatcherEventAddDocumentCopyWithImpl<
+          _CommentsWatcherEventAddDocument>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() connectStream,
+    required TResult Function(CommentDoc commentDoc) addDocument,
+    required TResult Function() getNextPage,
+    required TResult Function() refreshPage,
+    required TResult Function(CommentDoc commentDoc) deleteDocument,
+    required TResult Function(CommentDoc commentDoc) modifyDocument,
+  }) {
+    return addDocument(commentDoc);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? connectStream,
+    TResult Function(CommentDoc commentDoc)? addDocument,
+    TResult Function()? getNextPage,
+    TResult Function()? refreshPage,
+    TResult Function(CommentDoc commentDoc)? deleteDocument,
+    TResult Function(CommentDoc commentDoc)? modifyDocument,
+  }) {
+    return addDocument?.call(commentDoc);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connectStream,
+    TResult Function(CommentDoc commentDoc)? addDocument,
+    TResult Function()? getNextPage,
+    TResult Function()? refreshPage,
+    TResult Function(CommentDoc commentDoc)? deleteDocument,
+    TResult Function(CommentDoc commentDoc)? modifyDocument,
+    required TResult orElse(),
+  }) {
+    if (addDocument != null) {
+      return addDocument(commentDoc);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CommentsWatcherEventConnectStream value)
+        connectStream,
+    required TResult Function(_CommentsWatcherEventAddDocument value)
+        addDocument,
+    required TResult Function(_CommentsWatcherEventGetNextPage value)
+        getNextPage,
+    required TResult Function(_CommentsWatcherEventRefreshPage value)
+        refreshPage,
+    required TResult Function(_CommentsWatcherEventDeleteDocument value)
+        deleteDocument,
+    required TResult Function(_CommentsWatcherEventModifyDocument value)
+        modifyDocument,
+  }) {
+    return addDocument(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_CommentsWatcherEventConnectStream value)? connectStream,
+    TResult Function(_CommentsWatcherEventAddDocument value)? addDocument,
+    TResult Function(_CommentsWatcherEventGetNextPage value)? getNextPage,
+    TResult Function(_CommentsWatcherEventRefreshPage value)? refreshPage,
+    TResult Function(_CommentsWatcherEventDeleteDocument value)? deleteDocument,
+    TResult Function(_CommentsWatcherEventModifyDocument value)? modifyDocument,
+  }) {
+    return addDocument?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CommentsWatcherEventConnectStream value)? connectStream,
+    TResult Function(_CommentsWatcherEventAddDocument value)? addDocument,
+    TResult Function(_CommentsWatcherEventGetNextPage value)? getNextPage,
+    TResult Function(_CommentsWatcherEventRefreshPage value)? refreshPage,
+    TResult Function(_CommentsWatcherEventDeleteDocument value)? deleteDocument,
+    TResult Function(_CommentsWatcherEventModifyDocument value)? modifyDocument,
+    required TResult orElse(),
+  }) {
+    if (addDocument != null) {
+      return addDocument(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CommentsWatcherEventAddDocument
+    implements CommentsWatcherEvent {
+  const factory _CommentsWatcherEventAddDocument(CommentDoc commentDoc) =
+      _$_CommentsWatcherEventAddDocument;
+
+  CommentDoc get commentDoc;
+  @JsonKey(ignore: true)
+  _$CommentsWatcherEventAddDocumentCopyWith<_CommentsWatcherEventAddDocument>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -269,9 +510,12 @@ class _$_CommentsWatcherEventGetNextPage
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getFirstPage,
+    required TResult Function() connectStream,
+    required TResult Function(CommentDoc commentDoc) addDocument,
     required TResult Function() getNextPage,
     required TResult Function() refreshPage,
+    required TResult Function(CommentDoc commentDoc) deleteDocument,
+    required TResult Function(CommentDoc commentDoc) modifyDocument,
   }) {
     return getNextPage();
   }
@@ -279,9 +523,12 @@ class _$_CommentsWatcherEventGetNextPage
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getFirstPage,
+    TResult Function()? connectStream,
+    TResult Function(CommentDoc commentDoc)? addDocument,
     TResult Function()? getNextPage,
     TResult Function()? refreshPage,
+    TResult Function(CommentDoc commentDoc)? deleteDocument,
+    TResult Function(CommentDoc commentDoc)? modifyDocument,
   }) {
     return getNextPage?.call();
   }
@@ -289,9 +536,12 @@ class _$_CommentsWatcherEventGetNextPage
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getFirstPage,
+    TResult Function()? connectStream,
+    TResult Function(CommentDoc commentDoc)? addDocument,
     TResult Function()? getNextPage,
     TResult Function()? refreshPage,
+    TResult Function(CommentDoc commentDoc)? deleteDocument,
+    TResult Function(CommentDoc commentDoc)? modifyDocument,
     required TResult orElse(),
   }) {
     if (getNextPage != null) {
@@ -303,12 +553,18 @@ class _$_CommentsWatcherEventGetNextPage
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CommentsWatcherEventGetFirstPage value)
-        getFirstPage,
+    required TResult Function(_CommentsWatcherEventConnectStream value)
+        connectStream,
+    required TResult Function(_CommentsWatcherEventAddDocument value)
+        addDocument,
     required TResult Function(_CommentsWatcherEventGetNextPage value)
         getNextPage,
     required TResult Function(_CommentsWatcherEventRefreshPage value)
         refreshPage,
+    required TResult Function(_CommentsWatcherEventDeleteDocument value)
+        deleteDocument,
+    required TResult Function(_CommentsWatcherEventModifyDocument value)
+        modifyDocument,
   }) {
     return getNextPage(this);
   }
@@ -316,9 +572,12 @@ class _$_CommentsWatcherEventGetNextPage
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CommentsWatcherEventGetFirstPage value)? getFirstPage,
+    TResult Function(_CommentsWatcherEventConnectStream value)? connectStream,
+    TResult Function(_CommentsWatcherEventAddDocument value)? addDocument,
     TResult Function(_CommentsWatcherEventGetNextPage value)? getNextPage,
     TResult Function(_CommentsWatcherEventRefreshPage value)? refreshPage,
+    TResult Function(_CommentsWatcherEventDeleteDocument value)? deleteDocument,
+    TResult Function(_CommentsWatcherEventModifyDocument value)? modifyDocument,
   }) {
     return getNextPage?.call(this);
   }
@@ -326,9 +585,12 @@ class _$_CommentsWatcherEventGetNextPage
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CommentsWatcherEventGetFirstPage value)? getFirstPage,
+    TResult Function(_CommentsWatcherEventConnectStream value)? connectStream,
+    TResult Function(_CommentsWatcherEventAddDocument value)? addDocument,
     TResult Function(_CommentsWatcherEventGetNextPage value)? getNextPage,
     TResult Function(_CommentsWatcherEventRefreshPage value)? refreshPage,
+    TResult Function(_CommentsWatcherEventDeleteDocument value)? deleteDocument,
+    TResult Function(_CommentsWatcherEventModifyDocument value)? modifyDocument,
     required TResult orElse(),
   }) {
     if (getNextPage != null) {
@@ -390,9 +652,12 @@ class _$_CommentsWatcherEventRefreshPage
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getFirstPage,
+    required TResult Function() connectStream,
+    required TResult Function(CommentDoc commentDoc) addDocument,
     required TResult Function() getNextPage,
     required TResult Function() refreshPage,
+    required TResult Function(CommentDoc commentDoc) deleteDocument,
+    required TResult Function(CommentDoc commentDoc) modifyDocument,
   }) {
     return refreshPage();
   }
@@ -400,9 +665,12 @@ class _$_CommentsWatcherEventRefreshPage
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getFirstPage,
+    TResult Function()? connectStream,
+    TResult Function(CommentDoc commentDoc)? addDocument,
     TResult Function()? getNextPage,
     TResult Function()? refreshPage,
+    TResult Function(CommentDoc commentDoc)? deleteDocument,
+    TResult Function(CommentDoc commentDoc)? modifyDocument,
   }) {
     return refreshPage?.call();
   }
@@ -410,9 +678,12 @@ class _$_CommentsWatcherEventRefreshPage
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getFirstPage,
+    TResult Function()? connectStream,
+    TResult Function(CommentDoc commentDoc)? addDocument,
     TResult Function()? getNextPage,
     TResult Function()? refreshPage,
+    TResult Function(CommentDoc commentDoc)? deleteDocument,
+    TResult Function(CommentDoc commentDoc)? modifyDocument,
     required TResult orElse(),
   }) {
     if (refreshPage != null) {
@@ -424,12 +695,18 @@ class _$_CommentsWatcherEventRefreshPage
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_CommentsWatcherEventGetFirstPage value)
-        getFirstPage,
+    required TResult Function(_CommentsWatcherEventConnectStream value)
+        connectStream,
+    required TResult Function(_CommentsWatcherEventAddDocument value)
+        addDocument,
     required TResult Function(_CommentsWatcherEventGetNextPage value)
         getNextPage,
     required TResult Function(_CommentsWatcherEventRefreshPage value)
         refreshPage,
+    required TResult Function(_CommentsWatcherEventDeleteDocument value)
+        deleteDocument,
+    required TResult Function(_CommentsWatcherEventModifyDocument value)
+        modifyDocument,
   }) {
     return refreshPage(this);
   }
@@ -437,9 +714,12 @@ class _$_CommentsWatcherEventRefreshPage
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_CommentsWatcherEventGetFirstPage value)? getFirstPage,
+    TResult Function(_CommentsWatcherEventConnectStream value)? connectStream,
+    TResult Function(_CommentsWatcherEventAddDocument value)? addDocument,
     TResult Function(_CommentsWatcherEventGetNextPage value)? getNextPage,
     TResult Function(_CommentsWatcherEventRefreshPage value)? refreshPage,
+    TResult Function(_CommentsWatcherEventDeleteDocument value)? deleteDocument,
+    TResult Function(_CommentsWatcherEventModifyDocument value)? modifyDocument,
   }) {
     return refreshPage?.call(this);
   }
@@ -447,9 +727,12 @@ class _$_CommentsWatcherEventRefreshPage
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CommentsWatcherEventGetFirstPage value)? getFirstPage,
+    TResult Function(_CommentsWatcherEventConnectStream value)? connectStream,
+    TResult Function(_CommentsWatcherEventAddDocument value)? addDocument,
     TResult Function(_CommentsWatcherEventGetNextPage value)? getNextPage,
     TResult Function(_CommentsWatcherEventRefreshPage value)? refreshPage,
+    TResult Function(_CommentsWatcherEventDeleteDocument value)? deleteDocument,
+    TResult Function(_CommentsWatcherEventModifyDocument value)? modifyDocument,
     required TResult orElse(),
   }) {
     if (refreshPage != null) {
@@ -466,13 +749,379 @@ abstract class _CommentsWatcherEventRefreshPage
 }
 
 /// @nodoc
+abstract class _$CommentsWatcherEventDeleteDocumentCopyWith<$Res> {
+  factory _$CommentsWatcherEventDeleteDocumentCopyWith(
+          _CommentsWatcherEventDeleteDocument value,
+          $Res Function(_CommentsWatcherEventDeleteDocument) then) =
+      __$CommentsWatcherEventDeleteDocumentCopyWithImpl<$Res>;
+  $Res call({CommentDoc commentDoc});
+
+  $CommentDocCopyWith<$Res> get commentDoc;
+}
+
+/// @nodoc
+class __$CommentsWatcherEventDeleteDocumentCopyWithImpl<$Res>
+    extends _$CommentsWatcherEventCopyWithImpl<$Res>
+    implements _$CommentsWatcherEventDeleteDocumentCopyWith<$Res> {
+  __$CommentsWatcherEventDeleteDocumentCopyWithImpl(
+      _CommentsWatcherEventDeleteDocument _value,
+      $Res Function(_CommentsWatcherEventDeleteDocument) _then)
+      : super(_value, (v) => _then(v as _CommentsWatcherEventDeleteDocument));
+
+  @override
+  _CommentsWatcherEventDeleteDocument get _value =>
+      super._value as _CommentsWatcherEventDeleteDocument;
+
+  @override
+  $Res call({
+    Object? commentDoc = freezed,
+  }) {
+    return _then(_CommentsWatcherEventDeleteDocument(
+      commentDoc == freezed
+          ? _value.commentDoc
+          : commentDoc // ignore: cast_nullable_to_non_nullable
+              as CommentDoc,
+    ));
+  }
+
+  @override
+  $CommentDocCopyWith<$Res> get commentDoc {
+    return $CommentDocCopyWith<$Res>(_value.commentDoc, (value) {
+      return _then(_value.copyWith(commentDoc: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_CommentsWatcherEventDeleteDocument
+    implements _CommentsWatcherEventDeleteDocument {
+  const _$_CommentsWatcherEventDeleteDocument(this.commentDoc);
+
+  @override
+  final CommentDoc commentDoc;
+
+  @override
+  String toString() {
+    return 'CommentsWatcherEvent.deleteDocument(commentDoc: $commentDoc)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _CommentsWatcherEventDeleteDocument &&
+            const DeepCollectionEquality()
+                .equals(other.commentDoc, commentDoc));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(commentDoc));
+
+  @JsonKey(ignore: true)
+  @override
+  _$CommentsWatcherEventDeleteDocumentCopyWith<
+          _CommentsWatcherEventDeleteDocument>
+      get copyWith => __$CommentsWatcherEventDeleteDocumentCopyWithImpl<
+          _CommentsWatcherEventDeleteDocument>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() connectStream,
+    required TResult Function(CommentDoc commentDoc) addDocument,
+    required TResult Function() getNextPage,
+    required TResult Function() refreshPage,
+    required TResult Function(CommentDoc commentDoc) deleteDocument,
+    required TResult Function(CommentDoc commentDoc) modifyDocument,
+  }) {
+    return deleteDocument(commentDoc);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? connectStream,
+    TResult Function(CommentDoc commentDoc)? addDocument,
+    TResult Function()? getNextPage,
+    TResult Function()? refreshPage,
+    TResult Function(CommentDoc commentDoc)? deleteDocument,
+    TResult Function(CommentDoc commentDoc)? modifyDocument,
+  }) {
+    return deleteDocument?.call(commentDoc);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connectStream,
+    TResult Function(CommentDoc commentDoc)? addDocument,
+    TResult Function()? getNextPage,
+    TResult Function()? refreshPage,
+    TResult Function(CommentDoc commentDoc)? deleteDocument,
+    TResult Function(CommentDoc commentDoc)? modifyDocument,
+    required TResult orElse(),
+  }) {
+    if (deleteDocument != null) {
+      return deleteDocument(commentDoc);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CommentsWatcherEventConnectStream value)
+        connectStream,
+    required TResult Function(_CommentsWatcherEventAddDocument value)
+        addDocument,
+    required TResult Function(_CommentsWatcherEventGetNextPage value)
+        getNextPage,
+    required TResult Function(_CommentsWatcherEventRefreshPage value)
+        refreshPage,
+    required TResult Function(_CommentsWatcherEventDeleteDocument value)
+        deleteDocument,
+    required TResult Function(_CommentsWatcherEventModifyDocument value)
+        modifyDocument,
+  }) {
+    return deleteDocument(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_CommentsWatcherEventConnectStream value)? connectStream,
+    TResult Function(_CommentsWatcherEventAddDocument value)? addDocument,
+    TResult Function(_CommentsWatcherEventGetNextPage value)? getNextPage,
+    TResult Function(_CommentsWatcherEventRefreshPage value)? refreshPage,
+    TResult Function(_CommentsWatcherEventDeleteDocument value)? deleteDocument,
+    TResult Function(_CommentsWatcherEventModifyDocument value)? modifyDocument,
+  }) {
+    return deleteDocument?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CommentsWatcherEventConnectStream value)? connectStream,
+    TResult Function(_CommentsWatcherEventAddDocument value)? addDocument,
+    TResult Function(_CommentsWatcherEventGetNextPage value)? getNextPage,
+    TResult Function(_CommentsWatcherEventRefreshPage value)? refreshPage,
+    TResult Function(_CommentsWatcherEventDeleteDocument value)? deleteDocument,
+    TResult Function(_CommentsWatcherEventModifyDocument value)? modifyDocument,
+    required TResult orElse(),
+  }) {
+    if (deleteDocument != null) {
+      return deleteDocument(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CommentsWatcherEventDeleteDocument
+    implements CommentsWatcherEvent {
+  const factory _CommentsWatcherEventDeleteDocument(CommentDoc commentDoc) =
+      _$_CommentsWatcherEventDeleteDocument;
+
+  CommentDoc get commentDoc;
+  @JsonKey(ignore: true)
+  _$CommentsWatcherEventDeleteDocumentCopyWith<
+          _CommentsWatcherEventDeleteDocument>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$CommentsWatcherEventModifyDocumentCopyWith<$Res> {
+  factory _$CommentsWatcherEventModifyDocumentCopyWith(
+          _CommentsWatcherEventModifyDocument value,
+          $Res Function(_CommentsWatcherEventModifyDocument) then) =
+      __$CommentsWatcherEventModifyDocumentCopyWithImpl<$Res>;
+  $Res call({CommentDoc commentDoc});
+
+  $CommentDocCopyWith<$Res> get commentDoc;
+}
+
+/// @nodoc
+class __$CommentsWatcherEventModifyDocumentCopyWithImpl<$Res>
+    extends _$CommentsWatcherEventCopyWithImpl<$Res>
+    implements _$CommentsWatcherEventModifyDocumentCopyWith<$Res> {
+  __$CommentsWatcherEventModifyDocumentCopyWithImpl(
+      _CommentsWatcherEventModifyDocument _value,
+      $Res Function(_CommentsWatcherEventModifyDocument) _then)
+      : super(_value, (v) => _then(v as _CommentsWatcherEventModifyDocument));
+
+  @override
+  _CommentsWatcherEventModifyDocument get _value =>
+      super._value as _CommentsWatcherEventModifyDocument;
+
+  @override
+  $Res call({
+    Object? commentDoc = freezed,
+  }) {
+    return _then(_CommentsWatcherEventModifyDocument(
+      commentDoc == freezed
+          ? _value.commentDoc
+          : commentDoc // ignore: cast_nullable_to_non_nullable
+              as CommentDoc,
+    ));
+  }
+
+  @override
+  $CommentDocCopyWith<$Res> get commentDoc {
+    return $CommentDocCopyWith<$Res>(_value.commentDoc, (value) {
+      return _then(_value.copyWith(commentDoc: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_CommentsWatcherEventModifyDocument
+    implements _CommentsWatcherEventModifyDocument {
+  const _$_CommentsWatcherEventModifyDocument(this.commentDoc);
+
+  @override
+  final CommentDoc commentDoc;
+
+  @override
+  String toString() {
+    return 'CommentsWatcherEvent.modifyDocument(commentDoc: $commentDoc)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _CommentsWatcherEventModifyDocument &&
+            const DeepCollectionEquality()
+                .equals(other.commentDoc, commentDoc));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(commentDoc));
+
+  @JsonKey(ignore: true)
+  @override
+  _$CommentsWatcherEventModifyDocumentCopyWith<
+          _CommentsWatcherEventModifyDocument>
+      get copyWith => __$CommentsWatcherEventModifyDocumentCopyWithImpl<
+          _CommentsWatcherEventModifyDocument>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() connectStream,
+    required TResult Function(CommentDoc commentDoc) addDocument,
+    required TResult Function() getNextPage,
+    required TResult Function() refreshPage,
+    required TResult Function(CommentDoc commentDoc) deleteDocument,
+    required TResult Function(CommentDoc commentDoc) modifyDocument,
+  }) {
+    return modifyDocument(commentDoc);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? connectStream,
+    TResult Function(CommentDoc commentDoc)? addDocument,
+    TResult Function()? getNextPage,
+    TResult Function()? refreshPage,
+    TResult Function(CommentDoc commentDoc)? deleteDocument,
+    TResult Function(CommentDoc commentDoc)? modifyDocument,
+  }) {
+    return modifyDocument?.call(commentDoc);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connectStream,
+    TResult Function(CommentDoc commentDoc)? addDocument,
+    TResult Function()? getNextPage,
+    TResult Function()? refreshPage,
+    TResult Function(CommentDoc commentDoc)? deleteDocument,
+    TResult Function(CommentDoc commentDoc)? modifyDocument,
+    required TResult orElse(),
+  }) {
+    if (modifyDocument != null) {
+      return modifyDocument(commentDoc);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CommentsWatcherEventConnectStream value)
+        connectStream,
+    required TResult Function(_CommentsWatcherEventAddDocument value)
+        addDocument,
+    required TResult Function(_CommentsWatcherEventGetNextPage value)
+        getNextPage,
+    required TResult Function(_CommentsWatcherEventRefreshPage value)
+        refreshPage,
+    required TResult Function(_CommentsWatcherEventDeleteDocument value)
+        deleteDocument,
+    required TResult Function(_CommentsWatcherEventModifyDocument value)
+        modifyDocument,
+  }) {
+    return modifyDocument(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_CommentsWatcherEventConnectStream value)? connectStream,
+    TResult Function(_CommentsWatcherEventAddDocument value)? addDocument,
+    TResult Function(_CommentsWatcherEventGetNextPage value)? getNextPage,
+    TResult Function(_CommentsWatcherEventRefreshPage value)? refreshPage,
+    TResult Function(_CommentsWatcherEventDeleteDocument value)? deleteDocument,
+    TResult Function(_CommentsWatcherEventModifyDocument value)? modifyDocument,
+  }) {
+    return modifyDocument?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CommentsWatcherEventConnectStream value)? connectStream,
+    TResult Function(_CommentsWatcherEventAddDocument value)? addDocument,
+    TResult Function(_CommentsWatcherEventGetNextPage value)? getNextPage,
+    TResult Function(_CommentsWatcherEventRefreshPage value)? refreshPage,
+    TResult Function(_CommentsWatcherEventDeleteDocument value)? deleteDocument,
+    TResult Function(_CommentsWatcherEventModifyDocument value)? modifyDocument,
+    required TResult orElse(),
+  }) {
+    if (modifyDocument != null) {
+      return modifyDocument(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CommentsWatcherEventModifyDocument
+    implements CommentsWatcherEvent {
+  const factory _CommentsWatcherEventModifyDocument(CommentDoc commentDoc) =
+      _$_CommentsWatcherEventModifyDocument;
+
+  CommentDoc get commentDoc;
+  @JsonKey(ignore: true)
+  _$CommentsWatcherEventModifyDocumentCopyWith<
+          _CommentsWatcherEventModifyDocument>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$CommentsWatcherStateTearOff {
   const _$CommentsWatcherStateTearOff();
 
   _CommentsWatcherState call(
-      {required List<UserUID> listUserUID, required bool isFetching}) {
+      {required List<CommentDoc> listCommentDoc, required bool isFetching}) {
     return _CommentsWatcherState(
-      listUserUID: listUserUID,
+      listCommentDoc: listCommentDoc,
       isFetching: isFetching,
     );
   }
@@ -483,7 +1132,7 @@ const $CommentsWatcherState = _$CommentsWatcherStateTearOff();
 
 /// @nodoc
 mixin _$CommentsWatcherState {
-  List<UserUID> get listUserUID => throw _privateConstructorUsedError;
+  List<CommentDoc> get listCommentDoc => throw _privateConstructorUsedError;
   bool get isFetching => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -496,7 +1145,7 @@ abstract class $CommentsWatcherStateCopyWith<$Res> {
   factory $CommentsWatcherStateCopyWith(CommentsWatcherState value,
           $Res Function(CommentsWatcherState) then) =
       _$CommentsWatcherStateCopyWithImpl<$Res>;
-  $Res call({List<UserUID> listUserUID, bool isFetching});
+  $Res call({List<CommentDoc> listCommentDoc, bool isFetching});
 }
 
 /// @nodoc
@@ -510,14 +1159,14 @@ class _$CommentsWatcherStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? listUserUID = freezed,
+    Object? listCommentDoc = freezed,
     Object? isFetching = freezed,
   }) {
     return _then(_value.copyWith(
-      listUserUID: listUserUID == freezed
-          ? _value.listUserUID
-          : listUserUID // ignore: cast_nullable_to_non_nullable
-              as List<UserUID>,
+      listCommentDoc: listCommentDoc == freezed
+          ? _value.listCommentDoc
+          : listCommentDoc // ignore: cast_nullable_to_non_nullable
+              as List<CommentDoc>,
       isFetching: isFetching == freezed
           ? _value.isFetching
           : isFetching // ignore: cast_nullable_to_non_nullable
@@ -533,7 +1182,7 @@ abstract class _$CommentsWatcherStateCopyWith<$Res>
           $Res Function(_CommentsWatcherState) then) =
       __$CommentsWatcherStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<UserUID> listUserUID, bool isFetching});
+  $Res call({List<CommentDoc> listCommentDoc, bool isFetching});
 }
 
 /// @nodoc
@@ -549,14 +1198,14 @@ class __$CommentsWatcherStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? listUserUID = freezed,
+    Object? listCommentDoc = freezed,
     Object? isFetching = freezed,
   }) {
     return _then(_CommentsWatcherState(
-      listUserUID: listUserUID == freezed
-          ? _value.listUserUID
-          : listUserUID // ignore: cast_nullable_to_non_nullable
-              as List<UserUID>,
+      listCommentDoc: listCommentDoc == freezed
+          ? _value.listCommentDoc
+          : listCommentDoc // ignore: cast_nullable_to_non_nullable
+              as List<CommentDoc>,
       isFetching: isFetching == freezed
           ? _value.isFetching
           : isFetching // ignore: cast_nullable_to_non_nullable
@@ -569,16 +1218,16 @@ class __$CommentsWatcherStateCopyWithImpl<$Res>
 
 class _$_CommentsWatcherState implements _CommentsWatcherState {
   const _$_CommentsWatcherState(
-      {required this.listUserUID, required this.isFetching});
+      {required this.listCommentDoc, required this.isFetching});
 
   @override
-  final List<UserUID> listUserUID;
+  final List<CommentDoc> listCommentDoc;
   @override
   final bool isFetching;
 
   @override
   String toString() {
-    return 'CommentsWatcherState(listUserUID: $listUserUID, isFetching: $isFetching)';
+    return 'CommentsWatcherState(listCommentDoc: $listCommentDoc, isFetching: $isFetching)';
   }
 
   @override
@@ -587,7 +1236,7 @@ class _$_CommentsWatcherState implements _CommentsWatcherState {
         (other.runtimeType == runtimeType &&
             other is _CommentsWatcherState &&
             const DeepCollectionEquality()
-                .equals(other.listUserUID, listUserUID) &&
+                .equals(other.listCommentDoc, listCommentDoc) &&
             const DeepCollectionEquality()
                 .equals(other.isFetching, isFetching));
   }
@@ -595,7 +1244,7 @@ class _$_CommentsWatcherState implements _CommentsWatcherState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(listUserUID),
+      const DeepCollectionEquality().hash(listCommentDoc),
       const DeepCollectionEquality().hash(isFetching));
 
   @JsonKey(ignore: true)
@@ -607,11 +1256,11 @@ class _$_CommentsWatcherState implements _CommentsWatcherState {
 
 abstract class _CommentsWatcherState implements CommentsWatcherState {
   const factory _CommentsWatcherState(
-      {required List<UserUID> listUserUID,
+      {required List<CommentDoc> listCommentDoc,
       required bool isFetching}) = _$_CommentsWatcherState;
 
   @override
-  List<UserUID> get listUserUID;
+  List<CommentDoc> get listCommentDoc;
   @override
   bool get isFetching;
   @override

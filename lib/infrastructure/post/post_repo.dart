@@ -10,6 +10,8 @@ import 'package:dushka_blog/domain/post/i_post_repo.dart';
 import 'package:dushka_blog/domain/post/post.dart';
 import 'package:dushka_blog/domain/post/post_failure.dart';
 import 'package:dushka_blog/domain/post/post_objects.dart';
+import 'package:dushka_blog/domain/post/post_subdomain.dart';
+import 'package:dushka_blog/infrastructure/post/post_subdomain_dtos.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
@@ -105,11 +107,12 @@ class PostRepository implements IPostRepository {
   @override
   Future<Either<PostFailure, Unit>> toggleBookmarkButton(
     PostID postID,
-    UserUID authorUID,
-  ) async {
+    UserUID authorUID, {
+    required bool hasBookmarked,
+  }) async {
     final String authorUIDValue = authorUID.getOrCrash();
     final String postIDValue = postID.getOrCrash();
-    try {
+    if (hasBookmarked) {
       return _firebaseFirestore
           .collection('users')
           .doc(authorUIDValue)
@@ -117,40 +120,73 @@ class PostRepository implements IPostRepository {
           .doc(postIDValue)
           .collection('bookmarks')
           .doc(_firebaseAuth.currentUser?.uid)
-          .set(
-        {
-          'createdAt': FieldValue.serverTimestamp(),
-        },
-      ).then(
-        (value) => right(unit),
-      );
-    } on PlatformException catch (e) {
-      return left(PostFailure.serverError());
+          .delete()
+          .then(
+            (value) => right(unit),
+          );
+    } else {
+      try {
+        return _firebaseFirestore
+            .collection('users')
+            .doc(authorUIDValue)
+            .collection('posts')
+            .doc(postIDValue)
+            .collection('bookmarks')
+            .doc(_firebaseAuth.currentUser?.uid)
+            .set(
+          {
+            'createdAt': FieldValue.serverTimestamp(),
+          },
+        ).then(
+          (value) => right(unit),
+        );
+      } on PlatformException catch (e) {
+        return left(PostFailure.serverError());
+      }
     }
   }
 
   @override
   Future<Either<PostFailure, Unit>> toggleLikeButton(
     PostID postID,
-    UserUID authorUID,
-  ) async {
+    UserUID authorUID, {
+    required bool hasLiked,
+  }) async {
     final String authorUIDValue = authorUID.getOrCrash();
     final String postIDValue = postID.getOrCrash();
-    try {
-      return _firebaseFirestore
-          .collection('users')
-          .doc(authorUIDValue)
-          .collection('posts')
-          .doc(postIDValue)
-          .collection('likes')
-          .doc(_firebaseAuth.currentUser?.uid)
-          .set({
-        'createdAt': FieldValue.serverTimestamp(),
-      }).then(
-        (value) => right(unit),
-      );
-    } on PlatformException catch (e) {
-      return left(PostFailure.serverError());
+    if (hasLiked) {
+      try {
+        return _firebaseFirestore
+            .collection('users')
+            .doc(authorUIDValue)
+            .collection('posts')
+            .doc(postIDValue)
+            .collection('likes')
+            .doc(_firebaseAuth.currentUser?.uid)
+            .delete()
+            .then(
+              (value) => right(unit),
+            );
+      } on PlatformException catch (e) {
+        return left(PostFailure.serverError());
+      }
+    } else {
+      try {
+        return _firebaseFirestore
+            .collection('users')
+            .doc(authorUIDValue)
+            .collection('posts')
+            .doc(postIDValue)
+            .collection('likes')
+            .doc(_firebaseAuth.currentUser?.uid)
+            .set({
+          'createdAt': FieldValue.serverTimestamp(),
+        }).then(
+          (value) => right(unit),
+        );
+      } on PlatformException catch (e) {
+        return left(PostFailure.serverError());
+      }
     }
   }
 
@@ -193,23 +229,24 @@ class PostRepository implements IPostRepository {
         .collection('posts')
         .doc(postIDValue)
         .snapshots()
-        .map(
-          (doc) => right<PostFailure, Post>(
-            PostDtos.fromFirestore(doc).toDomain(),
-          ),
-        )
-        .handleError(
-          print,
-        );
+        .map((doc) {
+      print("DATA: ${doc.data()}");
+      return right<PostFailure, Post>(
+        PostDtos.fromFirestore(doc).toDomain(),
+      );
+    }).handleError(
+      print,
+    );
   }
 
   @override
-  Future<Either<PostFailure, List<UserUID>>> getCommentedByUID({
+  Future<Either<PostFailure, List<CommentDoc>>> getCommentedByUID({
     required PostID postID,
     required UserUID userUID,
     required int skip,
   }) async {
-    final userUIDValue = userUID.getOrCrash();
+    throw UnimplementedError();
+    /* final userUIDValue = userUID.getOrCrash();
     final postIDValue = postID.getOrCrash();
     try {
       return _firebaseFirestore
@@ -237,16 +274,17 @@ class PostRepository implements IPostRepository {
       );
     } on PlatformException catch (e) {
       return left(PostFailure.serverError());
-    }
+    } */
   }
 
   @override
-  Future<Either<PostFailure, List<UserUID>>> getLikedByUID({
+  Future<Either<PostFailure, List<LikeDoc>>> getLikedByUID({
     required PostID postID,
     required UserUID userUID,
     required int skip,
   }) async {
-    final userUIDValue = userUID.getOrCrash();
+    throw UnimplementedError();
+    /* final userUIDValue = userUID.getOrCrash();
     final postIDValue = postID.getOrCrash();
     try {
       return _firebaseFirestore
@@ -274,23 +312,52 @@ class PostRepository implements IPostRepository {
       );
     } on PlatformException catch (e) {
       return left(PostFailure.serverError());
-    }
+    } */
   }
 
   @override
-  Stream<Either<PostFailure, List<UserUID>>> connectCommentsStream(
-      {required PostID postID, required UserUID userUID}) {
-    // TODO: implement connectCommentsStream
-    throw UnimplementedError();
-  }
-
-  @override
-  Stream<Either<PostFailure, List<UserUID>>> connectLikesStream(
-      {required PostID postID, required UserUID userUID}) {
+  Stream<Either<PostFailure, List<DocumentChange<Map<String, dynamic>>>>>
+      connectCommentsStream({
+    required PostID postID,
+    required UserUID userUID,
+  }) async* {
     final userUIDValue = userUID.getOrCrash();
     final postIDValue = postID.getOrCrash();
+    print('connect');
+    yield* _firebaseFirestore
+        .collection('users')
+        .doc(userUIDValue)
+        .collection('posts')
+        .doc(postIDValue)
+        .collection('comments')
+        .orderBy(
+          'createdAt',
+          descending: true,
+        )
+        .limit(10)
+        .snapshots()
+        .map(
+      (event) {
+        return right<PostFailure, List<DocumentChange<Map<String, dynamic>>>>(
+            event.docChanges);
+      },
+    ).handleError(
+      (e) {
+        return left<PostFailure, List<CommentDoc>>(PostFailure.serverError());
+      },
+    );
+  }
 
-    return _firebaseFirestore
+  @override
+  Stream<Either<PostFailure, List<DocumentChange<Map<String, dynamic>>>>>
+      connectLikesStream({
+    required PostID postID,
+    required UserUID userUID,
+  }) async* {
+    final userUIDValue = userUID.getOrCrash();
+    final postIDValue = postID.getOrCrash();
+    print('connect');
+    yield* _firebaseFirestore
         .collection('users')
         .doc(userUIDValue)
         .collection('posts')
@@ -300,16 +367,120 @@ class PostRepository implements IPostRepository {
         .snapshots()
         .map(
       (event) {
-        List<UserUID> list = [];
-        event.docs.forEach((element) {
-          list.add(UserUID(element.get('userUID')));
-        });
-        return right<PostFailure, List<UserUID>>(list);
+        return right<PostFailure, List<DocumentChange<Map<String, dynamic>>>>(
+          event.docChanges,
+        );
       },
     ).handleError(
       (e) {
-        return left<PostFailure, List<UserUID>>(PostFailure.serverError());
+        return left<PostFailure, List<CommentDoc>>(PostFailure.serverError());
       },
     );
+  }
+
+  @override
+  Future<Either<PostFailure, CommentDoc>> transformCommentObject(
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot,
+  ) async {
+    try {
+      return right(CommentDocDto.fromFirestore(documentSnapshot).toDomain());
+    } on PlatformException catch (e) {
+      return left(PostFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<PostFailure, LikeDoc>> transformLikeObject(
+    DocumentSnapshot<Map<String, dynamic>> documentSnapshot,
+  ) async {
+    try {
+      return right(LikeDocDto.fromFirestore(documentSnapshot).toDomain());
+    } on PlatformException catch (e) {
+      return left(PostFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<PostFailure, Unit>> addComment(
+    PostID postID,
+    CommentBody commentBody,
+    UserUID authorUID,
+  ) async {
+    // TODO: implement addComment
+    final comment = CommentDocDto(
+      userUID: _firebaseAuth.currentUser!.uid,
+      createdAt: FieldValue.serverTimestamp(),
+      commentBody: commentBody.getOrCrash(),
+    );
+    try {
+      await _firebaseFirestore
+          .collection('users')
+          .doc(authorUID.getOrCrash())
+          .collection('posts')
+          .doc(postID.getOrCrash())
+          .collection('comments')
+          .add(comment.toJson());
+      return right(unit);
+    } on PlatformException catch (e) {
+      return left(PostFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<PostFailure, Unit>> reportComment(
+    PostID postID,
+    CommentID commentID,
+    UserUID authorUID,
+  ) {
+    // TODO: implement reportComment
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<PostFailure, bool>> hasBookmarked(
+    PostID postID,
+    UserUID authorUID,
+  ) async {
+    final String authorUIDValue = authorUID.getOrCrash();
+    final String postIDValue = postID.getOrCrash();
+
+    try {
+      return _firebaseFirestore
+          .collection('users')
+          .doc(authorUIDValue)
+          .collection('posts')
+          .doc(postIDValue)
+          .collection('bookmarks')
+          .doc(_firebaseAuth.currentUser?.uid)
+          .get()
+          .then((value) => right(value.exists));
+    } on PlatformException catch (e) {
+      return left(PostFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<PostFailure, bool>> hasLiked(
+    PostID postID,
+    UserUID authorUID,
+  ) async {
+    final String authorUIDValue = authorUID.getOrCrash();
+    final String postIDValue = postID.getOrCrash();
+
+    try {
+      return _firebaseFirestore
+          .collection('users')
+          .doc(authorUIDValue)
+          .collection('posts')
+          .doc(postIDValue)
+          .collection('likes')
+          .doc(_firebaseAuth.currentUser?.uid)
+          .get()
+          .then(
+            (value) => right(value.exists),
+          );
+    } on PlatformException catch (e) {
+      return left(PostFailure.serverError());
+    }
   }
 }

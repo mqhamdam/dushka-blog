@@ -9,10 +9,9 @@ part of 'post_dtos.dart';
 _$_PostDtos _$$_PostDtosFromJson(Map<String, dynamic> json) => _$_PostDtos(
       authorUID: json['authorUID'] as String,
       postID: json['postID'] as String,
-      createdAt: const ServerTimestampConverter()
-          .fromJson(json['createdAt'] as Object),
+      createdAt: json['createdAt'] as Object,
       postBody: json['postBody'] as String,
-      likeCount: json['likeCount'] as int,
+      likesCount: json['likesCount'] as int,
       commentsCount: json['commentsCount'] as int,
     );
 
@@ -20,24 +19,23 @@ Map<String, dynamic> _$$_PostDtosToJson(_$_PostDtos instance) =>
     <String, dynamic>{
       'authorUID': instance.authorUID,
       'postID': instance.postID,
-      'createdAt': const ServerTimestampConverter().toJson(instance.createdAt),
+      'createdAt': instance.createdAt,
       'postBody': instance.postBody,
-      'likeCount': instance.likeCount,
+      'likesCount': instance.likesCount,
       'commentsCount': instance.commentsCount,
     };
 
 _$_PostDtosEditable _$$_PostDtosEditableFromJson(Map<String, dynamic> json) =>
     _$_PostDtosEditable(
       authorUID: json['authorUID'] as String,
-      createdAt: const ServerTimestampConverter()
-          .fromJson(json['createdAt'] as Object),
+      createdAt: json['createdAt'] as Object,
       postBody: json['postBody'] as String,
     );
 
 Map<String, dynamic> _$$_PostDtosEditableToJson(_$_PostDtosEditable instance) =>
     <String, dynamic>{
       'authorUID': instance.authorUID,
-      'createdAt': const ServerTimestampConverter().toJson(instance.createdAt),
+      'createdAt': instance.createdAt,
       'postBody': instance.postBody,
     };
 

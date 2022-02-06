@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dushka_blog/domain/app_user/app_user_objects.dart';
 import 'package:dushka_blog/domain/post/post_objects.dart';
+import 'package:dushka_blog/domain/post/post_subdomain.dart';
 import 'package:dushka_blog/infrastructure/post/post_repo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -19,6 +23,8 @@ class LikesWatcherBloc extends Bloc<LikesWatcherEvent, LikesWatcherState> {
     on<_LikesWatcherEventConnectStream>(_onConnectStream);
     on<_LikesWatcherEventGetNextPage>(_onGetNextPage);
     on<_LikesWatcherEventRefreshPage>(_onRefreshPage);
+    on<_LikesWatcherEventAddDocument>(_onAddDocument);
+    on<_LikesWatcherEventDeleteDocument>(_onDeleteDocument);
   }
   //////////////////////////////////////////////////////////////////////////////
   /**
@@ -28,25 +34,27 @@ class LikesWatcherBloc extends Bloc<LikesWatcherEvent, LikesWatcherState> {
     _LikesWatcherEventConnectStream event,
     Emitter<LikesWatcherState> emit,
   ) async {
-    if (!state.isFetching) {
+    /*  if (!state.isFetching) {
       emit(
         state.copyWith(isFetching: true),
-      );
-      await _postRepository.getLikedByUID(
-        postID: postID,
-        userUID: userUID,
-        skip: 0,
-      )
-        ..fold(
-          (l) => null,
-          (listUserUID) => emit(
-            state.copyWith(
-              listUserUID: listUserUID,
-              isFetching: false,
-            ),
-          ),
+      ); */
+    await _subscription?.cancel();
+    _subscription = await _postRepository
+        .connectLikesStream(
+      postID: postID,
+      userUID: userUID,
+    )
+        .listen(
+      (event) {
+        event.fold(
+          (failure) => null,
+          (listLikeDoc) {
+            listLikeDoc.forEach(_handleStreamEvent);
+          },
         );
-    }
+      },
+    );
+    //}
   }
 
   //////////////////////////////////////////////////////////////////////////////
@@ -58,7 +66,7 @@ class LikesWatcherBloc extends Bloc<LikesWatcherEvent, LikesWatcherState> {
     Emitter<LikesWatcherState> emit,
   ) async {
     if (!state.isFetching) {
-      final skipN = state.listUserUID.length;
+      final skipN = state.likeDocList.length;
       emit(
         state.copyWith(isFetching: true),
       );
@@ -69,11 +77,10 @@ class LikesWatcherBloc extends Bloc<LikesWatcherEvent, LikesWatcherState> {
       )
         ..fold(
           (l) => null,
-          (listUserUID) => emit(
-            state.copyWith(
-              listUserUID: listUserUID,
-              isFetching: false,
-            ),
+          (listUserUID) => listUserUID.forEach(
+            (likeDoc) {
+              add(_LikesWatcherEventAddDocument(likeDoc));
+            },
           ),
         );
     }
@@ -89,10 +96,78 @@ class LikesWatcherBloc extends Bloc<LikesWatcherEvent, LikesWatcherState> {
   ) async {
     emit(
       state.copyWith(
-        listUserUID: [],
+        likeDocList: [],
       ),
     );
-   // add(_LikesWatcherEventGetFirstPage());
+    // add(_LikesWatcherEventGetFirstPage());
+  }
+  //////////////////////////////////////////////////////////////////////////////
+  /**
+   * only call inside bloc! NEVER call from presentation layer
+   */
+
+  Future<void> _onAddDocument(
+    _LikesWatcherEventAddDocument event,
+    Emitter<LikesWatcherState> emit,
+  ) async {
+    final list = state.likeDocList
+        .where(
+          (likeDoc) => likeDoc.userUID != event.likeDoc.userUID,
+        )
+        .toList()
+      ..add(event.likeDoc);
+    emit(state.copyWith(likeDocList: list));
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  /**
+   * 
+   */
+  Future<void> _onDeleteDocument(
+    _LikesWatcherEventDeleteDocument event,
+    Emitter<LikesWatcherState> emit,
+  ) async {
+    final likeList = state.likeDocList
+        .where((likeDoc) =>
+            likeDoc.userUID.getOrCrash() != event.likeDoc.userUID.getOrCrash())
+        .toList();
+
+    emit(state.copyWith(likeDocList: likeList));
+  }
+  //////////////////////////////////////////////////////////////////////////////
+  /**
+   * 
+   */
+
+  Future<void> _handleStreamEvent(
+    DocumentChange<Map<String, dynamic>> documentChange,
+  ) async {
+    switch (documentChange.type) {
+      case DocumentChangeType.added:
+        final likeOrFailure =
+            await _postRepository.transformLikeObject(documentChange.doc);
+        likeOrFailure.fold(
+          (failure) {},
+          (likeDoc) => add(
+            _LikesWatcherEventAddDocument(likeDoc),
+          ),
+        );
+        break;
+      case DocumentChangeType.modified:
+        break;
+      case DocumentChangeType.removed:
+        final likeOrFailure =
+            await _postRepository.transformLikeObject(documentChange.doc);
+        likeOrFailure.fold(
+          (failure) {},
+          (likeDoc) => add(
+            _LikesWatcherEventDeleteDocument(likeDoc),
+          ),
+        );
+        break;
+      default:
+        break;
+    }
   }
 
   //////////////////////////////////////////////////////////////////////////////
@@ -102,4 +177,11 @@ class LikesWatcherBloc extends Bloc<LikesWatcherEvent, LikesWatcherState> {
   final PostID postID;
   final UserUID userUID;
   final PostRepository _postRepository = PostRepository();
+  StreamSubscription? _subscription;
+
+  @override
+  Future<void> close() {
+    _subscription?.cancel();
+    return super.close();
+  }
 }

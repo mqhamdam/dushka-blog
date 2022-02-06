@@ -12,17 +12,18 @@ part 'post_subdomain.freezed.dart';
 abstract class LikeDoc with _$LikeDoc {
   const factory LikeDoc ({
     required UserUID userUID,
-    required FieldValue createdAt,
+    required dynamic createdAt,
 
   }) = _LikeDoc;
   
 }
 
 @freezed
-abstract class CommendDoc with _$CommendDoc {
-  const factory CommendDoc ({
+abstract class CommentDoc with _$CommentDoc {
+  const factory CommentDoc ({
+    required CommentID commentID,
     required UserUID userUID,
-    required FieldValue createdAt,
+    required dynamic createdAt,
     required CommentBody commentBody,
-  }) = _CommendDoc;
+  }) = _CommentDoc;
 }

@@ -56,7 +56,7 @@ class ProfileEditScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          CustomCircleAvatar(radius: 30),
+                          // CustomCircleAvatar(radius: 30),
                           Flexible(
                             child: Padding(
                               padding:

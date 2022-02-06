@@ -1,4 +1,6 @@
+import 'package:dushka_blog/application/post/post_watcher/post_watcher_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class LikeButton extends StatefulWidget {
@@ -47,24 +49,35 @@ class _LikeButtonState extends State<LikeButton> with TickerProviderStateMixin {
           child: child,
         );
       },
-      child: isLike
+      child: !context.watch<PostWatcherBloc>().state.hasLiked
           ? IconButton(
               key: Key("not-liked"),
               onPressed: () {
-                print(isLike);
-                setState(() {
-                  isLike = false;
-                });
+                BlocProvider.of<PostWatcherBloc>(context).add(
+                  PostWatcherEvent.likeButtonPressed(
+                    BlocProvider.of<PostWatcherBloc>(context).state.post.postID,
+                    BlocProvider.of<PostWatcherBloc>(context)
+                        .state
+                        .post
+                        .authorUID,
+                  ),
+                );
               },
               icon: SvgPicture.asset("assets/ui-icons/fi-rr-heart.svg"),
             )
           : IconButton(
-              key: Key("Liked"),
+              key: ValueKey('liked'),
               onPressed: () {
                 print(isLike);
-                setState(() {
-                  isLike = true;
-                });
+                BlocProvider.of<PostWatcherBloc>(context).add(
+                  PostWatcherEvent.likeButtonPressed(
+                    BlocProvider.of<PostWatcherBloc>(context).state.post.postID,
+                    BlocProvider.of<PostWatcherBloc>(context)
+                        .state
+                        .post
+                        .authorUID,
+                  ),
+                );
               },
               icon: SvgPicture.asset(
                 "assets/ui-icons/heart.svg",

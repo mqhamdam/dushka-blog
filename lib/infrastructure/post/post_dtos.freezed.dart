@@ -25,16 +25,16 @@ class _$PostDtosTearOff {
   _PostDtos call(
       {required String authorUID,
       required String postID,
-      @ServerTimestampConverter() required FieldValue createdAt,
+      @ServerTimestampConverter() required Object createdAt,
       required String postBody,
-      required int likeCount,
+      required int likesCount,
       required int commentsCount}) {
     return _PostDtos(
       authorUID: authorUID,
       postID: postID,
       createdAt: createdAt,
       postBody: postBody,
-      likeCount: likeCount,
+      likesCount: likesCount,
       commentsCount: commentsCount,
     );
   }
@@ -52,9 +52,9 @@ mixin _$PostDtos {
   String get authorUID => throw _privateConstructorUsedError;
   String get postID => throw _privateConstructorUsedError;
   @ServerTimestampConverter()
-  FieldValue get createdAt => throw _privateConstructorUsedError;
+  Object get createdAt => throw _privateConstructorUsedError;
   String get postBody => throw _privateConstructorUsedError;
-  int get likeCount => throw _privateConstructorUsedError;
+  int get likesCount => throw _privateConstructorUsedError;
   int get commentsCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -70,9 +70,9 @@ abstract class $PostDtosCopyWith<$Res> {
   $Res call(
       {String authorUID,
       String postID,
-      @ServerTimestampConverter() FieldValue createdAt,
+      @ServerTimestampConverter() Object createdAt,
       String postBody,
-      int likeCount,
+      int likesCount,
       int commentsCount});
 }
 
@@ -90,7 +90,7 @@ class _$PostDtosCopyWithImpl<$Res> implements $PostDtosCopyWith<$Res> {
     Object? postID = freezed,
     Object? createdAt = freezed,
     Object? postBody = freezed,
-    Object? likeCount = freezed,
+    Object? likesCount = freezed,
     Object? commentsCount = freezed,
   }) {
     return _then(_value.copyWith(
@@ -105,14 +105,14 @@ class _$PostDtosCopyWithImpl<$Res> implements $PostDtosCopyWith<$Res> {
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
+              as Object,
       postBody: postBody == freezed
           ? _value.postBody
           : postBody // ignore: cast_nullable_to_non_nullable
               as String,
-      likeCount: likeCount == freezed
-          ? _value.likeCount
-          : likeCount // ignore: cast_nullable_to_non_nullable
+      likesCount: likesCount == freezed
+          ? _value.likesCount
+          : likesCount // ignore: cast_nullable_to_non_nullable
               as int,
       commentsCount: commentsCount == freezed
           ? _value.commentsCount
@@ -130,9 +130,9 @@ abstract class _$PostDtosCopyWith<$Res> implements $PostDtosCopyWith<$Res> {
   $Res call(
       {String authorUID,
       String postID,
-      @ServerTimestampConverter() FieldValue createdAt,
+      @ServerTimestampConverter() Object createdAt,
       String postBody,
-      int likeCount,
+      int likesCount,
       int commentsCount});
 }
 
@@ -151,7 +151,7 @@ class __$PostDtosCopyWithImpl<$Res> extends _$PostDtosCopyWithImpl<$Res>
     Object? postID = freezed,
     Object? createdAt = freezed,
     Object? postBody = freezed,
-    Object? likeCount = freezed,
+    Object? likesCount = freezed,
     Object? commentsCount = freezed,
   }) {
     return _then(_PostDtos(
@@ -166,14 +166,14 @@ class __$PostDtosCopyWithImpl<$Res> extends _$PostDtosCopyWithImpl<$Res>
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
+              as Object,
       postBody: postBody == freezed
           ? _value.postBody
           : postBody // ignore: cast_nullable_to_non_nullable
               as String,
-      likeCount: likeCount == freezed
-          ? _value.likeCount
-          : likeCount // ignore: cast_nullable_to_non_nullable
+      likesCount: likesCount == freezed
+          ? _value.likesCount
+          : likesCount // ignore: cast_nullable_to_non_nullable
               as int,
       commentsCount: commentsCount == freezed
           ? _value.commentsCount
@@ -191,7 +191,7 @@ class _$_PostDtos implements _PostDtos {
       required this.postID,
       @ServerTimestampConverter() required this.createdAt,
       required this.postBody,
-      required this.likeCount,
+      required this.likesCount,
       required this.commentsCount});
 
   factory _$_PostDtos.fromJson(Map<String, dynamic> json) =>
@@ -203,17 +203,17 @@ class _$_PostDtos implements _PostDtos {
   final String postID;
   @override
   @ServerTimestampConverter()
-  final FieldValue createdAt;
+  final Object createdAt;
   @override
   final String postBody;
   @override
-  final int likeCount;
+  final int likesCount;
   @override
   final int commentsCount;
 
   @override
   String toString() {
-    return 'PostDtos(authorUID: $authorUID, postID: $postID, createdAt: $createdAt, postBody: $postBody, likeCount: $likeCount, commentsCount: $commentsCount)';
+    return 'PostDtos(authorUID: $authorUID, postID: $postID, createdAt: $createdAt, postBody: $postBody, likesCount: $likesCount, commentsCount: $commentsCount)';
   }
 
   @override
@@ -225,7 +225,8 @@ class _$_PostDtos implements _PostDtos {
             const DeepCollectionEquality().equals(other.postID, postID) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.postBody, postBody) &&
-            const DeepCollectionEquality().equals(other.likeCount, likeCount) &&
+            const DeepCollectionEquality()
+                .equals(other.likesCount, likesCount) &&
             const DeepCollectionEquality()
                 .equals(other.commentsCount, commentsCount));
   }
@@ -237,7 +238,7 @@ class _$_PostDtos implements _PostDtos {
       const DeepCollectionEquality().hash(postID),
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(postBody),
-      const DeepCollectionEquality().hash(likeCount),
+      const DeepCollectionEquality().hash(likesCount),
       const DeepCollectionEquality().hash(commentsCount));
 
   @JsonKey(ignore: true)
@@ -255,9 +256,9 @@ abstract class _PostDtos implements PostDtos {
   factory _PostDtos(
       {required String authorUID,
       required String postID,
-      @ServerTimestampConverter() required FieldValue createdAt,
+      @ServerTimestampConverter() required Object createdAt,
       required String postBody,
-      required int likeCount,
+      required int likesCount,
       required int commentsCount}) = _$_PostDtos;
 
   factory _PostDtos.fromJson(Map<String, dynamic> json) = _$_PostDtos.fromJson;
@@ -268,11 +269,11 @@ abstract class _PostDtos implements PostDtos {
   String get postID;
   @override
   @ServerTimestampConverter()
-  FieldValue get createdAt;
+  Object get createdAt;
   @override
   String get postBody;
   @override
-  int get likeCount;
+  int get likesCount;
   @override
   int get commentsCount;
   @override
@@ -291,7 +292,7 @@ class _$PostEditableDtosTearOff {
 
   _PostDtosEditable call(
       {required String authorUID,
-      @ServerTimestampConverter() required FieldValue createdAt,
+      @ServerTimestampConverter() required Object createdAt,
       required String postBody}) {
     return _PostDtosEditable(
       authorUID: authorUID,
@@ -312,7 +313,7 @@ const $PostEditableDtos = _$PostEditableDtosTearOff();
 mixin _$PostEditableDtos {
   String get authorUID => throw _privateConstructorUsedError;
   @ServerTimestampConverter()
-  FieldValue get createdAt => throw _privateConstructorUsedError;
+  Object get createdAt => throw _privateConstructorUsedError;
   String get postBody => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -328,7 +329,7 @@ abstract class $PostEditableDtosCopyWith<$Res> {
       _$PostEditableDtosCopyWithImpl<$Res>;
   $Res call(
       {String authorUID,
-      @ServerTimestampConverter() FieldValue createdAt,
+      @ServerTimestampConverter() Object createdAt,
       String postBody});
 }
 
@@ -355,7 +356,7 @@ class _$PostEditableDtosCopyWithImpl<$Res>
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
+              as Object,
       postBody: postBody == freezed
           ? _value.postBody
           : postBody // ignore: cast_nullable_to_non_nullable
@@ -373,7 +374,7 @@ abstract class _$PostDtosEditableCopyWith<$Res>
   @override
   $Res call(
       {String authorUID,
-      @ServerTimestampConverter() FieldValue createdAt,
+      @ServerTimestampConverter() Object createdAt,
       String postBody});
 }
 
@@ -402,7 +403,7 @@ class __$PostDtosEditableCopyWithImpl<$Res>
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
+              as Object,
       postBody: postBody == freezed
           ? _value.postBody
           : postBody // ignore: cast_nullable_to_non_nullable
@@ -426,7 +427,7 @@ class _$_PostDtosEditable implements _PostDtosEditable {
   final String authorUID;
   @override
   @ServerTimestampConverter()
-  final FieldValue createdAt;
+  final Object createdAt;
   @override
   final String postBody;
 
@@ -466,7 +467,7 @@ class _$_PostDtosEditable implements _PostDtosEditable {
 abstract class _PostDtosEditable implements PostEditableDtos {
   factory _PostDtosEditable(
       {required String authorUID,
-      @ServerTimestampConverter() required FieldValue createdAt,
+      @ServerTimestampConverter() required Object createdAt,
       required String postBody}) = _$_PostDtosEditable;
 
   factory _PostDtosEditable.fromJson(Map<String, dynamic> json) =
@@ -476,7 +477,7 @@ abstract class _PostDtosEditable implements PostEditableDtos {
   String get authorUID;
   @override
   @ServerTimestampConverter()
-  FieldValue get createdAt;
+  Object get createdAt;
   @override
   String get postBody;
   @override

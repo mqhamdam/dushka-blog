@@ -21,28 +21,17 @@ class _$PostTearOff {
   PostReadable readable(
       {required PostID postID,
       required UserUID authorUID,
-      required FieldValue createdAt,
+      required dynamic createdAt,
       required PostBody postBody,
-      required int likeCount,
+      required int likesCount,
       required int commentsCount}) {
     return PostReadable(
       postID: postID,
       authorUID: authorUID,
       createdAt: createdAt,
       postBody: postBody,
-      likeCount: likeCount,
+      likesCount: likesCount,
       commentsCount: commentsCount,
-    );
-  }
-
-  PostEditable editable(
-      {required UserUID authorUID,
-      required FieldValue createdAt,
-      required PostBody postBody}) {
-    return PostEditable(
-      authorUID: authorUID,
-      createdAt: createdAt,
-      postBody: postBody,
     );
   }
 }
@@ -52,62 +41,53 @@ const $Post = _$PostTearOff();
 
 /// @nodoc
 mixin _$Post {
+  PostID get postID => throw _privateConstructorUsedError;
   UserUID get authorUID => throw _privateConstructorUsedError;
-  FieldValue get createdAt => throw _privateConstructorUsedError;
+  dynamic get createdAt => throw _privateConstructorUsedError;
   PostBody get postBody => throw _privateConstructorUsedError;
+  int get likesCount => throw _privateConstructorUsedError;
+  int get commentsCount => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
             PostID postID,
             UserUID authorUID,
-            FieldValue createdAt,
+            dynamic createdAt,
             PostBody postBody,
-            int likeCount,
+            int likesCount,
             int commentsCount)
         readable,
-    required TResult Function(
-            UserUID authorUID, FieldValue createdAt, PostBody postBody)
-        editable,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(PostID postID, UserUID authorUID, FieldValue createdAt,
-            PostBody postBody, int likeCount, int commentsCount)?
+    TResult Function(PostID postID, UserUID authorUID, dynamic createdAt,
+            PostBody postBody, int likesCount, int commentsCount)?
         readable,
-    TResult Function(
-            UserUID authorUID, FieldValue createdAt, PostBody postBody)?
-        editable,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PostID postID, UserUID authorUID, FieldValue createdAt,
-            PostBody postBody, int likeCount, int commentsCount)?
+    TResult Function(PostID postID, UserUID authorUID, dynamic createdAt,
+            PostBody postBody, int likesCount, int commentsCount)?
         readable,
-    TResult Function(
-            UserUID authorUID, FieldValue createdAt, PostBody postBody)?
-        editable,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PostReadable value) readable,
-    required TResult Function(PostEditable value) editable,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PostReadable value)? readable,
-    TResult Function(PostEditable value)? editable,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PostReadable value)? readable,
-    TResult Function(PostEditable value)? editable,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +100,13 @@ mixin _$Post {
 abstract class $PostCopyWith<$Res> {
   factory $PostCopyWith(Post value, $Res Function(Post) then) =
       _$PostCopyWithImpl<$Res>;
-  $Res call({UserUID authorUID, FieldValue createdAt, PostBody postBody});
+  $Res call(
+      {PostID postID,
+      UserUID authorUID,
+      dynamic createdAt,
+      PostBody postBody,
+      int likesCount,
+      int commentsCount});
 }
 
 /// @nodoc
@@ -133,11 +119,18 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? postID = freezed,
     Object? authorUID = freezed,
     Object? createdAt = freezed,
     Object? postBody = freezed,
+    Object? likesCount = freezed,
+    Object? commentsCount = freezed,
   }) {
     return _then(_value.copyWith(
+      postID: postID == freezed
+          ? _value.postID
+          : postID // ignore: cast_nullable_to_non_nullable
+              as PostID,
       authorUID: authorUID == freezed
           ? _value.authorUID
           : authorUID // ignore: cast_nullable_to_non_nullable
@@ -145,11 +138,19 @@ class _$PostCopyWithImpl<$Res> implements $PostCopyWith<$Res> {
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
+              as dynamic,
       postBody: postBody == freezed
           ? _value.postBody
           : postBody // ignore: cast_nullable_to_non_nullable
               as PostBody,
+      likesCount: likesCount == freezed
+          ? _value.likesCount
+          : likesCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      commentsCount: commentsCount == freezed
+          ? _value.commentsCount
+          : commentsCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -163,9 +164,9 @@ abstract class $PostReadableCopyWith<$Res> implements $PostCopyWith<$Res> {
   $Res call(
       {PostID postID,
       UserUID authorUID,
-      FieldValue createdAt,
+      dynamic createdAt,
       PostBody postBody,
-      int likeCount,
+      int likesCount,
       int commentsCount});
 }
 
@@ -185,7 +186,7 @@ class _$PostReadableCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
     Object? authorUID = freezed,
     Object? createdAt = freezed,
     Object? postBody = freezed,
-    Object? likeCount = freezed,
+    Object? likesCount = freezed,
     Object? commentsCount = freezed,
   }) {
     return _then(PostReadable(
@@ -200,14 +201,14 @@ class _$PostReadableCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
+              as dynamic,
       postBody: postBody == freezed
           ? _value.postBody
           : postBody // ignore: cast_nullable_to_non_nullable
               as PostBody,
-      likeCount: likeCount == freezed
-          ? _value.likeCount
-          : likeCount // ignore: cast_nullable_to_non_nullable
+      likesCount: likesCount == freezed
+          ? _value.likesCount
+          : likesCount // ignore: cast_nullable_to_non_nullable
               as int,
       commentsCount: commentsCount == freezed
           ? _value.commentsCount
@@ -225,7 +226,7 @@ class _$PostReadable implements PostReadable {
       required this.authorUID,
       required this.createdAt,
       required this.postBody,
-      required this.likeCount,
+      required this.likesCount,
       required this.commentsCount});
 
   @override
@@ -233,17 +234,17 @@ class _$PostReadable implements PostReadable {
   @override
   final UserUID authorUID;
   @override
-  final FieldValue createdAt;
+  final dynamic createdAt;
   @override
   final PostBody postBody;
   @override
-  final int likeCount;
+  final int likesCount;
   @override
   final int commentsCount;
 
   @override
   String toString() {
-    return 'Post.readable(postID: $postID, authorUID: $authorUID, createdAt: $createdAt, postBody: $postBody, likeCount: $likeCount, commentsCount: $commentsCount)';
+    return 'Post.readable(postID: $postID, authorUID: $authorUID, createdAt: $createdAt, postBody: $postBody, likesCount: $likesCount, commentsCount: $commentsCount)';
   }
 
   @override
@@ -255,7 +256,8 @@ class _$PostReadable implements PostReadable {
             const DeepCollectionEquality().equals(other.authorUID, authorUID) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.postBody, postBody) &&
-            const DeepCollectionEquality().equals(other.likeCount, likeCount) &&
+            const DeepCollectionEquality()
+                .equals(other.likesCount, likesCount) &&
             const DeepCollectionEquality()
                 .equals(other.commentsCount, commentsCount));
   }
@@ -267,7 +269,7 @@ class _$PostReadable implements PostReadable {
       const DeepCollectionEquality().hash(authorUID),
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(postBody),
-      const DeepCollectionEquality().hash(likeCount),
+      const DeepCollectionEquality().hash(likesCount),
       const DeepCollectionEquality().hash(commentsCount));
 
   @JsonKey(ignore: true)
@@ -281,47 +283,38 @@ class _$PostReadable implements PostReadable {
     required TResult Function(
             PostID postID,
             UserUID authorUID,
-            FieldValue createdAt,
+            dynamic createdAt,
             PostBody postBody,
-            int likeCount,
+            int likesCount,
             int commentsCount)
         readable,
-    required TResult Function(
-            UserUID authorUID, FieldValue createdAt, PostBody postBody)
-        editable,
   }) {
     return readable(
-        postID, authorUID, createdAt, postBody, likeCount, commentsCount);
+        postID, authorUID, createdAt, postBody, likesCount, commentsCount);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(PostID postID, UserUID authorUID, FieldValue createdAt,
-            PostBody postBody, int likeCount, int commentsCount)?
+    TResult Function(PostID postID, UserUID authorUID, dynamic createdAt,
+            PostBody postBody, int likesCount, int commentsCount)?
         readable,
-    TResult Function(
-            UserUID authorUID, FieldValue createdAt, PostBody postBody)?
-        editable,
   }) {
     return readable?.call(
-        postID, authorUID, createdAt, postBody, likeCount, commentsCount);
+        postID, authorUID, createdAt, postBody, likesCount, commentsCount);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PostID postID, UserUID authorUID, FieldValue createdAt,
-            PostBody postBody, int likeCount, int commentsCount)?
+    TResult Function(PostID postID, UserUID authorUID, dynamic createdAt,
+            PostBody postBody, int likesCount, int commentsCount)?
         readable,
-    TResult Function(
-            UserUID authorUID, FieldValue createdAt, PostBody postBody)?
-        editable,
     required TResult orElse(),
   }) {
     if (readable != null) {
       return readable(
-          postID, authorUID, createdAt, postBody, likeCount, commentsCount);
+          postID, authorUID, createdAt, postBody, likesCount, commentsCount);
     }
     return orElse();
   }
@@ -330,7 +323,6 @@ class _$PostReadable implements PostReadable {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(PostReadable value) readable,
-    required TResult Function(PostEditable value) editable,
   }) {
     return readable(this);
   }
@@ -339,7 +331,6 @@ class _$PostReadable implements PostReadable {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(PostReadable value)? readable,
-    TResult Function(PostEditable value)? editable,
   }) {
     return readable?.call(this);
   }
@@ -348,7 +339,6 @@ class _$PostReadable implements PostReadable {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PostReadable value)? readable,
-    TResult Function(PostEditable value)? editable,
     required TResult orElse(),
   }) {
     if (readable != null) {
@@ -362,205 +352,26 @@ abstract class PostReadable implements Post {
   const factory PostReadable(
       {required PostID postID,
       required UserUID authorUID,
-      required FieldValue createdAt,
+      required dynamic createdAt,
       required PostBody postBody,
-      required int likeCount,
+      required int likesCount,
       required int commentsCount}) = _$PostReadable;
 
+  @override
   PostID get postID;
   @override
   UserUID get authorUID;
   @override
-  FieldValue get createdAt;
+  dynamic get createdAt;
   @override
   PostBody get postBody;
-  int get likeCount;
+  @override
+  int get likesCount;
+  @override
   int get commentsCount;
   @override
   @JsonKey(ignore: true)
   $PostReadableCopyWith<PostReadable> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PostEditableCopyWith<$Res> implements $PostCopyWith<$Res> {
-  factory $PostEditableCopyWith(
-          PostEditable value, $Res Function(PostEditable) then) =
-      _$PostEditableCopyWithImpl<$Res>;
-  @override
-  $Res call({UserUID authorUID, FieldValue createdAt, PostBody postBody});
-}
-
-/// @nodoc
-class _$PostEditableCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res>
-    implements $PostEditableCopyWith<$Res> {
-  _$PostEditableCopyWithImpl(
-      PostEditable _value, $Res Function(PostEditable) _then)
-      : super(_value, (v) => _then(v as PostEditable));
-
-  @override
-  PostEditable get _value => super._value as PostEditable;
-
-  @override
-  $Res call({
-    Object? authorUID = freezed,
-    Object? createdAt = freezed,
-    Object? postBody = freezed,
-  }) {
-    return _then(PostEditable(
-      authorUID: authorUID == freezed
-          ? _value.authorUID
-          : authorUID // ignore: cast_nullable_to_non_nullable
-              as UserUID,
-      createdAt: createdAt == freezed
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
-      postBody: postBody == freezed
-          ? _value.postBody
-          : postBody // ignore: cast_nullable_to_non_nullable
-              as PostBody,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$PostEditable implements PostEditable {
-  _$PostEditable(
-      {required this.authorUID,
-      required this.createdAt,
-      required this.postBody});
-
-  @override
-  final UserUID authorUID;
-  @override
-  final FieldValue createdAt;
-  @override
-  final PostBody postBody;
-
-  @override
-  String toString() {
-    return 'Post.editable(authorUID: $authorUID, createdAt: $createdAt, postBody: $postBody)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is PostEditable &&
-            const DeepCollectionEquality().equals(other.authorUID, authorUID) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.postBody, postBody));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(authorUID),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(postBody));
-
-  @JsonKey(ignore: true)
-  @override
-  $PostEditableCopyWith<PostEditable> get copyWith =>
-      _$PostEditableCopyWithImpl<PostEditable>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            PostID postID,
-            UserUID authorUID,
-            FieldValue createdAt,
-            PostBody postBody,
-            int likeCount,
-            int commentsCount)
-        readable,
-    required TResult Function(
-            UserUID authorUID, FieldValue createdAt, PostBody postBody)
-        editable,
-  }) {
-    return editable(authorUID, createdAt, postBody);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(PostID postID, UserUID authorUID, FieldValue createdAt,
-            PostBody postBody, int likeCount, int commentsCount)?
-        readable,
-    TResult Function(
-            UserUID authorUID, FieldValue createdAt, PostBody postBody)?
-        editable,
-  }) {
-    return editable?.call(authorUID, createdAt, postBody);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PostID postID, UserUID authorUID, FieldValue createdAt,
-            PostBody postBody, int likeCount, int commentsCount)?
-        readable,
-    TResult Function(
-            UserUID authorUID, FieldValue createdAt, PostBody postBody)?
-        editable,
-    required TResult orElse(),
-  }) {
-    if (editable != null) {
-      return editable(authorUID, createdAt, postBody);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(PostReadable value) readable,
-    required TResult Function(PostEditable value) editable,
-  }) {
-    return editable(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(PostReadable value)? readable,
-    TResult Function(PostEditable value)? editable,
-  }) {
-    return editable?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(PostReadable value)? readable,
-    TResult Function(PostEditable value)? editable,
-    required TResult orElse(),
-  }) {
-    if (editable != null) {
-      return editable(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class PostEditable implements Post {
-  factory PostEditable(
-      {required UserUID authorUID,
-      required FieldValue createdAt,
-      required PostBody postBody}) = _$PostEditable;
-
-  @override
-  UserUID get authorUID;
-  @override
-  FieldValue get createdAt;
-  @override
-  PostBody get postBody;
-  @override
-  @JsonKey(ignore: true)
-  $PostEditableCopyWith<PostEditable> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -571,7 +382,7 @@ class _$CommentTearOff {
   _Comment call(
       {required UserUID userUID,
       required CommentBody commentBody,
-      required FieldValue createdAt}) {
+      required dynamic createdAt}) {
     return _Comment(
       userUID: userUID,
       commentBody: commentBody,
@@ -587,7 +398,7 @@ const $Comment = _$CommentTearOff();
 mixin _$Comment {
   UserUID get userUID => throw _privateConstructorUsedError;
   CommentBody get commentBody => throw _privateConstructorUsedError;
-  FieldValue get createdAt => throw _privateConstructorUsedError;
+  dynamic get createdAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CommentCopyWith<Comment> get copyWith => throw _privateConstructorUsedError;
@@ -597,7 +408,7 @@ mixin _$Comment {
 abstract class $CommentCopyWith<$Res> {
   factory $CommentCopyWith(Comment value, $Res Function(Comment) then) =
       _$CommentCopyWithImpl<$Res>;
-  $Res call({UserUID userUID, CommentBody commentBody, FieldValue createdAt});
+  $Res call({UserUID userUID, CommentBody commentBody, dynamic createdAt});
 }
 
 /// @nodoc
@@ -626,7 +437,7 @@ class _$CommentCopyWithImpl<$Res> implements $CommentCopyWith<$Res> {
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
+              as dynamic,
     ));
   }
 }
@@ -636,7 +447,7 @@ abstract class _$CommentCopyWith<$Res> implements $CommentCopyWith<$Res> {
   factory _$CommentCopyWith(_Comment value, $Res Function(_Comment) then) =
       __$CommentCopyWithImpl<$Res>;
   @override
-  $Res call({UserUID userUID, CommentBody commentBody, FieldValue createdAt});
+  $Res call({UserUID userUID, CommentBody commentBody, dynamic createdAt});
 }
 
 /// @nodoc
@@ -666,7 +477,7 @@ class __$CommentCopyWithImpl<$Res> extends _$CommentCopyWithImpl<$Res>
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
+              as dynamic,
     ));
   }
 }
@@ -684,7 +495,7 @@ class _$_Comment implements _Comment {
   @override
   final CommentBody commentBody;
   @override
-  final FieldValue createdAt;
+  final dynamic createdAt;
 
   @override
   String toString() {
@@ -719,14 +530,14 @@ abstract class _Comment implements Comment {
   const factory _Comment(
       {required UserUID userUID,
       required CommentBody commentBody,
-      required FieldValue createdAt}) = _$_Comment;
+      required dynamic createdAt}) = _$_Comment;
 
   @override
   UserUID get userUID;
   @override
   CommentBody get commentBody;
   @override
-  FieldValue get createdAt;
+  dynamic get createdAt;
   @override
   @JsonKey(ignore: true)
   _$CommentCopyWith<_Comment> get copyWith =>

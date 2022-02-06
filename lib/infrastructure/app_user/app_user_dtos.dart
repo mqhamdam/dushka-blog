@@ -41,6 +41,8 @@ abstract class AppUserFullDto with _$AppUserFullDto {
   factory AppUserFullDto.fromFirestore(DocumentSnapshot<Map<String,dynamic>> doc) =>
       AppUserFullDto.fromJson(doc.data()!);
 
+}
+extension AppUserFullDtoX on AppUserFullDto {
   AppUserFull toDomain() {
     return AppUserFull(
       name: Name(name),
@@ -54,7 +56,9 @@ abstract class AppUserFullDto with _$AppUserFullDto {
       subscribingCount: subscribingCount,
     );
   }
+
 }
+
 
 @freezed
 abstract class AppUserLessDto with _$AppUserLessDto {
@@ -80,6 +84,10 @@ abstract class AppUserLessDto with _$AppUserLessDto {
   factory AppUserLessDto.fromFirestore(DocumentSnapshot doc) =>
       AppUserLessDto.fromJson(doc.data()! as Map<String, dynamic>);
 
+}
+
+extension AppUserLessDtoX on AppUserLessDto{
+
   AppUserLess toDomain() {
     return AppUserLess(
       name: Name(name),
@@ -89,7 +97,6 @@ abstract class AppUserLessDto with _$AppUserLessDto {
     );
   }
 }
-
 
 @freezed
 abstract class AppUserUpdateDto with _$AppUserUpdateDto {
@@ -114,6 +121,9 @@ abstract class AppUserUpdateDto with _$AppUserUpdateDto {
 
   factory AppUserUpdateDto.fromFirestore(DocumentSnapshot doc) =>
       AppUserUpdateDto.fromJson(doc.data()! as Map<String, dynamic>);
+
+}
+extension AppUserUpdateDtoX on AppUserUpdateDto {
 
   AppUserUpdate toDomain( ){
     return AppUserUpdate(

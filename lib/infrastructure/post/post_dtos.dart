@@ -21,10 +21,11 @@ abstract class PostDtos with _$PostDtos {
   factory PostDtos({
     required String authorUID,
     required String postID,
-    @ServerTimestampConverter() required FieldValue createdAt,
+    @ServerTimestampConverter() required Object createdAt,
     required String postBody,
-    required int likeCount,
+    required int likesCount,
     required int commentsCount,
+    
   }) = _PostDtos;
 
   /*  factory PostDtos.fromDomain(PostReadable post) {
@@ -52,7 +53,7 @@ extension PostDtosX on PostDtos {
       authorUID: UserUID(authorUID),
       postID: PostID(postID),
       createdAt: createdAt,
-      likeCount: likeCount,
+      likesCount: likesCount,
       commentsCount: commentsCount,
       postBody: PostBody(postBody),
     );
@@ -63,17 +64,17 @@ extension PostDtosX on PostDtos {
 abstract class PostEditableDtos with _$PostEditableDtos {
   factory PostEditableDtos({
     required String authorUID,
-    @ServerTimestampConverter() required FieldValue createdAt,
+    @ServerTimestampConverter() required Object createdAt,
     required String postBody,
   }) = _PostDtosEditable;
 
-  factory PostEditableDtos.fromDomain(PostEditable post) {
+ /*  factory PostEditableDtos.fromDomain(PostEditable post) {
     return PostEditableDtos(
       authorUID: post.authorUID.getOrCrash(),
       createdAt: post.createdAt,
       postBody: post.postBody.getOrCrash(),
-    );
-  }
+    ); */
+  //}
 
   factory PostEditableDtos.fromJson(Map<String, dynamic> json) =>
       _$PostEditableDtosFromJson(json);
@@ -83,7 +84,7 @@ abstract class PostEditableDtos with _$PostEditableDtos {
       PostEditableDtos.fromJson(doc.data()!);
 }
 
-extension PostEditableDtosX on PostEditableDtos {
+/* extension PostEditableDtosX on PostEditableDtos {
   Post toDomain() {
     return Post.editable(
       authorUID: UserUID(authorUID),
@@ -91,7 +92,7 @@ extension PostEditableDtosX on PostEditableDtos {
       postBody: PostBody(postBody),
     );
   }
-}
+} */
 
 @freezed
 abstract class WallItemDtos with _$WallItemDtos {

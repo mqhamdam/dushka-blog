@@ -1,16 +1,29 @@
+import 'package:animate_do/animate_do.dart';
+import 'package:dushka_blog/domain/app_user/app_user_objects.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomCircleAvatar extends StatelessWidget {
-  const CustomCircleAvatar({required this.radius,Key? key,}) : super(key: key);
+  const CustomCircleAvatar({
+    required this.radius,
+    required this.imageUrl,
+    Key? key,
+  }) : super(key: key);
   final double radius;
+  final ImageUrl imageUrl;
+  
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      backgroundImage: ExtendedNetworkImageProvider(
-        'https://previews.123rf.com/images/metelsky/metelsky1809/metelsky180900233/109815470-man-avatar-profile-male-face-icon-vector-illustration-.jpg',
+    return Pulse(
+      duration: Duration(milliseconds: 300),
+      child: CircleAvatar(
+        backgroundImage: imageUrl.getOrElse('').isEmpty
+            ? null
+            : ExtendedNetworkImageProvider(
+                imageUrl.getOrElse(''),
+              ),
+        radius: radius,
       ),
-      radius: radius,
     );
   }
 }

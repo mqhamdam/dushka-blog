@@ -10,4 +10,5 @@ class PostWatcherEvent with _$PostWatcherEvent {
           PostID postID, UserUID authorUID,) = _PostWatcherEventBookmarkButtonPressed;
   const factory PostWatcherEvent.reportButtonPressed(
       PostID postID, UserUID authorUID,) = _PostWatcherEventReportButtonPressed; 
+  const factory PostWatcherEvent.postUpdated(Post post) = _PostWatcherEventPostUpdated;
 }

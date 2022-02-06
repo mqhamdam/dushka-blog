@@ -88,280 +88,263 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
           leftAnimationType: InnerDrawerAnimation.quadratic,
           leftChild: const HomeDrawer(),
           scaffold: Scaffold(
-            body: SlidingUpPanel(
-              borderRadius: const BorderRadius.only(
-                topRight: Radius.circular(33),
-              ),
-              panelSnapping: false,
-              parallaxEnabled: true,
-              backdropEnabled: true,
-              maxHeight: MediaQuery.of(context).size.height - kToolbarHeight,
-              panel: const CommentPanel(),
-              body: Scaffold(
-                body: RefreshIndicator(
-                  onRefresh: () async {
-                    context
-                        .read<WallInfiniteScrollBloc>()
-                        .add(WallInfiniteScrollEvent.refreshPage());
-                  },
-                  child: CustomScrollView(
-                    controller: _scrollController
-                      ..addListener(() {
-                        if (_scrollController.position.atEdge) {
-                          bool isTop = _scrollController.position.pixels == 0;
-                          if (isTop) {
-                            print('At the top');
-                          } else {
-                            context.read<WallInfiniteScrollBloc>().add(
-                                  WallInfiniteScrollEvent.getNextPage(),
-                                );
-                          }
-                        }
-                      }),
-                    physics: const BouncingScrollPhysics(
-                        parent: AlwaysScrollableScrollPhysics()),
-                    slivers: [
-                      SliverAppBar(
-                        floating: true,
-                        leading: IconButton(
-                          onPressed: () {
-                            _drawerKey.currentState?.open();
-                          },
-                          icon: AnimatedIcon(
-                            icon: AnimatedIcons.menu_close,
-                            progress: _drawerAnimatedIcon,
-                          ),
-                        ),
-                        title: Text(
-                          'Dushka Wall',
-                          style: GoogleFonts.baloo2(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 22,
-                              letterSpacing: 1.0),
-                        ),
-                        actions: [
-                          IconButton(
-                            onPressed: () {
-                              FirebaseAuth.instance.signOut();
-                            },
-                            icon: Icon(Icons.exit_to_app),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              Navigator.of(context).push(
-                                PageRouteBuilder(
-                                  pageBuilder: (context, animation, anim) {
-                                    return const DiscoverView();
-                                  },
-                                  transitionDuration: const Duration(
-                                    milliseconds: 500,
-                                  ),
-                                  reverseTransitionDuration:
-                                      const Duration(milliseconds: 500),
-                                  transitionsBuilder: (
-                                    context,
-                                    animation,
-                                    secondaryAnimation,
-                                    child,
-                                  ) {
-                                    return SharedAxisTransition(
-                                      secondaryAnimation: secondaryAnimation,
-                                      transitionType:
-                                          SharedAxisTransitionType.scaled,
-                                      animation: animation,
-                                      child: child,
-                                    );
-                                  },
-                                ),
-                              );
-                            },
-                            icon: Hero(
-                              tag: 'Search-tag',
-                              child: SvgPicture.asset(
-                                'assets/ui-icons/fi-rr-search.svg',
-                                color: Colors.white,
-                              ),
-                              flightShuttleBuilder: (
-                                flightContext,
-                                animation,
-                                flightDirection,
-                                fromHeroContext,
-                                toHeroContext,
-                              ) {
-                                return SvgPicture.asset(
-                                  'assets/ui-icons/fi-rr-search.svg',
-                                  color: Colors.white,
-                                );
-                              },
-                            ),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              Navigator.of(context).push(
-                                PageRouteBuilder(
-                                  pageBuilder: (context, animation, anim) {
-                                    return const NotificationView();
-                                  },
-                                  transitionDuration:
-                                      const Duration(milliseconds: 3500),
-                                  reverseTransitionDuration:
-                                      const Duration(milliseconds: 3500),
-                                  transitionsBuilder: (
-                                    context,
-                                    animation,
-                                    secondaryAnimation,
-                                    child,
-                                  ) {
-                                    return SharedAxisTransition(
-                                      secondaryAnimation: secondaryAnimation,
-                                      transitionType:
-                                          SharedAxisTransitionType.vertical,
-                                      animation: animation,
-                                      child: child,
-                                    );
-                                  },
-                                ),
-                              );
-                            },
-                            icon: Hero(
-                              tag: 'notification-tag',
-                              child: SvgPicture.asset(
-                                'assets/ui-icons/fi-rr-bell.svg',
-                                color: Colors.white,
-                              ),
-                              flightShuttleBuilder: (
-                                flightContext,
-                                animation,
-                                flightDirection,
-                                fromHeroContext,
-                                toHeroContext,
-                              ) {
-                                return SvgPicture.asset(
-                                  'assets/ui-icons/fi-rr-bell.svg',
-                                  color: Colors.white,
-                                );
-                              },
-                            ),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              showGeneralDialog(
-                                context: context,
-                                pageBuilder:
-                                    (context, animation, secondaryAnimation) {
-                                  return const FilterDialog();
-                                },
-                                transitionDuration:
-                                    const Duration(milliseconds: 3000),
-                                transitionBuilder: (context, animation,
-                                    secondaryAnimation, child) {
-                                  return FadeScaleTransition(
-                                    animation: animation,
-                                    child: child,
-                                  );
-                                },
-                                barrierDismissible: true,
-                                barrierLabel: 'label',
-                              );
-                            },
-                            icon: SvgPicture.asset(
-                              'assets/ui-icons/fi-rr-settings-sliders.svg',
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
+            body: RefreshIndicator(
+              onRefresh: () async {
+                context
+                    .read<WallInfiniteScrollBloc>()
+                    .add(WallInfiniteScrollEvent.refreshPage());
+              },
+              child: CustomScrollView(
+                controller: _scrollController
+                  ..addListener(() {
+                    if (_scrollController.position.atEdge) {
+                      bool isTop = _scrollController.position.pixels == 0;
+                      if (isTop) {
+                        print('At the top');
+                      } else {
+                        context.read<WallInfiniteScrollBloc>().add(
+                              WallInfiniteScrollEvent.getNextPage(),
+                            );
+                      }
+                    }
+                  }),
+                physics: const BouncingScrollPhysics(
+                    parent: AlwaysScrollableScrollPhysics()),
+                slivers: [
+                  SliverAppBar(
+                    floating: true,
+                    leading: IconButton(
+                      onPressed: () {
+                        _drawerKey.currentState?.open();
+                      },
+                      icon: AnimatedIcon(
+                        icon: AnimatedIcons.menu_close,
+                        progress: _drawerAnimatedIcon,
                       ),
-                      const SliverToBoxAdapter(
-                        child: Divider(),
+                    ),
+                    title: Text(
+                      'Dushka Wall',
+                      style: GoogleFonts.baloo2(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22,
+                          letterSpacing: 1.0),
+                    ),
+                    actions: [
+                      IconButton(
+                        onPressed: () {
+                          FirebaseAuth.instance.signOut();
+                        },
+                        icon: Icon(Icons.exit_to_app),
                       ),
-                      BlocBuilder<WallInfiniteScrollBloc,
-                          WallInfiniteScrollState>(
-                        builder: (context, state) {
-                          return SliverList(
-                            delegate: SliverChildBuilderDelegate(
-                              (context, index) {
-                                return PostWidgetV2(
-                                  authorUID: state.wallItems[index].userUID
-                                      .getOrElse("NOT_FOUND"),
-                                  postID: state.wallItems[index].postID
-                                      .getOrElse("NOT_FOUND"),
-                                );
-                                //return const PostWidgetV2();
+                      IconButton(
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation, anim) {
+                                return const DiscoverView();
                               },
-                              childCount: state.wallItems.length,
+                              transitionDuration: const Duration(
+                                milliseconds: 500,
+                              ),
+                              reverseTransitionDuration:
+                                  const Duration(milliseconds: 500),
+                              transitionsBuilder: (
+                                context,
+                                animation,
+                                secondaryAnimation,
+                                child,
+                              ) {
+                                return SharedAxisTransition(
+                                  secondaryAnimation: secondaryAnimation,
+                                  transitionType:
+                                      SharedAxisTransitionType.scaled,
+                                  animation: animation,
+                                  child: child,
+                                );
+                              },
                             ),
                           );
                         },
-                      ),
-                    ],
-                  ),
-                ),
-                floatingActionButtonLocation:
-                    FloatingActionButtonLocation.endFloat,
-                floatingActionButton: Transform.translate(
-                  offset: const Offset(0, -60),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      ScaleTransition(
-                        scale: _moveToTopScaleAnimation,
-                        alignment: Alignment.bottomCenter,
-                        child: FloatingActionButton(
-                          mini: true,
-                          heroTag: null,
-                          onPressed: () async {
-                            await _scrollController.animateTo(
-                              -1,
-                              duration: const Duration(
-                                milliseconds: 500,
-                              ),
-                              curve: Curves.fastLinearToSlowEaseIn,
-                            );
-                            await _moveToTopScaleAnimation.forward();
-                          },
+                        icon: Hero(
+                          tag: 'Search-tag',
                           child: SvgPicture.asset(
-                            'assets/ui-icons/fi-rr-angle-up.svg',
+                            'assets/ui-icons/fi-rr-search.svg',
                             color: Colors.white,
                           ),
+                          flightShuttleBuilder: (
+                            flightContext,
+                            animation,
+                            flightDirection,
+                            fromHeroContext,
+                            toHeroContext,
+                          ) {
+                            return SvgPicture.asset(
+                              'assets/ui-icons/fi-rr-search.svg',
+                              color: Colors.white,
+                            );
+                          },
                         ),
                       ),
-                      OpenContainer(
-                        transitionDuration: const Duration(milliseconds: 3000),
-                        closedBuilder: (context, _) => SizedBox(
-                          height: 70.0,
-                          width: 70.0,
-                          child: FittedBox(
-                            child: FloatingActionButton(
-                              heroTag: null,
-                              onPressed: () {
-                                showQuickPost(context);
+                      IconButton(
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation, anim) {
+                                return const NotificationView();
                               },
-                              child: SvgPicture.asset(
-                                'assets/ui-icons/fi-rr-pencil.svg',
-                                color: Colors.white,
-                              ),
+                              transitionDuration:
+                                  const Duration(milliseconds: 3500),
+                              reverseTransitionDuration:
+                                  const Duration(milliseconds: 3500),
+                              transitionsBuilder: (
+                                context,
+                                animation,
+                                secondaryAnimation,
+                                child,
+                              ) {
+                                return SharedAxisTransition(
+                                  secondaryAnimation: secondaryAnimation,
+                                  transitionType:
+                                      SharedAxisTransitionType.vertical,
+                                  animation: animation,
+                                  child: child,
+                                );
+                              },
                             ),
+                          );
+                        },
+                        icon: Hero(
+                          tag: 'notification-tag',
+                          child: SvgPicture.asset(
+                            'assets/ui-icons/fi-rr-bell.svg',
+                            color: Colors.white,
                           ),
-                        ),
-                        openBuilder: (context, _) => const CreatePostScreen(),
-                        openColor: Colors.transparent,
-                        closedColor: Colors.transparent,
-                        openElevation: 0,
-                        closedElevation: 0,
-                        openShape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(33),
-                        ),
-                        closedShape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(33),
+                          flightShuttleBuilder: (
+                            flightContext,
+                            animation,
+                            flightDirection,
+                            fromHeroContext,
+                            toHeroContext,
+                          ) {
+                            return SvgPicture.asset(
+                              'assets/ui-icons/fi-rr-bell.svg',
+                              color: Colors.white,
+                            );
+                          },
                         ),
                       ),
-                      const SizedBox(
-                        height: 30,
+                      IconButton(
+                        onPressed: () {
+                          showGeneralDialog(
+                            context: context,
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) {
+                              return const FilterDialog();
+                            },
+                            transitionDuration:
+                                const Duration(milliseconds: 3000),
+                            transitionBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              return FadeScaleTransition(
+                                animation: animation,
+                                child: child,
+                              );
+                            },
+                            barrierDismissible: true,
+                            barrierLabel: 'label',
+                          );
+                        },
+                        icon: SvgPicture.asset(
+                          'assets/ui-icons/fi-rr-settings-sliders.svg',
+                          color: Colors.white,
+                        ),
                       ),
                     ],
                   ),
-                ),
+                  const SliverToBoxAdapter(
+                    child: Divider(),
+                  ),
+                  BlocBuilder<WallInfiniteScrollBloc, WallInfiniteScrollState>(
+                    builder: (context, state) {
+                      return SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                          (context, index) {
+                            return PostWidgetV2(
+                              authorUID: state.wallItems[index].userUID
+                                  .getOrElse("NOT_FOUND"),
+                              postID: state.wallItems[index].postID
+                                  .getOrElse("NOT_FOUND"),
+                            );
+                            //return const PostWidgetV2();
+                          },
+                          childCount: state.wallItems.length,
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
+            ),
+            floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+            floatingActionButton: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ScaleTransition(
+                  scale: _moveToTopScaleAnimation,
+                  alignment: Alignment.bottomCenter,
+                  child: FloatingActionButton(
+                    mini: true,
+                    heroTag: null,
+                    onPressed: () async {
+                      await _scrollController.animateTo(
+                        -1,
+                        duration: const Duration(
+                          milliseconds: 500,
+                        ),
+                        curve: Curves.fastLinearToSlowEaseIn,
+                      );
+                      await _moveToTopScaleAnimation.forward();
+                    },
+                    child: SvgPicture.asset(
+                      'assets/ui-icons/fi-rr-angle-up.svg',
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                OpenContainer(
+                  transitionDuration: const Duration(milliseconds: 3000),
+                  closedBuilder: (context, _) => SizedBox(
+                    height: 70.0,
+                    width: 70.0,
+                    child: FittedBox(
+                      child: FloatingActionButton(
+                        heroTag: null,
+                        onPressed: () {
+                          showQuickPost(context);
+                        },
+                        child: SvgPicture.asset(
+                          'assets/ui-icons/fi-rr-pencil.svg',
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                  openBuilder: (context, _) => const CreatePostScreen(),
+                  openColor: Colors.transparent,
+                  closedColor: Colors.transparent,
+                  openElevation: 0,
+                  closedElevation: 0,
+                  openShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(33),
+                  ),
+                  closedShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(33),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+              ],
             ),
           ),
         );

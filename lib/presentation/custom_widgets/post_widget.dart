@@ -21,9 +21,9 @@ class PostWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
             child: Row(
               children: [
-                const CustomCircleAvatar(
+              /*   const CustomCircleAvatar(
                   radius: 20,
-                ),
+                ), */
                 const SizedBox(
                   width: 10,
                 ),

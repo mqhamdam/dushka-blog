@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 final lightTheme = ThemeData.light().copyWith(
+  primaryColor:Color.fromRGBO(4, 28, 50, 1) ,
   cardTheme: CardTheme(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(33)),
   ),

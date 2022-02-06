@@ -3,7 +3,10 @@ import 'dart:ui';
 import 'package:animate_do/animate_do.dart';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:dushka_blog/application/post/likes_watcher/likes_watcher_bloc.dart';
 import 'package:dushka_blog/application/post/post_editor/post_editor_bloc.dart';
+import 'package:dushka_blog/domain/app_user/app_user_objects.dart';
+import 'package:dushka_blog/domain/post/post_objects.dart';
 import 'package:dushka_blog/presentation/custom_widgets/ui_text.dart';
 import 'package:dushka_blog/presentation/custom_widgets/user_view_mini.dart';
 import 'package:extended_image/extended_image.dart';
@@ -12,9 +15,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
-Future showLikes(BuildContext context, {required String postId}) {
+Future showLikes(BuildContext context, {required PostID postId,required UserUID authorUID,}) {
   return showBarModalBottomSheet(
     //enableDrag: false,
+    isDismissible: false,
     context: context,
     builder: (context) {
       return DraggableScrollableSheet(
@@ -67,15 +71,27 @@ Future showLikes(BuildContext context, {required String postId}) {
                 ),
                 Divider(),
                 Expanded(
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(
-                      parent: AlwaysScrollableScrollPhysics(),
-                    ),
-                    padding: EdgeInsets.zero,
-                    controller: scroll,
-                    itemBuilder: (context, index) {
-                      return UserViewMini();
-                    },
+                  child: BlocProvider(
+                    create: (context) => LikesWatcherBloc(
+                        postId,authorUID,)
+                      ..add(LikesWatcherEvent.connectStream()),
+                    child: Builder(builder: (context) {
+                      return ListView.builder(
+                        physics: const BouncingScrollPhysics(
+                          parent: AlwaysScrollableScrollPhysics(),
+                        ),
+                        padding: EdgeInsets.zero,
+                        controller: scroll,
+                        itemBuilder: (context, index) {
+                          return UserViewMini();
+                        },
+                        itemCount: context
+                            .watch<LikesWatcherBloc>()
+                            .state
+                            .likeDocList
+                            .length,
+                      );
+                    }),
                   ),
                 ),
               ],
@@ -130,12 +146,11 @@ Future showQuickPost(
                               Spacer(),
                               ElevatedButton.icon(
                                 onPressed: () {
-                                  FlushbarHelper.createSuccess(
-                                      message: "Posted!");
+                                  
                                   context
                                       .read<PostEditorBloc>()
                                       .add(PostEditorEvent.postButtonPressed());
-                                  // Navigator.of(context).pop();
+                                   Navigator.of(context).pop();
                                 },
                                 label: UIText(
                                     text: "Post",

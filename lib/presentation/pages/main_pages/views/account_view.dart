@@ -31,9 +31,9 @@ class AccountView extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        const CustomCircleAvatar(
+                        /* const CustomCircleAvatar(
                           radius: 35,
-                        ),
+                        ), */
                         const SizedBox(
                           width: 10,
                         ),

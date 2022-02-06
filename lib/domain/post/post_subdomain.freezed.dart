@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$LikeDocTearOff {
   const _$LikeDocTearOff();
 
-  _LikeDoc call({required UserUID userUID, required FieldValue createdAt}) {
+  _LikeDoc call({required UserUID userUID, required dynamic createdAt}) {
     return _LikeDoc(
       userUID: userUID,
       createdAt: createdAt,
@@ -32,7 +32,7 @@ const $LikeDoc = _$LikeDocTearOff();
 /// @nodoc
 mixin _$LikeDoc {
   UserUID get userUID => throw _privateConstructorUsedError;
-  FieldValue get createdAt => throw _privateConstructorUsedError;
+  dynamic get createdAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LikeDocCopyWith<LikeDoc> get copyWith => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ mixin _$LikeDoc {
 abstract class $LikeDocCopyWith<$Res> {
   factory $LikeDocCopyWith(LikeDoc value, $Res Function(LikeDoc) then) =
       _$LikeDocCopyWithImpl<$Res>;
-  $Res call({UserUID userUID, FieldValue createdAt});
+  $Res call({UserUID userUID, dynamic createdAt});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$LikeDocCopyWithImpl<$Res> implements $LikeDocCopyWith<$Res> {
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
+              as dynamic,
     ));
   }
 }
@@ -76,7 +76,7 @@ abstract class _$LikeDocCopyWith<$Res> implements $LikeDocCopyWith<$Res> {
   factory _$LikeDocCopyWith(_LikeDoc value, $Res Function(_LikeDoc) then) =
       __$LikeDocCopyWithImpl<$Res>;
   @override
-  $Res call({UserUID userUID, FieldValue createdAt});
+  $Res call({UserUID userUID, dynamic createdAt});
 }
 
 /// @nodoc
@@ -101,7 +101,7 @@ class __$LikeDocCopyWithImpl<$Res> extends _$LikeDocCopyWithImpl<$Res>
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
+              as dynamic,
     ));
   }
 }
@@ -114,7 +114,7 @@ class _$_LikeDoc implements _LikeDoc {
   @override
   final UserUID userUID;
   @override
-  final FieldValue createdAt;
+  final dynamic createdAt;
 
   @override
   String toString() {
@@ -144,12 +144,12 @@ class _$_LikeDoc implements _LikeDoc {
 
 abstract class _LikeDoc implements LikeDoc {
   const factory _LikeDoc(
-      {required UserUID userUID, required FieldValue createdAt}) = _$_LikeDoc;
+      {required UserUID userUID, required dynamic createdAt}) = _$_LikeDoc;
 
   @override
   UserUID get userUID;
   @override
-  FieldValue get createdAt;
+  dynamic get createdAt;
   @override
   @JsonKey(ignore: true)
   _$LikeDocCopyWith<_LikeDoc> get copyWith =>
@@ -157,14 +157,16 @@ abstract class _LikeDoc implements LikeDoc {
 }
 
 /// @nodoc
-class _$CommendDocTearOff {
-  const _$CommendDocTearOff();
+class _$CommentDocTearOff {
+  const _$CommentDocTearOff();
 
-  _CommendDoc call(
-      {required UserUID userUID,
-      required FieldValue createdAt,
+  _CommentDoc call(
+      {required CommentID commentID,
+      required UserUID userUID,
+      required dynamic createdAt,
       required CommentBody commentBody}) {
-    return _CommendDoc(
+    return _CommentDoc(
+      commentID: commentID,
       userUID: userUID,
       createdAt: createdAt,
       commentBody: commentBody,
@@ -173,42 +175,52 @@ class _$CommendDocTearOff {
 }
 
 /// @nodoc
-const $CommendDoc = _$CommendDocTearOff();
+const $CommentDoc = _$CommentDocTearOff();
 
 /// @nodoc
-mixin _$CommendDoc {
+mixin _$CommentDoc {
+  CommentID get commentID => throw _privateConstructorUsedError;
   UserUID get userUID => throw _privateConstructorUsedError;
-  FieldValue get createdAt => throw _privateConstructorUsedError;
+  dynamic get createdAt => throw _privateConstructorUsedError;
   CommentBody get commentBody => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CommendDocCopyWith<CommendDoc> get copyWith =>
+  $CommentDocCopyWith<CommentDoc> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CommendDocCopyWith<$Res> {
-  factory $CommendDocCopyWith(
-          CommendDoc value, $Res Function(CommendDoc) then) =
-      _$CommendDocCopyWithImpl<$Res>;
-  $Res call({UserUID userUID, FieldValue createdAt, CommentBody commentBody});
+abstract class $CommentDocCopyWith<$Res> {
+  factory $CommentDocCopyWith(
+          CommentDoc value, $Res Function(CommentDoc) then) =
+      _$CommentDocCopyWithImpl<$Res>;
+  $Res call(
+      {CommentID commentID,
+      UserUID userUID,
+      dynamic createdAt,
+      CommentBody commentBody});
 }
 
 /// @nodoc
-class _$CommendDocCopyWithImpl<$Res> implements $CommendDocCopyWith<$Res> {
-  _$CommendDocCopyWithImpl(this._value, this._then);
+class _$CommentDocCopyWithImpl<$Res> implements $CommentDocCopyWith<$Res> {
+  _$CommentDocCopyWithImpl(this._value, this._then);
 
-  final CommendDoc _value;
+  final CommentDoc _value;
   // ignore: unused_field
-  final $Res Function(CommendDoc) _then;
+  final $Res Function(CommentDoc) _then;
 
   @override
   $Res call({
+    Object? commentID = freezed,
     Object? userUID = freezed,
     Object? createdAt = freezed,
     Object? commentBody = freezed,
   }) {
     return _then(_value.copyWith(
+      commentID: commentID == freezed
+          ? _value.commentID
+          : commentID // ignore: cast_nullable_to_non_nullable
+              as CommentID,
       userUID: userUID == freezed
           ? _value.userUID
           : userUID // ignore: cast_nullable_to_non_nullable
@@ -216,7 +228,7 @@ class _$CommendDocCopyWithImpl<$Res> implements $CommendDocCopyWith<$Res> {
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
+              as dynamic,
       commentBody: commentBody == freezed
           ? _value.commentBody
           : commentBody // ignore: cast_nullable_to_non_nullable
@@ -226,31 +238,40 @@ class _$CommendDocCopyWithImpl<$Res> implements $CommendDocCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$CommendDocCopyWith<$Res> implements $CommendDocCopyWith<$Res> {
-  factory _$CommendDocCopyWith(
-          _CommendDoc value, $Res Function(_CommendDoc) then) =
-      __$CommendDocCopyWithImpl<$Res>;
+abstract class _$CommentDocCopyWith<$Res> implements $CommentDocCopyWith<$Res> {
+  factory _$CommentDocCopyWith(
+          _CommentDoc value, $Res Function(_CommentDoc) then) =
+      __$CommentDocCopyWithImpl<$Res>;
   @override
-  $Res call({UserUID userUID, FieldValue createdAt, CommentBody commentBody});
+  $Res call(
+      {CommentID commentID,
+      UserUID userUID,
+      dynamic createdAt,
+      CommentBody commentBody});
 }
 
 /// @nodoc
-class __$CommendDocCopyWithImpl<$Res> extends _$CommendDocCopyWithImpl<$Res>
-    implements _$CommendDocCopyWith<$Res> {
-  __$CommendDocCopyWithImpl(
-      _CommendDoc _value, $Res Function(_CommendDoc) _then)
-      : super(_value, (v) => _then(v as _CommendDoc));
+class __$CommentDocCopyWithImpl<$Res> extends _$CommentDocCopyWithImpl<$Res>
+    implements _$CommentDocCopyWith<$Res> {
+  __$CommentDocCopyWithImpl(
+      _CommentDoc _value, $Res Function(_CommentDoc) _then)
+      : super(_value, (v) => _then(v as _CommentDoc));
 
   @override
-  _CommendDoc get _value => super._value as _CommendDoc;
+  _CommentDoc get _value => super._value as _CommentDoc;
 
   @override
   $Res call({
+    Object? commentID = freezed,
     Object? userUID = freezed,
     Object? createdAt = freezed,
     Object? commentBody = freezed,
   }) {
-    return _then(_CommendDoc(
+    return _then(_CommentDoc(
+      commentID: commentID == freezed
+          ? _value.commentID
+          : commentID // ignore: cast_nullable_to_non_nullable
+              as CommentID,
       userUID: userUID == freezed
           ? _value.userUID
           : userUID // ignore: cast_nullable_to_non_nullable
@@ -258,7 +279,7 @@ class __$CommendDocCopyWithImpl<$Res> extends _$CommendDocCopyWithImpl<$Res>
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as FieldValue,
+              as dynamic,
       commentBody: commentBody == freezed
           ? _value.commentBody
           : commentBody // ignore: cast_nullable_to_non_nullable
@@ -269,29 +290,33 @@ class __$CommendDocCopyWithImpl<$Res> extends _$CommendDocCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CommendDoc implements _CommendDoc {
-  const _$_CommendDoc(
-      {required this.userUID,
+class _$_CommentDoc implements _CommentDoc {
+  const _$_CommentDoc(
+      {required this.commentID,
+      required this.userUID,
       required this.createdAt,
       required this.commentBody});
 
   @override
+  final CommentID commentID;
+  @override
   final UserUID userUID;
   @override
-  final FieldValue createdAt;
+  final dynamic createdAt;
   @override
   final CommentBody commentBody;
 
   @override
   String toString() {
-    return 'CommendDoc(userUID: $userUID, createdAt: $createdAt, commentBody: $commentBody)';
+    return 'CommentDoc(commentID: $commentID, userUID: $userUID, createdAt: $createdAt, commentBody: $commentBody)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CommendDoc &&
+            other is _CommentDoc &&
+            const DeepCollectionEquality().equals(other.commentID, commentID) &&
             const DeepCollectionEquality().equals(other.userUID, userUID) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality()
@@ -301,30 +326,34 @@ class _$_CommendDoc implements _CommendDoc {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(commentID),
       const DeepCollectionEquality().hash(userUID),
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(commentBody));
 
   @JsonKey(ignore: true)
   @override
-  _$CommendDocCopyWith<_CommendDoc> get copyWith =>
-      __$CommendDocCopyWithImpl<_CommendDoc>(this, _$identity);
+  _$CommentDocCopyWith<_CommentDoc> get copyWith =>
+      __$CommentDocCopyWithImpl<_CommentDoc>(this, _$identity);
 }
 
-abstract class _CommendDoc implements CommendDoc {
-  const factory _CommendDoc(
-      {required UserUID userUID,
-      required FieldValue createdAt,
-      required CommentBody commentBody}) = _$_CommendDoc;
+abstract class _CommentDoc implements CommentDoc {
+  const factory _CommentDoc(
+      {required CommentID commentID,
+      required UserUID userUID,
+      required dynamic createdAt,
+      required CommentBody commentBody}) = _$_CommentDoc;
 
+  @override
+  CommentID get commentID;
   @override
   UserUID get userUID;
   @override
-  FieldValue get createdAt;
+  dynamic get createdAt;
   @override
   CommentBody get commentBody;
   @override
   @JsonKey(ignore: true)
-  _$CommendDocCopyWith<_CommendDoc> get copyWith =>
+  _$CommentDocCopyWith<_CommentDoc> get copyWith =>
       throw _privateConstructorUsedError;
 }

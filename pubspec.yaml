@@ -78,6 +78,7 @@ dependencies:
   json_annotation: ^4.4.0
   bloc: ^8.0.2
   dartz: ^0.10.1
+  fluttertoast: ^8.0.8
 
 dev_dependencies:
   flutter_test:

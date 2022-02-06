@@ -55,3 +55,13 @@ class UserBio extends ValueObject<String> {
   }
 }
 
+class CommentID extends ValueObject<String> {
+  const CommentID._(this.value);
+
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory CommentID(String value) {
+    return CommentID._(validateLineCount(value, 1));
+  }
+}
