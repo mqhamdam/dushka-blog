@@ -35,7 +35,7 @@ class PostWatcherBloc extends Bloc<PostWatcherEvent, PostWatcherState> {
     emit(state.copyWith(
       hasLiked: hasLiked.getOrElse(() => false),
       hasBookmarked: hasBookmarked.getOrElse(() => false),
-    ));
+    ),);
     _postStreamSubscription =
         await _postRepository.watchPost(event.postID, event.authorUID).listen(
       (event) {
@@ -55,7 +55,7 @@ class PostWatcherBloc extends Bloc<PostWatcherEvent, PostWatcherState> {
    */
   Future<void> _onPostUpdated(_PostWatcherEventPostUpdated event,
       Emitter<PostWatcherState> emit,) async {
-    print('updated ${event.post}');
+    
     emit(state.copyWith(post: event.post));
   }
 

@@ -1,22 +1,28 @@
+import 'package:dushka_blog/application/app_user/app_user_main/app_user_bloc.dart';
 import 'package:flutter/material.dart';
 
 enum SubState { subed, unSubed, blocked, loading }
 
 class SubButton extends StatefulWidget {
-  const SubButton({Key? key}) : super(key: key);
-
+  const SubButton(this.subStatus, {Key? key}) : super(key: key);
+  final subStatus;
   @override
   _SubButtonState createState() => _SubButtonState();
 }
 
 class _SubButtonState extends State<SubButton> {
-  SubState subState = SubState.unSubed;
+  late SubscriptionStatus subState;
+  @override
+  void initState() {
+    subState = widget.subStatus;
+
+    super.initState();
+  }
 
   final BoxDecoration subedDecoration = BoxDecoration(
       color: Colors.white,
       border: Border.all(
         color: Colors.greenAccent,
-        width: 1,
       ),
       borderRadius: BorderRadius.circular(100),
       boxShadow: [
@@ -77,35 +83,17 @@ class _SubButtonState extends State<SubButton> {
     return GestureDetector(
       onTap: () async {
         print(subState);
-
-        if (subState == SubState.subed) {
-          setState(() {
-            subState = SubState.loading;
-          });
-          await Future.delayed(Duration(milliseconds: 1700));
-          setState(() {
-            subState = SubState.unSubed;
-          });
-        } else {
-          setState(() {
-            subState = SubState.loading;
-          });
-          await Future.delayed(Duration(milliseconds: 1700));
-          setState(() {
-            subState = SubState.subed;
-          });
-        }
       },
       child: AnimatedContainer(
         curve: Curves.fastLinearToSlowEaseIn,
         duration: Duration(milliseconds: 500),
-        decoration: (subState == SubState.loading
+        decoration: subState == SubscriptionStatus.loading
             ? loadingDecoration
-            : subState == SubState.blocked
+            : subState == SubscriptionStatus.blocked
                 ? blockedDecoration
-                : subState == SubState.unSubed
+                : subState == SubscriptionStatus.unSubscribed
                     ? unSubedDecoration
-                    : subedDecoration),
+                    : subedDecoration,
         child: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: 12,
@@ -131,14 +119,14 @@ class _SubButtonState extends State<SubButton> {
                 ),
               );
             },
-            child: subState == SubState.loading
+            child: subState == SubscriptionStatus.loading
                 ? Text(
                     "Wait...",
                     key: Key("Loading"),
                   )
-                : subState == SubState.blocked
+                : subState == SubscriptionStatus.blocked
                     ? Text("Blocked", key: Key("Blocked"))
-                    : subState == SubState.unSubed
+                    : subState == SubscriptionStatus.unSubscribed
                         ? Text(
                             "Subscribe!",
                             style: TextStyle(color: Colors.white),

@@ -11,7 +11,7 @@ class BookmarkButton extends StatefulWidget {
 }
 
 class _BookmarkButtonState extends State<BookmarkButton> {
-  bool isLike = false;
+ 
 
   @override
   Widget build(BuildContext context) {

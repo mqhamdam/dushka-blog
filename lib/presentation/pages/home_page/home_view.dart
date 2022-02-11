@@ -1,5 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:dushka_blog/presentation/custom_widgets/modal_bottom_sheet.dart';
+import 'package:dushka_blog/presentation/custom_widgets/ui_text.dart';
+import 'package:dushka_blog/presentation/routes/route_names.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -122,8 +124,8 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                         progress: _drawerAnimatedIcon,
                       ),
                     ),
-                    title: Text(
-                      'Dushka Wall',
+                    title: UIText(
+                      text:'Dushka Wall',
                       style: GoogleFonts.baloo2(
                           fontWeight: FontWeight.bold,
                           fontSize: 22,
@@ -138,32 +140,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                       ),
                       IconButton(
                         onPressed: () {
-                          Navigator.of(context).push(
-                            PageRouteBuilder(
-                              pageBuilder: (context, animation, anim) {
-                                return const DiscoverView();
-                              },
-                              transitionDuration: const Duration(
-                                milliseconds: 500,
-                              ),
-                              reverseTransitionDuration:
-                                  const Duration(milliseconds: 500),
-                              transitionsBuilder: (
-                                context,
-                                animation,
-                                secondaryAnimation,
-                                child,
-                              ) {
-                                return SharedAxisTransition(
-                                  secondaryAnimation: secondaryAnimation,
-                                  transitionType:
-                                      SharedAxisTransitionType.scaled,
-                                  animation: animation,
-                                  child: child,
-                                );
-                              },
-                            ),
-                          );
+                          Navigator.of(context).pushNamed(searchPage);
                         },
                         icon: Hero(
                           tag: 'Search-tag',
@@ -187,31 +164,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                       ),
                       IconButton(
                         onPressed: () {
-                          Navigator.of(context).push(
-                            PageRouteBuilder(
-                              pageBuilder: (context, animation, anim) {
-                                return const NotificationView();
-                              },
-                              transitionDuration:
-                                  const Duration(milliseconds: 3500),
-                              reverseTransitionDuration:
-                                  const Duration(milliseconds: 3500),
-                              transitionsBuilder: (
-                                context,
-                                animation,
-                                secondaryAnimation,
-                                child,
-                              ) {
-                                return SharedAxisTransition(
-                                  secondaryAnimation: secondaryAnimation,
-                                  transitionType:
-                                      SharedAxisTransitionType.vertical,
-                                  animation: animation,
-                                  child: child,
-                                );
-                              },
-                            ),
-                          );
+                          Navigator.of(context).pushNamed(notificationsPage);
                         },
                         icon: Hero(
                           tag: 'notification-tag',

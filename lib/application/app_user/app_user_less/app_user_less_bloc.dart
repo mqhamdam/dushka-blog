@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:dushka_blog/application/app_user/app_user_main/app_user_bloc.dart';
 import 'package:dushka_blog/domain/app_user/app_user.dart';
@@ -17,6 +19,7 @@ class AppUserLessBloc extends Bloc<AppUserLessEvent, AppUserLessState> {
   AppUserLessBloc(this.userUID) : super(AppUserLessState.initial()) {
     on<_AppUserLessEventGetData>(_onGetData);
     on<_AppUserLessEventSubscribeButtonPressed>(_onSubscribeButtonPressed);
+    on<_AppUserLessEventWatchLess>(_onWatchLess);
   }
   //////////////////////////////////////////////////////////////////////////////
   /**
@@ -66,6 +69,30 @@ class AppUserLessBloc extends Bloc<AppUserLessEvent, AppUserLessState> {
   /**
    * 
    */
+  Future<void> _onWatchLess(
+    _AppUserLessEventWatchLess event,
+    Emitter<AppUserLessState> emit,
+  ) async {
+    await _streamSubscription?.cancel();
+    _streamSubscription =
+        _appUserRepository.watchLess(userUID).listen((streamEvent) {
+      streamEvent.fold((l) => null, (appUserLess) => emit(state.copyWith(
+        appUserLess: appUserLess,
+      ),),);
+    });
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+  /**
+   * 
+   */
   final AppUserRepository _appUserRepository = AppUserRepository();
+  StreamSubscription? _streamSubscription;
   final UserUID userUID;
+
+  @override
+  Future<void> close() {
+    _streamSubscription?.cancel();
+    return super.close();
+  }
 }

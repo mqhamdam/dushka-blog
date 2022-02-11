@@ -1,10 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:dushka_blog/domain/core/wall_item.dart';
 import 'package:dushka_blog/domain/post/post_failure.dart';
 import 'package:dushka_blog/infrastructure/post/post_repo.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'wall_infinite_scroll_bloc.freezed.dart';
 part 'wall_infinite_scroll_event.dart';
@@ -25,9 +24,9 @@ class WallInfiniteScrollBloc
     _WallInfiniteScrollEventGetFirstPage event,
     Emitter<WallInfiniteScrollState> emit,
   ) async {
-    print("GETTING_FIRST");
+    print('GETTING_FIRST');
     //if (state.isFetching == false) {
-    print("FIRST");
+    print('FIRST');
     emit(
       state.copyWith(
         isFetching: true,
@@ -37,7 +36,7 @@ class WallInfiniteScrollBloc
     await _postRepository.getPosts(0)
       ..fold(
         (failure) {
-          print("ERROR");
+          print('ERROR');
           emit(
             state.copyWith(
               postFailure: optionOf(failure),
@@ -45,7 +44,7 @@ class WallInfiniteScrollBloc
           );
         },
         (listItems) {
-          print("GOT");
+          print('GOT');
           print(listItems.length);
           emit(
             state.copyWith(

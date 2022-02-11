@@ -18,16 +18,16 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AppUserLessEventTearOff {
   const _$AppUserLessEventTearOff();
 
-  _Started started() {
-    return const _Started();
-  }
-
   _AppUserLessEventGetData getData() {
     return const _AppUserLessEventGetData();
   }
 
   _AppUserLessEventSubscribeButtonPressed subscribeButtonPressed() {
     return const _AppUserLessEventSubscribeButtonPressed();
+  }
+
+  _AppUserLessEventWatchLess watchLess() {
+    return const _AppUserLessEventWatchLess();
   }
 }
 
@@ -38,48 +38,48 @@ const $AppUserLessEvent = _$AppUserLessEventTearOff();
 mixin _$AppUserLessEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function() getData,
     required TResult Function() subscribeButtonPressed,
+    required TResult Function() watchLess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? getData,
     TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchLess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? getData,
     TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchLess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(_AppUserLessEventGetData value) getData,
     required TResult Function(_AppUserLessEventSubscribeButtonPressed value)
         subscribeButtonPressed,
+    required TResult Function(_AppUserLessEventWatchLess value) watchLess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_AppUserLessEventGetData value)? getData,
     TResult Function(_AppUserLessEventSubscribeButtonPressed value)?
         subscribeButtonPressed,
+    TResult Function(_AppUserLessEventWatchLess value)? watchLess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_AppUserLessEventGetData value)? getData,
     TResult Function(_AppUserLessEventSubscribeButtonPressed value)?
         subscribeButtonPressed,
+    TResult Function(_AppUserLessEventWatchLess value)? watchLess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -100,117 +100,6 @@ class _$AppUserLessEventCopyWithImpl<$Res>
   final AppUserLessEvent _value;
   // ignore: unused_field
   final $Res Function(AppUserLessEvent) _then;
-}
-
-/// @nodoc
-abstract class _$StartedCopyWith<$Res> {
-  factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
-      __$StartedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$StartedCopyWithImpl<$Res> extends _$AppUserLessEventCopyWithImpl<$Res>
-    implements _$StartedCopyWith<$Res> {
-  __$StartedCopyWithImpl(_Started _value, $Res Function(_Started) _then)
-      : super(_value, (v) => _then(v as _Started));
-
-  @override
-  _Started get _value => super._value as _Started;
-}
-
-/// @nodoc
-
-class _$_Started implements _Started {
-  const _$_Started();
-
-  @override
-  String toString() {
-    return 'AppUserLessEvent.started()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Started);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() getData,
-    required TResult Function() subscribeButtonPressed,
-  }) {
-    return started();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? getData,
-    TResult Function()? subscribeButtonPressed,
-  }) {
-    return started?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? getData,
-    TResult Function()? subscribeButtonPressed,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_AppUserLessEventGetData value) getData,
-    required TResult Function(_AppUserLessEventSubscribeButtonPressed value)
-        subscribeButtonPressed,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_AppUserLessEventGetData value)? getData,
-    TResult Function(_AppUserLessEventSubscribeButtonPressed value)?
-        subscribeButtonPressed,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_AppUserLessEventGetData value)? getData,
-    TResult Function(_AppUserLessEventSubscribeButtonPressed value)?
-        subscribeButtonPressed,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Started implements AppUserLessEvent {
-  const factory _Started() = _$_Started;
 }
 
 /// @nodoc
@@ -255,9 +144,9 @@ class _$_AppUserLessEventGetData implements _AppUserLessEventGetData {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function() getData,
     required TResult Function() subscribeButtonPressed,
+    required TResult Function() watchLess,
   }) {
     return getData();
   }
@@ -265,9 +154,9 @@ class _$_AppUserLessEventGetData implements _AppUserLessEventGetData {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? getData,
     TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchLess,
   }) {
     return getData?.call();
   }
@@ -275,9 +164,9 @@ class _$_AppUserLessEventGetData implements _AppUserLessEventGetData {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? getData,
     TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchLess,
     required TResult orElse(),
   }) {
     if (getData != null) {
@@ -289,10 +178,10 @@ class _$_AppUserLessEventGetData implements _AppUserLessEventGetData {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(_AppUserLessEventGetData value) getData,
     required TResult Function(_AppUserLessEventSubscribeButtonPressed value)
         subscribeButtonPressed,
+    required TResult Function(_AppUserLessEventWatchLess value) watchLess,
   }) {
     return getData(this);
   }
@@ -300,10 +189,10 @@ class _$_AppUserLessEventGetData implements _AppUserLessEventGetData {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_AppUserLessEventGetData value)? getData,
     TResult Function(_AppUserLessEventSubscribeButtonPressed value)?
         subscribeButtonPressed,
+    TResult Function(_AppUserLessEventWatchLess value)? watchLess,
   }) {
     return getData?.call(this);
   }
@@ -311,10 +200,10 @@ class _$_AppUserLessEventGetData implements _AppUserLessEventGetData {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_AppUserLessEventGetData value)? getData,
     TResult Function(_AppUserLessEventSubscribeButtonPressed value)?
         subscribeButtonPressed,
+    TResult Function(_AppUserLessEventWatchLess value)? watchLess,
     required TResult orElse(),
   }) {
     if (getData != null) {
@@ -375,9 +264,9 @@ class _$_AppUserLessEventSubscribeButtonPressed
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
     required TResult Function() getData,
     required TResult Function() subscribeButtonPressed,
+    required TResult Function() watchLess,
   }) {
     return subscribeButtonPressed();
   }
@@ -385,9 +274,9 @@ class _$_AppUserLessEventSubscribeButtonPressed
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? getData,
     TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchLess,
   }) {
     return subscribeButtonPressed?.call();
   }
@@ -395,9 +284,9 @@ class _$_AppUserLessEventSubscribeButtonPressed
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
     TResult Function()? getData,
     TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchLess,
     required TResult orElse(),
   }) {
     if (subscribeButtonPressed != null) {
@@ -409,10 +298,10 @@ class _$_AppUserLessEventSubscribeButtonPressed
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
     required TResult Function(_AppUserLessEventGetData value) getData,
     required TResult Function(_AppUserLessEventSubscribeButtonPressed value)
         subscribeButtonPressed,
+    required TResult Function(_AppUserLessEventWatchLess value) watchLess,
   }) {
     return subscribeButtonPressed(this);
   }
@@ -420,10 +309,10 @@ class _$_AppUserLessEventSubscribeButtonPressed
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_AppUserLessEventGetData value)? getData,
     TResult Function(_AppUserLessEventSubscribeButtonPressed value)?
         subscribeButtonPressed,
+    TResult Function(_AppUserLessEventWatchLess value)? watchLess,
   }) {
     return subscribeButtonPressed?.call(this);
   }
@@ -431,10 +320,10 @@ class _$_AppUserLessEventSubscribeButtonPressed
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
     TResult Function(_AppUserLessEventGetData value)? getData,
     TResult Function(_AppUserLessEventSubscribeButtonPressed value)?
         subscribeButtonPressed,
+    TResult Function(_AppUserLessEventWatchLess value)? watchLess,
     required TResult orElse(),
   }) {
     if (subscribeButtonPressed != null) {
@@ -451,15 +340,133 @@ abstract class _AppUserLessEventSubscribeButtonPressed
 }
 
 /// @nodoc
+abstract class _$AppUserLessEventWatchLessCopyWith<$Res> {
+  factory _$AppUserLessEventWatchLessCopyWith(_AppUserLessEventWatchLess value,
+          $Res Function(_AppUserLessEventWatchLess) then) =
+      __$AppUserLessEventWatchLessCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$AppUserLessEventWatchLessCopyWithImpl<$Res>
+    extends _$AppUserLessEventCopyWithImpl<$Res>
+    implements _$AppUserLessEventWatchLessCopyWith<$Res> {
+  __$AppUserLessEventWatchLessCopyWithImpl(_AppUserLessEventWatchLess _value,
+      $Res Function(_AppUserLessEventWatchLess) _then)
+      : super(_value, (v) => _then(v as _AppUserLessEventWatchLess));
+
+  @override
+  _AppUserLessEventWatchLess get _value =>
+      super._value as _AppUserLessEventWatchLess;
+}
+
+/// @nodoc
+
+class _$_AppUserLessEventWatchLess implements _AppUserLessEventWatchLess {
+  const _$_AppUserLessEventWatchLess();
+
+  @override
+  String toString() {
+    return 'AppUserLessEvent.watchLess()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _AppUserLessEventWatchLess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getData,
+    required TResult Function() subscribeButtonPressed,
+    required TResult Function() watchLess,
+  }) {
+    return watchLess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getData,
+    TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchLess,
+  }) {
+    return watchLess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getData,
+    TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchLess,
+    required TResult orElse(),
+  }) {
+    if (watchLess != null) {
+      return watchLess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AppUserLessEventGetData value) getData,
+    required TResult Function(_AppUserLessEventSubscribeButtonPressed value)
+        subscribeButtonPressed,
+    required TResult Function(_AppUserLessEventWatchLess value) watchLess,
+  }) {
+    return watchLess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AppUserLessEventGetData value)? getData,
+    TResult Function(_AppUserLessEventSubscribeButtonPressed value)?
+        subscribeButtonPressed,
+    TResult Function(_AppUserLessEventWatchLess value)? watchLess,
+  }) {
+    return watchLess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AppUserLessEventGetData value)? getData,
+    TResult Function(_AppUserLessEventSubscribeButtonPressed value)?
+        subscribeButtonPressed,
+    TResult Function(_AppUserLessEventWatchLess value)? watchLess,
+    required TResult orElse(),
+  }) {
+    if (watchLess != null) {
+      return watchLess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AppUserLessEventWatchLess implements AppUserLessEvent {
+  const factory _AppUserLessEventWatchLess() = _$_AppUserLessEventWatchLess;
+}
+
+/// @nodoc
 class _$AppUserLessStateTearOff {
   const _$AppUserLessStateTearOff();
 
-  _AppUserLess call(
+  _AppUserLessState call(
       {required AppUserLess appUserLess,
-      required SubscriptionStatus subscriptionStatus}) {
-    return _AppUserLess(
+      required SubscriptionStatus subscriptionStatus,
+      required bool isLoading}) {
+    return _AppUserLessState(
       appUserLess: appUserLess,
       subscriptionStatus: subscriptionStatus,
+      isLoading: isLoading,
     );
   }
 }
@@ -472,6 +479,7 @@ mixin _$AppUserLessState {
   AppUserLess get appUserLess => throw _privateConstructorUsedError;
   SubscriptionStatus get subscriptionStatus =>
       throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppUserLessStateCopyWith<AppUserLessState> get copyWith =>
@@ -483,7 +491,10 @@ abstract class $AppUserLessStateCopyWith<$Res> {
   factory $AppUserLessStateCopyWith(
           AppUserLessState value, $Res Function(AppUserLessState) then) =
       _$AppUserLessStateCopyWithImpl<$Res>;
-  $Res call({AppUserLess appUserLess, SubscriptionStatus subscriptionStatus});
+  $Res call(
+      {AppUserLess appUserLess,
+      SubscriptionStatus subscriptionStatus,
+      bool isLoading});
 }
 
 /// @nodoc
@@ -499,6 +510,7 @@ class _$AppUserLessStateCopyWithImpl<$Res>
   $Res call({
     Object? appUserLess = freezed,
     Object? subscriptionStatus = freezed,
+    Object? isLoading = freezed,
   }) {
     return _then(_value.copyWith(
       appUserLess: appUserLess == freezed
@@ -509,37 +521,45 @@ class _$AppUserLessStateCopyWithImpl<$Res>
           ? _value.subscriptionStatus
           : subscriptionStatus // ignore: cast_nullable_to_non_nullable
               as SubscriptionStatus,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$AppUserLessCopyWith<$Res>
+abstract class _$AppUserLessStateCopyWith<$Res>
     implements $AppUserLessStateCopyWith<$Res> {
-  factory _$AppUserLessCopyWith(
-          _AppUserLess value, $Res Function(_AppUserLess) then) =
-      __$AppUserLessCopyWithImpl<$Res>;
+  factory _$AppUserLessStateCopyWith(
+          _AppUserLessState value, $Res Function(_AppUserLessState) then) =
+      __$AppUserLessStateCopyWithImpl<$Res>;
   @override
-  $Res call({AppUserLess appUserLess, SubscriptionStatus subscriptionStatus});
+  $Res call(
+      {AppUserLess appUserLess,
+      SubscriptionStatus subscriptionStatus,
+      bool isLoading});
 }
 
 /// @nodoc
-class __$AppUserLessCopyWithImpl<$Res>
+class __$AppUserLessStateCopyWithImpl<$Res>
     extends _$AppUserLessStateCopyWithImpl<$Res>
-    implements _$AppUserLessCopyWith<$Res> {
-  __$AppUserLessCopyWithImpl(
-      _AppUserLess _value, $Res Function(_AppUserLess) _then)
-      : super(_value, (v) => _then(v as _AppUserLess));
+    implements _$AppUserLessStateCopyWith<$Res> {
+  __$AppUserLessStateCopyWithImpl(
+      _AppUserLessState _value, $Res Function(_AppUserLessState) _then)
+      : super(_value, (v) => _then(v as _AppUserLessState));
 
   @override
-  _AppUserLess get _value => super._value as _AppUserLess;
+  _AppUserLessState get _value => super._value as _AppUserLessState;
 
   @override
   $Res call({
     Object? appUserLess = freezed,
     Object? subscriptionStatus = freezed,
+    Object? isLoading = freezed,
   }) {
-    return _then(_AppUserLess(
+    return _then(_AppUserLessState(
       appUserLess: appUserLess == freezed
           ? _value.appUserLess
           : appUserLess // ignore: cast_nullable_to_non_nullable
@@ -548,60 +568,73 @@ class __$AppUserLessCopyWithImpl<$Res>
           ? _value.subscriptionStatus
           : subscriptionStatus // ignore: cast_nullable_to_non_nullable
               as SubscriptionStatus,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_AppUserLess implements _AppUserLess {
-  const _$_AppUserLess(
-      {required this.appUserLess, required this.subscriptionStatus});
+class _$_AppUserLessState implements _AppUserLessState {
+  _$_AppUserLessState(
+      {required this.appUserLess,
+      required this.subscriptionStatus,
+      required this.isLoading});
 
   @override
   final AppUserLess appUserLess;
   @override
   final SubscriptionStatus subscriptionStatus;
+  @override
+  final bool isLoading;
 
   @override
   String toString() {
-    return 'AppUserLessState(appUserLess: $appUserLess, subscriptionStatus: $subscriptionStatus)';
+    return 'AppUserLessState(appUserLess: $appUserLess, subscriptionStatus: $subscriptionStatus, isLoading: $isLoading)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AppUserLess &&
+            other is _AppUserLessState &&
             const DeepCollectionEquality()
                 .equals(other.appUserLess, appUserLess) &&
             const DeepCollectionEquality()
-                .equals(other.subscriptionStatus, subscriptionStatus));
+                .equals(other.subscriptionStatus, subscriptionStatus) &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(appUserLess),
-      const DeepCollectionEquality().hash(subscriptionStatus));
+      const DeepCollectionEquality().hash(subscriptionStatus),
+      const DeepCollectionEquality().hash(isLoading));
 
   @JsonKey(ignore: true)
   @override
-  _$AppUserLessCopyWith<_AppUserLess> get copyWith =>
-      __$AppUserLessCopyWithImpl<_AppUserLess>(this, _$identity);
+  _$AppUserLessStateCopyWith<_AppUserLessState> get copyWith =>
+      __$AppUserLessStateCopyWithImpl<_AppUserLessState>(this, _$identity);
 }
 
-abstract class _AppUserLess implements AppUserLessState {
-  const factory _AppUserLess(
+abstract class _AppUserLessState implements AppUserLessState {
+  factory _AppUserLessState(
       {required AppUserLess appUserLess,
-      required SubscriptionStatus subscriptionStatus}) = _$_AppUserLess;
+      required SubscriptionStatus subscriptionStatus,
+      required bool isLoading}) = _$_AppUserLessState;
 
   @override
   AppUserLess get appUserLess;
   @override
   SubscriptionStatus get subscriptionStatus;
   @override
+  bool get isLoading;
+  @override
   @JsonKey(ignore: true)
-  _$AppUserLessCopyWith<_AppUserLess> get copyWith =>
+  _$AppUserLessStateCopyWith<_AppUserLessState> get copyWith =>
       throw _privateConstructorUsedError;
 }

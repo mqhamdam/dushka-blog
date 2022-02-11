@@ -14,5 +14,6 @@ abstract class IAuthFacade {
     required Password password,
   });
   Future<Option<User>> getSignedUser();
+  Stream<Option<User>> listenAuthStateChanges();
   Future<void> signOut();
 }

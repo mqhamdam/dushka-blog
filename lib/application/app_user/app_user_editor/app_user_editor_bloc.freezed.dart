@@ -34,13 +34,22 @@ class _$AppUserEditorEventTearOff {
     );
   }
 
-  _AppUserEditorAvatarChanged avatarChanged(File imageFile) {
+  _AppUserEditorAvatarChanged avatarChanged(XFile imageFile) {
     return _AppUserEditorAvatarChanged(
       imageFile,
     );
   }
 
-  _AppUserEditorBackgroundImageChanged backgroundImageChanged(File imageFile) {
+  _AppUserEditorAvatarChangeButtonPressed avatarChangeButtonPressed() {
+    return const _AppUserEditorAvatarChangeButtonPressed();
+  }
+
+  _AppUserEditorBackgroundImageChangeButtonPressed
+      backgroundImageChangeButtonPressed() {
+    return const _AppUserEditorBackgroundImageChangeButtonPressed();
+  }
+
+  _AppUserEditorBackgroundImageChanged backgroundImageChanged(XFile imageFile) {
     return _AppUserEditorBackgroundImageChanged(
       imageFile,
     );
@@ -61,8 +70,10 @@ mixin _$AppUserEditorEvent {
     required TResult Function() getInitialData,
     required TResult Function(String nameValue) nameChanged,
     required TResult Function(String bioValue) bioChanged,
-    required TResult Function(File imageFile) avatarChanged,
-    required TResult Function(File imageFile) backgroundImageChanged,
+    required TResult Function(XFile imageFile) avatarChanged,
+    required TResult Function() avatarChangeButtonPressed,
+    required TResult Function() backgroundImageChangeButtonPressed,
+    required TResult Function(XFile imageFile) backgroundImageChanged,
     required TResult Function() saveButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -71,8 +82,10 @@ mixin _$AppUserEditorEvent {
     TResult Function()? getInitialData,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String bioValue)? bioChanged,
-    TResult Function(File imageFile)? avatarChanged,
-    TResult Function(File imageFile)? backgroundImageChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
     TResult Function()? saveButtonPressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -81,8 +94,10 @@ mixin _$AppUserEditorEvent {
     TResult Function()? getInitialData,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String bioValue)? bioChanged,
-    TResult Function(File imageFile)? avatarChanged,
-    TResult Function(File imageFile)? backgroundImageChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
     TResult Function()? saveButtonPressed,
     required TResult orElse(),
   }) =>
@@ -94,6 +109,11 @@ mixin _$AppUserEditorEvent {
     required TResult Function(_AppUserEditorNameChanged value) nameChanged,
     required TResult Function(_AppUserEditorBioChanged value) bioChanged,
     required TResult Function(_AppUserEditorAvatarChanged value) avatarChanged,
+    required TResult Function(_AppUserEditorAvatarChangeButtonPressed value)
+        avatarChangeButtonPressed,
+    required TResult Function(
+            _AppUserEditorBackgroundImageChangeButtonPressed value)
+        backgroundImageChangeButtonPressed,
     required TResult Function(_AppUserEditorBackgroundImageChanged value)
         backgroundImageChanged,
     required TResult Function(_AppUserEditorSaveButtonPressed value)
@@ -106,6 +126,10 @@ mixin _$AppUserEditorEvent {
     TResult Function(_AppUserEditorNameChanged value)? nameChanged,
     TResult Function(_AppUserEditorBioChanged value)? bioChanged,
     TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
     TResult Function(_AppUserEditorBackgroundImageChanged value)?
         backgroundImageChanged,
     TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
@@ -117,6 +141,10 @@ mixin _$AppUserEditorEvent {
     TResult Function(_AppUserEditorNameChanged value)? nameChanged,
     TResult Function(_AppUserEditorBioChanged value)? bioChanged,
     TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
     TResult Function(_AppUserEditorBackgroundImageChanged value)?
         backgroundImageChanged,
     TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
@@ -190,8 +218,10 @@ class _$_AppUserEditorGetInitialData implements _AppUserEditorGetInitialData {
     required TResult Function() getInitialData,
     required TResult Function(String nameValue) nameChanged,
     required TResult Function(String bioValue) bioChanged,
-    required TResult Function(File imageFile) avatarChanged,
-    required TResult Function(File imageFile) backgroundImageChanged,
+    required TResult Function(XFile imageFile) avatarChanged,
+    required TResult Function() avatarChangeButtonPressed,
+    required TResult Function() backgroundImageChangeButtonPressed,
+    required TResult Function(XFile imageFile) backgroundImageChanged,
     required TResult Function() saveButtonPressed,
   }) {
     return getInitialData();
@@ -203,8 +233,10 @@ class _$_AppUserEditorGetInitialData implements _AppUserEditorGetInitialData {
     TResult Function()? getInitialData,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String bioValue)? bioChanged,
-    TResult Function(File imageFile)? avatarChanged,
-    TResult Function(File imageFile)? backgroundImageChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
     TResult Function()? saveButtonPressed,
   }) {
     return getInitialData?.call();
@@ -216,8 +248,10 @@ class _$_AppUserEditorGetInitialData implements _AppUserEditorGetInitialData {
     TResult Function()? getInitialData,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String bioValue)? bioChanged,
-    TResult Function(File imageFile)? avatarChanged,
-    TResult Function(File imageFile)? backgroundImageChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
     TResult Function()? saveButtonPressed,
     required TResult orElse(),
   }) {
@@ -235,6 +269,11 @@ class _$_AppUserEditorGetInitialData implements _AppUserEditorGetInitialData {
     required TResult Function(_AppUserEditorNameChanged value) nameChanged,
     required TResult Function(_AppUserEditorBioChanged value) bioChanged,
     required TResult Function(_AppUserEditorAvatarChanged value) avatarChanged,
+    required TResult Function(_AppUserEditorAvatarChangeButtonPressed value)
+        avatarChangeButtonPressed,
+    required TResult Function(
+            _AppUserEditorBackgroundImageChangeButtonPressed value)
+        backgroundImageChangeButtonPressed,
     required TResult Function(_AppUserEditorBackgroundImageChanged value)
         backgroundImageChanged,
     required TResult Function(_AppUserEditorSaveButtonPressed value)
@@ -250,6 +289,10 @@ class _$_AppUserEditorGetInitialData implements _AppUserEditorGetInitialData {
     TResult Function(_AppUserEditorNameChanged value)? nameChanged,
     TResult Function(_AppUserEditorBioChanged value)? bioChanged,
     TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
     TResult Function(_AppUserEditorBackgroundImageChanged value)?
         backgroundImageChanged,
     TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
@@ -264,6 +307,10 @@ class _$_AppUserEditorGetInitialData implements _AppUserEditorGetInitialData {
     TResult Function(_AppUserEditorNameChanged value)? nameChanged,
     TResult Function(_AppUserEditorBioChanged value)? bioChanged,
     TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
     TResult Function(_AppUserEditorBackgroundImageChanged value)?
         backgroundImageChanged,
     TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
@@ -350,8 +397,10 @@ class _$_AppUserEditorNameChanged implements _AppUserEditorNameChanged {
     required TResult Function() getInitialData,
     required TResult Function(String nameValue) nameChanged,
     required TResult Function(String bioValue) bioChanged,
-    required TResult Function(File imageFile) avatarChanged,
-    required TResult Function(File imageFile) backgroundImageChanged,
+    required TResult Function(XFile imageFile) avatarChanged,
+    required TResult Function() avatarChangeButtonPressed,
+    required TResult Function() backgroundImageChangeButtonPressed,
+    required TResult Function(XFile imageFile) backgroundImageChanged,
     required TResult Function() saveButtonPressed,
   }) {
     return nameChanged(nameValue);
@@ -363,8 +412,10 @@ class _$_AppUserEditorNameChanged implements _AppUserEditorNameChanged {
     TResult Function()? getInitialData,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String bioValue)? bioChanged,
-    TResult Function(File imageFile)? avatarChanged,
-    TResult Function(File imageFile)? backgroundImageChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
     TResult Function()? saveButtonPressed,
   }) {
     return nameChanged?.call(nameValue);
@@ -376,8 +427,10 @@ class _$_AppUserEditorNameChanged implements _AppUserEditorNameChanged {
     TResult Function()? getInitialData,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String bioValue)? bioChanged,
-    TResult Function(File imageFile)? avatarChanged,
-    TResult Function(File imageFile)? backgroundImageChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
     TResult Function()? saveButtonPressed,
     required TResult orElse(),
   }) {
@@ -395,6 +448,11 @@ class _$_AppUserEditorNameChanged implements _AppUserEditorNameChanged {
     required TResult Function(_AppUserEditorNameChanged value) nameChanged,
     required TResult Function(_AppUserEditorBioChanged value) bioChanged,
     required TResult Function(_AppUserEditorAvatarChanged value) avatarChanged,
+    required TResult Function(_AppUserEditorAvatarChangeButtonPressed value)
+        avatarChangeButtonPressed,
+    required TResult Function(
+            _AppUserEditorBackgroundImageChangeButtonPressed value)
+        backgroundImageChangeButtonPressed,
     required TResult Function(_AppUserEditorBackgroundImageChanged value)
         backgroundImageChanged,
     required TResult Function(_AppUserEditorSaveButtonPressed value)
@@ -410,6 +468,10 @@ class _$_AppUserEditorNameChanged implements _AppUserEditorNameChanged {
     TResult Function(_AppUserEditorNameChanged value)? nameChanged,
     TResult Function(_AppUserEditorBioChanged value)? bioChanged,
     TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
     TResult Function(_AppUserEditorBackgroundImageChanged value)?
         backgroundImageChanged,
     TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
@@ -424,6 +486,10 @@ class _$_AppUserEditorNameChanged implements _AppUserEditorNameChanged {
     TResult Function(_AppUserEditorNameChanged value)? nameChanged,
     TResult Function(_AppUserEditorBioChanged value)? bioChanged,
     TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
     TResult Function(_AppUserEditorBackgroundImageChanged value)?
         backgroundImageChanged,
     TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
@@ -516,8 +582,10 @@ class _$_AppUserEditorBioChanged implements _AppUserEditorBioChanged {
     required TResult Function() getInitialData,
     required TResult Function(String nameValue) nameChanged,
     required TResult Function(String bioValue) bioChanged,
-    required TResult Function(File imageFile) avatarChanged,
-    required TResult Function(File imageFile) backgroundImageChanged,
+    required TResult Function(XFile imageFile) avatarChanged,
+    required TResult Function() avatarChangeButtonPressed,
+    required TResult Function() backgroundImageChangeButtonPressed,
+    required TResult Function(XFile imageFile) backgroundImageChanged,
     required TResult Function() saveButtonPressed,
   }) {
     return bioChanged(bioValue);
@@ -529,8 +597,10 @@ class _$_AppUserEditorBioChanged implements _AppUserEditorBioChanged {
     TResult Function()? getInitialData,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String bioValue)? bioChanged,
-    TResult Function(File imageFile)? avatarChanged,
-    TResult Function(File imageFile)? backgroundImageChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
     TResult Function()? saveButtonPressed,
   }) {
     return bioChanged?.call(bioValue);
@@ -542,8 +612,10 @@ class _$_AppUserEditorBioChanged implements _AppUserEditorBioChanged {
     TResult Function()? getInitialData,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String bioValue)? bioChanged,
-    TResult Function(File imageFile)? avatarChanged,
-    TResult Function(File imageFile)? backgroundImageChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
     TResult Function()? saveButtonPressed,
     required TResult orElse(),
   }) {
@@ -561,6 +633,11 @@ class _$_AppUserEditorBioChanged implements _AppUserEditorBioChanged {
     required TResult Function(_AppUserEditorNameChanged value) nameChanged,
     required TResult Function(_AppUserEditorBioChanged value) bioChanged,
     required TResult Function(_AppUserEditorAvatarChanged value) avatarChanged,
+    required TResult Function(_AppUserEditorAvatarChangeButtonPressed value)
+        avatarChangeButtonPressed,
+    required TResult Function(
+            _AppUserEditorBackgroundImageChangeButtonPressed value)
+        backgroundImageChangeButtonPressed,
     required TResult Function(_AppUserEditorBackgroundImageChanged value)
         backgroundImageChanged,
     required TResult Function(_AppUserEditorSaveButtonPressed value)
@@ -576,6 +653,10 @@ class _$_AppUserEditorBioChanged implements _AppUserEditorBioChanged {
     TResult Function(_AppUserEditorNameChanged value)? nameChanged,
     TResult Function(_AppUserEditorBioChanged value)? bioChanged,
     TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
     TResult Function(_AppUserEditorBackgroundImageChanged value)?
         backgroundImageChanged,
     TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
@@ -590,6 +671,10 @@ class _$_AppUserEditorBioChanged implements _AppUserEditorBioChanged {
     TResult Function(_AppUserEditorNameChanged value)? nameChanged,
     TResult Function(_AppUserEditorBioChanged value)? bioChanged,
     TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
     TResult Function(_AppUserEditorBackgroundImageChanged value)?
         backgroundImageChanged,
     TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
@@ -618,7 +703,7 @@ abstract class _$AppUserEditorAvatarChangedCopyWith<$Res> {
           _AppUserEditorAvatarChanged value,
           $Res Function(_AppUserEditorAvatarChanged) then) =
       __$AppUserEditorAvatarChangedCopyWithImpl<$Res>;
-  $Res call({File imageFile});
+  $Res call({XFile imageFile});
 }
 
 /// @nodoc
@@ -641,7 +726,7 @@ class __$AppUserEditorAvatarChangedCopyWithImpl<$Res>
       imageFile == freezed
           ? _value.imageFile
           : imageFile // ignore: cast_nullable_to_non_nullable
-              as File,
+              as XFile,
     ));
   }
 }
@@ -652,7 +737,7 @@ class _$_AppUserEditorAvatarChanged implements _AppUserEditorAvatarChanged {
   const _$_AppUserEditorAvatarChanged(this.imageFile);
 
   @override
-  final File imageFile;
+  final XFile imageFile;
 
   @override
   String toString() {
@@ -683,8 +768,10 @@ class _$_AppUserEditorAvatarChanged implements _AppUserEditorAvatarChanged {
     required TResult Function() getInitialData,
     required TResult Function(String nameValue) nameChanged,
     required TResult Function(String bioValue) bioChanged,
-    required TResult Function(File imageFile) avatarChanged,
-    required TResult Function(File imageFile) backgroundImageChanged,
+    required TResult Function(XFile imageFile) avatarChanged,
+    required TResult Function() avatarChangeButtonPressed,
+    required TResult Function() backgroundImageChangeButtonPressed,
+    required TResult Function(XFile imageFile) backgroundImageChanged,
     required TResult Function() saveButtonPressed,
   }) {
     return avatarChanged(imageFile);
@@ -696,8 +783,10 @@ class _$_AppUserEditorAvatarChanged implements _AppUserEditorAvatarChanged {
     TResult Function()? getInitialData,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String bioValue)? bioChanged,
-    TResult Function(File imageFile)? avatarChanged,
-    TResult Function(File imageFile)? backgroundImageChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
     TResult Function()? saveButtonPressed,
   }) {
     return avatarChanged?.call(imageFile);
@@ -709,8 +798,10 @@ class _$_AppUserEditorAvatarChanged implements _AppUserEditorAvatarChanged {
     TResult Function()? getInitialData,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String bioValue)? bioChanged,
-    TResult Function(File imageFile)? avatarChanged,
-    TResult Function(File imageFile)? backgroundImageChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
     TResult Function()? saveButtonPressed,
     required TResult orElse(),
   }) {
@@ -728,6 +819,11 @@ class _$_AppUserEditorAvatarChanged implements _AppUserEditorAvatarChanged {
     required TResult Function(_AppUserEditorNameChanged value) nameChanged,
     required TResult Function(_AppUserEditorBioChanged value) bioChanged,
     required TResult Function(_AppUserEditorAvatarChanged value) avatarChanged,
+    required TResult Function(_AppUserEditorAvatarChangeButtonPressed value)
+        avatarChangeButtonPressed,
+    required TResult Function(
+            _AppUserEditorBackgroundImageChangeButtonPressed value)
+        backgroundImageChangeButtonPressed,
     required TResult Function(_AppUserEditorBackgroundImageChanged value)
         backgroundImageChanged,
     required TResult Function(_AppUserEditorSaveButtonPressed value)
@@ -743,6 +839,10 @@ class _$_AppUserEditorAvatarChanged implements _AppUserEditorAvatarChanged {
     TResult Function(_AppUserEditorNameChanged value)? nameChanged,
     TResult Function(_AppUserEditorBioChanged value)? bioChanged,
     TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
     TResult Function(_AppUserEditorBackgroundImageChanged value)?
         backgroundImageChanged,
     TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
@@ -757,6 +857,10 @@ class _$_AppUserEditorAvatarChanged implements _AppUserEditorAvatarChanged {
     TResult Function(_AppUserEditorNameChanged value)? nameChanged,
     TResult Function(_AppUserEditorBioChanged value)? bioChanged,
     TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
     TResult Function(_AppUserEditorBackgroundImageChanged value)?
         backgroundImageChanged,
     TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
@@ -770,13 +874,338 @@ class _$_AppUserEditorAvatarChanged implements _AppUserEditorAvatarChanged {
 }
 
 abstract class _AppUserEditorAvatarChanged implements AppUserEditorEvent {
-  const factory _AppUserEditorAvatarChanged(File imageFile) =
+  const factory _AppUserEditorAvatarChanged(XFile imageFile) =
       _$_AppUserEditorAvatarChanged;
 
-  File get imageFile;
+  XFile get imageFile;
   @JsonKey(ignore: true)
   _$AppUserEditorAvatarChangedCopyWith<_AppUserEditorAvatarChanged>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$AppUserEditorAvatarChangeButtonPressedCopyWith<$Res> {
+  factory _$AppUserEditorAvatarChangeButtonPressedCopyWith(
+          _AppUserEditorAvatarChangeButtonPressed value,
+          $Res Function(_AppUserEditorAvatarChangeButtonPressed) then) =
+      __$AppUserEditorAvatarChangeButtonPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$AppUserEditorAvatarChangeButtonPressedCopyWithImpl<$Res>
+    extends _$AppUserEditorEventCopyWithImpl<$Res>
+    implements _$AppUserEditorAvatarChangeButtonPressedCopyWith<$Res> {
+  __$AppUserEditorAvatarChangeButtonPressedCopyWithImpl(
+      _AppUserEditorAvatarChangeButtonPressed _value,
+      $Res Function(_AppUserEditorAvatarChangeButtonPressed) _then)
+      : super(
+            _value, (v) => _then(v as _AppUserEditorAvatarChangeButtonPressed));
+
+  @override
+  _AppUserEditorAvatarChangeButtonPressed get _value =>
+      super._value as _AppUserEditorAvatarChangeButtonPressed;
+}
+
+/// @nodoc
+
+class _$_AppUserEditorAvatarChangeButtonPressed
+    implements _AppUserEditorAvatarChangeButtonPressed {
+  const _$_AppUserEditorAvatarChangeButtonPressed();
+
+  @override
+  String toString() {
+    return 'AppUserEditorEvent.avatarChangeButtonPressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _AppUserEditorAvatarChangeButtonPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getInitialData,
+    required TResult Function(String nameValue) nameChanged,
+    required TResult Function(String bioValue) bioChanged,
+    required TResult Function(XFile imageFile) avatarChanged,
+    required TResult Function() avatarChangeButtonPressed,
+    required TResult Function() backgroundImageChangeButtonPressed,
+    required TResult Function(XFile imageFile) backgroundImageChanged,
+    required TResult Function() saveButtonPressed,
+  }) {
+    return avatarChangeButtonPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getInitialData,
+    TResult Function(String nameValue)? nameChanged,
+    TResult Function(String bioValue)? bioChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
+    TResult Function()? saveButtonPressed,
+  }) {
+    return avatarChangeButtonPressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getInitialData,
+    TResult Function(String nameValue)? nameChanged,
+    TResult Function(String bioValue)? bioChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
+    TResult Function()? saveButtonPressed,
+    required TResult orElse(),
+  }) {
+    if (avatarChangeButtonPressed != null) {
+      return avatarChangeButtonPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AppUserEditorGetInitialData value)
+        getInitialData,
+    required TResult Function(_AppUserEditorNameChanged value) nameChanged,
+    required TResult Function(_AppUserEditorBioChanged value) bioChanged,
+    required TResult Function(_AppUserEditorAvatarChanged value) avatarChanged,
+    required TResult Function(_AppUserEditorAvatarChangeButtonPressed value)
+        avatarChangeButtonPressed,
+    required TResult Function(
+            _AppUserEditorBackgroundImageChangeButtonPressed value)
+        backgroundImageChangeButtonPressed,
+    required TResult Function(_AppUserEditorBackgroundImageChanged value)
+        backgroundImageChanged,
+    required TResult Function(_AppUserEditorSaveButtonPressed value)
+        saveButtonPressed,
+  }) {
+    return avatarChangeButtonPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AppUserEditorGetInitialData value)? getInitialData,
+    TResult Function(_AppUserEditorNameChanged value)? nameChanged,
+    TResult Function(_AppUserEditorBioChanged value)? bioChanged,
+    TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChanged value)?
+        backgroundImageChanged,
+    TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
+  }) {
+    return avatarChangeButtonPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AppUserEditorGetInitialData value)? getInitialData,
+    TResult Function(_AppUserEditorNameChanged value)? nameChanged,
+    TResult Function(_AppUserEditorBioChanged value)? bioChanged,
+    TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChanged value)?
+        backgroundImageChanged,
+    TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
+    required TResult orElse(),
+  }) {
+    if (avatarChangeButtonPressed != null) {
+      return avatarChangeButtonPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AppUserEditorAvatarChangeButtonPressed
+    implements AppUserEditorEvent {
+  const factory _AppUserEditorAvatarChangeButtonPressed() =
+      _$_AppUserEditorAvatarChangeButtonPressed;
+}
+
+/// @nodoc
+abstract class _$AppUserEditorBackgroundImageChangeButtonPressedCopyWith<$Res> {
+  factory _$AppUserEditorBackgroundImageChangeButtonPressedCopyWith(
+          _AppUserEditorBackgroundImageChangeButtonPressed value,
+          $Res Function(_AppUserEditorBackgroundImageChangeButtonPressed)
+              then) =
+      __$AppUserEditorBackgroundImageChangeButtonPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$AppUserEditorBackgroundImageChangeButtonPressedCopyWithImpl<$Res>
+    extends _$AppUserEditorEventCopyWithImpl<$Res>
+    implements _$AppUserEditorBackgroundImageChangeButtonPressedCopyWith<$Res> {
+  __$AppUserEditorBackgroundImageChangeButtonPressedCopyWithImpl(
+      _AppUserEditorBackgroundImageChangeButtonPressed _value,
+      $Res Function(_AppUserEditorBackgroundImageChangeButtonPressed) _then)
+      : super(
+            _value,
+            (v) =>
+                _then(v as _AppUserEditorBackgroundImageChangeButtonPressed));
+
+  @override
+  _AppUserEditorBackgroundImageChangeButtonPressed get _value =>
+      super._value as _AppUserEditorBackgroundImageChangeButtonPressed;
+}
+
+/// @nodoc
+
+class _$_AppUserEditorBackgroundImageChangeButtonPressed
+    implements _AppUserEditorBackgroundImageChangeButtonPressed {
+  const _$_AppUserEditorBackgroundImageChangeButtonPressed();
+
+  @override
+  String toString() {
+    return 'AppUserEditorEvent.backgroundImageChangeButtonPressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _AppUserEditorBackgroundImageChangeButtonPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getInitialData,
+    required TResult Function(String nameValue) nameChanged,
+    required TResult Function(String bioValue) bioChanged,
+    required TResult Function(XFile imageFile) avatarChanged,
+    required TResult Function() avatarChangeButtonPressed,
+    required TResult Function() backgroundImageChangeButtonPressed,
+    required TResult Function(XFile imageFile) backgroundImageChanged,
+    required TResult Function() saveButtonPressed,
+  }) {
+    return backgroundImageChangeButtonPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getInitialData,
+    TResult Function(String nameValue)? nameChanged,
+    TResult Function(String bioValue)? bioChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
+    TResult Function()? saveButtonPressed,
+  }) {
+    return backgroundImageChangeButtonPressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getInitialData,
+    TResult Function(String nameValue)? nameChanged,
+    TResult Function(String bioValue)? bioChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
+    TResult Function()? saveButtonPressed,
+    required TResult orElse(),
+  }) {
+    if (backgroundImageChangeButtonPressed != null) {
+      return backgroundImageChangeButtonPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AppUserEditorGetInitialData value)
+        getInitialData,
+    required TResult Function(_AppUserEditorNameChanged value) nameChanged,
+    required TResult Function(_AppUserEditorBioChanged value) bioChanged,
+    required TResult Function(_AppUserEditorAvatarChanged value) avatarChanged,
+    required TResult Function(_AppUserEditorAvatarChangeButtonPressed value)
+        avatarChangeButtonPressed,
+    required TResult Function(
+            _AppUserEditorBackgroundImageChangeButtonPressed value)
+        backgroundImageChangeButtonPressed,
+    required TResult Function(_AppUserEditorBackgroundImageChanged value)
+        backgroundImageChanged,
+    required TResult Function(_AppUserEditorSaveButtonPressed value)
+        saveButtonPressed,
+  }) {
+    return backgroundImageChangeButtonPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AppUserEditorGetInitialData value)? getInitialData,
+    TResult Function(_AppUserEditorNameChanged value)? nameChanged,
+    TResult Function(_AppUserEditorBioChanged value)? bioChanged,
+    TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChanged value)?
+        backgroundImageChanged,
+    TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
+  }) {
+    return backgroundImageChangeButtonPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AppUserEditorGetInitialData value)? getInitialData,
+    TResult Function(_AppUserEditorNameChanged value)? nameChanged,
+    TResult Function(_AppUserEditorBioChanged value)? bioChanged,
+    TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChanged value)?
+        backgroundImageChanged,
+    TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
+    required TResult orElse(),
+  }) {
+    if (backgroundImageChangeButtonPressed != null) {
+      return backgroundImageChangeButtonPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AppUserEditorBackgroundImageChangeButtonPressed
+    implements AppUserEditorEvent {
+  const factory _AppUserEditorBackgroundImageChangeButtonPressed() =
+      _$_AppUserEditorBackgroundImageChangeButtonPressed;
 }
 
 /// @nodoc
@@ -785,7 +1214,7 @@ abstract class _$AppUserEditorBackgroundImageChangedCopyWith<$Res> {
           _AppUserEditorBackgroundImageChanged value,
           $Res Function(_AppUserEditorBackgroundImageChanged) then) =
       __$AppUserEditorBackgroundImageChangedCopyWithImpl<$Res>;
-  $Res call({File imageFile});
+  $Res call({XFile imageFile});
 }
 
 /// @nodoc
@@ -809,7 +1238,7 @@ class __$AppUserEditorBackgroundImageChangedCopyWithImpl<$Res>
       imageFile == freezed
           ? _value.imageFile
           : imageFile // ignore: cast_nullable_to_non_nullable
-              as File,
+              as XFile,
     ));
   }
 }
@@ -821,7 +1250,7 @@ class _$_AppUserEditorBackgroundImageChanged
   const _$_AppUserEditorBackgroundImageChanged(this.imageFile);
 
   @override
-  final File imageFile;
+  final XFile imageFile;
 
   @override
   String toString() {
@@ -853,8 +1282,10 @@ class _$_AppUserEditorBackgroundImageChanged
     required TResult Function() getInitialData,
     required TResult Function(String nameValue) nameChanged,
     required TResult Function(String bioValue) bioChanged,
-    required TResult Function(File imageFile) avatarChanged,
-    required TResult Function(File imageFile) backgroundImageChanged,
+    required TResult Function(XFile imageFile) avatarChanged,
+    required TResult Function() avatarChangeButtonPressed,
+    required TResult Function() backgroundImageChangeButtonPressed,
+    required TResult Function(XFile imageFile) backgroundImageChanged,
     required TResult Function() saveButtonPressed,
   }) {
     return backgroundImageChanged(imageFile);
@@ -866,8 +1297,10 @@ class _$_AppUserEditorBackgroundImageChanged
     TResult Function()? getInitialData,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String bioValue)? bioChanged,
-    TResult Function(File imageFile)? avatarChanged,
-    TResult Function(File imageFile)? backgroundImageChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
     TResult Function()? saveButtonPressed,
   }) {
     return backgroundImageChanged?.call(imageFile);
@@ -879,8 +1312,10 @@ class _$_AppUserEditorBackgroundImageChanged
     TResult Function()? getInitialData,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String bioValue)? bioChanged,
-    TResult Function(File imageFile)? avatarChanged,
-    TResult Function(File imageFile)? backgroundImageChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
     TResult Function()? saveButtonPressed,
     required TResult orElse(),
   }) {
@@ -898,6 +1333,11 @@ class _$_AppUserEditorBackgroundImageChanged
     required TResult Function(_AppUserEditorNameChanged value) nameChanged,
     required TResult Function(_AppUserEditorBioChanged value) bioChanged,
     required TResult Function(_AppUserEditorAvatarChanged value) avatarChanged,
+    required TResult Function(_AppUserEditorAvatarChangeButtonPressed value)
+        avatarChangeButtonPressed,
+    required TResult Function(
+            _AppUserEditorBackgroundImageChangeButtonPressed value)
+        backgroundImageChangeButtonPressed,
     required TResult Function(_AppUserEditorBackgroundImageChanged value)
         backgroundImageChanged,
     required TResult Function(_AppUserEditorSaveButtonPressed value)
@@ -913,6 +1353,10 @@ class _$_AppUserEditorBackgroundImageChanged
     TResult Function(_AppUserEditorNameChanged value)? nameChanged,
     TResult Function(_AppUserEditorBioChanged value)? bioChanged,
     TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
     TResult Function(_AppUserEditorBackgroundImageChanged value)?
         backgroundImageChanged,
     TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
@@ -927,6 +1371,10 @@ class _$_AppUserEditorBackgroundImageChanged
     TResult Function(_AppUserEditorNameChanged value)? nameChanged,
     TResult Function(_AppUserEditorBioChanged value)? bioChanged,
     TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
     TResult Function(_AppUserEditorBackgroundImageChanged value)?
         backgroundImageChanged,
     TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
@@ -941,10 +1389,10 @@ class _$_AppUserEditorBackgroundImageChanged
 
 abstract class _AppUserEditorBackgroundImageChanged
     implements AppUserEditorEvent {
-  const factory _AppUserEditorBackgroundImageChanged(File imageFile) =
+  const factory _AppUserEditorBackgroundImageChanged(XFile imageFile) =
       _$_AppUserEditorBackgroundImageChanged;
 
-  File get imageFile;
+  XFile get imageFile;
   @JsonKey(ignore: true)
   _$AppUserEditorBackgroundImageChangedCopyWith<
           _AppUserEditorBackgroundImageChanged>
@@ -1000,8 +1448,10 @@ class _$_AppUserEditorSaveButtonPressed
     required TResult Function() getInitialData,
     required TResult Function(String nameValue) nameChanged,
     required TResult Function(String bioValue) bioChanged,
-    required TResult Function(File imageFile) avatarChanged,
-    required TResult Function(File imageFile) backgroundImageChanged,
+    required TResult Function(XFile imageFile) avatarChanged,
+    required TResult Function() avatarChangeButtonPressed,
+    required TResult Function() backgroundImageChangeButtonPressed,
+    required TResult Function(XFile imageFile) backgroundImageChanged,
     required TResult Function() saveButtonPressed,
   }) {
     return saveButtonPressed();
@@ -1013,8 +1463,10 @@ class _$_AppUserEditorSaveButtonPressed
     TResult Function()? getInitialData,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String bioValue)? bioChanged,
-    TResult Function(File imageFile)? avatarChanged,
-    TResult Function(File imageFile)? backgroundImageChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
     TResult Function()? saveButtonPressed,
   }) {
     return saveButtonPressed?.call();
@@ -1026,8 +1478,10 @@ class _$_AppUserEditorSaveButtonPressed
     TResult Function()? getInitialData,
     TResult Function(String nameValue)? nameChanged,
     TResult Function(String bioValue)? bioChanged,
-    TResult Function(File imageFile)? avatarChanged,
-    TResult Function(File imageFile)? backgroundImageChanged,
+    TResult Function(XFile imageFile)? avatarChanged,
+    TResult Function()? avatarChangeButtonPressed,
+    TResult Function()? backgroundImageChangeButtonPressed,
+    TResult Function(XFile imageFile)? backgroundImageChanged,
     TResult Function()? saveButtonPressed,
     required TResult orElse(),
   }) {
@@ -1045,6 +1499,11 @@ class _$_AppUserEditorSaveButtonPressed
     required TResult Function(_AppUserEditorNameChanged value) nameChanged,
     required TResult Function(_AppUserEditorBioChanged value) bioChanged,
     required TResult Function(_AppUserEditorAvatarChanged value) avatarChanged,
+    required TResult Function(_AppUserEditorAvatarChangeButtonPressed value)
+        avatarChangeButtonPressed,
+    required TResult Function(
+            _AppUserEditorBackgroundImageChangeButtonPressed value)
+        backgroundImageChangeButtonPressed,
     required TResult Function(_AppUserEditorBackgroundImageChanged value)
         backgroundImageChanged,
     required TResult Function(_AppUserEditorSaveButtonPressed value)
@@ -1060,6 +1519,10 @@ class _$_AppUserEditorSaveButtonPressed
     TResult Function(_AppUserEditorNameChanged value)? nameChanged,
     TResult Function(_AppUserEditorBioChanged value)? bioChanged,
     TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
     TResult Function(_AppUserEditorBackgroundImageChanged value)?
         backgroundImageChanged,
     TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
@@ -1074,6 +1537,10 @@ class _$_AppUserEditorSaveButtonPressed
     TResult Function(_AppUserEditorNameChanged value)? nameChanged,
     TResult Function(_AppUserEditorBioChanged value)? bioChanged,
     TResult Function(_AppUserEditorAvatarChanged value)? avatarChanged,
+    TResult Function(_AppUserEditorAvatarChangeButtonPressed value)?
+        avatarChangeButtonPressed,
+    TResult Function(_AppUserEditorBackgroundImageChangeButtonPressed value)?
+        backgroundImageChangeButtonPressed,
     TResult Function(_AppUserEditorBackgroundImageChanged value)?
         backgroundImageChanged,
     TResult Function(_AppUserEditorSaveButtonPressed value)? saveButtonPressed,
@@ -1095,26 +1562,20 @@ abstract class _AppUserEditorSaveButtonPressed implements AppUserEditorEvent {
 class _$AppUserEditorStateTearOff {
   const _$AppUserEditorStateTearOff();
 
-  _Initial initial() {
-    return const _Initial();
-  }
-
   _AppUserEditorState call(
-      {required Name name,
-      required UserBio userBio,
-      required ImageUrl? avatarImageUrl,
-      required ImageUrl? backgroundImageUrl,
+      {required AppUserUpdate appUserUpdate,
+      required AppUserUpdate appUserUpdateTemp,
       required File? avatarImageTemp,
       required File? backgroundImageTemp,
-      required bool hasChanged}) {
+      required bool hasChanged,
+      required bool fetching}) {
     return _AppUserEditorState(
-      name: name,
-      userBio: userBio,
-      avatarImageUrl: avatarImageUrl,
-      backgroundImageUrl: backgroundImageUrl,
+      appUserUpdate: appUserUpdate,
+      appUserUpdateTemp: appUserUpdateTemp,
       avatarImageTemp: avatarImageTemp,
       backgroundImageTemp: backgroundImageTemp,
       hasChanged: hasChanged,
+      fetching: fetching,
     );
   }
 }
@@ -1124,67 +1585,15 @@ const $AppUserEditorState = _$AppUserEditorStateTearOff();
 
 /// @nodoc
 mixin _$AppUserEditorState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            Name name,
-            UserBio userBio,
-            ImageUrl? avatarImageUrl,
-            ImageUrl? backgroundImageUrl,
-            File? avatarImageTemp,
-            File? backgroundImageTemp,
-            bool hasChanged)
-        $default, {
-    required TResult Function() initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            Name name,
-            UserBio userBio,
-            ImageUrl? avatarImageUrl,
-            ImageUrl? backgroundImageUrl,
-            File? avatarImageTemp,
-            File? backgroundImageTemp,
-            bool hasChanged)?
-        $default, {
-    TResult Function()? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            Name name,
-            UserBio userBio,
-            ImageUrl? avatarImageUrl,
-            ImageUrl? backgroundImageUrl,
-            File? avatarImageTemp,
-            File? backgroundImageTemp,
-            bool hasChanged)?
-        $default, {
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_AppUserEditorState value) $default, {
-    required TResult Function(_Initial value) initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_AppUserEditorState value)? $default, {
-    TResult Function(_Initial value)? initial,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_AppUserEditorState value)? $default, {
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) =>
+  AppUserUpdate get appUserUpdate => throw _privateConstructorUsedError;
+  AppUserUpdate get appUserUpdateTemp => throw _privateConstructorUsedError;
+  File? get avatarImageTemp => throw _privateConstructorUsedError;
+  File? get backgroundImageTemp => throw _privateConstructorUsedError;
+  bool get hasChanged => throw _privateConstructorUsedError;
+  bool get fetching => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AppUserEditorStateCopyWith<AppUserEditorState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1193,6 +1602,13 @@ abstract class $AppUserEditorStateCopyWith<$Res> {
   factory $AppUserEditorStateCopyWith(
           AppUserEditorState value, $Res Function(AppUserEditorState) then) =
       _$AppUserEditorStateCopyWithImpl<$Res>;
+  $Res call(
+      {AppUserUpdate appUserUpdate,
+      AppUserUpdate appUserUpdateTemp,
+      File? avatarImageTemp,
+      File? backgroundImageTemp,
+      bool hasChanged,
+      bool fetching});
 }
 
 /// @nodoc
@@ -1203,148 +1619,59 @@ class _$AppUserEditorStateCopyWithImpl<$Res>
   final AppUserEditorState _value;
   // ignore: unused_field
   final $Res Function(AppUserEditorState) _then;
+
+  @override
+  $Res call({
+    Object? appUserUpdate = freezed,
+    Object? appUserUpdateTemp = freezed,
+    Object? avatarImageTemp = freezed,
+    Object? backgroundImageTemp = freezed,
+    Object? hasChanged = freezed,
+    Object? fetching = freezed,
+  }) {
+    return _then(_value.copyWith(
+      appUserUpdate: appUserUpdate == freezed
+          ? _value.appUserUpdate
+          : appUserUpdate // ignore: cast_nullable_to_non_nullable
+              as AppUserUpdate,
+      appUserUpdateTemp: appUserUpdateTemp == freezed
+          ? _value.appUserUpdateTemp
+          : appUserUpdateTemp // ignore: cast_nullable_to_non_nullable
+              as AppUserUpdate,
+      avatarImageTemp: avatarImageTemp == freezed
+          ? _value.avatarImageTemp
+          : avatarImageTemp // ignore: cast_nullable_to_non_nullable
+              as File?,
+      backgroundImageTemp: backgroundImageTemp == freezed
+          ? _value.backgroundImageTemp
+          : backgroundImageTemp // ignore: cast_nullable_to_non_nullable
+              as File?,
+      hasChanged: hasChanged == freezed
+          ? _value.hasChanged
+          : hasChanged // ignore: cast_nullable_to_non_nullable
+              as bool,
+      fetching: fetching == freezed
+          ? _value.fetching
+          : fetching // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InitialCopyWithImpl<$Res>
-    extends _$AppUserEditorStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
-
-  @override
-  _Initial get _value => super._value as _Initial;
-}
-
-/// @nodoc
-
-class _$_Initial implements _Initial {
-  const _$_Initial();
-
-  @override
-  String toString() {
-    return 'AppUserEditorState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            Name name,
-            UserBio userBio,
-            ImageUrl? avatarImageUrl,
-            ImageUrl? backgroundImageUrl,
-            File? avatarImageTemp,
-            File? backgroundImageTemp,
-            bool hasChanged)
-        $default, {
-    required TResult Function() initial,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            Name name,
-            UserBio userBio,
-            ImageUrl? avatarImageUrl,
-            ImageUrl? backgroundImageUrl,
-            File? avatarImageTemp,
-            File? backgroundImageTemp,
-            bool hasChanged)?
-        $default, {
-    TResult Function()? initial,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            Name name,
-            UserBio userBio,
-            ImageUrl? avatarImageUrl,
-            ImageUrl? backgroundImageUrl,
-            File? avatarImageTemp,
-            File? backgroundImageTemp,
-            bool hasChanged)?
-        $default, {
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_AppUserEditorState value) $default, {
-    required TResult Function(_Initial value) initial,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_AppUserEditorState value)? $default, {
-    TResult Function(_Initial value)? initial,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_AppUserEditorState value)? $default, {
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements AppUserEditorState {
-  const factory _Initial() = _$_Initial;
-}
-
-/// @nodoc
-abstract class _$AppUserEditorStateCopyWith<$Res> {
+abstract class _$AppUserEditorStateCopyWith<$Res>
+    implements $AppUserEditorStateCopyWith<$Res> {
   factory _$AppUserEditorStateCopyWith(
           _AppUserEditorState value, $Res Function(_AppUserEditorState) then) =
       __$AppUserEditorStateCopyWithImpl<$Res>;
+  @override
   $Res call(
-      {Name name,
-      UserBio userBio,
-      ImageUrl? avatarImageUrl,
-      ImageUrl? backgroundImageUrl,
+      {AppUserUpdate appUserUpdate,
+      AppUserUpdate appUserUpdateTemp,
       File? avatarImageTemp,
       File? backgroundImageTemp,
-      bool hasChanged});
+      bool hasChanged,
+      bool fetching});
 }
 
 /// @nodoc
@@ -1360,31 +1687,22 @@ class __$AppUserEditorStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? name = freezed,
-    Object? userBio = freezed,
-    Object? avatarImageUrl = freezed,
-    Object? backgroundImageUrl = freezed,
+    Object? appUserUpdate = freezed,
+    Object? appUserUpdateTemp = freezed,
     Object? avatarImageTemp = freezed,
     Object? backgroundImageTemp = freezed,
     Object? hasChanged = freezed,
+    Object? fetching = freezed,
   }) {
     return _then(_AppUserEditorState(
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as Name,
-      userBio: userBio == freezed
-          ? _value.userBio
-          : userBio // ignore: cast_nullable_to_non_nullable
-              as UserBio,
-      avatarImageUrl: avatarImageUrl == freezed
-          ? _value.avatarImageUrl
-          : avatarImageUrl // ignore: cast_nullable_to_non_nullable
-              as ImageUrl?,
-      backgroundImageUrl: backgroundImageUrl == freezed
-          ? _value.backgroundImageUrl
-          : backgroundImageUrl // ignore: cast_nullable_to_non_nullable
-              as ImageUrl?,
+      appUserUpdate: appUserUpdate == freezed
+          ? _value.appUserUpdate
+          : appUserUpdate // ignore: cast_nullable_to_non_nullable
+              as AppUserUpdate,
+      appUserUpdateTemp: appUserUpdateTemp == freezed
+          ? _value.appUserUpdateTemp
+          : appUserUpdateTemp // ignore: cast_nullable_to_non_nullable
+              as AppUserUpdate,
       avatarImageTemp: avatarImageTemp == freezed
           ? _value.avatarImageTemp
           : avatarImageTemp // ignore: cast_nullable_to_non_nullable
@@ -1397,6 +1715,10 @@ class __$AppUserEditorStateCopyWithImpl<$Res>
           ? _value.hasChanged
           : hasChanged // ignore: cast_nullable_to_non_nullable
               as bool,
+      fetching: fetching == freezed
+          ? _value.fetching
+          : fetching // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1405,32 +1727,29 @@ class __$AppUserEditorStateCopyWithImpl<$Res>
 
 class _$_AppUserEditorState implements _AppUserEditorState {
   const _$_AppUserEditorState(
-      {required this.name,
-      required this.userBio,
-      required this.avatarImageUrl,
-      required this.backgroundImageUrl,
+      {required this.appUserUpdate,
+      required this.appUserUpdateTemp,
       required this.avatarImageTemp,
       required this.backgroundImageTemp,
-      required this.hasChanged});
+      required this.hasChanged,
+      required this.fetching});
 
   @override
-  final Name name;
+  final AppUserUpdate appUserUpdate;
   @override
-  final UserBio userBio;
-  @override
-  final ImageUrl? avatarImageUrl;
-  @override
-  final ImageUrl? backgroundImageUrl;
+  final AppUserUpdate appUserUpdateTemp;
   @override
   final File? avatarImageTemp;
   @override
   final File? backgroundImageTemp;
   @override
   final bool hasChanged;
+  @override
+  final bool fetching;
 
   @override
   String toString() {
-    return 'AppUserEditorState(name: $name, userBio: $userBio, avatarImageUrl: $avatarImageUrl, backgroundImageUrl: $backgroundImageUrl, avatarImageTemp: $avatarImageTemp, backgroundImageTemp: $backgroundImageTemp, hasChanged: $hasChanged)';
+    return 'AppUserEditorState(appUserUpdate: $appUserUpdate, appUserUpdateTemp: $appUserUpdateTemp, avatarImageTemp: $avatarImageTemp, backgroundImageTemp: $backgroundImageTemp, hasChanged: $hasChanged, fetching: $fetching)';
   }
 
   @override
@@ -1438,143 +1757,57 @@ class _$_AppUserEditorState implements _AppUserEditorState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AppUserEditorState &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.userBio, userBio) &&
             const DeepCollectionEquality()
-                .equals(other.avatarImageUrl, avatarImageUrl) &&
+                .equals(other.appUserUpdate, appUserUpdate) &&
             const DeepCollectionEquality()
-                .equals(other.backgroundImageUrl, backgroundImageUrl) &&
+                .equals(other.appUserUpdateTemp, appUserUpdateTemp) &&
             const DeepCollectionEquality()
                 .equals(other.avatarImageTemp, avatarImageTemp) &&
             const DeepCollectionEquality()
                 .equals(other.backgroundImageTemp, backgroundImageTemp) &&
             const DeepCollectionEquality()
-                .equals(other.hasChanged, hasChanged));
+                .equals(other.hasChanged, hasChanged) &&
+            const DeepCollectionEquality().equals(other.fetching, fetching));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(userBio),
-      const DeepCollectionEquality().hash(avatarImageUrl),
-      const DeepCollectionEquality().hash(backgroundImageUrl),
+      const DeepCollectionEquality().hash(appUserUpdate),
+      const DeepCollectionEquality().hash(appUserUpdateTemp),
       const DeepCollectionEquality().hash(avatarImageTemp),
       const DeepCollectionEquality().hash(backgroundImageTemp),
-      const DeepCollectionEquality().hash(hasChanged));
+      const DeepCollectionEquality().hash(hasChanged),
+      const DeepCollectionEquality().hash(fetching));
 
   @JsonKey(ignore: true)
   @override
   _$AppUserEditorStateCopyWith<_AppUserEditorState> get copyWith =>
       __$AppUserEditorStateCopyWithImpl<_AppUserEditorState>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            Name name,
-            UserBio userBio,
-            ImageUrl? avatarImageUrl,
-            ImageUrl? backgroundImageUrl,
-            File? avatarImageTemp,
-            File? backgroundImageTemp,
-            bool hasChanged)
-        $default, {
-    required TResult Function() initial,
-  }) {
-    return $default(name, userBio, avatarImageUrl, backgroundImageUrl,
-        avatarImageTemp, backgroundImageTemp, hasChanged);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult Function(
-            Name name,
-            UserBio userBio,
-            ImageUrl? avatarImageUrl,
-            ImageUrl? backgroundImageUrl,
-            File? avatarImageTemp,
-            File? backgroundImageTemp,
-            bool hasChanged)?
-        $default, {
-    TResult Function()? initial,
-  }) {
-    return $default?.call(name, userBio, avatarImageUrl, backgroundImageUrl,
-        avatarImageTemp, backgroundImageTemp, hasChanged);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            Name name,
-            UserBio userBio,
-            ImageUrl? avatarImageUrl,
-            ImageUrl? backgroundImageUrl,
-            File? avatarImageTemp,
-            File? backgroundImageTemp,
-            bool hasChanged)?
-        $default, {
-    TResult Function()? initial,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(name, userBio, avatarImageUrl, backgroundImageUrl,
-          avatarImageTemp, backgroundImageTemp, hasChanged);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_AppUserEditorState value) $default, {
-    required TResult Function(_Initial value) initial,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult Function(_AppUserEditorState value)? $default, {
-    TResult Function(_Initial value)? initial,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_AppUserEditorState value)? $default, {
-    TResult Function(_Initial value)? initial,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class _AppUserEditorState implements AppUserEditorState {
   const factory _AppUserEditorState(
-      {required Name name,
-      required UserBio userBio,
-      required ImageUrl? avatarImageUrl,
-      required ImageUrl? backgroundImageUrl,
+      {required AppUserUpdate appUserUpdate,
+      required AppUserUpdate appUserUpdateTemp,
       required File? avatarImageTemp,
       required File? backgroundImageTemp,
-      required bool hasChanged}) = _$_AppUserEditorState;
+      required bool hasChanged,
+      required bool fetching}) = _$_AppUserEditorState;
 
-  Name get name;
-  UserBio get userBio;
-  ImageUrl? get avatarImageUrl;
-  ImageUrl? get backgroundImageUrl;
+  @override
+  AppUserUpdate get appUserUpdate;
+  @override
+  AppUserUpdate get appUserUpdateTemp;
+  @override
   File? get avatarImageTemp;
+  @override
   File? get backgroundImageTemp;
+  @override
   bool get hasChanged;
+  @override
+  bool get fetching;
+  @override
   @JsonKey(ignore: true)
   _$AppUserEditorStateCopyWith<_AppUserEditorState> get copyWith =>
       throw _privateConstructorUsedError;

@@ -29,6 +29,16 @@ class _$AppUserFullEventTearOff {
   _AppUserFullEventSubscribeButtonPressed subscribeButtonPressed() {
     return const _AppUserFullEventSubscribeButtonPressed();
   }
+
+  _AppUserFullEventWatchFull watchFull() {
+    return const _AppUserFullEventWatchFull();
+  }
+
+  _AppUserFullEventOnDataReceived onDataReceived(AppUserFull appUserFull) {
+    return _AppUserFullEventOnDataReceived(
+      appUserFull,
+    );
+  }
 }
 
 /// @nodoc
@@ -41,6 +51,8 @@ mixin _$AppUserFullEvent {
     required TResult Function() started,
     required TResult Function() getData,
     required TResult Function() subscribeButtonPressed,
+    required TResult Function() watchFull,
+    required TResult Function(AppUserFull appUserFull) onDataReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +60,8 @@ mixin _$AppUserFullEvent {
     TResult Function()? started,
     TResult Function()? getData,
     TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchFull,
+    TResult Function(AppUserFull appUserFull)? onDataReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +69,8 @@ mixin _$AppUserFullEvent {
     TResult Function()? started,
     TResult Function()? getData,
     TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchFull,
+    TResult Function(AppUserFull appUserFull)? onDataReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +80,9 @@ mixin _$AppUserFullEvent {
     required TResult Function(_AppUserFullEventGetData value) getData,
     required TResult Function(_AppUserFullEventSubscribeButtonPressed value)
         subscribeButtonPressed,
+    required TResult Function(_AppUserFullEventWatchFull value) watchFull,
+    required TResult Function(_AppUserFullEventOnDataReceived value)
+        onDataReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +91,8 @@ mixin _$AppUserFullEvent {
     TResult Function(_AppUserFullEventGetData value)? getData,
     TResult Function(_AppUserFullEventSubscribeButtonPressed value)?
         subscribeButtonPressed,
+    TResult Function(_AppUserFullEventWatchFull value)? watchFull,
+    TResult Function(_AppUserFullEventOnDataReceived value)? onDataReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +101,8 @@ mixin _$AppUserFullEvent {
     TResult Function(_AppUserFullEventGetData value)? getData,
     TResult Function(_AppUserFullEventSubscribeButtonPressed value)?
         subscribeButtonPressed,
+    TResult Function(_AppUserFullEventWatchFull value)? watchFull,
+    TResult Function(_AppUserFullEventOnDataReceived value)? onDataReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -143,6 +166,8 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function() getData,
     required TResult Function() subscribeButtonPressed,
+    required TResult Function() watchFull,
+    required TResult Function(AppUserFull appUserFull) onDataReceived,
   }) {
     return started();
   }
@@ -153,6 +178,8 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function()? getData,
     TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchFull,
+    TResult Function(AppUserFull appUserFull)? onDataReceived,
   }) {
     return started?.call();
   }
@@ -163,6 +190,8 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function()? getData,
     TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchFull,
+    TResult Function(AppUserFull appUserFull)? onDataReceived,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -178,6 +207,9 @@ class _$_Started implements _Started {
     required TResult Function(_AppUserFullEventGetData value) getData,
     required TResult Function(_AppUserFullEventSubscribeButtonPressed value)
         subscribeButtonPressed,
+    required TResult Function(_AppUserFullEventWatchFull value) watchFull,
+    required TResult Function(_AppUserFullEventOnDataReceived value)
+        onDataReceived,
   }) {
     return started(this);
   }
@@ -189,6 +221,8 @@ class _$_Started implements _Started {
     TResult Function(_AppUserFullEventGetData value)? getData,
     TResult Function(_AppUserFullEventSubscribeButtonPressed value)?
         subscribeButtonPressed,
+    TResult Function(_AppUserFullEventWatchFull value)? watchFull,
+    TResult Function(_AppUserFullEventOnDataReceived value)? onDataReceived,
   }) {
     return started?.call(this);
   }
@@ -200,6 +234,8 @@ class _$_Started implements _Started {
     TResult Function(_AppUserFullEventGetData value)? getData,
     TResult Function(_AppUserFullEventSubscribeButtonPressed value)?
         subscribeButtonPressed,
+    TResult Function(_AppUserFullEventWatchFull value)? watchFull,
+    TResult Function(_AppUserFullEventOnDataReceived value)? onDataReceived,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -258,6 +294,8 @@ class _$_AppUserFullEventGetData implements _AppUserFullEventGetData {
     required TResult Function() started,
     required TResult Function() getData,
     required TResult Function() subscribeButtonPressed,
+    required TResult Function() watchFull,
+    required TResult Function(AppUserFull appUserFull) onDataReceived,
   }) {
     return getData();
   }
@@ -268,6 +306,8 @@ class _$_AppUserFullEventGetData implements _AppUserFullEventGetData {
     TResult Function()? started,
     TResult Function()? getData,
     TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchFull,
+    TResult Function(AppUserFull appUserFull)? onDataReceived,
   }) {
     return getData?.call();
   }
@@ -278,6 +318,8 @@ class _$_AppUserFullEventGetData implements _AppUserFullEventGetData {
     TResult Function()? started,
     TResult Function()? getData,
     TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchFull,
+    TResult Function(AppUserFull appUserFull)? onDataReceived,
     required TResult orElse(),
   }) {
     if (getData != null) {
@@ -293,6 +335,9 @@ class _$_AppUserFullEventGetData implements _AppUserFullEventGetData {
     required TResult Function(_AppUserFullEventGetData value) getData,
     required TResult Function(_AppUserFullEventSubscribeButtonPressed value)
         subscribeButtonPressed,
+    required TResult Function(_AppUserFullEventWatchFull value) watchFull,
+    required TResult Function(_AppUserFullEventOnDataReceived value)
+        onDataReceived,
   }) {
     return getData(this);
   }
@@ -304,6 +349,8 @@ class _$_AppUserFullEventGetData implements _AppUserFullEventGetData {
     TResult Function(_AppUserFullEventGetData value)? getData,
     TResult Function(_AppUserFullEventSubscribeButtonPressed value)?
         subscribeButtonPressed,
+    TResult Function(_AppUserFullEventWatchFull value)? watchFull,
+    TResult Function(_AppUserFullEventOnDataReceived value)? onDataReceived,
   }) {
     return getData?.call(this);
   }
@@ -315,6 +362,8 @@ class _$_AppUserFullEventGetData implements _AppUserFullEventGetData {
     TResult Function(_AppUserFullEventGetData value)? getData,
     TResult Function(_AppUserFullEventSubscribeButtonPressed value)?
         subscribeButtonPressed,
+    TResult Function(_AppUserFullEventWatchFull value)? watchFull,
+    TResult Function(_AppUserFullEventOnDataReceived value)? onDataReceived,
     required TResult orElse(),
   }) {
     if (getData != null) {
@@ -378,6 +427,8 @@ class _$_AppUserFullEventSubscribeButtonPressed
     required TResult Function() started,
     required TResult Function() getData,
     required TResult Function() subscribeButtonPressed,
+    required TResult Function() watchFull,
+    required TResult Function(AppUserFull appUserFull) onDataReceived,
   }) {
     return subscribeButtonPressed();
   }
@@ -388,6 +439,8 @@ class _$_AppUserFullEventSubscribeButtonPressed
     TResult Function()? started,
     TResult Function()? getData,
     TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchFull,
+    TResult Function(AppUserFull appUserFull)? onDataReceived,
   }) {
     return subscribeButtonPressed?.call();
   }
@@ -398,6 +451,8 @@ class _$_AppUserFullEventSubscribeButtonPressed
     TResult Function()? started,
     TResult Function()? getData,
     TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchFull,
+    TResult Function(AppUserFull appUserFull)? onDataReceived,
     required TResult orElse(),
   }) {
     if (subscribeButtonPressed != null) {
@@ -413,6 +468,9 @@ class _$_AppUserFullEventSubscribeButtonPressed
     required TResult Function(_AppUserFullEventGetData value) getData,
     required TResult Function(_AppUserFullEventSubscribeButtonPressed value)
         subscribeButtonPressed,
+    required TResult Function(_AppUserFullEventWatchFull value) watchFull,
+    required TResult Function(_AppUserFullEventOnDataReceived value)
+        onDataReceived,
   }) {
     return subscribeButtonPressed(this);
   }
@@ -424,6 +482,8 @@ class _$_AppUserFullEventSubscribeButtonPressed
     TResult Function(_AppUserFullEventGetData value)? getData,
     TResult Function(_AppUserFullEventSubscribeButtonPressed value)?
         subscribeButtonPressed,
+    TResult Function(_AppUserFullEventWatchFull value)? watchFull,
+    TResult Function(_AppUserFullEventOnDataReceived value)? onDataReceived,
   }) {
     return subscribeButtonPressed?.call(this);
   }
@@ -435,6 +495,8 @@ class _$_AppUserFullEventSubscribeButtonPressed
     TResult Function(_AppUserFullEventGetData value)? getData,
     TResult Function(_AppUserFullEventSubscribeButtonPressed value)?
         subscribeButtonPressed,
+    TResult Function(_AppUserFullEventWatchFull value)? watchFull,
+    TResult Function(_AppUserFullEventOnDataReceived value)? onDataReceived,
     required TResult orElse(),
   }) {
     if (subscribeButtonPressed != null) {
@@ -448,6 +510,298 @@ abstract class _AppUserFullEventSubscribeButtonPressed
     implements AppUserFullEvent {
   const factory _AppUserFullEventSubscribeButtonPressed() =
       _$_AppUserFullEventSubscribeButtonPressed;
+}
+
+/// @nodoc
+abstract class _$AppUserFullEventWatchFullCopyWith<$Res> {
+  factory _$AppUserFullEventWatchFullCopyWith(_AppUserFullEventWatchFull value,
+          $Res Function(_AppUserFullEventWatchFull) then) =
+      __$AppUserFullEventWatchFullCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$AppUserFullEventWatchFullCopyWithImpl<$Res>
+    extends _$AppUserFullEventCopyWithImpl<$Res>
+    implements _$AppUserFullEventWatchFullCopyWith<$Res> {
+  __$AppUserFullEventWatchFullCopyWithImpl(_AppUserFullEventWatchFull _value,
+      $Res Function(_AppUserFullEventWatchFull) _then)
+      : super(_value, (v) => _then(v as _AppUserFullEventWatchFull));
+
+  @override
+  _AppUserFullEventWatchFull get _value =>
+      super._value as _AppUserFullEventWatchFull;
+}
+
+/// @nodoc
+
+class _$_AppUserFullEventWatchFull implements _AppUserFullEventWatchFull {
+  const _$_AppUserFullEventWatchFull();
+
+  @override
+  String toString() {
+    return 'AppUserFullEvent.watchFull()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _AppUserFullEventWatchFull);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getData,
+    required TResult Function() subscribeButtonPressed,
+    required TResult Function() watchFull,
+    required TResult Function(AppUserFull appUserFull) onDataReceived,
+  }) {
+    return watchFull();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getData,
+    TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchFull,
+    TResult Function(AppUserFull appUserFull)? onDataReceived,
+  }) {
+    return watchFull?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getData,
+    TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchFull,
+    TResult Function(AppUserFull appUserFull)? onDataReceived,
+    required TResult orElse(),
+  }) {
+    if (watchFull != null) {
+      return watchFull();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_AppUserFullEventGetData value) getData,
+    required TResult Function(_AppUserFullEventSubscribeButtonPressed value)
+        subscribeButtonPressed,
+    required TResult Function(_AppUserFullEventWatchFull value) watchFull,
+    required TResult Function(_AppUserFullEventOnDataReceived value)
+        onDataReceived,
+  }) {
+    return watchFull(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AppUserFullEventGetData value)? getData,
+    TResult Function(_AppUserFullEventSubscribeButtonPressed value)?
+        subscribeButtonPressed,
+    TResult Function(_AppUserFullEventWatchFull value)? watchFull,
+    TResult Function(_AppUserFullEventOnDataReceived value)? onDataReceived,
+  }) {
+    return watchFull?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AppUserFullEventGetData value)? getData,
+    TResult Function(_AppUserFullEventSubscribeButtonPressed value)?
+        subscribeButtonPressed,
+    TResult Function(_AppUserFullEventWatchFull value)? watchFull,
+    TResult Function(_AppUserFullEventOnDataReceived value)? onDataReceived,
+    required TResult orElse(),
+  }) {
+    if (watchFull != null) {
+      return watchFull(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AppUserFullEventWatchFull implements AppUserFullEvent {
+  const factory _AppUserFullEventWatchFull() = _$_AppUserFullEventWatchFull;
+}
+
+/// @nodoc
+abstract class _$AppUserFullEventOnDataReceivedCopyWith<$Res> {
+  factory _$AppUserFullEventOnDataReceivedCopyWith(
+          _AppUserFullEventOnDataReceived value,
+          $Res Function(_AppUserFullEventOnDataReceived) then) =
+      __$AppUserFullEventOnDataReceivedCopyWithImpl<$Res>;
+  $Res call({AppUserFull appUserFull});
+}
+
+/// @nodoc
+class __$AppUserFullEventOnDataReceivedCopyWithImpl<$Res>
+    extends _$AppUserFullEventCopyWithImpl<$Res>
+    implements _$AppUserFullEventOnDataReceivedCopyWith<$Res> {
+  __$AppUserFullEventOnDataReceivedCopyWithImpl(
+      _AppUserFullEventOnDataReceived _value,
+      $Res Function(_AppUserFullEventOnDataReceived) _then)
+      : super(_value, (v) => _then(v as _AppUserFullEventOnDataReceived));
+
+  @override
+  _AppUserFullEventOnDataReceived get _value =>
+      super._value as _AppUserFullEventOnDataReceived;
+
+  @override
+  $Res call({
+    Object? appUserFull = freezed,
+  }) {
+    return _then(_AppUserFullEventOnDataReceived(
+      appUserFull == freezed
+          ? _value.appUserFull
+          : appUserFull // ignore: cast_nullable_to_non_nullable
+              as AppUserFull,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AppUserFullEventOnDataReceived
+    implements _AppUserFullEventOnDataReceived {
+  const _$_AppUserFullEventOnDataReceived(this.appUserFull);
+
+  @override
+  final AppUserFull appUserFull;
+
+  @override
+  String toString() {
+    return 'AppUserFullEvent.onDataReceived(appUserFull: $appUserFull)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _AppUserFullEventOnDataReceived &&
+            const DeepCollectionEquality()
+                .equals(other.appUserFull, appUserFull));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(appUserFull));
+
+  @JsonKey(ignore: true)
+  @override
+  _$AppUserFullEventOnDataReceivedCopyWith<_AppUserFullEventOnDataReceived>
+      get copyWith => __$AppUserFullEventOnDataReceivedCopyWithImpl<
+          _AppUserFullEventOnDataReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() getData,
+    required TResult Function() subscribeButtonPressed,
+    required TResult Function() watchFull,
+    required TResult Function(AppUserFull appUserFull) onDataReceived,
+  }) {
+    return onDataReceived(appUserFull);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getData,
+    TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchFull,
+    TResult Function(AppUserFull appUserFull)? onDataReceived,
+  }) {
+    return onDataReceived?.call(appUserFull);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? getData,
+    TResult Function()? subscribeButtonPressed,
+    TResult Function()? watchFull,
+    TResult Function(AppUserFull appUserFull)? onDataReceived,
+    required TResult orElse(),
+  }) {
+    if (onDataReceived != null) {
+      return onDataReceived(appUserFull);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_AppUserFullEventGetData value) getData,
+    required TResult Function(_AppUserFullEventSubscribeButtonPressed value)
+        subscribeButtonPressed,
+    required TResult Function(_AppUserFullEventWatchFull value) watchFull,
+    required TResult Function(_AppUserFullEventOnDataReceived value)
+        onDataReceived,
+  }) {
+    return onDataReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AppUserFullEventGetData value)? getData,
+    TResult Function(_AppUserFullEventSubscribeButtonPressed value)?
+        subscribeButtonPressed,
+    TResult Function(_AppUserFullEventWatchFull value)? watchFull,
+    TResult Function(_AppUserFullEventOnDataReceived value)? onDataReceived,
+  }) {
+    return onDataReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_AppUserFullEventGetData value)? getData,
+    TResult Function(_AppUserFullEventSubscribeButtonPressed value)?
+        subscribeButtonPressed,
+    TResult Function(_AppUserFullEventWatchFull value)? watchFull,
+    TResult Function(_AppUserFullEventOnDataReceived value)? onDataReceived,
+    required TResult orElse(),
+  }) {
+    if (onDataReceived != null) {
+      return onDataReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AppUserFullEventOnDataReceived implements AppUserFullEvent {
+  const factory _AppUserFullEventOnDataReceived(AppUserFull appUserFull) =
+      _$_AppUserFullEventOnDataReceived;
+
+  AppUserFull get appUserFull;
+  @JsonKey(ignore: true)
+  _$AppUserFullEventOnDataReceivedCopyWith<_AppUserFullEventOnDataReceived>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

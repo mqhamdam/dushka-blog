@@ -38,7 +38,7 @@ class PostWidgetV2 extends StatelessWidget {
         builder: (context) {
           return BlocBuilder<PostWatcherBloc, PostWatcherState>(
             builder: (context, postWatcherState) {
-              return postWatcherState.post.postBody.getOrElse('').isEmpty? CircularProgressIndicator(): FadeIn(
+              return postWatcherState.post.postBody.getOrElse('').isEmpty? Container(): FadeIn(
                 child: Card(
                   elevation: 3,
                   child: Padding(
@@ -54,7 +54,7 @@ class PostWidgetV2 extends StatelessWidget {
                                   .state
                                   .post
                                   .authorUID,
-                            )),
+                            ),),
                         const Divider(),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 4.0),
@@ -79,12 +79,12 @@ class PostWidgetV2 extends StatelessWidget {
                                     showLikes(
                                       context,
                                       postId: BlocProvider.of<PostWatcherBloc>(
-                                              context)
+                                              context,)
                                           .state
                                           .post
                                           .postID,
                                       authorUID: BlocProvider.of<PostWatcherBloc>(
-                                              context)
+                                              context,)
                                           .state
                                           .post
                                           .authorUID,

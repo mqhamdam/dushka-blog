@@ -18,7 +18,6 @@ class Comment extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            UserViewMini(),
             Padding(
               padding: const EdgeInsets.only(right: 10.0, left: 10, top: 5),
               child: Row(

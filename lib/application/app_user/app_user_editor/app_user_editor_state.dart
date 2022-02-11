@@ -2,14 +2,25 @@ part of 'app_user_editor_bloc.dart';
 
 @freezed
 class AppUserEditorState with _$AppUserEditorState {
-  const factory AppUserEditorState.initial() = _Initial;
+  factory AppUserEditorState.initial() => AppUserEditorState(
+    appUserUpdate: AppUserUpdate(
+    name: Name(''), userBio: UserBio(''), avatarImageUrl: ImageUrl(''), backgroundImageUrl: ImageUrl(''),),
+    avatarImageTemp: null,
+    backgroundImageTemp: null, 
+    hasChanged: false,
+    fetching: true,
+    appUserUpdateTemp: AppUserUpdate(
+        name: Name(''),
+        userBio: UserBio(''),
+        avatarImageUrl: ImageUrl(''),
+        backgroundImageUrl: ImageUrl(''),
+      ),);
   const factory AppUserEditorState({
-    required Name name,
-    required UserBio userBio,
-    required ImageUrl? avatarImageUrl,
-    required ImageUrl? backgroundImageUrl,
+    required AppUserUpdate appUserUpdate,
+    required AppUserUpdate appUserUpdateTemp,
     required File? avatarImageTemp,
     required File? backgroundImageTemp,
     required bool hasChanged,
+    required bool fetching,
   }) = _AppUserEditorState;
 }

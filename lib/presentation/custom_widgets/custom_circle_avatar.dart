@@ -11,19 +11,16 @@ class CustomCircleAvatar extends StatelessWidget {
   }) : super(key: key);
   final double radius;
   final ImageUrl imageUrl;
-  
+
   @override
   Widget build(BuildContext context) {
-    return Pulse(
-      duration: Duration(milliseconds: 300),
-      child: CircleAvatar(
-        backgroundImage: imageUrl.getOrElse('').isEmpty
-            ? null
-            : ExtendedNetworkImageProvider(
-                imageUrl.getOrElse(''),
-              ),
-        radius: radius,
-      ),
+    return CircleAvatar(
+      backgroundImage: imageUrl.getOrElse('').isEmpty
+          ? null
+          : ExtendedNetworkImageProvider(
+              imageUrl.getOrElse(''),
+            ),
+      radius: radius,
     );
   }
 }

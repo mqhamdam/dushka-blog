@@ -129,7 +129,7 @@ class LikesWatcherBloc extends Bloc<LikesWatcherEvent, LikesWatcherState> {
   ) async {
     final likeList = state.likeDocList
         .where((likeDoc) =>
-            likeDoc.userUID.getOrCrash() != event.likeDoc.userUID.getOrCrash())
+            likeDoc.userUID.getOrCrash() != event.likeDoc.userUID.getOrCrash(),)
         .toList();
 
     emit(state.copyWith(likeDocList: likeList));

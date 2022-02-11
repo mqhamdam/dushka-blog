@@ -21,7 +21,7 @@ class AuthFacade implements IAuthFacade {
     final emailAddressValue =
         emailAddress.value.getOrElse(() => 'INVALID_EMAIL');
     final passwordValue = password.value.getOrElse(() => 'PASSWORD_INVALID');
-    
+
     try {
       return await _firebaseAuth
           .signInWithEmailAndPassword(
@@ -78,5 +78,10 @@ class AuthFacade implements IAuthFacade {
   @override
   Future<void> signOut() {
     return _firebaseAuth.signOut();
+  }
+
+  @override
+  Stream<Option<User>> listenAuthStateChanges() {
+    return _firebaseAuth.authStateChanges().map(optionOf);
   }
 }

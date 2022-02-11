@@ -76,7 +76,6 @@ class PostRepository implements IPostRepository {
         },
       );
     return right(listItems);
-    throw UnimplementedError();
   }
 
   @override
@@ -230,7 +229,6 @@ class PostRepository implements IPostRepository {
         .doc(postIDValue)
         .snapshots()
         .map((doc) {
-      print("DATA: ${doc.data()}");
       return right<PostFailure, Post>(
         PostDtos.fromFirestore(doc).toDomain(),
       );

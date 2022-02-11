@@ -6,4 +6,7 @@ class AppUserFullEvent with _$AppUserFullEvent {
   const factory AppUserFullEvent.getData() = _AppUserFullEventGetData;
   const factory AppUserFullEvent.subscribeButtonPressed() =
       _AppUserFullEventSubscribeButtonPressed;
+  const factory AppUserFullEvent.watchFull() = _AppUserFullEventWatchFull;
+  const factory AppUserFullEvent.onDataReceived(AppUserFull appUserFull) =
+      _AppUserFullEventOnDataReceived;
 }

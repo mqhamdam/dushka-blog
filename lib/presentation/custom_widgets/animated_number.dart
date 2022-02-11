@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedNumber extends StatelessWidget {
@@ -19,7 +20,7 @@ class AnimatedNumber extends StatelessWidget {
         );
       },
       child: Text(
-        '${value.toString()}',
+        '${NumberFormat.compact().format(value)}',
         key: Key('${value.toString()}'),
       ),
     );

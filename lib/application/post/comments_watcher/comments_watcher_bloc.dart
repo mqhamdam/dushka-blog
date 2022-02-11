@@ -5,7 +5,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dushka_blog/domain/app_user/app_user_objects.dart';
 import 'package:dushka_blog/domain/post/post_objects.dart';
 import 'package:dushka_blog/domain/post/post_subdomain.dart';
-import 'package:dushka_blog/infrastructure/core/custom_json_converter.dart';
 import 'package:dushka_blog/infrastructure/post/post_repo.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -134,7 +133,7 @@ class CommentsWatcherBloc
       final list = state.listCommentDoc
           .where((element) =>
               element.commentID.getOrCrash() !=
-              event.commentDoc.commentID.getOrCrash())
+              event.commentDoc.commentID.getOrCrash(),)
           .toList()
         ..add(event.commentDoc);
 
@@ -158,7 +157,7 @@ class CommentsWatcherBloc
     final list = state.listCommentDoc
         .where((element) =>
             element.commentID.getOrCrash() !=
-            event.commentDoc.commentID.getOrCrash())
+            event.commentDoc.commentID.getOrCrash(),)
         .toList();
     emit(state.copyWith(listCommentDoc: list));
   }
@@ -172,12 +171,10 @@ class CommentsWatcherBloc
     _CommentsWatcherEventModifyDocument event,
     Emitter<CommentsWatcherState> emit,
   ) async {
-    print('MODIFY');
-    print(event.commentDoc.createdAt.runtimeType);
     final list = state.listCommentDoc
         .where((element) =>
             element.commentID.getOrCrash() !=
-            event.commentDoc.commentID.getOrCrash())
+            event.commentDoc.commentID.getOrCrash(),)
         .toList()
       ..add(event.commentDoc)
       ..sort((a, b) {

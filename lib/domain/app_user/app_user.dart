@@ -1,4 +1,3 @@
-import 'package:dushka_blog/application/app_user/app_user_main/app_user_bloc.dart';
 import 'package:dushka_blog/domain/app_user/app_user_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
